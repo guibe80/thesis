@@ -45,9 +45,10 @@ Second, all participants sat in a comfortable chair. Their left arm was resting 
 
 \todo{reference of the blood pressure device}
 
-Following this step, a PPG probe was placed on the index finger. A PPG instrument designed by the research group known as Zen PPG was used for this purpose. This equipment has two channels, but only one was required for the experiment procedure. It provides two analogue outputs containing AC and DC components of the photoplethysmography waveform. 
+Following this step, a PPG probe was placed on the index finger. The PPG instrument used is a design of the research group known as Zen PPG. This equipment has two channels, but the experiment only required one channel. It provides two analogue outputs containing AC and DC components of the photoplethysmography waveform. 
 
 \todo{Check for the type of probe used. Nellcor?}
+\todo{I'm not 100\% sure that has 2 outputs}
 
 In the next step, the laser Doppler flowmetry probe was attached on the forearms' mid-section. This device measures small changes in blood flow over the vascular bed under the skin. The instrument counts with an analogue port that extracts the waveform for further processing.  
 
@@ -86,7 +87,7 @@ For display purposes, a band-pass filter was applied to the iPG and PPG signals.
 
 Two tabs provided settings and voltage adjustment for PPG signal. The participant tab required the following data: left arm dimensions, blood pressure and path name. At the end of the experimental procedure, all raw data was stored on an LVM file created by LabView. In the second tab, the VI adjusts the light intensity of the light PPG device. Usually a \SI{20}{\milli\ampere} is enough to provide a good quality signal. 
 
-The main panel apart from just displaying waveforms also provides control buttons and a timer.  Pressing the start button starts a timer and waveforms begin to be stored in memory. When the same button is pushed on again, the program saves all the data in a local LVM file. 
+The main panel apart from just displaying waveforms also provides control buttons and a timer.  Pressing the start button starts a timer and waveforms begin to be stored in memory. Pushing on the same button again stops the timer and saves all the data in a local LVM file. 
 
 \todo{Add proper description of the DAQ used, including channels}
 \todo{Add reference of LabView in bibliography}
@@ -110,25 +111,25 @@ P_m = \frac{P_d + P_s}{2}
 
 where $P_d$ is diastolic pressure and $P_s$ is systolic pressure. 
 
-The last kind of occlusion needed is total occlusion, which can be obtained by occluding above systolic pressure. In this experiment, blood flow was blocked inflating the cuff above \SI{20}{\mmHg} of participant's systolic value recorded. This kind occlusion completely restricts the inflow and outflow of venous and arterial blood. Hence, it is expected that not change of volume takes place.
+The last kind of occlusion needed is total occlusion, which is possible to obtain by occluding above systolic pressure. In this experiment, blood flow was blocked inflating the cuff above \SI{20}{\mmHg} of participant's systolic value recorded. This kind occlusion completely restricts the inflow and outflow of venous and arterial blood. Hence, it is expected that not change of volume takes place.
 
 \subsubsection{Recording waveforms}
 
-At this point, when it was confirmed that all the instruments were operating a small test took place. While waveforms were being shown on screen, \SI{2}{min} of recordings were taken but not recorded yet. Participants were reminded to limit their movements during the experiment. 
+At this point, as soon as all the instruments were operating successfully a small test took place. While waveforms were being shown on screen, \SI{2}{min} of recordings were taken but not recorded yet. Participants were reminded to limit their movements during the experiment. 
 
 As soon as all signals were readable and free of noise, the start button of the VI was pushed to initiate the study. In the beginning, \SI{5}{\min} of baseline recordings were obtained. These waveforms provided the standard control wave to compare with occluded waveforms. Then, as soon as the timer reached this time the cuff was inflated rapidly at \SI{20}{\mmHg} below diastolic pressure. Therefore, producing venous occlusion and swelling the forearm. This level of blockage was held for \SI{3}{\min} followed by a swift cuff's deflation. 
 
 Similarly, it was required repeating the procedure with partial arterial occlusion. As found in the literature, after an occlusion happens \SI{5}{\min} are needed to restore blood pressure. For this reason, cuff's air valve was left open bleeding all the air contained inside. After this period, the cuff was quickly inflated again until reaching the pressure calculate in equation \ref{eq:meanpressure}. The cuff's pressure was maintained at this level for \SI{3}{\min} proceeded by a quick pressure release. 
 
-Last, for the purpose of total blood occlusion a similar method, was applied as before. One more time, \SI{5}{\min} of baseline waveforms were taken followed by a fleet cuff inflation to \SI{20}{mmHg} above diastolic pressure. This compression was maintained for \SI{3}{\min}. At this point, maintaining this crushing effect can be painful after a couple of minutes. As a result, some of the helpers ended up re-accommodating and producing motion artefacts. 
+Last, for the purpose of total blood occlusion a similar method, was applied as before. One more time, \SI{5}{\min} of baseline waveforms were taken followed by a fleet cuff inflation to \SI{20}{mmHg} above diastolic pressure. This compression was kept for \SI{3}{\min}. At this point, maintaining this crushing effect can be painful after a couple of minutes. As a result, some of the helpers ended up re-accommodating and producing motion artefacts. 
 
 Finally, the last \SI{5}{\min} of baseline waveforms were recorded to study the recovering effect. When time was up the stop button was pushed on saving all the data into an LVM file for further processing in Matlab. 
 
-%********************************** %Second section ******************************************
-\subsection{Data processing}
+%********************************** % Swction section 4.2******************************************
+\section{Data processing}
 \label{section4.2}
 
-Once data were stored in a local LVM file, it was post-processed in Matlab~\cite{MATLAB:2016}. In detail, a GUI Matlab program was created capable of comparing signals, apply filters, find peaks and windowed sections of data. A front-end of the application can be seen in Fig. xxx.
+Once data were stored in the local LVM file, it was post-processed in Matlab~\cite{MATLAB:2016}. In detail, a GUI Matlab program was created capable of comparing signals, apply filters, find peaks and windowed sections of data. A front-end of the application can be seen in Fig. xxx.
 
 \todo{Create an image about the front-end of matlab}
 
@@ -136,7 +137,7 @@ First, in the beginning, it was required to import LVM file structure into Matla
 
 \todo{create a table showing the structure of the LVM file}
 
-This data decimation does not affect the waveform data.  In fact, according to Nyquist rate, data was being oversampled. Physiological signals are between \SIrange{1}{2}{\hertz} for signals depending on heart rate. According to Nyquist up to \SI{4}{\hertz} would have provided enough sampling for the waveforms. Nevertheless, a sampling of \SI{100}{\hertz} is sufficient to provide a high resolution. However, having oversampled signals was not a random case, indeed it allows to implement high order digital filters with sharp cut-off frequency. 
+This data decimation does not affect the waveform data.  In fact, according to Nyquist rate, data was being oversampled. Physiological signals are between \SIrange{1}{2}{\hertz} for signals depending on heart rate. According to Nyquist up to \SI{4}{\hertz} would have provided enough sampling for the waveforms. Nevertheless, a sampling of \SI{100}{\hertz} is sufficient to provide a high resolution. However, having oversampled signals was not a random case. Indeed it allows implementing high order digital filters with sharp cut-off frequency. 
 
 \todo{Add a little bit of Nyquist theorem for oversampling}
 
@@ -144,7 +145,7 @@ As soon as decimated data was imported into Matlab, the parsing program converte
 
 When importing data into the GUI program is needed to convert data into meaningful scales. All physiological data described in section \ref{section4.1.1} coming from the devices were in volts. Some data need conversions such as iPG, ultrasound and laser Doppler flowmetry. 
 
-Impedance plethysmography signals needed to be converted from volts into current and impedance respectively. The iPG device provides a channel for current sense $(V_{IDC})$, which corresponds to the peak voltage value of the current being delivered by the instrument. This value can be calculated by knowing the gain of the different stages of the circuits. First, according to the circuit schematic current is being sensed by a \SI{10}{\ohm} resistor $(R_x)$. Then, this signal is amplified by an In-Amp which gain $(G_1)$ was 276. Following this stage, signal is halved by a half-wave rectifier. Later, this wave is fully rectified using a peak detection circuit. In the final analysis, the current value can be calculated using equation \ref{eq:current}
+Impedance plethysmography signals needed to be converted from volts into current and impedance respectively. The iPG device provides a channel for current sense $(V_{IDC})$, which corresponds to the peak voltage value of the current being delivered by the instrument. This value can be calculated by knowing the gain of the different stages of the circuits. First, according to the circuit schematic current is being sensed by a \SI{10}{\ohm} resistor $(R_x)$. Then, this signal is amplified by an In-Amp which gain $(G_1)$ was 276. Following this stage, the signal is halved by a half-wave rectifier. Later, this wave is fully rectified using a peak detection circuit. In the final analysis, the current value can be calculated using equation \ref{eq:current}
 
 \begin{align}
 \label{eq:current}
@@ -189,9 +190,40 @@ Likewise, the impedance value of the dynamic signal can be calculated using ohm'
 Z_{iPG} = \frac{v}{i}=\frac{V_{iPG}}{I}
 \end{align}
 
-\subsubsection{Digital filtering}
+%********************************** % Swction section 4.2.1******************************************
+\subsection{Digital filtering}
+\label{section4.2.1}
 
-Additional filters were applied removing unwanted high frequency components from attained signals. $V_{ZDC}$ and $V_{IDC}$ signals were filtered using a \nth{10} order low-pass IIR $(f_c=5 Hz)$ and a \nth{4} order band-stop IIR filter $(f_L=$\SI{0.1}{\hertz} and $f_H=$\SI{0.5}{\hertz} $)$ was used to remove respiration and motion artifact. $V_{ZAC}$ signal was processed with a \nth{10} order band-pass IIR filter $(f_L=$ \SI{0.5}{\hertz} and $f_H=$ \SI{5}{\hertz}$)$ removing motion, respiration artefact and high frequency noise.
+The signals obtained from the devices contained variable sources of noise. For instance: respiration, mains noise, motion, high-frequency noise from the iPG current source (\SI{30}{\kilo\hertz}). To remove these sources of different noise filters were designed in Matlab for post-processing. The command \textit{designfilt} can create a variety type of filters. In the GUI any user can apply any filter on demand to any signal available. Table \ref{table:filters} overview the filters designed available for processing the waveforms. 
+
+\begin{table}
+\caption{Filters available from the GUI}
+\centering
+\label{table:filters}
+\begin{tabular}{p{3.5cm} c c c c}
+\toprule
+\textbf{Filter}& \textbf{Order} & \textbf{Low cut frequency} & \textbf{High cut frequency} & \textbf{Other}\\
+\midrule
+Low-pass IIR & \nth{10} & -- & \SI{5}{\Hz} & --\\
+\midrule
+Band-pass IIR & \nth{10} & \SI{0.5}{\Hz} & \SI{5}{\Hz} & -- \\
+\midrule
+High-pass IIR & \nth{10} & \SI{0.5}{\Hz} & -- & --\\
+\midrule
+Band-stop IIR & \nth{10} & \SI{0.5}{\Hz} & \SI{5}{\Hz} & -- \\
+\midrule
+Savitzky-Golay & \nth{3} & -- & -- & Frame = 41\\
+\midrule
+Moving Average \newline (Simple) & -- & -- & -- & Lag = \SI{20}{\sec}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+According to the quality of the data, a specific kind of filter was applied to a distinct signal. For instance, raw iPG data contain high-frequency noise coming from the device main carrier frequency. That sort of noise is easily removable using the high-pass filter available. Moreover, combining filters is possible. For instance, the iPG waveform is extractable from the impedance signal. Applying a mix of band-stop and band-pass filters is possible to recover the signal $iPG_{AC}$.
+
+Similar processing is viable with the PPG signals. From the DC signal is feasible to extract the AC waveform. Similarly, combining band-stop and band-pass filters.
+
+In general, low-pass filters are useful to remove mains noise and high-frequency noises. Band-stop filters eliminate specific noise such as motion artefact and respiration but still DC is needed. A characteristic of this kind of noise is that is low frequency and usually below heart rate frequency. High-pass filters are practical to remove DC signals but still keeping high-frequency characteristics. 
 
 %********************************** %Nomenclature found  *************************************
 \nomenclature[z-ecg]{ECG}{Electrocardiography}
@@ -201,3 +233,4 @@ Additional filters were applied removing unwanted high frequency components from
 \nomenclature[z-usb]{USB}{Universal Serial Bus}
 \nomenclature[z-vi]{VI}{Virtual Instrument}
 \nomenclature[z-gui]{GUI}{Graphic User Interface}
+\nomenclature[z-iir]{IIR}{Infinite Impulse Response}
