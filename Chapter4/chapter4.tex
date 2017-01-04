@@ -251,7 +251,7 @@ Now the blood flow can be computed by converting velocity to flow if the cross s
 
 where $\dot{Q}$ is flow, $v$ is the velocity of the blood cell and $A$ the cross-sectional area of the radial artery.
 
-However, blood flow can be estimated by using averages cross-sectional area of radial arteries in the population. A study has been found that males have slight larger radial arteries diammeter than females ($2.3 \pm 0.39 mm$ and $2.11 \pm 0.29 mm$ respectively)~\cite{ashraf2010size}. These dimensions were used to calculated the blood flow in the present experiment.
+However, blood flow can be estimated by using averages cross-sectional area of radial arteries in the population. A study has been found that males have slight larger radial arteries diammeter than females ($2.3 \pm 0.39$ mm and $2.11 \pm 0.29$ mm respectively)~\cite{ashraf2010size}. These dimensions were used to calculated the blood flow in the present experiment.
 
 \subsubsection{Converting LDF}
 The Laser Doppler Flowmetry device utilised in the study was the xxx
@@ -263,7 +263,7 @@ This instrument provides an output port that allows exporting the waveform. This
 
 \begin{align}
 \label{eq:BPU}
-BPU =  \frac{V_{BPU} \times 100}{5 V}
+BPU = \frac{V_{BPU} \times 100}{5 V}
 \end{align}
 
 
@@ -303,9 +303,48 @@ Similar processing is viable with the PPG signals. From the DC signal is feasibl
 In general, low-pass filters are useful to remove mains noise and high-frequency noises. Band-stop filters eliminate specific noise such as motion artefact and respiration but still DC is needed. A characteristic of this kind of noise is that is low frequency and usually below heart rate frequency. High-pass filters are practical to remove DC signals but still keeping high-frequency characteristics.
 
 %********************************** % Section 4.3 ******************************************
-\subsection{Converting Impedance to Volume and Flow}
+\section{Converting Impedance to Volume and Flow}
 \label{section4.3}
 
+After the conversion of impedance from volts, it is possible to compute changes volume and flow. Chapter \ref{chapter3} describes in depth the governing equations. Also, the analysis of the impedance plethysmography waveform will provide further data of the blood's haemodynamics. Such as the relation between systole and diastole cycles with the iPG signal.
+
+First, as explained in equation \ref{eq:dvdr} changes of impedances are equivalent to a fluctuation of volume.  The impedance calculated from equations \label{eq:impedance} and \label{eq:zipg} is the information needed to put into this Nyober's equation.
+
+There are two methods to calculate blood flow. One of them is using venous occlusion plethysmography. Another one is the analysis of the dynamic changes of the impedance waveform. Both methods require using the impedance derivative over time $dR/dt$. However, back projection of the Nyober's equation was used calculating flow in the impedance AC signal. The following section explains in detail the computation of these values.  
+
+\todo{Improve this paragraph, explaining both methods}
+
+\subsection{Volume calculation during venous occlusion}
+
+One of the methods to measure changes of volume involves occluding the venous return in one limb. This routine known as venous occlusion plethysmography is explained in detail in section xxx. This technique requires inflating a cuff below diastolic pressure to stop the blood's venous return in an extremity. Just like in the procedure described in section \ref{section4.1.3}. 
+
+\todo{double check a reference to Medical Background how this works. Create a reference to this section}
+
+Due to venous blood can not return to the heart, blood starts to pool below cuff position in the limb. In the case of this experiment, a segment of the left arm was the subject of the study. The sensing electrodes are the boundary of the segment's geometry. The volume of this cylinder section is equivalent to the one calculated with equation \label{eq:Volume}. 
+
+Before occlusion, the base of the impedance does not change extremely over time. However, after the cuff is inflated blood pools and conductivity of the limb segment increases. Therefore, impedance decreases within this volume. The change in the baseline of the impedance in time is equal to change in volume over time. A significant number of studies have been done in this field confirming the effectiveness of this method. 
+
+\todo{reference papers where venous occlusion plethysmography is used}
+
+\todo{Create a graph explaining how the gradient of the signal changes during venous occlusion}
+
+The blood flow can be estimated from the basal impedance values, in the case of the device designed port $Z_{DC}$. The change of volume can be calculated by selecting two points in time and applying equation \ref{eq:DVDT}.
+
+\todo{Confirm the nomenclature of the ports}
+
+\begin{align}
+\label{eq:DVDT}
+\frac{\Delta V}{\Delta t}= \rho \frac{l^2}{R_B^2} \times \frac{\Delta R}{\Delta t}
+\end{align} 
+
+Making these values more meaningful, they need to be converted in a time interval per minutes. Also, the limb blood flow should be expressed in units of ml per 100 ml of limb section. In this case, the equation can be declared as equation \ref{eq:Qlimb}.
+
+\begin{align}
+\label{eq:QLim}
+\dot{Q_L} = \bigg( \frac{1}{R_B} \bigg) \bigg( \frac{\Delta R_B}{\Delta t} \bigg) \times 60 min \times 100 ml
+\end{align} 
+
+where $\dot{Q_L} $ is the blood flow of the limb expressed as $ml.min^{-1}.100 ml{^-1}$, $R_B$ is the impedance base value, $\Delta R_B$ is the change of impedance within ${\Delta t}$.
 
 %********************************** %Nomenclature found  *************************************
 \nomenclature[z-ecg]{ECG}{Electrocardiography}
