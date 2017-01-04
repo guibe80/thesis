@@ -4,6 +4,7 @@
 %*******************************************************************************
 
 \chapter{Medical Background}
+\label{chapter1}
 
 \ifpdf
     \graphicspath{{Chapter2/Figs/Raster/}{Chapter2/Figs/PDF/}{Chapter2/Figs/}}
@@ -11,19 +12,20 @@
     \graphicspath{{Chapter2/Figs/Vector/}{Chapter2/Figs/}}
 \fi
 
-
-%********************************** %First Section  **************************************
-%\section[Medical background]{Medical background}
-
-Measuring blood follow provides valuable information to the clinical community about the healthiness of organs or limbs. Being capable of estimate instant blood flow of one of the limbs provide information about how blood flow is ultimately reaching these extremities that could avoid ischemia (\textit{isch} means stop or block and \textit{emia} means blood flow) or amputation caused by a non-proper perfusion to the extremity. 
+\todo{Run hemingway to check redeability}
+Measuring blood flow provides valuable information to the clinical community about the healthiness of organs or limbs. Being capable of estimate instant blood flow of one of the limbs provide information about how blood flow is ultimately reaching these extremities that could avoid ischemia (\textit{isch} in Greek means stop or block and \textit{emia} that means blood flow) or amputation caused by a non-proper perfusion to the extremity. 
 
 The following chapter describes the importance of blood flow, the problems and complications derived from a poorly perfused limb could cause. During the continuation of the reading, some of the current technologies will be explained and what methods are used to estimate blood flow currently.  
 
 \section{Blood and its components} %section 2.1
-Blood it is the main carrier of nutrients that runs thought humans and vertebrate animals and also takes a major part in the body's defence combating infections. In short, it is in charge of transporting oxygen and to collect carbon dioxide from all the tissues that constitutes the body.  Blood requires of different paths to circulate around the human body, the circulatory system is used to carry the two types of blood also known as oxygenated and deoxygenated blood, also as arterial and venous blood. To achieve this, the body uses blood vessels where oxygenated blood coming out from the heart it is transported using arteries and the return of deoxygenated blood is done by veins.  
-\subsection{Components of blood}
-Blood can be separated into different well known components. Approximately, half of its volume is composed by plasma and the other half by red blood cells (erythrocytes), white blood cells (leukocytes or monocytes) and platelets (thrombocytes). Each of this cells have a specific tasks and characteristics which are described in the following table that shows cells quantity in a microlitre of human blood. It must be noted that there are diverse specialised subtypes of white cells and platelets but not further details of this cells will be covered in this work. 
+Blood it is the main carrier of nutrients that runs thought humans and vertebrate animals and also takes a major part in the body's defence combating infections. In short, it is in charge of transporting oxygen and collecting carbon dioxide from all the tissues that constitute the body.  Blood requires of different paths to circulate in the human body, the circulatory system is used to carry oxygenated and deoxygenated blood, also known as arterial and venous blood. Indeed, the body uses arteries to transport oxygenated blood coming out from the heart and uses veins to return deoxygenated blood to the heart.
 
+\todo{Add a description of which veins are involved in the periphery. And how works in the arm. Arm Anathomy}
+
+%********************************** %Section 2.1.1  **************************************  
+\subsection{Components of blood}
+\label{section2.1.1}
+There are well known and identifiable components in blood. Approximately, half of its volume is composed of plasma and the other half of red blood cells (erythrocytes), white blood cells (leukocytes or monocytes) and platelets (thrombocytes). Each of this cells has specific tasks and characteristics which as described in table \ref{table:cell} that shows cells quantity in a microliter of human blood. It must be noted that there are diverse specialised subtypes of white cells and platelets but not further details of this cells will be covered in this work. 
 
 \begin{table}
 \caption{Blood cell classification}
@@ -33,21 +35,21 @@ Blood can be separated into different well known components. Approximately, half
 \toprule
 \textbf{Cell Type }& \textbf{Quantity} & \textbf{Geometry} & \textbf{Characteristic} \\
 \midrule
-Red Blood Cells (RBCs \nomenclature[z-rbc]{RBC}{Red Blood Cells}) \newline or erythrocytes & \numrange{5e6}{6e6} & Shape: Disk \newline Diameter: 6-\SI{8}{\micro\meter} \newline Thickness: \SI{2}{\micro\meter} & 
+Red Blood Cells (RBCs ) \newline or erythrocytes & \numrange{5e6}{6e6} & Shape: Disk \newline Diameter: 6-\SI{8}{\micro\meter} \newline Thickness: \SI{2}{\micro\meter} & 
 \begin{tabular}[t]{@{\textbullet~}p{6.5cm}@{}} 
-	Principal medium to deliver oxygen \\
-	Lack of nucleus \\
-	Cytoplasm rich in negatively charged Iron–containing Hb \\
-	Contains Ions of Sodium (Na+) and Potassium (K+) \\
-	Typical bilayer lipid membrane (Lipid composition defies physical properties such as membrane permeability and fluidity) 
+    Principal medium to deliver oxygen \\
+    Lack of nucleus \\
+    Cytoplasm rich in negatively charged Iron–containing Hb \\
+    Contains Ions of Sodium (Na+) and Potassium (K+) \\
+    Typical bilayer lipid membrane (Lipid composition defies physical properties such as membrane permeability and fluidity) 
 \end{tabular} \\
 \midrule
 
-White Blood Cells (WBC \nomenclature[z-wbc]{WBC}{White Blood Cells}) \newline or Monocytes & \numrange{4e3}{11e3} & Shape: Irregular \newline Diameter: 10–\SI{20}{\micro\meter} \newline Monocytes: 14–17 & 
+White Blood Cells (WBC) \newline or Monocytes & \numrange{4e3}{11e3} & Shape: Irregular \newline Diameter: 10–\SI{20}{\micro\meter} \newline Monocytes: 14–17 & 
 \begin{tabular}[t]{@{\textbullet~}p{6.5cm}@{}} 
-	Composed five different type of specialized cells to target different illnesses\\
-	Make part of the immune system \\
-	High count of these cells are indicators of disease 
+    Composed five different type of specialised cells to target different illnesses\\
+    Make part of the immune system \\
+    High count of these cells are indicators of disease 
 \end{tabular} \\
 \midrule
 
@@ -62,33 +64,35 @@ Platelets & \numrange{150e3}{400e3} & Shape: Irregular \newline Diameter: 2–\S
 \end{tabular}
 \end{table}
 
+%********************************** %Section 2.1.2  **************************************
 \subsection{Oxygen transportation}
-Oxygen ($O_2$) is an essential component required by all body's cells to complete metabolic processes. Within the blood, this is transported by haemoglobin (Hb \nomenclature[z-Hb]{Hb}{Haemoglobin}) contained within red blood cells (RBCs). Oxygen is required during the chemical reactions needed to convert biochemical energy from nutrients coming from food into cell's energy known as coenzyme or adenosine triphosphate (ATP \nomenclature[z-ATP]{ATP}{Adenosine triphosphate}). As a result of this reaction waste product is release from the cell. A human cell can only survive for a few minutes without oxygen~\cite{culmsee2005apoptosis}.
+\label{section2.1.2}
+Oxygen ($O_2$) is an essential component required by all body's cells to complete metabolic processes. Within the blood, this is transported by haemoglobin (Hb) contained within red blood cells (RBCs). Oxygen is required during the chemical reactions needed to convert biochemical energy from nutrients coming from food into cell's energy known as coenzyme or adenosine triphosphate (ATP). As a result of this reaction waste product is released from the cell. A human cell can only survive for a few minutes without oxygen~\cite{culmsee2005apoptosis}.
 
 Inadequate oxygen delivery to body's tissue is known as hypoxia. There are different classifications of hypoxia count based on its cause~\cite{marieb2007human} which are described as follows: 
 
 \begin{enumerate}
-	\item \textbf{Anaemic Hypoxia:} It is a condition where a body part or an organ has poor $O_2$ delivery. It can be caused by either a low of RBCs or from abnormal or too little Hb content in the blood's cells.
-	\item \textbf{Ischemic (stagnant) hypoxia: }This is caused when blood circulation is reduced or blocked. There are different causes for this, however the most commons are congestive heart failure that may cause body–wide hypoxia, emboli or thrombi blocking oxygen supply to the tissue distal from the occlusion. 
-	\item \textbf{Histotoxic hypoxia: }Mainly caused by metabolic poisoning like ingestion of cyanide. In this case the cell is unable to use $O_2$ for metabolic purposes, even though there is an appropriate amount of $O_2$ being delivered by the body.
-	\item \textbf{Hypoxemic hypoxia:} It is shown by a decrease in the arterial oxygen partial pressure ($PO_2$). Some of the causes are imbalance in the ventilation–perfusion coupling mechanism, poor ventilation caused by pulmonary disease and/or breathing air with low content of $O_2$. Moreover, carbon monoxide ($CO$) poisoning is another cause because has \num{200} times more affinity with Hb than $O_2$. Thus, in places with high concentration of CO such as fires could lead easily to death.
+    \item \textbf{Anaemic Hypoxia:} It is a condition where a body part or an organ has poor $O_2$ delivery. Some of the causes are a small count of RBCs and abnormal or too little Hb content in the blood's cells.
+    \item \textbf{Ischemic (stagnant) hypoxia: }This is caused when blood circulation is reduced or blocked. There are different causes for this. However, the most commons are congestive heart failure that may cause body–wide hypoxia, emboli or thrombi blocking oxygen supply to the tissue distal from the occlusion. 
+    \item \textbf{Histotoxic hypoxia: }Mainly caused by metabolic poisoning like ingestion of cyanide. In this case the cell is unable to use $O_2$ for metabolic purposes, even though there is an appropriate amount of $O_2$ being delivered by the body.
+    \item \textbf{Hypoxemic hypoxia:} It is shown by a decrease in the arterial oxygen partial pressure ($PO_2$). Some of the causes are an imbalance in the ventilation–perfusion coupling mechanism, poor ventilation caused by pulmonary disease and breathing air with a low content of $O_2$. Moreover, carbon monoxide ($CO$) poisoning is another reason behind this illness because it has \num{200} times more affinity with Hb than $O_2$. Thus, in places with high concentration of CO such as fires could lead easily to death.
 \end{enumerate}
 
-%********************************** %First Section  **************************************
+%********************************** %Section 2.2  **************************************
 \section{Problems derived from poor blood delivery} %Section 2.2
 \label{section2.2}
 Now that has been described some of the problems of having a poor oxygen transportation of blood at cellular level, more detail will be unveil about illnesses related to the poor or total lack of blood delivery to human tissue especially human limbs. 
 
-When there is an insufficient supply of blood to an organ or a tissue ischemia is developed. This usually happen when an artery is blocked leading tissue starvation of oxygen and other critical nutrients. There are different causes that could lead to the blockage of an artery which can be caused by external or internal factors. Speaking specifically of lower limbs, these represent an important cause of disability and of cardiovascular morbidity and mortality~\cite{novo1995patients}. 
+Ischemia develops when there is an insufficient supply of blood to an organ. For instance, if an artery blockage occurs all the tissue below the path will suffer from starvation of oxygen and other critical nutrients. Different causes could lead to the blockage of an artery which can be caused by external or internal factors. Speaking specifically of lower limbs, these represent a significant cause of disability and cardiovascular morbidity and mortality~\cite{novo1995patients}. 
 
-There different kind of diseases compromising limbs, an example of this is peripheral arterial disease (PAD \nomenclature[z-PAD]{PAD}{Peripheral arterial disease}), which also derives in other kind of illnesses according to the kind of occlusion or blockage. This is this case with critical limb ischemia (CLI \nomenclature[z-cli]{CLI}{Critical limb ischemia}), which it is defined as condition where as a consequence of arterial disease patient experiments pain in the extremity even at rest or in a breakdown of the skin~\cite{novo2004critical}. 
+Exists different kind of diseases compromising limbs, an example of this is peripheral arterial disease (PAD), which also originates in another kind of illnesses according to the kind of occlusion or blockage. For instance, critical limb ischemia (CLI), which is a condition where as a consequence of arterial disease, a patient experiments pain in the extremity even at rest or in a breakdown of the skin~\cite{novo2004critical}. 
 
-Clinically there are different forms to assess the development of this illness. Some scales of qualitative evaluation have been developed such as the Rutherford classification, the Leriche-Fountain classification (see Table 2) or the TACS II classification of femoral and popliteal lesions~\cite{norgren2007inter}. Using a questioner, indication of pain when walking and a visual inspection is possible to determine the stage or the severity of the arterial occlusion. An example of the different stages that are taken into consideration are shown in the following table. 
+Clinically there are different forms to assess the development of this illness. Some scales of qualitative evaluation have been developed such as the Rutherford classification, the Leriche-Fountaine classification or the TACS II classification of femoral and popliteal lesions~\cite{norgren2007inter}. Health practitioner uses a survey, an indicator of pain when walking and a visual inspection is possible to determine the stage or the severity of the arterial occlusion.  Table \ref{table:Fountaine}) shows the different stages of the Leriche-Fountain classification and the different steps considered to evaluate the illness. 
 
 \begin{table}
-\caption{Leriche-Fontaine classification}
+\caption{Leriche-Fountaine classification}
 \centering
-\label{table:Fontaine}
+\label{table:Fountaine}
 \begin{tabular}{p{1.8cm} p{3.8cm} p{3.5cm} p{4.5cm}}
 \toprule
 \textbf{Stages}& \textbf{Symptoms} & \textbf{Pathophysiology} & \textbf{Pathophysiological \newline classification} \\
@@ -108,50 +112,64 @@ Tissue acidosis & Necrosis \newline Evolutive arteriopathy \\
 \end{tabular}
 \end{table}
 
-As table~\ref{table:Fontaine} shows, there are different levels of stratifying the severity of the illness according to the symptoms that are related pathophysiology. According to the severity of the stage where the patient is, there are different methods to examine the severity of the disease using imaging methods. These will be described in detail in the section.
+As table~\ref{table:Fontaine} shows, there are various levels of stratifying the severity of the disease according to the symptoms that are related pathophysiology. According to the gravity of the stage where the patient is, there are different methods to examine the severity of the disease using imaging methods. These will be described in detail in the section xxx.
+
+\todo{relate this to a section in the document later on}
   
-There is other type of illness when the obstruction occurs not in the arterial vessel but in the microcirculation bed such as compartment syndrome. This is an illness caused by the increase of pressure in a limb that leads to total or partial restriction of micro–vascular blood flow~\cite{songer2001tissue}. It commonly happens when proximal veins are occluded rather than deep vein thrombosis (DVT \nomenclature[z-DVT]{DVT}{Deep vein thrombosis}). Some cases also present rapid discolouration and blistering of the involved limb being commonly associated with oedema, cyanosis and severe pain~\cite{chhabra2013compartment} which can be classified using one of the methods described previously. This can lead ultimately to venous hypertension and loss of blood plasma; also reduced arterial flow may lead to gangrene, limb loss and possibly death~\cite{lamborn2014compartment}. Doppler sonography is one of the popular techniques used to monitor this problem~\cite{chhabra2013compartment}. Nevertheless, detecting foot compartment syndrome could be challenging to detect compared to other parts of the body because its symptoms and indicators are less reliable~\cite{dodd2013foot}.  
+There is another type of illness when the obstruction does not occur in an arterial vessel but around the microcirculation bed. An example of this is compartment syndrome. A cause of this disorder is the increase of pressure in a limb that leads to total or partial restriction of micro–vascular blood flow~\cite{songer2001tissue}. It commonly happens when proximal veins are occluded rather than deep vein thrombosis (DVT). Some cases also present rapid discoloration and blistering of the affected limb being commonly associated with oedema, cyanosis and severe pain~\cite{chhabra2013compartment} which can be classified using one of the methods described previously. In the end, ultimately could lead to venous hypertension and loss of blood plasma; as well as reduced arterial flow may lead to gangrene, limb loss and possibly death~\cite{lamborn2014compartment}. Doppler sonography is one of the traditional techniques used to monitor this problem~\cite{chhabra2013compartment}. Nevertheless, detecting foot compartment syndrome could be challenging to detect compared to other parts of the body because its symptoms and indicators are less reliable~\cite{dodd2013foot}.  
 
-The lack of blood towards an extremity can be also caused as a secondary effect of other illness like diabetes. Some of the most common problems that diabetic patients have to deal with is diabetic foot infection which is defined as a clinical syndrome characterized by local findings of inflammation or purulence in a person with diabetes. In addition, it also leads to a decrease in peripheral circulation, vascular disease and loss of nerve sensation ending up in the formation chronic ischemic ulcers and bacterial infection. Diabetes is the leading cause of lower extremity amputation, in developed countries is responsible for \SI{60}{\percent} of these amputations~\cite{ucckay2014diabetic}.  Currently, ultrasound Doppler flowmetry is still one of the main tools to diagnose the advance of DFI \nomenclature[z-DFI]{DFI}{Doppler flowmetry}. Although, new techniques to follow up the progress of this illness have been researched such as bioelectrical impedance~\cite{cheng2012application}, planar pressure analysis~\cite{dos2010insole}, imagine technique analysis~\cite{songer2001tissue}, near infrared~\cite{papazoglou2008assessment} and electronic noses~\cite{yusuf2013diagnosis}. Yet, nothing has been designed to detect early stages of this problem before ulceration occurs. In terms of BIA~\nomenclature[z-bia]{BIA}{Bioelectrical impedance analysis}, there have been studies focused in the detection on the development of ischemia of the foot's sole showing a good correlation with laser Doppler flowmetry~\cite{cheng2012application}. 
+The lack of blood towards an extremity can also be caused by a secondary effect of other illness like diabetes. Some of the most common problems that diabetic patients have to deal with are diabetic foot infection which is a clinical syndrome characterised by local findings of inflammation or purulence in a person with diabetes. Also, it also leads to a decrease in peripheral circulation, vascular disease and loss of nerve sensation ending up in the formation chronic ischemic ulcers and bacterial infection. Diabetes is the leading cause of lower extremity amputation in developed countries, and it is responsible for \SI{60}{\percent} of these amputations~\cite{ucckay2014diabetic}.  Currently, ultrasound Doppler flowmetry is still one of the primary tools to diagnose the advance of DFI. Although, new techniques to follow up the progress of this illness have been researched such as bioelectrical impedance~\cite{cheng2012application}, planar pressure analysis~\cite{dos2010insole}, imagine technique analysis~\cite{songer2001tissue}, near infrared~\cite{papazoglou2008assessment} and electronic noses~\cite{yusuf2013diagnosis}. Until now, nothing has been designed to detect early stages of this problem before ulceration occurs. Regarding BIA, there have been studies focused on the detection on the development of ischemia of the foot's sole showing a good correlation with laser Doppler flowmetry~\cite{cheng2012application}. 
 
+%********************************** %Section 2.2.1  **************************************
 \subsection{Peripheral vascular disease}
-Some of the common forms of reduction in blood towards a limb is known as peripheral vascular disease also known as peripheral arterial disease. This sickness is a progressive vascular condition caused by the blockage, narrowing, or spasms in a blood vessel (arteries, veins or lymphatic vessels). Altering the blood circulation to and from any upper or lower extremities. Affects most commonly the lower limbs, especially legs and feet. Hence, the derivation of its name as peripheral because affects mostly the periphery of the body. It affects \SI{5}{\percent} of people over \num{50} and between \SIrange{12}{20}{\percent} of people over 65 years old. To some extend is more common in men than women. People with certain risk factors are more likely to suffer PVD \nomenclature[z-PVD]{PVD}{Peripheral vascular disease} such as patients with diabetes of smokers.  
+\label{section2.2.1}
+Some of the common forms of reduction in blood towards a limb is known as the peripheral vascular disease also known as peripheral arterial disease. This sickness is a progressive vascular condition caused by the blockage, narrowing, or spasms in a blood vessel (arteries, veins or lymphatic vessels). Hence, altering the blood circulation to and from any upper or lower extremities.  Most commonly affect the lower limbs, especially legs and feet. Therefore, the derivation of its name as "peripheral" because it affects mostly the periphery of the body. It affects \SI{5}{\percent} of people over \num{50} and between \SIrange{12}{20}{\percent} of people over 65 years old. To some extent, it is more common in men than women. People with certain risk factors are more likely to suffer PVD such as patients with diabetes of smokers.  
 
-The narrowing of the blood vessels could be caused by different factors. The most common cause of PVD is atherosclerosis, deposition of fatty material inside the arterial walls. This fatty material constitutes a plaque that reduces the blood flow towards tissue in the limb reducing the transport of $O_2$ and nutrients as explained in Oxygen transportation section. In addition, cloths may also form on the artery walls reducing the internal size of the vessel and increasing the risk of obstruct off a major artery. 
+Different factors could cause the narrowing of the blood vessels. The most common cause of PVD is atherosclerosis, deposition of fatty material on the arterial walls. This fatty material constitutes a plaque that reduces the blood flow towards tissue in the limb lessen the transport of $O_2$ and nutrients as explained in Oxygen transportation section. Moreover, clots may also form on the artery walls reducing the internal size of the vessel and increasing the risk of obstructing off a major artery. 
 
-There are different risk factors that contributes to the development of this sickness. Some can be inherited to the population others are based in lifestyle choices. The combination of two of more of the following risks may increase complications from PVD, such as smoking and having diabetes. Some of the risk factors are:
+Different risk factors are contributing to the development of this sickness. Some can be inherited to the population others are based on lifestyle choices. The combination of two of more of the following risks may increase complications from PVD, such as smoking and having diabetes. Some of the risk factors are:
 
 \begin{itemize}[noitemsep]
-	\item Age (especially over \num{50})
-	\item Family history (high blood pressure, high cholesterol or PVD)
-	\item Diabetes
-	\item Smoking
-	\item Obesity
-	\item Infections
-	\item Coronary artery disease
-	\item Injury to vessels
-	\item Physical inactivity
-	\item High blood pressure
-	\item Autoimmune diseases
-	\item Nutritional deficiencies
-	\item High blood cholesterol
-	\item Emboli from other locations in the body
-	\item Inflammation of the blood vessels
+    \item Age (especially over \num{50})
+    \item Family history (high blood pressure, high cholesterol or PVD)
+    \item Diabetes
+    \item Smoking
+    \item Obesity
+    \item Infections
+    \item Coronary artery disease
+    \item Injury to vessels
+    \item Physical inactivity
+    \item High blood pressure
+    \item Autoimmune diseases
+    \item Nutritional deficiencies
+    \item High blood cholesterol
+    \item Emboli from other locations in the body
+    \item Inflammation of the blood vessels
 \end{itemize}
 
-Symptoms at the first stages of the illness are not noticed at first, which makes difficult to diagnose the illness until has been developed into a painful stage as described by the Fontain's classification (see table \ref{table:Fontaine}). However, performing a qualitative assessment of the extremity helps to diagnose the sickness on early stages. Some of the indicators could be coldness to touch, poor skin condition (thinning, shining or brittle), poor nail health (thickening or opaque nails), hair loss in the extremity, reduced pulse sensation in the extremity, impotence, infections or injuries not healing properly, poor muscle condition (numbness, weakness or heaviness), pain while walking and stop at rest, local skin discolouration (pale, blue or dark red) and restricted mobility. 
+On the first stages of the illness, symptoms are not noticeable, which makes difficult to diagnose the condition. Just until it has been developed into a painful stage as described by the Fountaine's classification (see table \ref{table:Fountaine}) is when actions come into place. However, performing a qualitative assessment of the extremity helps to diagnose the sickness in early stages. Some of the indicators could be coldness to touch, poor skin condition (thinning, shining or brittle), poor nail health (thickening or opaque nails), hair loss in the extremity, reduced pulse sensation in the extremity, impotence, infections or injuries not healing properly, poor muscle condition (numbness, weakness or heaviness), pain while walking and stop at rest, local skin discolouration (pale, blue or dark red) and restricted mobility. 
 
-Once a qualitative or physical examination has been performed and the progress of the illness has been classified there are additional tests that may help to diagnose the severity of the PVD. Some of methods just requires the assessment of the medical practitioner using common medical devices others may require the use of specialized medical equipment. Some of the medical methods that do not required the use of bulky or cumbersome devices are:
+Once a qualitative or physical examination has been performed, and the progress of the illness has been classified there are additional tests that may help to diagnose the severity of the PVD. Some of the methods just require the assessment of the medical practitioner using common medical devices others may need the use of specialised medical equipment. Some of the medical methods that do not required the use of bulky or cumbersome devices are:
 
 \begin{itemize}
-
-	\item \textbf{Ankle-branchial index (ABI \nomenclature[z-abi]{ABI}{Ankle-branchial index}):} It is the ratio of the differential measurement of systolic blood pressure measured at the ankle to that measured at the brachial artery [17]. For this it is required to compared the difference in blood pressure between the arm and the ankle, it also required to record the ankle's blood flow using a Doppler ultrasound instrument.  
-	\item \textbf{Treadmill exercise test: }In this method the patient has to walk or run in order to monitor the circulation during exercise. Pain or problems during the test are recorded in order to examine the severity of the obstruction.
-	\item \textbf{Reactive hyperaemia test:} This test refers to a temporary increase (\textit{hyper}) of blood flow (\textit{emia}) of the extremity. It is usually performed in people who are not able to walk on a treadmill. In this case the person is taken to supine position and comparative measurements of blood flow in tights and ankles are taken after occlusion to determine any decrease between both sites. 
-
+    \item \textbf{Ankle-branchial index (ABI):} It is the ratio of the differential measurement of systolic blood pressure measured at the ankle to that measured at the brachial artery [17]. For this it is required to compared the difference in blood pressure between the arm and the ankle, it also needed to record the ankle's blood flow using a Doppler ultrasound instrument.  
+    \item \textbf{Treadmill exercise test: }In this method the patient has to walk or run to monitor the circulation during exercise. Pain or problems during the test are recorded to examine the severity of the obstruction.
+    \item \textbf{Reactive hyperaemia test:} This test refers to a temporary increase (\textit{hyper}) of blood flow (\textit{emia}) of the extremity. It is usually performed in people who are not able to walk on a treadmill. In this case, the person is taken to supine position and comparative measurements of blood flow in tights and ankles are taken after occlusion to determine any decrease between both sites. 
 \end{itemize}
 
 
+%********************************** %Nomenclatures in chapter  **************************************
+\nomenclature[z-Hb]{Hb}{Haemoglobin}
+\nomenclature[z-ATP]{ATP}{Adenosine Triphosphate}
+\nomenclature[z-rbc]{RBC}{Red Blood Cells}
+\nomenclature[z-abi]{ABI}{Ankle-Branchial index}
+\nomenclature[z-wbc]{WBC}{White Blood Cells}
+\nomenclature[z-PVD]{PVD}{Peripheral vascular disease}
+\nomenclature[z-bia]{BIA}{Bioelectrical impedance analysis}
+\nomenclature[z-DFI]{DFI}{Doppler flowmetry}
+\nomenclature[z-DVT]{DVT}{Deep vein thrombosis}
+\nomenclature[z-cli]{CLI}{Critical Limb Ischemia}
+\nomenclature[z-PAD]{PAD}{Peripheral Arterial Disease}
 
 %\nomenclature[z-cif]{$CIF$}{Cauchy's Integral Formula}                                % first letter Z is for Acronyms 
 %\nomenclature[a-F]{$F$}{complex function}                                                   % first letter A is for Roman symbols

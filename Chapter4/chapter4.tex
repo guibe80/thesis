@@ -46,7 +46,7 @@ After filling paperwork and completing acclimatisation different instruments wer
 
 \todo{check how to align this table properly}
 
-%**********************************% First subsection  *************************************
+%**********************************% Subsection 4.1.1  *************************************
 \subsection{Instruments setup}
 \label{section4.1.1}
 
@@ -54,7 +54,7 @@ First, iPG data were from the left arm of all assistants. However, this measurem
 
 \begin{align}
 \label{eq:Volume}
-V_e =\frac{l(C_1^2+C_1 C_2 + C_2^2)}{(12\pi)}
+V_e =\frac{l \times (C_1^2+C_1 \times C_2 + C_2^2)}{(12 \times \pi)}
 \end{align}
 
 where $V_e$ is segment's volume, $l$ is the length between sensing electrodes, $C_1$ is the circumference of elbow's electrode and $C_2$ is the circumference of wrist's electrode.
@@ -151,7 +151,7 @@ Finally, the last \SI{5}{\min} of baseline waveforms were recorded to study the 
 
 Once data were stored in the local LVM file, it was post-processed in Matlab~\cite{MATLAB:2016}. In detail, a GUI Matlab program was created capable of comparing signals, apply filters, find peaks and windowed sections of data. A front-end of the application can be seen in Fig. xxx.
 
-\todo{Create an image about the front-end of matlab}
+\todo{Create an image about the front-end of Matlab}
 
 First, in the beginning, it was required to import LVM file structure into Matlab. Due to the LVM file contained unwanted headers a reading text command could not parse the data into Matlab easily. Moreover, sampling at \SI{1}{\kilo\hertz} created files of approximately \SI{300}{MB}. Importing this file size terribly slowed down the workstation. For this reason, while importing into Matlab, data was decimated in a magnitude of ten. Consequently, each physiological waveform was reduced to less than \SI{1}{MB} of size. After all, having files of this extent improved processing speed and used fewer resources. 
 
@@ -170,7 +170,7 @@ As soon as decimated data was imported into Matlab, the parsing program converte
 When importing data into the GUI program is needed to convert data into meaningful scales. All physiological data described in section \ref{section4.1.1} coming from the devices were in volts. Some data need conversions such as iPG, ultrasound and laser Doppler flowmetry.
 
 
-\subsubsection{Obtaining impedance value}
+\subsubsection{Obtaining the impedance value}
 Impedance plethysmography signals needed to be converted from volts into current and impedance respectively. The iPG device provides a channel for current sense $(V_{IDC})$, which corresponds to the peak voltage value of the current being delivered by the instrument. This value can be calculated by knowing the gain of the different stages of the circuits. First, according to the circuit schematic current is being sensed by a \SI{10}{\ohm} resistor $(R_x)$. Then, this signal is amplified by an In-Amp which gain $(G_1)$ was 276. Following this stage, the signal is halved by a half-wave rectifier. Later, this wave is fully rectified using a peak detection circuit. In the final analysis, the current value can be calculated using equation \ref{eq:current}
 
 \begin{align}
@@ -214,7 +214,8 @@ Likewise, the impedance value of the dynamic signal can be calculated using ohm'
 Z_{iPG}=\frac{v}{i} = \frac{V_{iPG}}{I}
 \end{align}
 
-\subsubsection{Ultrasound conversion}
+\subsubsection{Converting ultrasound to flow}
+\label{sectionUD}
 The instrument used in this study was a Huntleigh model MD2 with sensor type VP8. The frequency of the transmitter is \SI{8}{\mega\hertz} which is ideal for blood flow estimation. The principle of this device relates to the frequency of a source to its velocity relative to a sensor~\cite{surgeonhand2002Hand}.  In other words, if an electromagnetic wave is transmitted at a fixed frequency and is reflected by a moving body, then the frequency of the received signal will be shifted~\cite{ht:MD2}.  
 
 The device can detect moving blood cells within a vessel.  When a cell passes through the electromagnetic beam a frequency shift occurs, which is proportional to the blood flow velocity. Nevertheless, the Doppler shift is also affected by the angle of the head of the probe and the direction of the flow.
@@ -223,7 +224,7 @@ Because average velocities found in the human body are within the audible freque
 
 \begin{align}
 \label{eq:fshift}
-f_s = \frac{V_{UD} \times 8 KHz}{3.5V}
+f_D = \frac{V_{UD} \times 8 KHz}{3.5V}
 \end{align}  
 
 where $V_{UD}$ is the analogue output voltage of the instrument. 
@@ -235,7 +236,7 @@ According to the Doppler equation described in \ref{eq:doppler}, it is possible 
 v = \frac{f_D \times C}{2 f_O \times Cos(\theta)}
 \end{align}
 
-where $f_D$ is the Doppler frequency, $C$ is the speed of the sound, $f_0$ is the oscillation frequency of the Doppler instrument and $\theta$ the angle between the ultrasound sensor and the target vessel.
+where $f_D$ is the Doppler frequency, $C$ is the speed of the sound assumed to be \SI{1540}{\meter\per\sec}, $f_0$ is the oscillation frequency of the Doppler instrument in this case \SI{8}{\mega\hertz} and $\theta$ the angle between the ultrasound sensor and the target vessel which is \SI{45}{\degree}.
 
 This angle position was locked using a holster and a grabber. The angle was calculated using the midpoint of a \SI{90}{\degree} angle. Nevertheless, this is one of the shortcomings of this method. The angle can be estimated according to the position sensor's case but not to the surface of the crystal of the sensor. There is an incident error that can not be quantified easily. However, for the event of this study, it was assumed that the angle is \SI{45}{\degree}.
 
@@ -248,9 +249,23 @@ Now the blood flow can be computed by converting velocity to flow if the cross s
 \dot{Q} = v \times A
 \end{align}
 
-where \dot{Q} is flow, $v$ is the velocity of the blood cell and $A$ the cross-sectional area of the radial artery.
+where $\dot{Q}$ is flow, $v$ is the velocity of the blood cell and $A$ the cross-sectional area of the radial artery.
 
-However, blood flow can be estimated by using averages cross-sectional area of radial arteries in the population. A study has been found that males have slight larger radial arteries than females $(2.3 \pm 0.39 and 2.11 \pm 0.29 respectively)$~\cite{ashraf2010size}. These dimensions were used to calculated the blood flow in the present experiment.
+However, blood flow can be estimated by using averages cross-sectional area of radial arteries in the population. A study has been found that males have slight larger radial arteries diammeter than females ($2.3 \pm 0.39 mm$ and $2.11 \pm 0.29 mm$ respectively)~\cite{ashraf2010size}. These dimensions were used to calculated the blood flow in the present experiment.
+
+\subsubsection{Converting LDF}
+The Laser Doppler Flowmetry device utilised in the study was the xxx
+\todo{Confirm the model of the LDF device}. LDF is a non-invasive optical method to estimate the blood perfusion in the microcirculation. This device uses the same Doppler principle as described in section \ref{sectionUD} but instead of sound a beam of light is the source. Similarly, when red blood cell scatters a light of beam, it produces a frequency shift~\cite{fredriksson2007laser}. 
+
+LDF produces a blood perfusion signal that is comparable to the RBC perfusion or also known as flux. The units of this measurement are Blood Perfusion Unit (BPU) which is an arbitrary unit scale. BPU is the product of the mean number of moving blood cells in the small volume under the probe and the average velocity of moving blood cells. 
+
+This instrument provides an output port that allows exporting the waveform. This connector provides a signal between \SIrange{0}{5}{\volt} which varies according to the flux signal. The configuration menu allows modifying the output scale. It provides three steps at top limit of \SIlist{1000;500;100}{BPU} output for \SI{5}{\volt}. The measurements taken in this study showed being below \SI{100}{BPU}. Hence, using equation \ref{eq:BPU} converts the output voltage into BPU's.
+
+\begin{align}
+\label{eq:BPU}
+BPU =  \frac{V_{BPU} \times 100}{5 V}
+\end{align}
+
 
 %********************************** % Swction section 4.2.2******************************************
 \subsection{Digital filtering}
@@ -258,7 +273,7 @@ However, blood flow can be estimated by using averages cross-sectional area of r
 
 The signals obtained from the devices contained variable sources of noise. For instance: respiration, mains noise, motion, high-frequency noise from the iPG current source (\SI{30}{\kilo\hertz}). To remove these sources of different noise filters were designed in Matlab for post-processing. The command \textit{designfilt} can create a variety type of filters. In the GUI any user can apply any filter on demand to any signal available. Table \ref{table:filters} overview the filters designed available for processing the waveforms. 
 
-\begin{table}
+\begin{table}[b]
 \caption{Filters available from the GUI}
 \centering
 \label{table:filters}
@@ -287,6 +302,11 @@ Similar processing is viable with the PPG signals. From the DC signal is feasibl
 
 In general, low-pass filters are useful to remove mains noise and high-frequency noises. Band-stop filters eliminate specific noise such as motion artefact and respiration but still DC is needed. A characteristic of this kind of noise is that is low frequency and usually below heart rate frequency. High-pass filters are practical to remove DC signals but still keeping high-frequency characteristics.
 
+%********************************** % Section 4.3 ******************************************
+\subsection{Converting Impedance to Volume and Flow}
+\label{section4.3}
+
+
 %********************************** %Nomenclature found  *************************************
 \nomenclature[z-ecg]{ECG}{Electrocardiography}
 \nomenclature[z-ppg]{PPG}{Photoplethysmography}
@@ -297,3 +317,5 @@ In general, low-pass filters are useful to remove mains noise and high-frequency
 \nomenclature[z-gui]{GUI}{Graphic User Interface}
 \nomenclature[z-iir]{IIR}{Infinite Impulse Response}
 \nomenclature[z-c]{C}{Speed of sound}
+\nomenclature[z-ldf]{LDF}{Laser Doppler Flowmetry}
+\nomenclature[z-bpu]{BPU}{Blood Perfusion Unit}
