@@ -97,6 +97,16 @@
 \usepackage{siunitx} % use this package module for SI units
 \DeclareSIUnit{\sample}{S}
 
+%Definition of tagaddtext for the units in the equation
+\makeatletter
+\providecommand\add@text{}
+\newcommand\tagaddtext[1]{%
+	\gdef\add@text{#1\gdef\add@text{}}}% 
+\renewcommand\tagform@[1]{%
+	\maketag@@@{\llap{\add@text\quad}(\ignorespaces#1\unskip\@@italiccorr)}%
+}
+\makeatother
+
 % ************************ Support th notation *********************************
 \usepackage[super]{nth}						% Support for the number notation
 
