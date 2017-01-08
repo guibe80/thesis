@@ -4,6 +4,7 @@
 %*******************************************************************************
 
 \chapter{Experimental Procedure}  %Title of the First Chapter
+\label{chapterprocedure}
 
 \ifpdf
     \graphicspath{{Chapter4/Figs/Raster/}{Chapter4/Figs/PDF/}{Chapter4/Figs/}}
@@ -28,20 +29,15 @@ After filling paperwork and completing acclimatisation different instruments wer
 	\caption{Instruments used during the study and function}
 	\centering
 	\label{table:instruments}
-	\begin{tabular}{ccp{4.5cm}}
+	\begin{tabu}{ccp{4.5cm}}
 		\hline 
-		\textbf{Instrument} & \textbf{Method} & \textbf{Measurement} \\ 
-		\hline 
-		ECG & Sense of electrical charges in heart & Electrocardiogram \\ 
-		\hline 
-		PPG & Optical & Measurement of changes of volume in vascular bed \\ 
-		\hline 
-		LDF & Optical & Measurement flow in capillary bed (Cell level) \\ 
-		\hline 
-		iPG & Electrical & Measurement of changes of volume in a segment \\ 
-		Doppler Ultrasound & Electromagnetic & Measurement of flow speed \\ 
-		\hline 
-	\end{tabular}  
+		\textbf{Instrument} & \textbf{Method} & \textbf{Measurement} \\\tabucline[2pt]{-}
+		ECG & Sense of electrical charges in heart & Electrocardiogram \\\hline 
+		PPG & Optical & Measurement of changes of volume in vascular bed \\\hline 
+		LDF & Optical & Measurement flow in capillary bed (Cell level) \\\hline 
+		iPG & Electrical & Measurement of changes of volume in a segment \\\hline
+		Doppler Ultrasound & Electromagnetic & Measurement of flow speed \\\hline 
+	\end{tabu}  
 \end{table}
 
 \todo{check how to align this table properly}
@@ -54,7 +50,7 @@ First, iPG data were from the left arm of all assistants. However, this measurem
 
 \begin{align}
 	\label{eq:v_e}
-	V_e =\frac{l \times (C_1^2+C_1 \times C_2 + C_2^2)}{(12 \times \pi)}
+	V_e =\frac{l \times (C_1^2+C_1 \times C_2 + C_2^2)}{(12 \times \pi)} \tagaddtext{[\si{\cubic\centi\meter}]}
 \end{align}
 
 where $V_e$ is segment's volume, $l$ is the length between sensing electrodes, $C_1$ is the circumference of elbow's electrode and $C_2$ is the circumference of wrist's electrode.
@@ -126,7 +122,7 @@ The second class of blood flow restriction was partial arterial occlusion. This 
 
 \begin{align}
 	\label{eq:meanpressure}
-	P_m = \frac{P_d + P_s}{2}
+	P_m = \frac{P_d + P_s}{2} \tagaddtext{[\si{\mmHg}]}
 \end{align}
 
 where $P_d$ is diastolic pressure and $P_s$ is systolic pressure. 
@@ -139,7 +135,7 @@ At this point, as soon as all the instruments were operating successfully a smal
 
 As soon as all signals were readable and free of noise, the start button of the VI was pushed to initiate the study. In the beginning, \SI{5}{\min} of baseline recordings were obtained. These waveforms provided the standard control wave to compare with occluded waveforms. Then, as soon as the timer reached this time the cuff was inflated rapidly at \SI{20}{\mmHg} below diastolic pressure. Therefore, producing venous occlusion and swelling the forearm. This level of blockage was held for \SI{3}{\min} followed by a swift cuff's deflation. 
 
-Similarly, it was required repeating the procedure with partial arterial occlusion. As found in the litreature, after an occlusion happens \SI{5}{\min} are needed to restore blood pressure. For this reason, cuff's air valve was left open bleeding all the air contained inside. After this period, the cuff was quickly inflated again until reaching the pressure calculate in equation \ref{eq:meanpressure}. The cuff's pressure was maintained at this level for \SI{3}{\min} proceeded by a quick pressure release. 
+Similarly, it was required repeating the procedure with partial arterial occlusion. As found in the literature, after an occlusion happens \SI{5}{\min} are needed to restore blood pressure. For this reason, cuff's air valve was left open bleeding all the air contained inside. After this period, the cuff was quickly inflated again until reaching the pressure calculate in equation \ref{eq:meanpressure}. The cuff's pressure was maintained at this level for \SI{3}{\min} proceeded by a quick pressure release. 
 
 Last, for the purpose of total blood occlusion a similar method, was applied as before. One more time, \SI{5}{\min} of baseline waveforms were taken followed by a fleet cuff inflation to \SI{20}{\mmHg} above diastolic pressure. This compression was kept for \SI{3}{\min}. At this point, maintaining this crushing effect can be painful after a couple of minutes. As a result, some of the helpers ended up re-accommodating and producing motion artefacts. 
 
@@ -169,13 +165,14 @@ As soon as decimated data was imported into Matlab, the parsing program converte
 
 When importing data into the GUI program is needed to convert data into meaningful scales. All physiological data described in section \ref{section4.1.1} coming from the devices were in volts. Some data need conversions such as iPG, ultrasound and laser Doppler flowmetry.
 
+\todo{Add a section describing how the wave was extracted and converted into redeable values. The algorithm used for this}
 
 \subsubsection{Obtaining the impedance value}
 Impedance plethysmography signals needed to be converted from volts into current and impedance respectively. The iPG device provides a channel for current sense $(V_{IDC})$, which corresponds to the peak voltage value of the current being delivered by the instrument. This value can be calculated by knowing the gain of the different stages of the circuits. First, according to the circuit schematic current is being sensed by a \SI{10}{\ohm} resistor $(R_x)$. Then, this signal is amplified by an In-Amp which gain $(G_1)$ was 276. Following this stage, the signal is halved by a half-wave rectifier. Later, this wave is fully rectified using a peak detection circuit. In the final analysis, the current value can be calculated using equation \ref{eq:current}
 
 \begin{align}
 	\label{eq:current}
-	I = \frac{V_{IDC} \times 2}{R_x \times G_1} = \frac{V_{IDC} \times 2}{276 \times\ 10 \Omega} = \frac{V_{IDC}}{1380}
+	I = \frac{V_{IDC} \times 2}{R_x \times G_1} = \frac{V_{IDC} \times 2}{276 \times\ 10 \Omega} = \frac{V_{IDC}}{1380 \Omega} \tagaddtext{[\si{\ampere}]}
 \end{align}
 
 \todo{add a reference toward the design of the device about the kind of data that ports provide. Current, AC and DC.}
@@ -188,21 +185,21 @@ From the second channel $(V_{ZDC}$ of the iPG device the voltage coming from thi
 
 \begin{align}
 	\label{eq:vzdc}
-	V_z = \frac{V_{ZDC} \times 2}{35.65}
+	V_z = \frac{V_{ZDC} \times 2}{35.65} \tagaddtext{[\si{\volt}]}
 \end{align}
 
 Finally, the impedance value can be computed by converting the voltage into impedance using ohm's law. This can be achieved by replacing equation \ref{eq:current} and \ref{eq:vzdc} into \ref{eq:impedance}.
 
 \begin{align}
 	\label{eq:impedance}
-	Z = \frac{v}{i}=\frac{V_z}{I}
+	Z = \frac{v}{i}=\frac{V_z}{I} \tagaddtext{[\si{\ohm}]}
 \end{align}
 
 The third channel of the iPG device is the plethysmography waveform $V_{ZAC}$. This wave is an amplified version of the analogue signal contained within $V_{ZDC}$. Analysing signal's path, it can be noticed that two different circuits process the waveform. First, the signal comes from $V_{ZDC}$, meaning that the gain of IA-xxx also affects the signal $V_{ZAC}$. Following the circuit, the signal is filtered by a band-pass filter described in section 3.1.6. This filter has a gain in DC of 142.42. Then, the voltage of the plethysmography wave can be found by combining both gains. The calculation can be performed with equation \ref{eq:ViPG}.
 
 \begin{align}
 	\label{eq:ViPG}
-	V_{iPG} = \frac{V_{ZAC} \times 2}{142.42 \times 35.65}=\frac{V_{ZAC}}{2538.66}
+	V_{iPG} = \frac{V_{ZAC} \times 2}{142.42 \times 35.65}=\frac{V_{ZAC}}{2538.66} \tagaddtext{[\si{\volt}]}
 \end{align}
 
 \todo{create a label and a link to the section 3.1.6}
@@ -211,7 +208,7 @@ Likewise, the impedance value of the dynamic signal can be calculated using ohm'
 
 \begin{align}
 	\label{eq:zipg}
-	Z_{iPG}=\frac{v}{i} = \frac{V_{iPG}}{I}
+	Z_{iPG}=\frac{v}{i} = \frac{V_{iPG}}{I} \tagaddtext{[\si{\ohm}]}
 \end{align}
 
 \subsubsection{Converting ultrasound to flow}
@@ -224,7 +221,7 @@ Because average velocities found in the human body are within the audible freque
 
 \begin{align}
 	\label{eq:fshift}
-	f_D = \frac{V_{UD} \times 8 KHz}{3.5V}
+	f_D = \frac{V_{UD} \times 8 KHz}{3.5V} \tagaddtext{[\si{\hertz}]}
 \end{align}  
 
 where $V_{UD}$ is the analogue output voltage of the instrument. 
@@ -233,7 +230,7 @@ According to the Doppler equation described in \ref{eq:doppler}, it is possible 
 
 \begin{align}
 	\label{eq:doppler}
-	v = \frac{f_D \times C}{2 f_O \times Cos(\theta)}
+	v = \frac{f_D \times C}{2 f_O \times Cos(\theta)} \tagaddtext{[\si{\meter\per\second}]}
 \end{align}
 
 where $f_D$ is the Doppler frequency, $C$ is the speed of sound assumed to be \SI{1540}{\meter\per\sec}, $f_0$ is the oscillation frequency of the Doppler instrument in this case \SI{8}{\mega\hertz} and $\theta$ the angle between the ultrasound sensor and the target vessel which is \SI{45}{\degree}.
@@ -246,7 +243,7 @@ Now the blood flow can be computed by converting velocity to flow if the cross s
 
 \begin{align}
 	\label{eq:flow}
-	\dot{Q} = v \times A
+	\dot{Q} = v \times A \tagaddtext{[\si{\cubic\meter\per\second}]}
 \end{align}
 
 where $\dot{Q}$ is flow, $v$ is the velocity of the blood cell and $A$ the cross-sectional area of the radial artery.
@@ -302,11 +299,13 @@ Similar processing is viable with the PPG signals. From the DC signal is feasibl
 
 In general, low-pass filters are useful to remove mains noise and high-frequency noises. Band-stop filters eliminate specific noise such as motion artefact and respiration but still DC is needed. A characteristic of this kind of noise is that is low frequency and usually below heart rate frequency. High-pass filters are practical to remove DC signals but still keeping high-frequency characteristics.
 
+\todo{Add section describing how the signals were referenced to zero using the method}
+
 %********************************** % Section 4.3 ******************************************
 \section{Converting Impedance to Volume and Flow}
 \label{section4.3}
 
-After the conversion of impedance from volts, it is possible to compute changes volume and flow. Chapter \ref{chapter3} describes in depth the governing equations. Also, the analysis of the impedance plethysmography waveform will provide further data of the blood's haemodynamics. Such as the relation between systole and diastole cycles with the iPG signal.
+After the conversion of impedance from volts, it is possible to compute changes volume and flow. Chapter \ref{chapterdesign} describes in depth the governing equations. Also, the analysis of the impedance plethysmography waveform will provide further data of the blood's haemodynamics. Such as the relation between systole and diastole cycles with the iPG signal.
 
 First, as explained in equation \ref{eq:dvdr} changes of impedances are equivalent to a fluctuation of volume.  The impedance calculated from equations \ref{eq:impedance} and \ref{eq:zipg} is the information needed to put into this Nyober's equation.
 
@@ -336,7 +335,7 @@ The blood flow can be estimated from the basal impedance values, in the case of 
 	\frac{\Delta V}{\Delta t}= \rho \frac{l^2}{R_B^2} \times \frac{\Delta R}{\Delta t}
 \end{align} 
 
-Making these values more meaningful, they need to be converted in a time interval per minutes. Also, the limb blood flow should be expressed in units of \si{\milli\litre} per \SI{100}{\milli\litre} of limb section. In this case, the equation can be declared as \ref{eq:QL}.
+Making these values more meaningful, they need to be converted in a time interval per minutes. As well as, the limb blood flow should be expressed in units of \si{\milli\litre} per \SI{100}{\milli\litre} of limb section. In this case, the equation can be declared as \ref{eq:QL}.
 
 \begin{align}
 	\label{eq:QL}
@@ -368,14 +367,14 @@ Now that all the points of interest are identifiable in the waveform, it is poss
 
 \begin{align}
 	\label{eq:RB}
-	R_B = \frac{R_{M1}+R_{M5}}{2}
+	R_B = \frac{R_{M1}+R_{M5}}{2} \tagaddtext{[\si{\Omega}]}
 \end{align}
 
 Then, it is needed to extrapolate the reference points from the iPG pulse given by the Nyober back-projection~\cite{montgomery2011segmental} using equation \ref{eq:exht}. This value is equivalent to $dR/dt$ required by equation \ref{eq:dvdr}.
 
 \begin{align}
 	\label{eq:exht}
-	EXHT = (R_{M3}-R_{M1}) + \frac{(t_{M3}-t_{M1})(R_{M2}-R_{M3})}{t_{M3}-t_{M2}}
+	EXHT = (R_{M3}-R_{M1}) + \frac{(t_{M3}-t_{M1})(R_{M2}-R_{M3})}{t_{M3}-t_{M2}} \tagaddtext{[\si{\Omega}]}
 \end{align}
 
 The heart rate is also important to provide meaningful units to the measurements. Using the time difference during an iPG pulse is possible to obtain the HR as shown by equation \ref{eq:hr}, which units are beats per minute.
@@ -385,7 +384,7 @@ The heart rate is also important to provide meaningful units to the measurements
 	HR = \frac{60}{(t_{M5}-t_{M1})}  \tagaddtext{[\si{bpm}]}
 \end{align}
 
-Next replacing $EXHT$ and $HR$ from equations \ref{eq:RB} and \ref{eq:exht} respectively, into Nyober's equation (see \ref{eq:Volume}) is possible to calculate the blood flow. However, computing it as blood flow with units (\si{\milli\litre\per\minute}), the HR must be included in the equation. In the end, Nyober's equation can be re-written as \ref{eq:bf}. 
+Next replacing $EXHT$ and $HR$ from equations \ref{eq:RB} and \ref{eq:exht} respectively, into Nyober's equation (see \ref{eq:Nyober}) is possible to calculate the blood flow. However, computing it as blood flow with units (\si{\milli\litre\per\minute}), the HR must be included in the equation. In the end, Nyober's equation can be re-written as \ref{eq:bf}. 
 
 \begin{align}
 	\label{eq:bf}
@@ -398,17 +397,54 @@ Blood flow could also be noted as the blood flow per total arm segment volume fo
 
 \begin{align}
 	\label{eq:bfve}
-	BFVE = \frac{BF}{V_e} \times 1000ml \tagaddtext{[\si{\ml / \min.\liter}]}
+	BFVE = \frac{BF}{V_e} \times \text{1000 ml} \tagaddtext{[\si{\ml / \min.\litre}]}
 \end{align}
 
-where BFVE is the blood flow per litre of volume \si{\milli\litre\per\min.\liter} , BF is the blood flow found in \ref{eq:bf}, $V_e$ is the forearm's segment volume in \si{\cubic\centi\meter} from equation \ref{eq:v_e} and \SI{1000}{ml} is the scaling factor to convert the volume into litre.
+where BFVE is the blood flow per litre of volume \si{\milli\litre\per\min.\litre} , BF is the blood flow found in \ref{eq:bf}, $V_e$ is the forearm's segment volume in \si{\cubic\centi\meter} from equation \ref{eq:v_e} and \SI{1000}{ml} is the scaling factor to convert the volume into litre.
 
 Lastly, it is possible computing the blood flow of \SI{100}{\milli\litre} of tissue.  It can be obtained as the blood flow of the whole segment by \SI{100}{\milli\litre} of volume. Hence, the equation \ref{eq:bfpct} provides the blood flow in the units of interest. 
 
 \begin{align}
 	\label{eq:bfpct}
-	BF_{100ml} = \frac{BF}{V_e} \times 100ml \tagaddtext{[\si{ml/min.100.ml}]}
+	BF_{100ml} = \frac{BF}{V_e} \times \text{100 ml} \tagaddtext{[\si{ml/min.100.ml}]}
 \end{align}
+%********************************** % Section 4.3.3 ******************************************
+
+\subsection{Additional haemodynamic parameters analysis beat by beat}
+\label{section4.3.3}
+From the landmarks detected in the data, additional haemodynamic parameters are deductible. Three reference points within each pulse can provide rheographic information. The first one is the rheographic index of the pulse volume, which is obtained from the peak value of the systolic section of the plethysmography waveform $R_{M2}$ in impedimetric form. It provides information about the height of the peak compared to the baseline of the waveform. It can be calculated using equation \ref{eq:A}.
+
+\begin{align}
+	\label{eq:A}
+	A = R_{M2} - \frac{(t_{M2}-t_{M1}) \times ((R_{M5}-R_{M1})}{((t_{M5}-t_{M1})} \tagaddtext{[\si{\ohm}]}
+\end{align}
+
+Similar data can be obtained by analysing the dicrotic notch reference points. Using these points the height of the plethysmography waveform at these points is also calculated. These index points will prove valuable when analysing the waveform during venous and partial arterial occlusions. The points B and C can be calculated using equations \ref{eq:B} and \ref{eq:C} respectively.  
+
+\begin{align}
+	\label{eq:B}
+	B = R_{M3} - \frac{(t_{M3}-t_{M1}) \times ((R_{M5}-R_{M1})}{((t_{M5}-t_{M1})} \tagaddtext{[\si{\ohm}]}
+\end{align}
+
+\begin{align}
+	\label{eq:C}
+	C = R_{M4} - \frac{(t_{M4}-t_{M1}) \times ((R_{M5}-R_{M1})}{((t_{M5}-t_{M1})} \tagaddtext{[\si{\ohm}]}
+\end{align}
+
+By combining the previous indexes is viable to calculate ratios against the peak at index $A$. When compared $C/A$ will provide information about the arteriolar tone. Likewise, $B/A$ contains clue about the venular tone. These values represent the percentage in ohms between those reference points. In the results section, these values are labelled $DCI$ for arteriolar tone and $DSI$ for venular tone.
+
+\todo{Find information about arteriolar and venular tone. Add information about it in the literature review}
+
+Also, the area under the curve during the arterial and venous cycle can be computed. Calculating the integral value from $t_{M1}$ to $t_{M3}$ provides the full contribution of the arterial process during the cycle. The area under the curve between $t_{M3}$ to $t_{M5}$ produces the input of the venous reporting period. From the mathematical point of view, these can be calculated using equations \ref{eq:ST}.
+
+\begin{align}
+	\label{eq:ST}
+	ST_1 = \int_{t_{M1}}^{t_{M2}} f(Z) dZ \quad and \quad ST_2 = \int_{t_{M3}}^{t_{M5}} f(Z) dZ 
+\end{align}
+
+This computational work was performed in Matlab using the command \textit{''trapz''}. This code performs the trapezoidal numerical integration within the time intervals described previously. Returning the area under the curve in ohms.
+
+
 
 %********************************** %Nomenclature found  *************************************
 \nomenclature[z-ecg]{ECG}{Electrocardiography}

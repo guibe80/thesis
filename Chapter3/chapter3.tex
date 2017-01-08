@@ -4,7 +4,7 @@
 %*******************************************************************************
 
 \chapter{Design of impedance plethysmography device}
-\label{chapter3}
+\label{chapterdesign}
 
 \ifpdf
     \graphicspath{{Chapter3/Figs/Raster/}{Chapter3/Figs/PDF/}{Chapter3/Figs/}}
@@ -29,8 +29,8 @@ R_B=\frac{R_N R_0}{R_0-R_N} \approx \frac{R^2_0}{\Delta R}
 where $R_0$ is equivalent to the original resistance and $R_N$ represents the increase of new total resistance. The denominator $R_0 - R_N$ is equal to $R$, peers with the change of impedance caused by blood volume expansion during the heart cycle. From this, the author deducted the following governing equation. That shows that proportional increment of blood volume uniformly distributed within a cylindrical segment can be derived from the equation of the volume of a cylindrical conductor:
 
 \begin{align}
-\label{eq:Volume}
-V_B = \rho \frac{l^2}{R_B}
+ \label{eq:Nyober}
+ V_B = \rho \frac{l^2}{R_B}
 \end{align}
 
 where $\rho$ is blood's resistivity, $l$ is the distance between measuring electrodes, and $R_B$ is the impedance value described previously as the parallel value of resistances.
@@ -93,16 +93,16 @@ There are two kinds of impedance plethysmography method according to the electro
 Electrodes location was based on the closeness to the main blood vessel and were placed as shown in Figure~\ref{fig:electrode}. According to the arm anatomy, the radial artery is the proper site to use for one of the current electrodes. The other was placed close to the brachial artery, being the elbow region the most accessible area. The sensing electrodes were placed right on the elbow where is the nearest point to the brachial artery that is connected to the radial artery forming the ideal loop to detect changed in impedance $\Delta Z$. 
 
 \begin{figure}
-    \label{fig:electrode}
     \caption{Electrode placement in forearm}
+    \label{fig:electrode}
     \dummyfig{Electrode placement in forearm} 
 \end{figure}
 
 The proposed system can be subdivided into two different sections, front–end which is the part of the device that interacts directly with the limb under test and the back–end that performs the wave generation, signal conditioning, computational calculation, and data representation. The following image shows the block diagram of the proposed device.
 
 \begin{figure}
-    \label{fig:block}
     \caption{Block diagram of impedance plethysmography device}
+    \label{fig:block}
     \dummyfig{Block diagram} 
 \end{figure}
 
