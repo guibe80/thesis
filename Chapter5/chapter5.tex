@@ -1,9 +1,9 @@
 %!TEX root = ../thesis.tex
 %*******************************************************************************
-%*********************************** Fifth Chapter *****************************
+%*********************************** First Chapter *****************************
 %*******************************************************************************
 
-\chapter{Results}  %Title of the fifth Chapter
+\chapter{Results}  %Title of the First Chapter
 \label{chapterresults}
 
 \ifpdf
@@ -44,17 +44,16 @@ The device was able to detect the forearm's segment impedance quite remarkably. 
 	\label{tbl:basal_impedace:region1}
 	\centering
 	\begin{tabu}{ccccc}
-		\hline 
-		& \textbf{Mean} & \textbf{Variance} & \textbf{Maximum} & \textbf{Minimum} \\\tabucline[2pt]{-}
-		Participant 1  &  \SI{77.594}{\ohm}  &   \SI{\pm0.02752}{\ohm}  &   \SI{77.374}{\ohm}  &  \SI{78.038}{\ohm}  \\
-		Participant 2  &  \SI{96.968}{\ohm}  &   \SI{\pm0.00815}{\ohm}  &   \SI{96.761}{\ohm}  &  \SI{97.175}{\ohm}  \\
-		Participant 3  &  \SI{93.537}{\ohm}  &   \SI{\pm0.255}{\ohm}    &   \SI{92.436}{\ohm}  &  \SI{94.063}{\ohm}  \\
-		Participant 4  &  \SI{63.437}{\ohm}  &   \SI{\pm0.03548}{\ohm}  &   \SI{63.021}{\ohm}  &  \SI{63.765}{\ohm}  \\
-		Participant 5  &  \SI{69.974}{\ohm}  &   \SI{\pm0.02730}{\ohm}  &   \SI{69.562}{\ohm}  &  \SI{70.198}{\ohm}  \\
-		Participant 6  &  \SI{57.684}{\ohm}  &   \SI{\pm0.02798}{\ohm}  &   \SI{57.334}{\ohm}  &  \SI{58.206}{\ohm}  \\
-		Participant 7  &  \SI{94.719}{\ohm}  &   \SI{\pm0.05637}{\ohm}  &   \SI{94.270}{\ohm}  &  \SI{95.053}{\ohm}  \\
-		Participant 8  &  \SI{80.038}{\ohm}  &   \SI{\pm0.01250}{\ohm}  &   \SI{79.824}{\ohm}  &  \SI{80.303}{\ohm}  \\
-		\hline 
+		\hline
+		&   \textbf{Mean}   &   \textbf{Variance}   & \textbf{Maximum}  & \textbf{Minimum}  \\ \tabucline[2pt]{-}
+		Participant 1 & \SI{77.594}{\ohm} & \SI{\pm0.02752}{\ohm} & \SI{77.374}{\ohm} & \SI{78.038}{\ohm} \\
+		Participant 2 & \SI{96.968}{\ohm} & \SI{\pm0.00815}{\ohm} & \SI{96.761}{\ohm} & \SI{97.175}{\ohm} \\
+		Participant 3 & \SI{93.537}{\ohm} &  \SI{\pm0.255}{\ohm}  & \SI{92.436}{\ohm} & \SI{94.063}{\ohm} \\
+		Participant 4 & \SI{63.437}{\ohm} & \SI{\pm0.03548}{\ohm} & \SI{63.021}{\ohm} & \SI{63.765}{\ohm} \\
+		Participant 5 & \SI{69.974}{\ohm} & \SI{\pm0.02730}{\ohm} & \SI{69.562}{\ohm} & \SI{70.198}{\ohm} \\
+		Participant 6 & \SI{57.684}{\ohm} & \SI{\pm0.02798}{\ohm} & \SI{57.334}{\ohm} & \SI{58.206}{\ohm} \\
+		Participant 7 & \SI{94.719}{\ohm} & \SI{\pm0.05637}{\ohm} & \SI{94.270}{\ohm} & \SI{95.053}{\ohm} \\
+		Participant 8 & \SI{80.038}{\ohm} & \SI{\pm0.01250}{\ohm} & \SI{79.824}{\ohm} & \SI{80.303}{\ohm} \\ \hline
 	\end{tabu} 
 \end{table}    
 
@@ -81,10 +80,37 @@ There are different aspects of the geometry that could affect the impedance read
 
 \subsection{Impedance during venous occlusion}
 \label{section5.1.2}
-During the following three minutes after the impedance venous occlusion occurred. As it can be seen in figure \ref{fig:rb:all_participants} all the participants experienced a decrease in basal impedance during this time. Most of the helpers presented a linear impedance decrease trend during the occlusion. However, some of the measurements were clearly affected by motion artefact. Participants one and six are an example of this. 
+During the following three minutes after the impedance, venous occlusion occurred. As it can be seen in figure \ref{fig:rb:all_participants} all the participants experienced a decrease in basal impedance during this time. Most of the helpers presented a linear impedance decrease trend during the occlusion. However, some of the measurements were clearly affected by motion artefact. Participants one and six are an example of this. 
 
 In participant one, resistance fell off immediately the occlusion occurred. Nevertheless, after a minute the patron moved his arm correcting the trend. Then, impedance continued the trend again. Furthermore,  participant six also showed similar response when the arm moved. 
 
-The following describes how the impedance behaved during the occlusion for each participant. 
+Figure \ref{fig:normalise:venous_occlusion} describes how the impedance behaved during the occlusion for all participants. The graph has been normalised to compare the resistivity reduction.  A linear regression was performed in the data to demonstrate the ratio of change during the occlusion.  
 
+The table \ref{tbl:venous_occlusion:region2} overviews the results obtained from the linear regression. The value $Z_1$ illustrates the value of the impedance as the blockage started and $Z_{end}$ the resistance value at the end of the test.  $\Delta Z$ (mean $-0.63207 \Omega \pm0.068983\Omega$) is the variation of impedance during the \SI{3}{\minute} that the experiment last.  The slope demonstrates how much resistance is changing during each beat  (mean $-0.0027\Omega\pm3.415e^{-6}\Omega$). 
 
+\begin{figure}
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{figure3}    
+	\caption{Normalise plot of impedance decrease during venous occlusion.}
+	\label{fig:normalise:venous_occlusion}
+\end{figure}
+\todo{This figure is temporary. It needs to be improved by naming axis}
+
+\begin{table}
+	\caption{Basal impedance during the first five minutes of data with statistical values.}
+	\label{tbl:venous_occlusion:region2}
+	\centering
+	\begin{tabu}{lcccccc}
+		\hline
+		& \textbf{Slope} & \textbf{Intercept} & \textbf{$R^2$} &  \textbf{$Z_1$}   & \textbf{$Z_{end}$} & \textbf{ $\Delta Z$} \\\tabucline[2pt]{-}
+		Participant 1 &   0.00056996   & \SI{77.021}{\ohm}  &    0.037341    & \SI{77.491}{\ohm} & \SI{77.184}{\ohm}  & \SI{-0.3077}{\ohm}   \\
+		Participant 2 &   -0.0039506   & \SI{98.086}{\ohm}  &    0.86685     & \SI{97.161}{\ohm} & \SI{96.215}{\ohm}  & \SI{-0.9462}{\ohm}   \\
+		Participant 3 &   -0.004214    &  \SI{95.01}{\ohm}  &    0.91715     & \SI{93.474}{\ohm} & \SI{92.894}{\ohm}  & \SI{-0.5807}{\ohm}   \\
+		Participant 4 &   -0.0029575   & \SI{63.956}{\ohm}  &    0.92013     & \SI{63.218}{\ohm} & \SI{62.609}{\ohm}  & \SI{-0.6091}{\ohm}   \\
+		Participant 5 &   -0.0042678   &  \SI{71.26}{\ohm}  &    0.93566     & \SI{70.103}{\ohm} & \SI{69.268}{\ohm}  & \SI{-0.8345}{\ohm}   \\
+		Participant 6 &  -0.00084623   & \SI{57.958}{\ohm}  &    0.32203     & \SI{57.979}{\ohm} & \SI{57.575}{\ohm}  & \SI{-0.4045}{\ohm}   \\
+		Participant 7 &   -0.004271    & \SI{95.418}{\ohm}  &    0.93423     & \SI{94.325}{\ohm} & \SI{93.341}{\ohm}  & \SI{-0.9849}{\ohm}   \\
+		Participant 8 &   -0.0017339   & \SI{80.426}{\ohm}  &    0.75228     & \SI{80.071}{\ohm} & \SI{79.681}{\ohm}  & \SI{-0.3895}{\ohm}   \\ \hline
+	\end{tabu} 
+\end{table}
+
+From the statistical analysis displayed can be concluded the following. First, as it was explained before, the slopes from participants 1 and 6 were affected by the motion artefact. Nevertheless, these trends seemed corrected after one minute of recordings (\SI{360}{\second}). Their slopes were quite far away from the mean value ($-0.0027089 \Omega$). On the other hand, the rest of the signals showed a similar trend. 
