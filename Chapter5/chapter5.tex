@@ -18,6 +18,8 @@ One of the aims of this study was to check how the designed impedance device det
 
 This chapter describes the results obtained from the experimental work. It will show the device capability of detecting impedance baseline signals and plethysmography waveforms. Later, an outline of the numeric results during occlusion will be explained when compared to the additional instruments used during the study. 
 
+
+%********************************** % Section 5.1 ******************************************
 \section{Impedance baseline signal during occlusions}
 \label{section5.1}
 During the experimental procedure, three different level of occlusion occurred during the study. Venous blockage causes a swelling of the forearm by filling of the capillaries below the blockage. During partial arterial occlusion, the incoming arterial flow is restricted causing a slow filling of the forearm. Then, total occlusion eliminates the blood inflow under the obstructed section. 
@@ -33,6 +35,8 @@ Figure \ref{fig:rb:all_participants} shows all the impedance signals of all the 
 \end{figure}
 \todo{This figure is temporary. It needs to be improved by naming axis}
 
+
+%********************************** % Section 5.1.1 ******************************************
 \subsection{Basal impedance}
 \label{section5.1.1}
 The iPG device recorded the impedance during the first five minutes of data logging. As described in the previous chapters\todo{Maybe add a reference of the past chapter}, this signal is composed of the base impedance value and the AC waveform signal that is present with it. Moreover, this mean value is known as basal impedance, which it is equivalent to the value $R_B$ described by Nyober's equation \ref{eq:Nyober}. In other words, it is the value of the impedance before the circulation passes through the potential sensors. It is composed basically of the impedance contribution of bone, muscle, fat, skin and residual blood within the vessels. 
@@ -42,6 +46,7 @@ The device was able to detect the forearm's segment impedance quite remarkably. 
 \begin{table}[b]
 	\caption{Basal impedance during the first five minutes of data with statistical values.}
 	\label{tbl:basal_impedace:region1}
+	\todo{This table shows variance which should be better std. Maybe I should run Matlab with datastats command to get a better result. Check paragraph written for clarity that it shoulde be std and not var.}
 	\centering
 	\begin{tabu}{ccccc}
 		\hline
@@ -57,7 +62,7 @@ The device was able to detect the forearm's segment impedance quite remarkably. 
 	\end{tabu} 
 \end{table}    
 
-There are different aspects of the geometry that could affect the impedance reading. There have been several studies where has been demonstrated how the distance between electrodes affects readings \todo{Add reference to studies impedance vs. length}. In the current study showed that impedance was influenced by the forearm's circumference, as well as the distance between the potential electrodes. Figure \ref{fig:C_vs_Z} indicates that there is an inverse relation between circumference and impedance. The smallest the forearm's circumference higher the resistivity. On the other hand, there is a direct relation between the distance between the potential electrodes and the resistivity of the segment as depicted in \ref{fig:l_vs_Z}.
+There are different aspects of the geometry that could affect the impedance reading. There have been several studies where has been demonstrated how the distance between electrodes affects readings\todo{Add reference to studies impedance vs. length}. In the current study showed that impedance was influenced by the forearm's circumference, as well as the distance between the potential electrodes. Figure \ref{fig:C_vs_Z} indicates that there is an inverse relation between circumference and impedance. The smallest the forearm's circumference higher the resistivity. On the other hand, there is a direct relation between the distance between the potential electrodes and the resistivity of the segment as depicted in \ref{fig:l_vs_Z}.
 
 \begin{figure*}[t!]
 	\centering
@@ -78,6 +83,8 @@ There are different aspects of the geometry that could affect the impedance read
 	\label{fig:relation_geometry_vs_impedance}
 \end{figure*}
 
+
+%********************************** % Section 5.1.2 ******************************************
 \subsection{Impedance during venous occlusion}
 \label{section5.1.2}
 During the following three minutes after the impedance, venous occlusion occurred. As it can be seen in figure \ref{fig:rb:all_participants} all the participants experienced a decrease in basal impedance during this time. Most of the helpers presented a linear impedance decrease trend during the occlusion. However, some of the measurements were clearly affected by motion artefact. Participants one and six are an example of this. 
@@ -89,7 +96,8 @@ Figure \ref{fig:normalise:venous_occlusion} describes how the impedance behaved 
 The table \ref{tbl:venous_occlusion:region2} overviews the results obtained from the linear regression. The value $Z_1$ illustrates the value of the impedance as the blockage started and $Z_{end}$ the resistance value at the end of the test.  $\Delta Z$ (mean $-0.63207 \Omega \pm0.068983\Omega$) is the variation of impedance during the \SI{3}{\minute} that the experiment last.  The slope demonstrates how much resistance is changing during each beat  (mean $-0.0027\Omega\pm3.415e^{-6}\Omega$). 
 
 \begin{figure}
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{figure3}    
+	\centering
+	\includegraphics[width=0.9\textwidth,height=0.9\textheight,keepaspectratio]{figure3}    
 	\caption{Normalise plot of impedance decrease during venous occlusion.}
 	\label{fig:normalise:venous_occlusion}
 \end{figure}
@@ -114,3 +122,44 @@ The table \ref{tbl:venous_occlusion:region2} overviews the results obtained from
 \end{table}
 
 From the statistical analysis displayed can be concluded the following. First, as it was explained before, the slopes from participants 1 and 6 were affected by the motion artefact. Nevertheless, these trends seemed corrected after one minute of recordings (\SI{360}{\second}). Their slopes were quite far away from the mean value ($-0.0027089 \Omega$). On the other hand, the rest of the signals showed a similar trend. 
+
+
+\begin{figure*}
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,trim={0.5cm 0.5cm 2cm 2cm},clip]{figure4}    
+	\caption{Blood flow calculated from venous occlusion plethysmography}
+	\label{fig:blood_flow:venous_occlusion}
+\end{figure*}
+
+%********************************** % Section 5.2 ******************************************
+\section{Blood flow calculation during venous occlusion}
+\label{section5.2}
+Using the method venous occlusion plethysmography is possible to calculate the blood flow in the forearm segment. As it can be seen from figure \ref{fig:blood_flow:venous_occlusion} the data is not dropping in a completely straight line. As a reminder, the occlusion occurred during \SIrange{300}{480}{\second} which is the time lapse showed. There are impedance variations caused by respiration movement contained within the signals, but also some sections are affected by muscle contraction. If the blood flow was computed using point by point method, there would be some discrepancies when the resistivity is increasing. Thus, this will lead to an incorrect reflection of the blood stream. 
+
+As a result, the method described in section xxx was used to calculate the blood flow between decreasing points only. In short, this algorithm finds the peak and valleys of the signal and then computes the blood flow using equation \ref{eq:QL} between those points found. The figure \ref{fig:blood_flow:venous_occlusion} on the left shows the impedance decrease during the occlusion for all participants. The image on also depicts the points from where the algorithm extracted the reference points for its calculations. In this case, the red triangle pointing downwards is equivalent to the base impedance $R_B$ and the black triangle is the ending point of the calculation point. Then $\Delta R / \Delta t$ can be obtained as the difference between these two points in impedance and time. 
+\todo{Add a section describing how the data was treated.} 
+
+In the same figure but on the right, it can be noticed the result of the blood flow calculated in units of \si{\ml / \min 100 \ml}. The blue dots indicate the instant blood flow at the end value of $\Delta R$. The orange line indicates the mean blood flow during measurements. Again, participants 1 and 6 flow estimation is affected by movement producing a mean value far from the majority of the data points. This is confirmed by examining the results summarised on the table \ref{tbl:blood_flow:region2}. The standard deviation $(\sigma_x)$ is quite far compared to the rest of the participants, as well as the minimum value of the data. Therefore, the results of these two participant clearly cannot be expected being accurate. However, if the data sample was a linear section then the calculated flow will be more in agreement with the expected values. 
+
+From this table can be noticed that the calculated blood flow per \SI{100}{\ml} of tissue for all the participants was in average \SI{-295.42}{\ml / \min 100\ml} $\pm$ \SI{113.6}{\ml/\min 100\ml}. 
+
+\begin{table}[t]
+	\caption{Basal impedance during the first five minutes of data with statistical values.}
+	\label{tbl:blood_flow:region2}
+	\centering
+	\begin{tabu}{lcccccc}
+		\hline
+		& \textbf{Number} & \textbf{Median} & \textbf{Mean} & \textbf{$\sigma_x$} & \textbf{Max} & \textbf{Min} \\\hline
+		Participant 1 &       23        &     -489.83     &    -639.54    &       $\pm 569.3$        & -32.627      & -2397        \\
+		Participant 2 &       30        &     -153.91     &    -155.28    &       $\pm73.365$        & -31.604      & -338.89      \\
+		Participant 3 &       31        &     -324.1      &    -331.17    &       $\pm185.71$        & -5.9507      & -801.2       \\
+		Participant 4 &       34        &     -410.72     &    -416.15    &       $\pm261.33$        & -5.6671      & -1081.7      \\
+		Participant 5 &       23        &     -204.15     &    -205.86    &       $\pm116.03$        & -20.893      & -584.95      \\
+		Participant 6 &       29        &     -325.26     &    -691.89    &       $\pm1209.6$        & -42.098      & -4979.7      \\
+		Participant 7 &       25        &     -226.31     &    -241.35    &       $\pm111.71$        & -9.917       & -449.2       \\
+		Participant 8 &       42        &     -229.08     &    -270.98    &       $\pm200.47$        & -27.291      & -1038.1      \\\hline
+	\end{tabu} 
+\end{table}
+
+
+
+
