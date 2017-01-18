@@ -14,17 +14,17 @@
 
 One of the aims of this study was to check how the designed impedance device detects plethysmography signals. Another objective was to verify how what changes in plethysmography waveform are detectable by the instrument. As described in chapter \ref{chapterdesign} the designed device is capable of providing electrical signals comparable to the impedance of the body section. The iPG instrument provides output ports of the current driven into the patient, impedance readings and plethysmography waveform of volume under test. In chapter \ref{chapterprocedure}, these signals were converted from voltage representations into readable units such as impedance values in ohms (\si{\ohm}) and currents (\si{\ampere}. Then, a GUI provided analysis of the signals, as well as post-processing options. Last, the data was converted into measurements of blood flow.
 
-\todo{Maybe to describe in a single line about the experimental procedure}
+\mynote{Maybe to describe in a single line about the experimental procedure}
 
 This chapter describes the results obtained from the experimental work. It will show the device capability of detecting impedance baseline signals and plethysmography waveforms. Later, an outline of the numeric results during occlusion will be explained when compared to the additional instruments used during the study. 
 
-\todo{First report the volume measured and the impedance correlated}
+\mynote{First report the volume measured and the impedance correlated}
 
 
 %%********************************** % Section 5.1 ******************************************
 \section{Physiological measurements}
 \label{section5.1}
-In the beginning of the research, from the participants recruited population characteristics, physiological measurements and blood pressure values were taken \todo{reference to section that includes a figure of the arm with the measurements position}. In total three female and six male took part of the study. Their age were between \SIrange{23}{37}{year-old} (mean $29.12 \pm 4.94$). The table \ref{tbl:physiological} overviews the data and measurements collected from the participants previous the experiment.
+In the beginning of the research, from the participants recruited population characteristics, physiological measurements and blood pressure values were taken \mynote{reference to section that includes a figure of the arm with the measurements position}. In total three female and six male took part of the study. Their age were between \SIrange{23}{37}{year-old} (mean $29.12 \pm 4.94$). The table \ref{tbl:physiological} overviews the data and measurements collected from the participants previous the experiment.
 
 \begin{table}[htbp] %tbl:physiologica
 	\caption{Participants' forearm measurements and initial volume.}
@@ -32,9 +32,9 @@ In the beginning of the research, from the participants recruited population cha
 	\centering
 	\begin{tabular}{lcc|ccc}
 		\toprule
-		              &              &              &         \multicolumn{3}{c}{\textbf{Dimensions [\si{\cm}]}}         \\
-		              & \textbf{Age} & \textbf{Sex} & \textbf{Arm length} & \textbf{Shoulder} & \textbf{Total length} \\
-		              &              &              &                     &  \textbf{to heart}   &  					 \\ \midrule
+		&              &              &         \multicolumn{3}{c}{\textbf{Dimensions [\si{\cm}]}}         \\
+		& \textbf{Age} & \textbf{Sex} & \textbf{Arm length} & \textbf{Shoulder} & \textbf{Total length} \\
+		&              &              &                     &  \textbf{to heart}   &                       \\ \midrule
 		Participant 1 &      26      &     Male     &         80          &          26          &          106          \\
 		Participant 2 &      23      &    Female    &         66          &          24          &          90           \\
 		Participant 3 &      27      &    Female    &         74          &          24          &          98           \\
@@ -46,14 +46,14 @@ In the beginning of the research, from the participants recruited population cha
 	\end{tabular}
 \end{table}
 
-From the sensing electrodes position is possible to estimate the segments volume by measuring the distance between electrodes ($l$), circumference in each electrode (C$_1$ and C$_2$).  This measuring method is not very accurate (see section \todo{Add reference to a section where how measurements were taken}) but at least guesses a picture of the initial volume of the conductive segment. Table \ref{tbl:measurments} shows the dimensions of the participants forearm between the sensing electrodes and the segment's volume calculate from equation \ref{eq:v_e}.
+From the sensing electrodes position is possible to estimate the segment's volume by measuring the distance between electrodes ($l$), circumference of each electrode (C$_1$ and C$_2$).  This measuring method is not very accurate (see section \mynote{Add reference to a section where how measurements were taken}) but at least guesses a picture of the initial volume of the conductive segment. Table \ref{tbl:measurments} shows the dimensions of the participants forearm between the sensing electrodes and the segment's volume calculate from Equation \ref{eq:v_e}.
 
 \begin{table}[htbp] %tbl:measurments
 	\caption{Participants' forearm measurements and initial volume.}
 	\label{tbl:measurments}
 	\sisetup{separate-uncertainty=true}
 	\centering
-	\begin{tabular}{lcccccc	S[table-format=2.2]@{\,\( \pm \)\,}S[table-format=1.2]}
+	\begin{tabular}{lcccccc    S[table-format=2.2]@{\,\( \pm \)\,}S[table-format=1.2]}
 		\toprule
 		&  \textbf{L [\si{\cm}]}   &  \textbf{C$_1$ [\si{\cm}]}  &  \textbf{C$_2$ [\si{\cm}]}  &   \textbf{Ve [\si{\cubic\cm}]} \\\midrule
 		Participant 1 & 14.8 & 17.5 & 27.5 & 606.05 \\
@@ -73,7 +73,7 @@ Executing a mechanical occlusion of the upper arm limits the blood flow towards 
 	\caption{Participants' initial blood pressure and levels for venous, partial arterial and total occlusion.}
 	\label{tbl:occlusions}
 	\centering
-	\begin{tabular}	{lcccc}
+	\begin{tabular}    {lcccc}
 		\toprule
 		& \textbf{Blood pressure}  &  \textbf{Occlusion 1}   & \textbf{Occlusion 2}  &  \textbf{Occlusion 3} \\
 		&  [\si{\mmHg}]   &        [\si{\mmHg}]  &    [\si{\mmHg}]   &  [\si{\mmHg}]\\ \midrule
@@ -92,34 +92,34 @@ Executing a mechanical occlusion of the upper arm limits the blood flow towards 
 %%********************************** % Section 5.2 ******************************************
 \section{Impedance results from mean resistivity value}
 \label{section5.2}
-As described in the previous chapters\todo{Maybe add a reference of the past chapter design of the device}, the iPG device provides an output signal denominated $Z_{DC}$ which is equivalent to the mean impedance value of the elbow to wrist section. Moreover, it includes an AC component equivalent to a low resolution plethysmography signal. However, this waveform at this point is unwanted but it will be helpful for analysis beat by beat. This section will analyse the changes that the impedance baseline suffer during the different events of the experiment.
+As described in the previous chapters\mynote{Maybe add a reference of the past chapter design of the device}, the iPG device provides an output signal denominated $Z_{DC}$ which is equivalent to the mean impedance value of the elbow to wrist section. Moreover, it includes an AC component equal to a low-resolution plethysmography signal. However, this waveform at this point is unwanted, but it will be helpful for analysis beat by beat. This section will analyse the changes that the impedance baseline suffer during the different events of the experiment.
 
 The resistivity mean value is known as basal impedance, which it is equivalent to the value $R_B$ described by Nyober's equation \ref{eq:Nyober} or the foot of the signal in the plethysmography waveform. In other words, it is the value of the impedance before circulation occurs. It is composed basically of the impedance contribution of bone, muscle, fat, skin and residual blood within the vessels.
 
-\todo{Maybe add a waveform explaining where the signal was extracted form or from a reference to another section}
+\mynote{Maybe add a waveform explaining where the signal was extracted form or from a reference to another section}
 
-As explained in detail in chapter \ref{chapterprocedure}, the experimental protocol required executing a mechanical compression using a cuff to limit venous and arterial blood inflow and outflow. The pressures level of these occlusion have been recorded in table \ref{tbl:occlusions}. First, venous blockage causes a swelling of the forearm by filling of the capillaries below the blockage. Second, during partial arterial occlusion, the incoming arterial flow is restricted causing a slow filling of the forearm's vessels. In both kind of occlusions, the blood pooling increases the volume of the forearm's segment, hence producing a variation in the baseline signal. In contrast, total occlusion completely eliminates the blood inflow under the obstructed section, it is a tourniquet effect. Thus, the resultant impedance should be similar to the baseline resistivity.
+As explained in detail in chapter \ref{chapterprocedure}, the experimental protocol required executing a mechanical compression using a cuff to limit venous and arterial blood inflow and outflow. The pressures level of these occlusions have been recorded in table \ref{tbl:occlusions}. First, venous blockage causes a swelling of the forearm by filling of the capillaries below the blockage. Second, during partial arterial occlusion, the incoming arterial flow is restricted causing a slow filling of the forearm's vessels. In both kinds of occlusions, the blood pooling increases the volume of the forearm's segment, hence producing a variation in the baseline signal. In contrast, total occlusion completely eliminates the blood inflow under the obstructed section; it is a tourniquet effect. Thus, the resultant impedance should be similar to the baseline resistivity.
 
-Analysing the baseline requires to eliminate the waveform component of the signal. In section \todo{Add a section in data processing explaining how the value of $R_B$ was extracted for this analysis and reference it.} was explained in the detail the steps required to obtained this level of the signal. In the end, only the values from the foot of the signal equivalent to $R_B$ were extracted. Figure \ref{fig:rb:all_participants} shows all the basal impedance signals of all the participants during the whole study. As can be seen, some signals were affected by motion artefact. In fact, other instruments such as PPG and ultrasound Doppler also picked up these sort of fluctuations. Table \ref{tbl:Z_regions} shows the mean value of the impedance separated in regions or events. In the following sections, the changes in basal impedance will be analysed more in depth. 
+Analysing the baseline requires eliminating the waveform component of the signal. In section \mynote{Add a section in data processing explaining how the value of $R_B$ was extracted for this analysis and reference it.} was explained in detail the steps required to obtained this level of the signal. In the end, only the values from the foot of the signal equivalent to $R_B$ were extracted. Figure \ref{fig:rb:all_participants} shows all the basal impedance signals of all the participants during the whole study. As can be seen, some signals were affected by motion artefact. In fact, other instruments such as PPG and ultrasound Doppler also picked up these sort of fluctuations. Table \ref{tbl:Z_regions} shows the mean value of the impedance separated in regions or events. In the following sections, the changes in basal impedance will be analysed more in depth. 
 
 \begin{sidewaystable}[htbp] %tbl:Z_regions
-	\caption{Mean basal impedance during seven different regions during the experiment.}
+	\caption{Mean basal impedance divided in seven regions}
 	\label{tbl:Z_regions}
 	\centering
-	\begin{tabular}	{l
-			         *{7}{S[table-format=2.2]@{\,\( \pm \)\,}S[table-format=1.2]} %Format for Z+-std
-			        }
+	\begin{tabular}    {l
+			*{7}{S[table-format=2.2]@{\,\( \pm \)\,}S[table-format=1.2]} %Format for Z+-std
+		}
 		\toprule
-                                   &\multicolumn{2}{c}{\textbf{Region 1}}&\multicolumn{2}{c}{\textbf{Region 2}}&\multicolumn{2}{c}{\textbf{Region 3}}&\multicolumn{2}{c}{\textbf{Region 4}}&\multicolumn{2}{c}{\textbf{Region 5}}&\multicolumn{2}{c}{\textbf{Region 6}}&\multicolumn{2}{c}{\textbf{Region 7}}\\
-                                   &\multicolumn{2}{c}{\small{\SIrange{0}{300}{\second}}}&\multicolumn{2}{c}{\small{\SIrange{300}{480}{\second}}}&\multicolumn{2}{c}{\small{\SIrange{480}{780}{\second}}}&\multicolumn{2}{c}{\small{\SIrange{780}{960}{\second}}}&\multicolumn{2}{c}{\small{\SIrange{960}{1260}{\second}}}&\multicolumn{2}{c}{\small{\SIrange{1260}{1440}{\second}}}&\multicolumn{2}{c}{\small{\SIrange{1440}{1740}{\second}}} \\                                   &\multicolumn{2}{c}{$\bar{\textrm{Z}}$ [\si{\ohm}]}&\multicolumn{2}{c}{$\bar{\textrm{Z}}$ [\si{\ohm}]}&\multicolumn{2}{c}{$\bar{\textrm{Z}}$ [\si{\ohm}]}&\multicolumn{2}{c}{$\bar{\textrm{Z}}$ [\si{\ohm}]}&\multicolumn{2}{c}{$\bar{\textrm{Z}}$ [\si{\ohm}]}&\multicolumn{2}{c}{$\bar{\textrm{Z}}$ [\si{\ohm}]}&\multicolumn{2}{c}{$\bar{\textrm{Z}}$ [\si{\ohm}]}\\\midrule
-                    Participant 1  &  77.59  &    0.17  &  77.24   &   0.14  &  77.67  &    0.16   & 76.73  &    0.48  &  76.84   &   0.79  &  76.64  &    0.28  &  76.61   &   0.22\\
-                    Participant 2  &  96.97  &    0.09  &  96.54   &   0.22  &  97.15  &    0.23   & 96.52  &    0.37  &  97.01   &   0.18  &  97.15  &    0.07  &  97.50   &   0.13\\
-                    Participant 3  &  93.54  &    0.50  &  93.37   &   0.23  &  93.08  &    0.94   & 93.04  &    0.34  &  92.21   &   0.30  &  92.14  &    0.30  &  91.43   &   0.85\\
-                    Participant 4  &  63.44  &    0.19  &  62.80   &   0.16  &  62.40  &    0.24   & 62.21  &    0.25  &  62.47   &   0.54  &  63.37  &    0.13  &  66.03   &   6.47\\
-                    Participant 5  &  69.97  &    0.17  &  69.60   &   0.23  &  69.77  &    0.16   & 69.23  &    0.41  &  68.99   &   0.13  &  69.02  &    0.04  &  69.21   &   0.21\\
-                    Participant 6  &  57.68  &    0.17  &  57.63   &   0.08  &  57.77  &    0.11   & 57.35  &    0.20  &  57.31   &   0.19  &  57.08  &    0.07  &  57.22   &   0.41\\
-                    Participant 7  &  94.72  &    0.24  &  93.75   &   0.23  &  93.46  &    0.28   & 92.37  &    0.26  &  92.63   &   0.11  &  92.87  &    0.17  &  92.57   &   0.10\\
-                    Participant 8  &  80.04  &    0.11  &  79.75   &   0.10  &  79.85  &    0.11   & 79.23  &    0.25  &  79.24   &   0.21  &  78.87  &    0.05  &  78.60   &   0.11\\\bottomrule
+		&\multicolumn{2}{c}{\textbf{Region 1}}&\multicolumn{2}{c}{\textbf{Region 2}}&\multicolumn{2}{c}{\textbf{Region 3}}&\multicolumn{2}{c}{\textbf{Region 4}}&\multicolumn{2}{c}{\textbf{Region 5}}&\multicolumn{2}{c}{\textbf{Region 6}}&\multicolumn{2}{c}{\textbf{Region 7}}\\
+		&\multicolumn{2}{c}{\small{\SIrange{0}{300}{\second}}}&\multicolumn{2}{c}{\small{\SIrange{300}{480}{\second}}}&\multicolumn{2}{c}{\small{\SIrange{480}{660}{\second}}}&\multicolumn{2}{c}{\small{\SIrange{660}{960}{\second}}}&\multicolumn{2}{c}{\small{\SIrange{960}{1260}{\second}}}&\multicolumn{2}{c}{\small{\SIrange{1260}{1440}{\second}}}&\multicolumn{2}{c}{\small{\SIrange{1440}{1740}{\second}}} \\                                   &\multicolumn{2}{c}{$\bar{\textrm{Z}}$ [\si{\ohm}]}&\multicolumn{2}{c}{$\bar{\textrm{Z}}$ [\si{\ohm}]}&\multicolumn{2}{c}{$\bar{\textrm{Z}}$ [\si{\ohm}]}&\multicolumn{2}{c}{$\bar{\textrm{Z}}$ [\si{\ohm}]}&\multicolumn{2}{c}{$\bar{\textrm{Z}}$ [\si{\ohm}]}&\multicolumn{2}{c}{$\bar{\textrm{Z}}$ [\si{\ohm}]}&\multicolumn{2}{c}{$\bar{\textrm{Z}}$ [\si{\ohm}]}\\\midrule
+		Participant 1  &  77.59  &    0.17  &  77.24   &   0.14  &  77.67  &    0.16   & 76.73  &    0.48  &  76.84   &   0.79  &  76.64  &    0.28  &  76.61   &   0.22\\
+		Participant 2  &  96.97  &    0.09  &  96.54   &   0.22  &  97.15  &    0.23   & 96.52  &    0.37  &  97.01   &   0.18  &  97.15  &    0.07  &  97.50   &   0.13\\
+		Participant 3  &  93.54  &    0.50  &  93.37   &   0.23  &  93.08  &    0.94   & 93.04  &    0.34  &  92.21   &   0.30  &  92.14  &    0.30  &  91.43   &   0.85\\
+		Participant 4  &  63.44  &    0.19  &  62.80   &   0.16  &  62.40  &    0.24   & 62.21  &    0.25  &  62.47   &   0.54  &  63.37  &    0.13  &  66.03   &   6.47\\
+		Participant 5  &  69.97  &    0.17  &  69.60   &   0.23  &  69.77  &    0.16   & 69.23  &    0.41  &  68.99   &   0.13  &  69.02  &    0.04  &  69.21   &   0.21\\
+		Participant 6  &  57.68  &    0.17  &  57.63   &   0.08  &  57.77  &    0.11   & 57.35  &    0.20  &  57.31   &   0.19  &  57.08  &    0.07  &  57.22   &   0.41\\
+		Participant 7  &  94.72  &    0.24  &  93.75   &   0.23  &  93.46  &    0.28   & 92.37  &    0.26  &  92.63   &   0.11  &  92.87  &    0.17  &  92.57   &   0.10\\
+		Participant 8  &  80.04  &    0.11  &  79.75   &   0.10  &  79.85  &    0.11   & 79.23  &    0.25  &  79.24   &   0.21  &  78.87  &    0.05  &  78.60   &   0.11\\\bottomrule
 	\end{tabular}
 \end{sidewaystable}
 
@@ -128,43 +128,41 @@ Analysing the baseline requires to eliminate the waveform component of the signa
 	\caption{Baseline impedance of all the participants during the study. The shaded areas represent occlusions events.}
 	\label{fig:rb:all_participants}
 \end{figure}
-\todo{This figure is temporary. It needs to be improved by naming axis}
+\mynote{This figure is temporary. It needs to be improved by naming axis}
 
 %%********************************** % Section 5.2.1 ******************************************
 \subsection{Baseline impedance}
 \label{section5.2.1}
-The iPG device recorded the impedance during the first five minutes of data logging. 
-
-The device was able to detect the forearm's segment impedance quite remarkably. The values obtained felt within the resistive value estimated by the literature \todo{Find some papers with results about the impedance of the forearms}. The table \ref{tbl:basal_impedace:region1} describes the basal impedance during the first five minutes of data. 
+The iPG device recorded the impedance during the first five minutes of data logging. The device was able to detect the forearm's segment impedance quite remarkably. The values obtained felt within the resistive value estimated by the literature \mynote{Find some papers with results about the impedance of the forearms}. The table \ref{tbl:basal_impedace:region1} describes the basal impedance during the first five minutes of data. 
 
 \begin{table}
 	\caption{Basal impedance during the first five minutes of data with statistical values.}
 	\label{tbl:basal_impedace:region1}
 	
 	\centering
-	\begin{tabular}		
-	{
-	l
-	c
-	S[table-format=2.2]@{\,\( \pm \)\,}S[table-format=1.2] %Format for Z+-std
-	*{2}{S[table-format=2.2]} 
-	}
+	\begin{tabular}        
+		{
+			l
+			c
+			S[table-format=2.2]@{\,\( \pm \)\,}S[table-format=1.2] %Format for Z+-std
+			*{2}{S[table-format=2.2]} 
+		}
 		\toprule
-		              & \textbf{Size} & \multicolumn{2}{c}{\textbf{ $\bar{\textrm{Z}}$ [\si{\ohm}]}} & \textbf{Max [\si{\ohm}]} & \textbf{Min [\si{\ohm}]} \\ \midrule
-			Participant 1  &  278  &  77.59  &  0.17  &  78.04  &  77.37\\
-			Participant 2  &  295  &  96.97  &  0.09  &  97.17  &  96.76\\
-			Participant 3  &  275  &  93.54  &  0.50  &  94.06  &  92.44\\
-			Participant 4  &  329  &  63.44  &  0.19  &  63.77  &  63.02\\
-			Participant 5  &  288  &  69.97  &  0.17  &  70.20  &  69.56\\
-			Participant 6  &  331  &  57.68  &  0.17  &  58.21  &  57.33\\
-			Participant 7  &  340  &  94.72  &  0.24  &  95.05  &  94.27\\
-			Participant 8  &  353  &  80.04  &  0.11  &  80.30  &  79.82\\ \bottomrule
+		& \textbf{Size} & \multicolumn{2}{c}{\textbf{ $\bar{\textrm{Z}}$ [\si{\ohm}]}} & \textbf{Max [\si{\ohm}]} & \textbf{Min [\si{\ohm}]} \\ \midrule
+		Participant 1  &  278  &  77.59  &  0.17  &  78.04  &  77.37\\
+		Participant 2  &  295  &  96.97  &  0.09  &  97.17  &  96.76\\
+		Participant 3  &  275  &  93.54  &  0.50  &  94.06  &  92.44\\
+		Participant 4  &  329  &  63.44  &  0.19  &  63.77  &  63.02\\
+		Participant 5  &  288  &  69.97  &  0.17  &  70.20  &  69.56\\
+		Participant 6  &  331  &  57.68  &  0.17  &  58.21  &  57.33\\
+		Participant 7  &  340  &  94.72  &  0.24  &  95.05  &  94.27\\
+		Participant 8  &  353  &  80.04  &  0.11  &  80.30  &  79.82\\ \bottomrule
 	\end{tabular} 
 \end{table} 
 
-There are different aspects of the geometry that could affect the impedance reading. There have been several studies where has been demonstrated how the distance between electrodes affects readings\todo{Add reference to studies impedance vs. length}. In the current study showed that impedance was influenced by the forearm's circumference, as well as the distance between the potential electrodes. Figure \ref{fig:C_vs_Z} indicates that there is an inverse relation between circumference and impedance. The smallest the forearm's circumference higher the resistivity. On the other hand, there is a direct relation between the distance between the potential electrodes and the resistivity of the segment as depicted in \ref{fig:l_vs_Z}.
+There are different aspects of the geometry that could affect the impedance reading. There have been several studies where has been demonstrated how the distance between electrodes affects readings\mynote{Add reference to studies impedance vs. length}. In the current study showed that impedance was influenced by the forearm's circumference, as well as the distance between the potential electrodes. Figure \ref{fig:C_vs_Z} indicates that there is an inverse relation between circumference and impedance. The smallest the forearm's circumference higher the resistivity. On the other hand, there is a direct relation between the distance between the potential electrodes and the resistivity of the segment as depicted in \ref{fig:l_vs_Z}.
 
-In contrast, when comparing total volume measured and mean resistivity of the segment, there is a slight drop of impedance but it is not a clear tendency (see figure \ref{fig:Ve_vs_Z}). As it can be noticed, the data points are scattered depicting a not clear trend. This can be explain as the fat content can affect impedance measurements. As explained by xxx \todo{Add reference about affinity of fat and impedance}, fat is a good conductor of electricity. Hence, fat content does not allow to show a clear tendency in impedance and volume. Nevertheless, in the end the change of volume from the initial basal impedance is going to be caused by the blood streaming trough the vessels.  
+In contrast, when comparing total volume measured and mean resistivity of the segment, there is a slight drop of impedance, but it is not a clear tendency (see figure \ref{fig:Ve_vs_Z}). As it can be noticed, the data points are scattered depicting a not clear trend. This lack of bias can be explained as the fat content can affect impedance measurements. As explained by xxx \mynote{Add reference about the affinity of fat and impedance}, fat is a good conductor of electricity. Hence, fat content does not allow to show a clear tendency in impedance and volume. Nevertheless, in the end, the change of volume from the first basal impedance is going to be caused by the blood streaming trough the vessels.  
 
 \begin{figure*}[t!]
 	\centering
@@ -210,7 +208,7 @@ The table \ref{tbl:venous_occlusion:region2} overviews the results obtained from
 	\caption{Normalise plot of impedance decrease during venous occlusion.}
 	\label{fig:normalise:venous_occlusion}
 \end{figure}
-\todo{Figure \ref{fig:normalise:venous_occlusion} is temporary. It needs to be improved by naming axis}
+\mynote{Figure \ref{fig:normalise:venous_occlusion} is temporary. It needs to be improved by naming axis}
 
 \begin{table}[htbp]
 	\caption{Linear regression result for all participants during venous occlusion.}
@@ -218,7 +216,7 @@ The table \ref{tbl:venous_occlusion:region2} overviews the results obtained from
 	\centering
 	\begin{tabu}{lcccccc}
 		\toprule
-		              & \textbf{Slope [\si{\ohm/\second}]} & \textbf{Intercept [\si{\ohm}]} & \textbf{$R^2$} & \textbf{$Z_1$ [\si{\ohm}]} & \textbf{$Z_{end}$ [\si{\ohm}]} & \textbf{ $\Delta Z$ [\si{\ohm}]} \\ \midrule
+		& \textbf{Slope [\si{\ohm/\second}]} & \textbf{Intercept [\si{\ohm}]} & \textbf{$R^2$} & \textbf{$Z_1$ [\si{\ohm}]} & \textbf{$Z_{end}$ [\si{\ohm}]} & \textbf{ $\Delta Z$ [\si{\ohm}]} \\ \midrule
 		Participant 1  &   0.00057  &  77.02   &     0.037  &  77.49  &  77.18  &  -0.31\\
 		Participant 2  &  -0.00395  &  98.09   &     0.867  &  97.16  &  96.21  &  -0.95\\
 		Participant 3  &  -0.00421  &  95.01   &     0.917  &  93.47  &  92.89  &  -0.58\\
@@ -230,37 +228,160 @@ The table \ref{tbl:venous_occlusion:region2} overviews the results obtained from
 	\end{tabu} 
 \end{table}
 
-From the statistical analysis displayed can be concluded the following. First, as it was explained before, the slopes from participants 1 and 6 were affected by the motion artefact. Nevertheless, these trends seemed corrected after one minute of recordings (\SI{360}{\second}). Their slopes were quite far away from the mean value (\SI{-0.00271}{\ohm / \second}). On the other hand, the rest of the signals showed a similar trend. \todo{Review this paragraph. It seems to be very similar to the previous one.}
+From the statistical analysis displayed can be concluded the following. First, as it was explained before, the slopes from participants 1 and 6 were affected by the motion artefact. Nevertheless, these trends seemed corrected after one minute of recordings (\SI{360}{\second}). Their slopes were quite far away from the mean value (\SI{-0.00271}{\ohm\per\second}$\pm$\SI{3.415e-06}{\ohm\per\second}). On the other hand, the rest of the signals showed a similar trend. \mynote{Review this paragraph. It seems to be very similar to the previous one.}
 
 
-%%********************************** % Section 5.1.3 ******************************************
+%%********************************** % Section 5.2.3 ******************************************
 \subsection{Mean impedance data during arterial occlusion}
 \label{section5.2.3}
-During partial arterial occlusion, the incoming arterial flow is restricted causing a slow filling of the forearm. Then, total occlusion eliminates the blood inflow under the obstructed section. 
+During partial arterial occlusion (\SIrange{480}{660}{\second}), the incoming arterial flow is restricted causing a slow filling of the forearm. This mechanical blocking induces an uncomfortable feeling to the participants, some of them felt numbness in the arm.  As it can be seen from figure \ref{fig:rb:all_participants}, most of the participants there is an apparent drop in impedance during the action. Though participant one moved his muscles creating a sharp fall before releasing the pressure, also partaker four showed a slight increment of impedance followed in the middle of this part of the test. 
 
-\todo{Check about what happens during partial arterial occlusion. Slow filling of the forearm. This information should also be added to the Medical Background}
+Figure \ref{fig:normalise:arterial_occlusion} shows the normalise resistivity decrease for all the participants. Table \ref{tbl:arterial_occlusion:region4} shows the values of the linear regression for the data.   All in all, it is clear that the decrease of resistivity is sharper in this part of the experiment compared to venous occlusion.  In fact, when this data is compared to venous information, the average slope is nearly twice as big (mean \SI{-0.00536}{\ohm\per\second}$\pm$\SI{2.853e-06}{\ohm\per\second}). Also, the total change of impedance ($\Delta Z$) was almost doubled in all participants, except participant four which value decreased.  
+
+The linear regression of this region of the signal showed an apparent straight tendency for most of the participants. Most of the signals can be represented as negative tilt line ($R^2 \geq 0.858 $), except members one, four and eight ($R^2 \leq 0.627 $).
 
 
-%%********************************** % Section 5.1.4 ******************************************
+
+\mynote{Check about what happens during partial arterial occlusion. Slow filling of the forearm. This information should also be added to the Medical Background}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth,height=0.9\textheight,keepaspectratio]{figure4}    
+	\caption{Normalise plot of impedance decrease during partial arterial occlusion.}
+	\label{fig:normalise:arterial_occlusion}
+\end{figure}
+\mynote{Figure \ref{fig:normalise:venous_occlusion} is temporary. It needs to be improved by naming axis}
+\begin{table}[htbp]
+	\caption{Linear regression result for all participants during partial arterial occlusion.}
+	\label{tbl:arterial_occlusion:region4}
+	\centering
+	\begin{tabu}{lcccccc}
+		\toprule
+		& \textbf{Slope [\si{\ohm/\second}]} & \textbf{Intercept [\si{\ohm}]} & \textbf{$R^2$} & \textbf{$Z_1$ [\si{\ohm}]} & \textbf{$Z_{end}$ [\si{\ohm}]} & \textbf{ $\Delta Z$ [\si{\ohm}]} \\ \midrule
+		Participant 1  &  -0.00656  &   82.44    &   0.519  &  77.51  &  74.91  &  -2.60 \\
+		Participant 2  &  -0.00706  &  102.67    &   0.965  &  97.29  &  95.75  &  -1.54 \\
+		Participant 3  &  -0.00601  &   98.28    &   0.858  &  93.61  &  92.20  &  -1.41 \\
+		Participant 4  &  -0.00327  &   65.05    &   0.474  &  62.25  &  61.81  &  -0.44\\
+		Participant 5  &  -0.00767  &   75.89    &   0.989  &  70.05  &  68.50  &  -1.55\\
+		Participant 6  &  -0.00366  &   60.53    &   0.939  &  57.74  &  56.88  &  -0.85\\
+		Participant 7  &  -0.00490  &   96.64    &   0.969  &  93.11  &  92.02  &  -1.09\\
+		Participant 8  &  -0.00381  &   82.54    &   0.627  &  79.70  &  79.10  &  -0.59\\ \bottomrule
+	\end{tabu} 
+\end{table}
+
+
+
+%%********************************** % Section 5.3.4 ******************************************
 \subsection{Mean impedance data during total occlusion}
 \label{section5.2.4}
+Producing a total occlusion (between \SIrange{1260}{1440}{\second}) in the upper arm stops the blood inflow completely under the obstructed section. This test caused much discomfort on most of the participants, which made them moving their limbs voluntary. Because there is no blood pooling during this part of the experiment is expected not seeing a common tendency in impedance variation. Additionally, the mean restive value is equivalent to the impedance of the tissue components within the segment plus the impedance of the residual blood in the forearm. However, when a change of resistivity happens is mostly caused by the participant's re-accommodation rather than a physiological variable. 
 
-%%********************************** % Section 5.2 ******************************************
+After analysing the data obtained (see  Table \ref{tbl:total_occlusion:region6} and figure \ref{fig:normalise:total_occlusion}), it can be noticed that there is not a defined trend for most of the signals. The slopes and deltas computed show a variation between negative and positive values. Therefore, it can be concluded that there is not an indication of a clear bias common to the signals. 
+
+The impedance plethysmography signal can confirm the absence of blood flow. On section xxx \mynote{Add reference in plethysmography that shows the waveforms} is shown the lack of peaks in the signal. 
+
+\mynote{Check about what happens during partial arterial occlusion. Slow filling of the forearm. This information should also be added to the Medical Background}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth,height=0.9\textheight,keepaspectratio]{figure5}    
+	\caption{Normalise plot of impedance decrease during total occlusion.}
+	\label{fig:normalise:total_occlusion}
+\end{figure}
+\mynote{Figure \ref{fig:normalise:venous_occlusion} is temporary. It needs to be improved by naming axis}
+\begin{table}[htbp]
+	\caption{Linear regression result for all participants during total occlusion.}
+	\label{tbl:total_occlusion:region6}
+	\centering
+	\begin{tabu}{lcccccc}
+		\toprule
+		& \textbf{Slope [\si{\ohm/\second}]} & \textbf{Intercept [\si{\ohm}]} & \textbf{$R^2$} & \textbf{$Z_1$ [\si{\ohm}]} & \textbf{$Z_{end}$ [\si{\ohm}]} & \textbf{ $\Delta Z$ [\si{\ohm}]} \\ \midrule
+	   	Participant 1  &  -0.00431  &  82.44   &      0.652 &   77.58 &  76.33  &   -1.25\\ 
+		Participant 2  &   0.00044  &  96.55   &      0.105 &   97.22 &   97.28 &    0.07\\
+		Participant 3  &  -0.00432  &  97.99   &      0.587 &   92.57 &   91.45 &   -1.12\\
+		Participant 4  &   0.00226  &  60.31   &      0.789 &   63.31 &   63.45 &    0.14\\
+		Participant 5  &  -0.00002  &  69.04   &     -0.005 &   69.22 &   69.01 &   -0.21\\
+		Participant 6  &  -0.00096  &  58.38   &      0.457 &   57.34 &   56.95 &   -0.40\\
+		Participant 7  &   0.00310  &  88.70   &      0.899 &   92.78 &   93.11 &    0.33\\
+		Participant 8  &  -0.00080  &  79.94   &      0.644 &   78.97 &   78.82 &   -0.15\\ \bottomrule
+	\end{tabu} 
+\end{table}
+
+
+\pagebreak
+%%********************************** % Section 5.3 ******************************************
 \section{Plethysmography impedance results}
 \label{section5.3}
+The iPG device provided a port illustrated as $Z_{AC}$ \mynote{To double check if this is the correct port name from the initial description} which provided a high-resolution view of the plethysmography waveform.  In fact, as shown in the design section xxx \mynote{Reference a section to this part}, the signal was amplified nearly 2500 times. Hence, the waveform obtained provides more detail and improves rejection to noise.
 
-%%********************************** % Section 5.3 ******************************************
+The waveforms obtained through this method reproduce the change of volume per heart beat within the sensing electrodes. The filling of the blood vessels creates small changes in resistivity that change with the circulatory cycle (see section xxx \mynote{I have to add a section to describe how plethysmography is related to blood cycle}). The waveforms presented in this section were analysed using the decomposing method describe in section \ref{section4.3.2}. \mynote{I need to add more detail within that section}. Five different points were identified by the algorithm.
+
+The waveform produced by the device is inverted as represented by various other plethysmography devices such as photoplethysmography. During the systolic cycle, the blood vessels expand allowing more blood volume. Hence, the impedance drops proportionally to the amount of blood because the forearm's segment is more electrically conductive. On the other hand, during the diastolic cycle, blood vessels empty causing a reduction the quantity of blood contained in the segment. As a result, the impedance increases.  
+
+Treating the digital signal required to remove noisy components of the waveform. As described in section xxx\mynote{Add section were the digital processing was performed}, the signal was levelled to zero.  From there, the points of interest were calculated to identify the different changes in the waveform. The analysis of the waveform was performed by averaging all the waveform detected by the algorithm. The following discussion represents the change of form from non-occlusion state to an occluded one. At the end of the section, the result of all participants will be summarised.
+
+\subsection{Plethysmography waveform change from baseline to venous occlusion}
+\label{section5.3.1}
+This analysis corresponds to the waveform during baseline and venous occlusion.
+
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[height=4.5cm]{figure6a}
+		\caption{Relationship between forearm circumference and mean basal impedance}
+		\label{fig:iPG_venous_baseline}
+	\end{subfigure}%
+	~ 
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[height=4.5cm]{figure6b}
+		\caption{Relationship between distance sensing electrodes and mean basal impedance}
+		\label{fig:iPG_venous_occlusion}
+	\end{subfigure}
+	\caption{Relation between circumference, length and total segment's volume and mean basal impedance}
+	\label{fig:iPG_venous}
+\end{figure*}
+
+\subsection{Plethysmography waveform change for arterial occlusion}
+\label{section5.3.2}
+
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[height=4.5cm]{figure7a}
+		\caption{Relationship between forearm circumference and mean basal impedance}
+		\label{fig:iPG_arterial_baseline}
+	\end{subfigure}%
+	~ 
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[height=4.5cm]{figure7b}
+		\caption{Relationship between distance sensing electrodes and mean basal impedance}
+		\label{fig:iPG_arterial_occlusion}
+	\end{subfigure}
+	\caption{Relation between circumference, length and total segment's volume and mean basal impedance}
+	\label{fig:iPG_arterial}
+\end{figure*}
+
+\subsection{Plethysmography waveform change during total occlusion}
+\label{section5.3.3}
+
+\subsection{Comparative change for all participants}
+\label{section5.3.4}
+
+
+%%********************************** % Section 5.4 ******************************************
+\pagebreak
 \section{Blood flow calculation from baseline signal}
 \label{section5.4}
 
-
-%********************************** % Section 5.3.1 ******************************************
+%********************************** % Section 5.4.1 ******************************************
 \subsection{Blood flow calculation using venous occlusion plethysmography}
 \label{section5.4.1}
-Using the method venous occlusion plethysmography is possible to calculate the blood flow in the forearm segment. As it can be seen from figure \ref{fig:blood_flow:venous_occlusion} the data is not dropping in a completely straight line. As a reminder, the occlusion occurred during \SIrange{300}{480}{\second} which is the time lapse showed. There are impedance variations caused by respiration movement contained within the signals, but also some sections are affected by muscle contraction. If the blood flow was computed using point by point method, there would be some discrepancies when the resistivity is increasing. Thus, this will lead to an incorrect reflection of the blood stream. 
+Using the method venous occlusion plethysmography is possible to calculate the blood flow in the forearm segment. As it can be seen from figure \ref{fig:blood_flow:venous_occlusion} the data is not dropping in a completely straight line. As a reminder, the occlusion occurred during \SIrange{300}{480}{\second} which is the time lapse showed. There are impedance variations caused by respiration movement contained within the signals, but also some sections are affected by muscle contraction. If the blood flow were computed using point by point method, there would be some discrepancies when the resistivity is increasing. Thus, this will lead to an incorrect reflection of the blood stream. 
 
 As a result, the method described in section xxx was used to calculate the blood flow between decreasing points only. In short, this algorithm finds the peak and valleys of the signal and then computes the blood flow using equation \ref{eq:QL} between those points found. The figure \ref{fig:blood_flow:venous_occlusion} on the left shows the impedance decrease during the occlusion for all participants. The image on also depicts the points from where the algorithm extracted the reference points for its calculations. In this case, the red triangle pointing downwards is equivalent to the base impedance $R_B$ and the black triangle is the ending point of the calculation point. Then $\Delta R / \Delta t$ can be obtained as the difference between these two points in impedance and time. 
-\todo{Add a section describing how the data was treated.} 
+\mynote{Add a section describing how the data was treated.} 
 
 In the same figure but on the right, it can be noticed the result of the blood flow calculated in units of \si{\ml / \min 100 \ml}. The blue dots indicate the instant blood flow at the end value of $\Delta R$. The orange line indicates the mean blood flow during measurements. Again, participants 1 and 6 flow estimation is affected by movement producing a mean value far from the majority of the data points. Moreover, it is confirmed by examining the results summarised on the table \ref{tbl:blood_flow:region2}. The standard deviation $(\sigma_x)$ is quite far compared to the rest of the participants, as well as the minimum value of the data. Therefore, the results of these two participants clearly cannot be expected to be accurate. However, if the data sample was in a linear section, then the calculated flow will be more in agreement with the expected values. 
 
@@ -281,7 +402,7 @@ From this table can be noticed that the calculated blood flow per \SI{100}{\ml} 
 		}
 		\toprule
 		& \textbf{Size} & \textbf{Median} & \multicolumn{2}{c}{\textbf{Mean}} & \textbf{Max} & \textbf{Min} \\
-		& 			    & \small{\si{[\ml/\min 100\ml]}} & \multicolumn{2}{c}{\small{\si{[\ml/\min 100\ml]}}} & \small{\si{[\ml/\min 100\ml]}} & \small{\si{[\ml/\min 100\ml]}} \\\midrule
+		&                 & \small{\si{[\ml/\min 100\ml]}} & \multicolumn{2}{c}{\small{\si{[\ml/\min 100\ml]}}} & \small{\si{[\ml/\min 100\ml]}} & \small{\si{[\ml/\min 100\ml]}} \\\midrule
 		Participant 1   & 23   &     -0.808  &   -1.055  &  0.939 &   -0.054   &  -3.955\\
 		Participant 2   & 30   &     -0.570  &  -0.575   & 0.272  &  -0.117    & -1.256\\
 		Participant 3   & 31   &     -0.600  &  -0.613   & 0.344  &  -0.011    & -1.483\\
@@ -294,7 +415,7 @@ From this table can be noticed that the calculated blood flow per \SI{100}{\ml} 
 \end{table}
 
 \begin{figure}
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,trim={0.5cm 0.5cm 2cm 2cm},clip]{figure4}    
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,trim={0.5cm 0.5cm 2cm 2cm},clip]{figure6}    
 	\caption{Blood flow calculated from venous occlusion plethysmography}
 	\label{fig:blood_flow:venous_occlusion}
 \end{figure}

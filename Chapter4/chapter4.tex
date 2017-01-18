@@ -40,7 +40,7 @@ After filling paperwork and completing acclimatisation different instruments wer
 	\end{tabu}  
 \end{table}
 
-\todo{check how to align this table properly}
+\mynote{check how to align this table properly}
 
 %**********************************% Subsection 4.1.1  *************************************
 \subsection{Instruments setup}
@@ -57,32 +57,32 @@ where $V_e$ is segment's volume, $l$ is the length between sensing electrodes, $
 
 Second, all participants sat in a comfortable chair. Their left arm was resting on a soft cushion on a table next to a chair adjusted to collaborator's height. Then, blood pressure was taken using an automated instrument recording diastolic and systolic values. Then, participants placed four ECG leads themselves, forming an Einthoven triangle. According to the device's instructions, electrodes must be placed one on each shoulder and ankle. Then, leads were secured to the electrodes verifying that ECG signal was clean. The apparatus includes an output port that exports the waveform for further processing.
 
-\todo{Check process description for previous paragraph} 
+\mynote{Check process description for previous paragraph} 
 
-\todo{reference of the blood pressure device}
+\mynote{reference of the blood pressure device}
 
 Following this step, a PPG probe was placed on the index finger. The PPG instrument used is a design of the research group known as Zen PPG. This equipment has two channels, but the experiment only required one channel. It provides two analogue outputs containing AC and DC components of the photoplethysmography waveform. 
 
-\todo{Check for the type of probe used. Nellcor?}
-\todo{I am not 100\% sure that has two outputs}
+\mynote{Check for the type of probe used. Nellcor?}
+\mynote{I am not 100\% sure that has two outputs}
 
 In the next step, the laser Doppler flowmetry probe was attached on the forearms' mid-section. This device measures small changes in blood flow over the vascular bed under the skin. The instrument counts with an analogue port that extracts the waveform for further processing.  
 
-\todo{Check for maker of the Doppler Flowmetry device}
+\mynote{Check for maker of the Doppler Flowmetry device}
 
-\todo{Check a small paragraph about how this device works and what is useful for}
+\mynote{Check a small paragraph about how this device works and what is useful for}
 
 Later, the ultrasound Doppler probe was placed close as possible to the radial artery. It produces an audible signal comparable with blood's speed at this point. For this, the device 's probe head requires being placed at a fixed angle. Using a pole the instrument's head was secured and placed on the party's wrist. The appliance also provides an external port for additional processing.  
 
-\todo{add a paragraph description of how Ultrasound Doppler works}
+\mynote{add a paragraph description of how Ultrasound Doppler works}
 
-\todo{adding the correct name of the pole}
+\mynote{adding the correct name of the pole}
 
 Finally, impedance plethysmography electrodes were allocated. For this, ECG electrodes provided good contact area required for the experiment. Current probes were placed following the path of the left radial artery, one below the elbow (brachial artery) and a second on top of the radial artery close to the wrist. Sensing electrodes were located next to the previous electrodes towards the internal side of the forearm. The distance between sensing electrodes was recorded as the length of the volume segment. Also, arm's circumference at these electrodes position also was taken. Using equation xx is possible to estimate the volume of the segment.  The device as described in Section xx provides two channels, impedance baseline and plethysmography waveform. 
 
-\todo{add reference to circumference equation}
+\mynote{add reference to circumference equation}
 
-\todo{add reference to the previous chapter describing the device}
+\mynote{add reference to the previous chapter describing the device}
 
 
 %********************************** %Second subection *************************************
@@ -91,22 +91,22 @@ Finally, impedance plethysmography electrodes were allocated. For this, ECG elec
 
 As outlined in the previous section, all the instruments provided external ports for external data processing. These output ports were connected to a DAQ NI-6211 (National Instruments). This analogue to digital converter card provides 32* channels and a combined sampling rate of \SI{250}{\kilo\sample\per\second}. It is connected to a personal computer via USB port (Version 1.0). All the signal were sampled at \SI{1}{\kilo\hertz}.
 
-\todo{Maybe explain about the resolution of the DAQ. If this is a 16 bit the resolution is 2 to 16}
+\mynote{Maybe explain about the resolution of the DAQ. If this is a 16 bit the resolution is 2 to 16}
 
 A virtual instrument using LabView was created for displaying, processing and storing raw data. Fig. Xx shows the front-end of the program. A custom virtual instrument was programmed showing four channels of waveforms. iPG, ECG, PPG and Ultrasound Doppler were used for displaying signals.
 
-\todo{Add image of the front end of the LabVIEW instrument}
+\mynote{Add image of the front end of the LabVIEW instrument}
 
 For display purposes, a band-pass filter was applied to the iPG and PPG signals. Nevertheless, the data recorded only was from the unfiltered waveforms because post-processing was required.  
 
-\todo{check what filters were applied to the signal}
+\mynote{check what filters were applied to the signal}
 
 Two tabs provided settings and voltage adjustment for PPG signal. The participant tab required the following data: left arm dimensions, blood pressure and path name. At the end of the experimental procedure, all raw data was stored on an LVM file created by LabView. In the second tab, the VI adjusts the light intensity of the light PPG device. Usually a \SI{20}{\milli\ampere} is enough to provide a good quality signal. 
 
 The main panel apart from just displaying waveforms also provides control buttons and a timer.  Pressing the start button starts a timer and waveforms begin to be stored in memory. Pushing on the same button again stops the timer and saves all the data in a local LVM file. 
 
-\todo{Add proper description of the DAQ used, including channels}
-\todo{Add reference of LabView in bibliography}
+\mynote{Add proper description of the DAQ used, including channels}
+\mynote{Add reference of LabView in bibliography}
 
 %********************************** %Third subection *************************************
 \subsection{Experimental protocol}
@@ -118,7 +118,7 @@ The protocol required recording three different types of blood flow occlusion. T
 
 The second class of blood flow restriction was partial arterial occlusion. This kind of blockage decreases the amount of arterial blood coming into the forearm but also stops venous blood return. As an illustration, this can be obtained by applying a mechanical compression to the upper arm. The desired value should be between diastolic and systolic pressure. Therefore, the objective was to occlude in the mean value between diastolic and systolic pressure. For that, it was calculated using the following equation.
 
-\todo{find a classy explanation about arterial blood occlusion, explaining that not allowing full compliance reduce flow}
+\mynote{find a classy explanation about arterial blood occlusion, explaining that not allowing full compliance reduce flow}
 
 \begin{align}
 	\label{eq:meanpressure}
@@ -147,15 +147,15 @@ Finally, the last \SI{5}{\min} of baseline waveforms were recorded to study the 
 
 Once data were stored in the local LVM file, it was post-processed in Matlab~\cite{MATLAB:2016}. In detail, a GUI Matlab program was created capable of comparing signals, apply filters, find peaks and windowed sections of data. A front-end of the application can be seen in Fig. xxx.
 
-\todo{Create an image about the front-end of Matlab}
+\mynote{Create an image about the front-end of Matlab}
 
 First, in the beginning, it was required to import LVM file structure into Matlab. Due to the LVM file contained unwanted headers a reading text command could not parse the data into Matlab easily. Moreover, sampling at \SI{1}{\kilo\hertz} created files of approximately \SI{300}{MB}. Importing this file size terribly slowed down the workstation. For this reason, while importing into Matlab, data was decimated in a magnitude of ten. Consequently, each physiological waveform was reduced to less than \SI{1}{MB} of size. After all, having files of this extent improved processing speed and used fewer resources. 
 
-\todo{create a table showing the structure of the LVM file}
+\mynote{create a table showing the structure of the LVM file}
 
 This data decimation does not affect the waveform data.  In fact, according to Nyquist rate, data was being oversampled. Physiological signals are between \SIrange{1}{2}{\hertz} for signals depending on heart rate. According to Nyquist up to \SI{4}{\hertz} would have provided enough sampling for the waveforms. Nevertheless, a sampling of \SI{100}{\hertz} is sufficient to provide a high resolution. However, having oversampled signals was not a random case. Indeed it allows implementing high order digital filters with sharp cut-off frequency. 
 
-\todo{Add a little bit of Nyquist theorem for oversampling}
+\mynote{Add a little bit of Nyquist theorem for oversampling}
 
 As soon as decimated data was imported into Matlab, the parsing program converted each waveform into a Matlab formatted file (.mat). Furthermore, this waveform data can be imported faster into the GUI than raw files. In essence, filters, windowing and data processing can be performed on-line saving in computing resources. However, this data is not very significant until being converted into distinct values instead of volts.
 
@@ -165,7 +165,7 @@ As soon as decimated data was imported into Matlab, the parsing program converte
 
 When importing data into the GUI program is needed to convert data into meaningful scales. All physiological data described in section \ref{section4.1.1} coming from the devices were in volts. Some data need conversions such as iPG, ultrasound and laser Doppler flowmetry.
 
-\todo{Add a section describing how the wave was extracted and converted into redeable values. The algorithm used for this}
+\mynote{Add a section describing how the wave was extracted and converted into redeable values. The algorithm used for this}
 
 \subsubsection{Obtaining the impedance value}
 Impedance plethysmography signals needed to be converted from volts into current and impedance respectively. The iPG device provides a channel for current sense $(V_{IDC})$, which corresponds to the peak voltage value of the current being delivered by the instrument. This value can be calculated by knowing the gain of the different stages of the circuits. First, according to the circuit schematic current is being sensed by a \SI{10}{\ohm} resistor $(R_x)$. Then, this signal is amplified by an In-Amp which gain $(G_1)$ was 276. Following this stage, the signal is halved by a half-wave rectifier. Later, this wave is fully rectified using a peak detection circuit. In the final analysis, the current value can be calculated using equation \ref{eq:current}
@@ -175,13 +175,13 @@ Impedance plethysmography signals needed to be converted from volts into current
 	I = \frac{V_{IDC} \times 2}{R_x \times G_1} = \frac{V_{IDC} \times 2}{276 \times\ 10 \Omega} = \frac{V_{IDC}}{1380 \Omega} \tagaddtext{[\si{\ampere}]}
 \end{align}
 
-\todo{add a reference toward the design of the device about the kind of data that ports provide. Current, AC and DC.}
-\todo{Add a section in the design of the device showing how current waveform is converted from AC signal to DC and then into a value.}
-\todo{add reference to the circuit that performs this task conversion task}
+\mynote{add a reference toward the design of the device about the kind of data that ports provide. Current, AC and DC.}
+\mynote{Add a section in the design of the device showing how current waveform is converted from AC signal to DC and then into a value.}
+\mynote{add reference to the circuit that performs this task conversion task}
 
 From the second channel $(V_{ZDC}$ of the iPG device the voltage coming from this port is equivalent to the impedance of the forearm. First, it is wanted to know the real voltage value $(V_z)$ from the forearm segment read by the impedance device. Given this pint, as it can be seen from figure xxx, signal initially was amplified by In-Amp (IAxx). The gain of this stage was set to 35.65. Then the signal was rectified by the super-diode circuit. These two are the only components affecting the signal path. In conclusion, the voltage can be calculated by using equation \ref{eq:vzdc}.
 
-\todo{add reference of a schematic showing the stages of the signal and a reference to the chip}
+\mynote{add reference of a schematic showing the stages of the signal and a reference to the chip}
 
 \begin{align}
 	\label{eq:vzdc}
@@ -202,7 +202,7 @@ The third channel of the iPG device is the plethysmography waveform $V_{ZAC}$. T
 	V_{iPG} = \frac{V_{ZAC} \times 2}{142.42 \times 35.65}=\frac{V_{ZAC}}{2538.66} \tagaddtext{[\si{\volt}]}
 \end{align}
 
-\todo{create a label and a link to the section 3.1.6}
+\mynote{create a label and a link to the section 3.1.6}
 
 Likewise, the impedance value of the dynamic signal can be calculated using ohm's law. By replacing the voltage value of the plethysmography signal from equation \ref{eq:ViPG} and the value of the current from equation \ref{eq:current}.
 
@@ -237,7 +237,7 @@ where $f_D$ is the Doppler frequency, $C$ is the speed of sound assumed to be \S
 
 This angle position was locked using a holster and a grabber. The angle was calculated using the midpoint of a \SI{90}{\degree} angle. Nevertheless, this is one of the shortcomings of this method. The angle can be estimated according to the position sensor's case but not to the surface of the crystal of the sensor. There is an incident error that can not be quantified easily. However, for the event of this study, it was assumed that the angle is \SI{45}{\degree}.
 
-\todo{find the right name of a holster and grabber}
+\mynote{find the right name of a holster and grabber}
 
 Now the blood flow can be computed by converting velocity to flow if the cross section area of the vessel is known, as in equation \ref{eq:flow}. Not knowing this area precisely is another drawback of this method to calculate blood flow accurately. To know the real cross section area of a vessel requires of imaging methods such as Doppler Ultrasonography. 
 
@@ -252,7 +252,7 @@ However, blood flow can be estimated by using averages cross-sectional area of r
 
 \subsubsection{Converting LDF}
 The Laser Doppler Flowmetry device utilised in the study was the xxx
-\todo{Confirm the model of the LDF device}. LDF is a non-invasive optical method to estimate the blood perfusion in the microcirculation. This device uses the same Doppler principle as described in section \ref{sectionUD} but instead of sound a beam of light is the source. Similarly, when red blood cell scatters a light of beam, it produces a frequency shift~\cite{fredriksson2007laser}. 
+\mynote{Confirm the model of the LDF device}. LDF is a non-invasive optical method to estimate the blood perfusion in the microcirculation. This device uses the same Doppler principle as described in section \ref{sectionUD} but instead of sound a beam of light is the source. Similarly, when red blood cell scatters a light of beam, it produces a frequency shift~\cite{fredriksson2007laser}. 
 
 LDF produces a blood perfusion signal that is comparable to the RBC perfusion or also known as flux. The units of this measurement are Blood Perfusion Unit (BPU) which is an arbitrary unit scale. BPU is the product of the mean number of moving blood cells in the small volume under the probe and the average velocity of moving blood cells. 
 
@@ -299,7 +299,7 @@ Similar processing is viable with the PPG signals. From the DC signal is feasibl
 
 In general, low-pass filters are useful to remove mains noise and high-frequency noises. Band-stop filters eliminate specific noise such as motion artefact and respiration but still DC is needed. A characteristic of this kind of noise is that is low frequency and usually below heart rate frequency. High-pass filters are practical to remove DC signals but still keeping high-frequency characteristics.
 
-\todo{Add section describing how the signals were referenced to zero using the method}
+\mynote{Add section describing how the signals were referenced to zero using the method}
 
 %********************************** % Section 4.3 ******************************************
 \section{Converting Impedance to Volume and Flow}
@@ -311,24 +311,24 @@ First, as explained in equation \ref{eq:dvdr} changes of impedances are equivale
 
 There are two methods to calculate blood flow. One of them is using venous occlusion plethysmography. Another one is the analysis of the dynamic changes of the impedance waveform. Both methods require using the resistivity derivative over time $dR/dt$. However, back projection of the Nyober's equation was used calculating flow in the impedance AC signal. The following section explains in detail the computation of these values.  
 
-\todo{Improve this paragraph, explaining both methods}
+\mynote{Improve this paragraph, explaining both methods}
 
 \subsection{Volume calculation during venous occlusion}
 \label{section.4.3.1}
 One of the methods to measure changes of volume involves occluding the venous return in one limb. This routine known as venous occlusion plethysmography is explained in detail in section xxx. This technique requires inflating a cuff below diastolic pressure to stop the blood's venous return in an extremity. Just like in the procedure described in section \ref{section4.1.3}. 
 
-\todo{double check a reference to Medical Background how this works. Create a reference to this section}
+\mynote{double check a reference to Medical Background how this works. Create a reference to this section}
 
 Due to venous blood can not return to the heart, blood starts to pool below cuff position in the limb. In the case of this experiment, a segment of the left arm was the subject of the study. The sensing electrodes are the boundary of the segment's geometry. The volume of this cylinder section is equivalent to the one calculated with equation \ref{eq:v_e}. 
 
 Before occlusion, the base of the impedance does not change extremely over time. However, after the cuff is inflated blood pools and conductivity of the limb segment increases. Therefore, impedance decreases within this volume. The change in the baseline of the impedance in time is equal to change in volume over time. A significant number of studies have been done in this field confirming the effectiveness of this method. 
 
-\todo{reference papers where venous occlusion plethysmography is used}
-\todo{Create a graph explaining how the gradient of the signal changes during venous occlusion}
+\mynote{reference papers where venous occlusion plethysmography is used}
+\mynote{Create a graph explaining how the gradient of the signal changes during venous occlusion}
 
 The blood flow can be estimated from the basal impedance values, in the case of the device designed port $Z_{DC}$. The change of volume can be calculated by selecting two points in time and applying equation \ref{eq:DVDT}.
 
-\todo{Confirm the nomenclature of the ports}
+\mynote{Confirm the nomenclature of the ports}
 
 \begin{align}
 	\label{eq:DVDT}
@@ -349,17 +349,17 @@ where $\dot{Q_L}$ is the blood flow per \SI{100}{\milli\litre} of tissue, $R_B$ 
 \label{section4.3.2}
 Impedance plethysmography also provides the opportunity to calculate the change in volume and the blood flow from every heart beat. Achieving this calculation is possible if there is a high-quality plethysmography waveform. For this reason, the impedance device includes an analogue port called $V_{ZAC}$. As described previously in section xxx, this port extracts the plethysmography waveform from the basal impedance $iPG_{AC}$. In fact, due to the filtering and amplification stages of the circuit, the signal has been amplified more than 2.500 times. Providing more characteristics and resolution of the waveform when digitalised.
 
-\todo{Verify the name of the port and also the section where should be referenced}
+\mynote{Verify the name of the port and also the section where should be referenced}
 
 The iPG waveform as shown in figure xx is classic from a plethysmography wave. However, in impedance, this signal is inverted because an increase of blood represents a surge in conductivity. Hence, a reduction in impedance of the segment measured.  
 
-\todo{Add picture of waveform with reference points as expressed in the paragraphs RM1, RM2, RM3, RM4 and RM5}
+\mynote{Add picture of waveform with reference points as expressed in the paragraphs RM1, RM2, RM3, RM4 and RM5}
 
 The waveform obtained shows five particular reference points needed to calculate volume and blood flow. During the systolic process, two planes are evident in the plethysmography wave. The first point is the upslope of the signal $(R_{M1})$ which is present during the isovolumetric contraction of the heart.  This point marks the beginning of the plethysmography signal. Then, due to blood ejection from the heart, the aortic outflow increase the pressure in the circulatory system. Hence, a rise of blood flow is noticeable which is pronounced as the maximum amplitude in the plethysmography signal $(R_{M2})$. 
 
 Then during the diastolic development of the heart cycle, the next reference point in the plethysmography wave is observable, the dicrotic notch. This stage occurs after a decrease in the pressure. Previous research correlated this point with the echocardiography showed its relation with the isovolumetric relaxation of the heart. In the iPG wave collected by the device, there are two points within this region. First a dip $(R_{M3})$, followed by a peak of the post-dicrotic notch segment $R_{M4}$. 
 
-\todo{Find a reference between echocardiography, dicrotic notch and isovolumetric relaxation of the heart. Find paper relating heart cycle with the process during diastolic process} 
+\mynote{Find a reference between echocardiography, dicrotic notch and isovolumetric relaxation of the heart. Find paper relating heart cycle with the process during diastolic process} 
 
 Finally, the cycle is completed with the last dip in the iPG waveform. Identified as $R_{M5}$, it also represents the beginning of the next volumetric cycle. 
 
@@ -433,7 +433,7 @@ Similar data can be obtained by analysing the dicrotic notch reference points. U
 
 By combining the previous indexes is viable to calculate ratios against the peak at index $A$. When compared $C/A$ will provide information about the arteriolar tone. Likewise, $B/A$ contains clue about the venular tone. These values represent the percentage in ohms between those reference points. In the results section, these values are labelled $DCI$ for arteriolar tone and $DSI$ for venular tone.
 
-\todo{Find information about arteriolar and venular tone. Add information about it in the literature review}
+\mynote{Find information about arteriolar and venular tone. Add information about it in the literature review}
 
 Also, the area under the curve during the arterial and venous cycle can be computed. Calculating the integral value from $t_{M1}$ to $t_{M3}$ provides the full contribution of the arterial process during the cycle. The area under the curve between $t_{M3}$ to $t_{M5}$ produces the input of the venous reporting period. From the mathematical point of view, these can be calculated using equations \ref{eq:ST}.
 
