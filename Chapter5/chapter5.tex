@@ -168,21 +168,21 @@ In contrast, when comparing total volume measured and mean resistivity of the se
 	\centering
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
-		\includegraphics[height=4.5cm]{figure2a}
+		\includegraphics[height=6cm]{figure2a}
 		\caption{Relationship between forearm circumference and mean basal impedance}
 		\label{fig:C_vs_Z}
 	\end{subfigure}%
 	~ 
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
-		\includegraphics[height=4.5cm]{figure2b}
+		\includegraphics[height=6cm]{figure2b}
 		\caption{Relationship between distance sensing electrodes and mean basal impedance}
 		\label{fig:l_vs_Z}
 	\end{subfigure}
 	~ 
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
-		\includegraphics[height=4.5cm]{figure2c}
+		\includegraphics[height=6cm]{figure2c}
 		\caption{Relation between forearms segment volume and mean basal resistivity}
 		\label{fig:Ve_vs_Z}
 	\end{subfigure}
@@ -287,6 +287,7 @@ The impedance plethysmography signal can confirm the absence of blood flow. On s
 	\label{fig:normalise:total_occlusion}
 \end{figure}
 \mynote{Figure \ref{fig:normalise:venous_occlusion} is temporary. It needs to be improved by naming axis}
+
 \begin{table}[htbp]
 	\caption{Linear regression result for all participants during total occlusion.}
 	\label{tbl:total_occlusion:region6}
@@ -316,30 +317,125 @@ The waveforms obtained through this method reproduce the change of volume per he
 
 The waveform produced by the device is inverted as represented by various other plethysmography devices such as photoplethysmography. During the systolic cycle, the blood vessels expand allowing more blood volume. Hence, the impedance drops proportionally to the amount of blood because the forearm's segment is more electrically conductive. On the other hand, during the diastolic cycle, blood vessels empty causing a reduction the quantity of blood contained in the segment. As a result, the impedance increases.  
 
-Treating the digital signal required to remove noisy components of the waveform. As described in section xxx\mynote{Add section were the digital processing was performed}, the signal was levelled to zero.  From there, the points of interest were calculated to identify the different changes in the waveform. The analysis of the waveform was performed by averaging all the waveform detected by the algorithm. The following discussion represents the change of form from non-occlusion state to an occluded one. At the end of the section, the result of all participants will be summarised.
+Treating the digital signal required to remove noisy components of the waveform. As described in section xxx\mynote{Add section were the digital processing was performed}, the signal was levelled to zero.  From there, the points of interest were calculated to identify the different changes in the waveform. The analysis of the waveform was performed by averaging all the waveform detected by the algorithm. The following discussion represents the change of form from non-occlusion state to an occluded one. At the end of the section, the result of all participants will be summarised \mynote{I could add a description of how the signal looks. For instance by adding 10 or 20 beats to show how the device worked.}.
 
 \subsection{Plethysmography waveform change from baseline to venous occlusion}
 \label{section5.3.1}
-This analysis corresponds to the waveform during baseline and venous occlusion.
+This analysis corresponds to the waveform during baseline (between \SIrange{0}{300}{\second}) and venous occlusion (between \SIrange{300}{480}{\second}). This graph was obtained by averaging all the plethysmography waveforms detected by the algorithm and described in detail in section xxx \mynote{Add reference where the waveform detection algorithm is explained}. In the end, all the peaks were averaged obtaining the mean waveform displayed in the figure for baseline and venous occlusion.
+
+Figure \ref{fig:iPG_venous_baseline} shows the common impedance plethysmography waveform, with indicators of their amplitudes at different points of interest. The distance between systolic peak (Point A) to dicrotic notch (Point B) and to diastolic peak (Point C) was calculated. This value was later transposed into the occlusion wave to identify their values during the venous occlusion test.
+
+As detailed in section xxx \mynote{Add note describing how the waveform is composed} , a plethysmography waveform consists of three distinct parts. The systolic peak, dicrotic notch and the diastolic peak., which have been indicated in the figure \ref{fig:iPG_venous_baseline}. 
+
+From a qualitative point of view, it can be noticed that there is a difference in the morphology of the waveform. Next, each point is going to be analysed in detail regarding change of amplitude. 
 
 \begin{figure*}[t!]
 	\centering
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
-		\includegraphics[height=4.5cm]{figure6a}
-		\caption{Relationship between forearm circumference and mean basal impedance}
+		\includegraphics[height=7.6cm]{figure6a}
+		\caption{Average plethysmography waveform for baseline region \SIrange{0}{300}{\second}.}
 		\label{fig:iPG_venous_baseline}
 	\end{subfigure}%
 	~ 
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
-		\includegraphics[height=4.5cm]{figure6b}
-		\caption{Relationship between distance sensing electrodes and mean basal impedance}
+		\includegraphics[height=7.6cm]{figure6b}
+		\caption{Average plethysmography waveform during venous occlusion \SIrange{300}{480}{\second}. }
 		\label{fig:iPG_venous_occlusion}
 	\end{subfigure}
-	\caption{Relation between circumference, length and total segment's volume and mean basal impedance}
+	\caption{Plethysmography waveform of the participant seven between baseline and venous occlusion. }
 	\label{fig:iPG_venous}
 \end{figure*}
+
+\subsubsection{Changes in systolic peak}
+\label{section5.3.1.1}
+Most of the signals showed a modification on the height of their top systolic values. After quantifying the amplitude of the signal at this point, it can be seen that most of the signals showed an increased in the peak value. Indeed \SI{87}{\percent} if the participants showed an increment in resistance. Figure \ref{fig:change_A_venous} shows the mean value of the peaks during baseline and venous occlusion. This figure reveals that most of the participants experienced an increase of impedance except participant eight. 
+
+In fact, after reviewing the data on table \ref{tbl:change_A_venous}, it shows that there is an increment in an average of  \SI{20.93}{\percent}. However, participant eight showed a decrease in an average of \SI{-11.11}{\percent}. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth,height=0.9\textheight,keepaspectratio]{figure8}    
+	\caption{Change of amplitude of the waveform at point A. Red bar represents baseline mean peak value and blue bar mean peak value during venous occlusion.}
+	\label{fig:change_A_venous}
+\end{figure}
+
+\begin{table}[htbp]
+	\caption{Linear regression result for all participants during total occlusion.}
+	\label{tbl:change_A_venous}
+	\centering
+	\begin{tabular}{lccc}
+		\toprule
+		              & \textbf{Baseline [\si{\ohm}]} & \textbf{Occlusion [\si{\ohm}]} & \textbf{Change [\%]} \\\midrule
+		Participant 1 &            0.0283             &             0.0342             &        20.93           \\
+		Participant 2 &            0.0491             &             0.0595             &        21.01           \\
+		Participant 3 &            0.0346             &             0.0374             &         7.91           \\
+		Participant 4 &            0.0252             &             0.0272             &         7.98           \\
+		Participant 5 &            0.0345             &             0.0481             &        39.68           \\
+		Participant 6 &            0.0233             &             0.0306             &        31.33           \\
+		Participant 7 &            0.0359             &             0.0537             &        49.72           \\
+		Participant 8 &            0.0237             &             0.0211             &        -11.11          \\\bottomrule
+	\end{tabular} 
+\end{table}
+
+\subsubsection{Changes in dicrotic notch peak}
+\label{section5.3.1.2}
+This signal is confined between the systolic and diastolic peaks. In the forearm's iPG waveform looks like a dip as illustrated figure \ref{fig:iPG_venous}. This point in the waveform has been identified as point B. The value of this signal changed from baseline when the venous occlusion happened. 
+
+After quantifying the data as shown by table \ref{tbl:change_B_venous}, it can be noticed that most of the signals (\SI{75}{\percent}) shown an increase in their value. Certainly, there was an increment in impedance on average of \SI{29.30}{\percent}. However, partakers two and four noted a slight decrease in their values \SI{-0.47}{\percent} and \SI{-2.34}{\percent} but it is not significant. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth,height=0.9\textheight,keepaspectratio]{figure9}    
+	\caption{Change of amplitude of the waveform at point B}
+	\label{fig:change_B_venous}
+\end{figure}
+
+\begin{table}[htbp]
+	\caption{Linear regression result for all participants during total occlusion.}
+	\label{tbl:change_B_venous}
+	\centering
+	\begin{tabular}{lccc}
+		\toprule
+		& \textbf{Baseline [\si{\ohm}]} & \textbf{Occlusion [\si{\ohm}]} & \textbf{Change [\%]} \\\midrule
+		Participant 1    &     0.0160    &     0.0232    &     45.07    \\  
+		Participant 2    &     0.0383    &     0.0382    &     -0.47    \\  
+		Participant 3    &     0.0196    &     0.0311    &     58.38    \\  
+		Participant 4    &     0.0176    &     0.0172    &     -2.34    \\  
+		Participant 5    &     0.0294    &     0.0385    &     31.07    \\  
+		Participant 6    &     0.0135    &     0.0189    &     39.49    \\  
+		Participant 7    &     0.0256    &     0.0374    &     45.94    \\  
+		Participant 8    &     0.0108    &     0.0127    &     17.28    \\  \bottomrule
+	\end{tabular} 
+\end{table}
+
+\subsubsection{Changes in diastolic peak}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth,height=0.9\textheight,keepaspectratio]{figure10}    
+	\caption{Change of amplitude of the waveform at point C}
+	\label{fig:change_C_venous}
+\end{figure}
+
+\begin{table}[htbp]
+	\caption{Linear regression result for all participants during total occlusion.}
+	\label{tbl:change_C_venous}
+	\centering
+	\begin{tabular}{lccc}
+		\toprule
+		& \textbf{Baseline [\si{\ohm}]} & \textbf{Occlusion [\si{\ohm}]} & \textbf{Change [\%]} \\\midrule
+		Participant 1    &     0.0272    &     0.0285    &       4.79    \\  
+		Participant 2    &     0.0419    &     0.0389    &      -7.17    \\  
+		Participant 3    &     0.0280    &     0.0332    &      18.37    \\  
+		Participant 4    &     0.0225    &     0.0185    &     -17.99    \\  
+		Participant 5    &     0.0330    &     0.0452    &      37.18    \\  
+		Participant 6    &     0.0165    &     0.0207    &      25.96    \\  
+		Participant 7    &     0.0294    &     0.0381    &      29.85    \\  
+		Participant 8    &     0.0143    &     0.0129    &     -10.06    \\\bottomrule
+	\end{tabular} 
+\end{table}
 
 \subsection{Plethysmography waveform change for arterial occlusion}
 \label{section5.3.2}
