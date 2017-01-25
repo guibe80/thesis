@@ -234,13 +234,11 @@ From the statistical analysis displayed can be concluded the following. First, a
 %%********************************** % Section 5.2.3 ******************************************
 \subsection{Mean impedance data during arterial occlusion}
 \label{section5.2.3}
-During partial arterial occlusion (\SIrange{480}{660}{\second}), the incoming arterial flow is restricted causing a slow filling of the forearm. This mechanical blocking induces an uncomfortable feeling to the participants, some of them felt numbness in the arm.  As it can be seen from figure \ref{fig:rb:all_participants}, most of the participants there is an apparent drop in impedance during the action. Though participant one moved his muscles creating a sharp fall before releasing the pressure, also partaker four showed a slight increment of impedance followed in the middle of this part of the test. 
+During partial arterial occlusion (\SIrange{480}{760}{\second}), the incoming arterial flow is restricted causing a slow filling of the forearm. This mechanical blocking induces an uncomfortable feeling to the participants, some of them felt numbness in the arm.  As it can be seen from figure \ref{fig:rb:all_participants}, most of the participants there is an apparent drop in impedance during the action. Though participant one moved his muscles creating a sharp fall before releasing the pressure, also partaker four showed a slight increment of impedance followed in the middle of this part of the test. 
 
 Figure \ref{fig:normalise:arterial_occlusion} shows the normalise resistivity decrease for all the participants. Table \ref{tbl:arterial_occlusion:region4} shows the values of the linear regression for the data.   All in all, it is clear that the decrease of resistivity is sharper in this part of the experiment compared to venous occlusion.  In fact, when this data is compared to venous information, the average slope is nearly twice as big (mean \SI{-0.00536}{\ohm\per\second}$\pm$\SI{2.853e-06}{\ohm\per\second}). Also, the total change of impedance ($\Delta Z$) was almost doubled in all participants, except participant four which value decreased.  
 
 The linear regression of this region of the signal showed an apparent straight tendency for most of the participants. Most of the signals can be represented as negative tilt line ($R^2 \geq 0.858 $), except members one, four and eight ($R^2 \leq 0.627 $).
-
-
 
 \mynote{Check about what happens during partial arterial occlusion. Slow filling of the forearm. This information should also be added to the Medical Background}
 \begin{figure}
@@ -250,6 +248,7 @@ The linear regression of this region of the signal showed an apparent straight t
 	\label{fig:normalise:arterial_occlusion}
 \end{figure}
 \mynote{Figure \ref{fig:normalise:venous_occlusion} is temporary. It needs to be improved by naming axis}
+
 \begin{table}[htbp]
 	\caption{Linear regression result for all participants during partial arterial occlusion.}
 	\label{tbl:arterial_occlusion:region4}
@@ -653,8 +652,6 @@ In general, point A decreased in average \SI{-66.15}{\percent} its peak value oc
 	\caption{Plethysmography waveform of the participant seven between baseline and total occlusion}
 	\label{fig:iPG_total}
 \end{figure*}
-\subsection{Comparative change for all participants}
-\label{section5.3.4}
 
 \begin{figure*}[t!]
 	\centering
@@ -683,7 +680,6 @@ In general, point A decreased in average \SI{-66.15}{\percent} its peak value oc
 \end{figure*}
 
 
-
 %%********************************** % Section 5.4 ******************************************
 \pagebreak
 \section{Blood flow calculation from baseline signal}
@@ -699,7 +695,7 @@ As a result, the method described in section xxx was used to calculate the blood
 
 In the same figure but on the right, it can be noticed the result of the blood flow calculated in units of \si{\ml / \min 100 \ml}. The blue dots indicate the instant blood flow at the end value of $\Delta R$. The orange line indicates the mean blood flow during measurements. Again, participants 1 and 6 flow estimation is affected by movement producing a mean value far from the majority of the data points. Moreover, it is confirmed by examining the results summarised on the table \ref{tbl:blood_flow:region2}. The standard deviation $(\sigma_x)$ is quite far compared to the rest of the participants, as well as the minimum value of the data. Therefore, the results of these two participants clearly cannot be expected to be accurate. However, if the data sample was in a linear section, then the calculated flow will be more in agreement with the expected values. 
 
-From this table can be noticed that the calculated blood flow per \SI{100}{\ml} of tissue for all the participants was in average \SI{-0.855}{\ml / \min 100\ml} $\pm$ \SI{0.344}{\ml/\min 100\ml}. 
+From this table can be noticed that the calculated blood flow per \SI{100}{\ml} of tissue for all the participants was in average \SI{-0.855}{\ml\per\min 100\ml} $\pm$ \SI{0.344}{\ml\per\min 100\ml}. 
 
 \begin{table}[t]
 	\caption{Statistics of the blood flow calculated during venous occlusion. All the numbers are in blood flow units \si{\ml/\min 100\ml}, except the column size that is the magnitude of sample.}
@@ -715,8 +711,15 @@ From this table can be noticed that the calculated blood flow per \SI{100}{\ml} 
 			c
 		}
 		\toprule
-		& \textbf{Size} & \textbf{Median} & \multicolumn{2}{c}{\textbf{Mean}} & \textbf{Max} & \textbf{Min} \\
-		&                 & \small{\si{[\ml/\min 100\ml]}} & \multicolumn{2}{c}{\small{\si{[\ml/\min 100\ml]}}} & \small{\si{[\ml/\min 100\ml]}} & \small{\si{[\ml/\min 100\ml]}} \\\midrule
+		& \multirow{2}{*}{\textbf{Size}} 
+		& \textbf{Median} 
+		& \multicolumn{2}{c}{\textbf{Mean}} 
+		& \textbf{Max} & \textbf{Min} \\
+		& 
+		& \small{\si{[\ml/\min 100\ml]}} 
+		& \multicolumn{2}{c}{\small{\si{[\ml/\min 100\ml]}}} 
+		& \small{\si{[\ml/\min 100\ml]}} 
+		& \small{\si{[\ml/\min 100\ml]}} \\\midrule
 		Participant 1   & 23   &     -0.808  &   -1.055  &  0.939 &   -0.054   &  -3.955\\
 		Participant 2   & 30   &     -0.570  &  -0.575   & 0.272  &  -0.117    & -1.256\\
 		Participant 3   & 31   &     -0.600  &  -0.613   & 0.344  &  -0.011    & -1.483\\
@@ -729,19 +732,95 @@ From this table can be noticed that the calculated blood flow per \SI{100}{\ml} 
 \end{table}
 
 \begin{figure}
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,trim={0.5cm 0.5cm 2cm 2cm},clip]{figure11}    
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,trim={0.5cm 0.5cm 2cm 2cm},clip]{figure12}    
 	\caption{Blood flow calculated from venous occlusion plethysmography}
 	\label{fig:blood_flow:venous_occlusion}
 \end{figure}
 
-%********************************** % Section 5.3.2 ******************************************
+%********************************** % Section 5.4.2 ******************************************
 \subsection{Blood flow calculation during partial arterial occlusion}
 \label{section5.4.2}
+As reflected in \ref{section5.2.2}, there is a deeper slope in basal impedance during partial arterial occlusion compared to venous occlusion. Therefore, higher blood flow values are expected from the calculated data. The method used to estimate the blow was the same one utilised in the section \ref{section5.4.1}. The obtained signals were also affected by noise within the basal impedance, possibly caused by the respiratory action and muscle movement. In fact, during this part of the experiment, most participants felt uncomfortable feeling numbness in their arms. Therefore, they moved their arms during this section of the investigation which in part affected the quantification of blood flow.
 
-%%********************************** % Section 5.4 ******************************************
+The figure \ref{fig:blood_flow:arterial_occlusion} shows the calculation of the blood flow between the points of decreasing impedance. From a qualitative perspective, it can be observed that some signals do not show a decreasing linear trend. For example, participant 1 at the end of the test abruptly moved his arm causing a sudden change in impedance. As a result, the impedance at this point was far from the mean of the signal.
+
+Another example of unexpected impedance change is the participant 4 and 8. In the first case, in the middle of the test, the impedance of the forearm tended to increase. However, this later began to decline as expected. In the second case, the movement of the arm can be observed after half of the test. As a result, there was a rapid acceleration of blood flow that is not in agreement with the average value of the signal.
+
+By analysing the results summarised in the Table \ref{tbl:blood_flow:region4} the average blood flow of all the participants was \SI{-0.945}{\ml\per\min} $\pm$ \SI{0.224}{\ml\per\min 100\ml}. In general, there was an increment of \SI{9.52}{\percent} comapred to venous occlusion. 
+
+
+\begin{table}[h]
+	\caption{Statistics of the blood flow calculated during partial arterial occlusion. All the numbers are in blood flow units \si{\ml\per\min 100\ml}, except the column size that is the magnitude of sample.}
+	\label{tbl:blood_flow:region4}
+	\centering
+	\begin{tabular}
+		{
+			l
+			c
+			c
+			S[table-format=1.3]@{\,\( \pm \)\,}S[table-format=1.3] %Format for Z+-std 
+			c
+			c
+		}
+		\toprule
+		& \multirow{2}{*}{\textbf{Size}} 
+		& \textbf{Median} 
+		& \multicolumn{2}{c}{\textbf{Mean}} 
+		& \textbf{Max} & \textbf{Min} \\
+		& 
+		& \small{\si{[\ml/\min 100\ml]}} 
+		& \multicolumn{2}{c}{\small{\si{[\ml/\min 100\ml]}}} 
+		& \small{\si{[\ml/\min 100\ml]}} 
+		& \small{\si{[\ml/\min 100\ml]}} \\\midrule
+		Participant 1    &      24        &      -0.917    &      -1.118    &      1.090    &      -0.105    &      -5.238    \\ 
+		Participant 2    &      27        &      -0.632    &      -0.950    &      0.996    &      -0.014    &      -4.821    \\ 
+		Participant 3    &      27        &      -0.778    &      -0.966    &      0.736    &      -0.087    &      -3.546    \\ 
+		Participant 4    &      35        &      -0.803    &      -1.184    &      1.129    &      -0.013    &      -5.462    \\ 
+		Participant 5    &      22        &      -0.793    &      -0.725    &      0.292    &      -0.199    &      -1.250    \\ 
+		Participant 6    &      28        &      -0.885    &      -0.952    &      0.695    &      -0.114    &      -2.628    \\ 
+		Participant 7    &      25        &      -0.496    &      -0.524    &      0.350    &      -0.031    &      -1.498    \\ 
+		Participant 8    &      26        &      -0.743    &      -1.141    &      1.170    &      -0.042    &      -4.708    \\ 
+\bottomrule
+	\end{tabular} 
+\end{table}
+
+\begin{figure}
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio,trim={0.5cm 0.5cm 2cm 2cm},clip]{figure13}    
+	\caption{Blood flow calculated from partial arterial occlusion plethysmography}
+	\label{fig:blood_flow:arterial_occlusion}
+\end{figure}
+
+%%********************************** % Section 5.4.3 ******************************************
+\subsection{Comparative change of blood flow between venous and partial arterial}
+\label{section5.4.3}
+As it can be noticed from the qualitative analysis of the signals, the blow flow calculated during partial arterial occlusion points to be higher. 
+
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[height=6cm,keepaspectratio]{figure14a}    
+		\caption{Comparison between mean venous occlusion and partial arterial occlusion. Ration of change showed as a percentage.}
+		\label{fig:change_flow_mean}
+	\end{subfigure}%
+	~ 
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[height=6cm,keepaspectratio,keepaspectratio]{figure14b}    
+		\caption{Comparison between median venous occlusion and partial arterial occlusion. Ration of change showed as a percentage.}
+		\label{fig:change_flow_median}
+	\end{subfigure}
+	\caption{Change of blood flow between venous occlusion and partial arterial occlusion}
+	\label{fig:iPG_flow_comparative}
+\end{figure*}
+
+
+%%********************************** % Section 5.5 ******************************************
 \section{Blood flow calculation from plethysmography signal}
 \label{section5.5}
-%********************************** % Section 5.4.1 ******************************************
+
+
+%********************************** % Section 5.5.1 ******************************************
 \subsection{Blood flow beat by beat during baseline}
 \label{section5.5.1}
 
