@@ -793,7 +793,13 @@ By analysing the results summarised in the Table \ref{tbl:blood_flow:region4} th
 %%********************************** % Section 5.4.3 ******************************************
 \subsection{Comparative change of blood flow between venous and partial arterial}
 \label{section5.4.3}
-As it can be noticed from the qualitative analysis of the signals, the blow flow calculated during partial arterial occlusion points to be higher. 
+As it can be noticed from Figure \ref{fig:iPG_flow_comparative}, the quantitative analysis of blood flow change between venous occlusion and partial arterial occlusion shows a tendency to increase flow. The negative symbol of the data was suppressed in the figure since it expresses direction only. 
+
+The graph is divided into two parts, one from the average value and another from the median of the data.  In both situations \SI{75}{\percent} of the participants showed an increase in their blood flow, but only member 7 was common in both charts. This participant oddly showed a decrease in his mean and median value, which is utterly inexplicable at this time since his signals are quite constant. Though from figure \ref{fig:rb:all_participants} can be noticed that from the beginning of the session to the end of the partial arterial occlusion  (\SIrange{0}{960}{\second}), his basal impedance was declining continuously, but after this time it followed a downtrend. 
+
+On the other hand, it appears that the median value of participant 6 was heavily affected by a sudden change of the basal impedance signal towards the end of the test in venous occlusion. In fact, As table \ref{tbl:blood_flow:region2} shows there are extremely high values in the blood flow up to (\SI{10}{\ml\per\min 100\ml}, this clearly was caused by movement effect. 
+
+Participant 4 is another interesting case, as it has been detailed in this document, the partaker exhibited unusual changes during the experiment. In this case, the median of the signal showed a decrease in blood flow.However, this can be explained by the shape of the basal impedance signal illustrated in figure \ref{fig:blood_flow:arterial_occlusion}. As can be seen, the signal does not contain many points with a very steep negative slope, and this reflects small changes in impedance, which also translates into a low value in the blood stream which might be incorrect. By looking at the same graph but the blood flow plot, from \SIrange{760}{870}{\second} the blood flow is quite small but after that period values tend to be more in agreement.
 
 \begin{figure*}[t!]
 	\centering
@@ -818,11 +824,16 @@ As it can be noticed from the qualitative analysis of the signals, the blow flow
 %%********************************** % Section 5.5 ******************************************
 \section{Blood flow calculation from plethysmography signal}
 \label{section5.5}
+So far the blood flow has been analysed from occlusive methods using the techniques described in section \ref{section5.4}. However, these procedures require mechanical occlusion to produce an increase in volume within the forearm being measured. However, sometimes this can be uncomfortable especially when the applied pressure is above the systolic value or when the person simply can not tolerate restriction of blood flow.
 
+For this cases, analysing the waveform also provides information about the blood flow.  The rush of blood into the vessel creates a small increase in volume within the limit of the potential electrodes which can be translated into the blood flow. Having, a device sensitive enough to detect this changes is crucial to provide an accurate estimation of the blood speed. As described in section \ref{section5.3}, the waveform contained within the basal impedance was amplified by the device achieving great detail. 
+
+In fact, several studies \mynote{Add a reference to a study about AC blood flow estimation} have demonstrated that using is possible to calculate blood flow from the plethysmography waveform. In this case, the change of impedance used to perform this calculation occurs between the foot of the wave and the systolic peak. This $\Delta Z$ is used to calculate blood flow by also applying Nyober's equation \ref{eq:Nyober}. 
 
 %********************************** % Section 5.5.1 ******************************************
 \subsection{Blood flow beat by beat during baseline}
 \label{section5.5.1}
+The plethysmographic baseline signals shown in figure \ref{fig:iPG_venous_baseline} and \ref{fig:iPG_arterial_baseline} were used to calculate the blood flow before occlusive actions. These correspond to regions 1, 3 and 5. The quality of the signal, meaning a good shape of the waveform also depends on added noises to the signal from external sources.  This noise sources may affect the systolic peak which is used to calculate the blood flow. 
 
 \subsection{Blood flow beat by beat during venous occlusion}
 \label{section5.5.2}
