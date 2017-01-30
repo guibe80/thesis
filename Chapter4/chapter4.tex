@@ -16,7 +16,7 @@ This section will describe the protocol and signal obtained during the device pe
 
 In this study, nine healthy volunteers participated. In total, six males and three females aged \numrange{23}{37} years old (mean 28.77) participated in the study. As per regulation of the committee, only healthy participants took part of the research. Any participant with cardiovascular disease history did not take in the study. 
 
-Previous to the recruitment of participants, they received documentation explaining the whole procedure. Once they agreed, the party returned the consent form signed to schedule the study. The experiments took place at the Research Centre for Biomedical Engineering of City, University of London. Upon arrival partaker acclimatised for \SI{10}{\min} which room temperature was \SI{22}{\degreeCelsius}\SI{\pm 2}{\degreeCelsius}. During this period, it was clearly explained the experimental procedure to the attendant. Then the following steps took place.
+Previous to the recruitment of participants, they received documentation explaining the whole procedure. Once they agreed, the party returned the consent form signed to schedule the study. The experiments took place at the Research Centre for Biomedical Engineering of City, University of London. Upon arrival partaker acclimatised for \SI{10}{\min} which room temperature was \SI{22(2)}{\degreeCelsius}. During this period, it was clearly explained the experimental procedure to the attendant. Then the following steps took place.
 
 
 %********************************** %First Section  **************************************
@@ -233,7 +233,7 @@ According to the Doppler equation described in \ref{eq:doppler}, it is possible 
 	v = \frac{f_D \times C}{2 f_O \times Cos(\theta)} \tagaddtext{[\si{\meter\per\second}]}
 \end{align}
 
-where $f_D$ is the Doppler frequency, $C$ is the speed of sound assumed to be \SI{1540}{\meter\per\sec}, $f_0$ is the oscillation frequency of the Doppler instrument in this case \SI{8}{\mega\hertz} and $\theta$ the angle between the ultrasound sensor and the target vessel which is \SI{45}{\degree}.
+where $f_D$ is the Doppler frequency, $C$ is the speed of sound assumed to be \SI{1540}{\meter\per\sec}, $f_0$ is the oscillation frequency of the Doppler instrument in this case \SI{8}{\mega\hertz} and $\theta$ the angle between the ultrasound sensor and the target vessel which is \SI{45}{\degree}. \mynote{I've got in my notes that the units are l/min}
 
 This angle position was locked using a holster and a grabber. The angle was calculated using the midpoint of a \SI{90}{\degree} angle. Nevertheless, this is one of the shortcomings of this method. The angle can be estimated according to the position sensor's case but not to the surface of the crystal of the sensor. There is an incident error that can not be quantified easily. However, for the event of this study, it was assumed that the angle is \SI{45}{\degree}.
 
@@ -248,7 +248,7 @@ Now the blood flow can be computed by converting velocity to flow if the cross s
 
 where $\dot{Q}$ is flow, $v$ is the velocity of the blood cell and $A$ the cross-sectional area of the radial artery.
 
-However, blood flow can be estimated by using averages cross-sectional area of radial arteries in the population. A study has been found that males have slight larger radial arteries diameter than females ($2.3 \pm 0.39$ mm and $2.11 \pm 0.29$ mm respectively)~\cite{ashraf2010size}. These dimensions were used to calculated the blood flow in the present experiment.
+However, blood flow can be estimated by using averages cross-sectional area of radial arteries in the population. A study has been found that males have slight larger radial arteries diameter than females (\SI{2.3(039)}{\mm} and \SI{2.11(029)}{\mm} respectively)~\cite{ashraf2010size}. These dimensions were used to calculated the blood flow in the present experiment.
 
 \subsubsection{Converting LDF}
 The Laser Doppler Flowmetry device utilised in the study was the xxx
@@ -397,16 +397,16 @@ Blood flow could also be noted as the blood flow per total arm segment volume fo
 
 \begin{align}
 	\label{eq:bfve}
-	BFVE = \frac{BF}{V_e} \times \text{1000 ml} \tagaddtext{[\si{\ml / \min.\litre}]}
+	BFVE = \frac{BF}{V_e} \times \text{1000 ml} \tagaddtext{[\si{\ml\per\min.\litre}]}
 \end{align}
 
-where BFVE is the blood flow per litre of volume \si{\milli\litre\per\min.\litre} , BF is the blood flow found in \ref{eq:bf}, $V_e$ is the forearm's segment volume in \si{\cubic\centi\meter} from equation \ref{eq:v_e} and \SI{1000}{ml} is the scaling factor to convert the volume into litre.
+where BFVE is the blood flow per litre of volume \si{\ml\per\min.\litre} , BF is the blood flow found in \ref{eq:bf}, $V_e$ is the forearm's segment volume in \si{\cubic\cm} from equation \ref{eq:v_e} and \SI{1000}{ml} is the scaling factor to convert the volume into litre.
 
 Lastly, it is possible computing the blood flow of \SI{100}{\milli\litre} of tissue.  It can be obtained as the blood flow of the whole segment by \SI{100}{\milli\litre} of volume. Hence, the equation \ref{eq:bfpct} provides the blood flow in the units of interest. 
 
 \begin{align}
 	\label{eq:bfpct}
-	BF_{100ml} = \frac{BF}{V_e} \times \text{100 ml} \tagaddtext{[\si{ml/min.100.ml}]}
+	BF_{100ml} = \frac{BF}{V_e} \times \text{100 ml} \tagaddtext{[\si{\bfv}]}
 \end{align}
 
 %********************************** % Section 4.3.3 ******************************************
