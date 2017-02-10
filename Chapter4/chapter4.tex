@@ -23,7 +23,7 @@ Previous to the recruitment of participants, they received documentation explain
 \section{Experimental procedure} %Section - 4.1
 \label{section4.1}
 
-After filling paperwork and completing acclimatisation different instruments were used to acquired physiological signals. These measurements included ECG, PPG, laser Doppler, ultrasound Doppler and impedance plethysmography. Table \ref{table:instruments} describes the purpose of each instrument in this experiment. 
+After filling paperwork and completing acclimatisation different instruments were used to acquired physiological signals. These measurements included ECG, PPG, laser Doppler flowmeter, Doppler ultrasound and impedance plethysmography. Table \ref{table:instruments} describes the purpose of each instrument in this experiment. 
 
 \begin{table}
 	\caption{Instruments used during the study and function}
@@ -72,7 +72,7 @@ In the next step, the laser Doppler flowmetry probe was attached on the forearms
 
 \mynote{Check a small paragraph about how this device works and what is useful for}
 
-Later, the ultrasound Doppler probe was placed close as possible to the radial artery. It produces an audible signal comparable with blood's speed at this point. For this, the device 's probe head requires being placed at a fixed angle. Using a pole the instrument's head was secured and placed on the party's wrist. The appliance also provides an external port for additional processing.  
+Later, the Doppler ultrasound probe was placed close as possible to the radial artery. It produces an audible signal comparable with blood's speed at this point. For this, the device 's probe head requires being placed at a fixed angle. Using a pole the instrument's head was secured and placed on the party's wrist. The appliance also provides an external port for additional processing.  
 
 \mynote{add a paragraph description of how Ultrasound Doppler works}
 
@@ -212,7 +212,7 @@ Likewise, the impedance value of the dynamic signal can be calculated using ohm'
 \end{align}
 
 \subsubsection{Converting ultrasound to flow}
-\label{sectionUD}
+\label{sectionDU}
 The instrument used in this study was a Huntleigh model MD2 with sensor type VP8. The frequency of the transmitter is \SI{8}{\mega\hertz} which is ideal for blood flow estimation. The principle of this device relates to the frequency of a source to its velocity relative to a sensor~\cite{surgeonhand2002Hand}.  In other words, if an electromagnetic wave is transmitted at a fixed frequency and is reflected by a moving body, then the frequency of the received signal will be shifted~\cite{ht:MD2}.  
 
 The device can detect moving blood cells within a vessel.  When a cell passes through the electromagnetic beam a frequency shift occurs, which is proportional to the blood flow velocity. Nevertheless, the Doppler shift is also affected by the angle of the head of the probe and the direction of the flow.
@@ -221,10 +221,10 @@ Because average velocities found in the human body are within the audible freque
 
 \begin{align}
 	\label{eq:fshift}
-	f_D = \frac{V_{UD} \times 8 KHz}{3.5V} \tagaddtext{[\si{\hertz}]}
+	f_D = \frac{V_{DU} \times 8 KHz}{3.5V} \tagaddtext{[\si{\hertz}]}
 \end{align}  
 
-where $V_{UD}$ is the analogue output voltage of the instrument. 
+where $V_{DU}$ is the analogue output voltage of the instrument. 
 
 According to the Doppler equation described in \ref{eq:doppler}, it is possible to find the velocity of a blood cell derived from its frequency shift. However, there is a correction angle $(\theta)$ between the ultrasound beam and the direction of blood flow. For this reason, the head of the sensor was positioned \SI{45}{\degree} angle to the radial artery on the wrist.
 
@@ -256,7 +256,7 @@ However, blood flow can be estimated by using averages cross-sectional area of r
 \subsubsection{Converting LDF}
 \label{section:ldf}
 The Laser Doppler Flowmetry device utilised in the study was the xxx
-\mynote{Confirm the model of the LDF device}. LDF is a non-invasive optical method to estimate the blood perfusion in the microcirculation. This device uses the same Doppler principle as described in section \ref{sectionUD} but instead of sound a beam of light is the source. Similarly, when red blood cell scatters a light of beam, it produces a frequency shift~\cite{fredriksson2007laser}. 
+\mynote{Confirm the model of the LDF device}. LDF is a non-invasive optical method to estimate the blood perfusion in the microcirculation. This device uses the same Doppler principle as described in section \ref{sectionDU} but instead of sound a beam of light is the source. Similarly, when red blood cell scatters a light of beam, it produces a frequency shift~\cite{fredriksson2007laser}. 
 
 LDF produces a blood perfusion signal that is comparable to the RBC perfusion or also known as flux. The units of this measurement are Blood Perfusion Unit (BPU) which is an arbitrary unit scale. BPU is the product of the mean number of moving blood cells in the small volume under the probe and the average velocity of moving blood cells. 
 
@@ -462,6 +462,7 @@ This computational work was performed in Matlab using the command \textit{''trap
 \nomenclature[z-c]{C}{Speed of sound}
 \nomenclature[z-ldf]{LDF}{Laser Doppler Flowmetry}
 \nomenclature[z-bpu]{BPU}{Blood Perfusion Unit}
+\nomenclature[z-du]{DU}{Doppler ultrasound}
 \nomenclature[g-p]{$\pi$}{ $\simeq 3.14\ldots$}  
 \nomenclature[g-r]{$\rho$}{Blood resistivity $\simeq$ \SI{150}{\ohm\per\centi\meter}}  
 \nomenclature[g-t]{$\theta$}{Angle of incidence}
