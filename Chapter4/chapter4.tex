@@ -66,19 +66,19 @@ Following this step, a PPG probe was placed on the index finger. The PPG instrum
 \mynote{Check for the type of probe used. Nellcor?}
 \mynote{I am not 100\% sure that has two outputs}
 
-In the next step, the laser Doppler flowmetry probe was attached on the forearms' mid-section. This device measures small changes in blood flow over the vascular bed under the skin. The instrument counts with an analogue port that extracts the waveform for further processing.  
+In the next step, the laser Doppler flowmetry probe was attached on the mid-section of the forearm. This device measures small changes in blood flow to the vascular bed under the skin. \nknote{the next sentences doesn't make sense counts with an analogue?}The instrument counts with an analogue port that extracts the waveform for further processing.  
 
 \mynote{Check for maker of the Doppler Flowmetry device}
 
 \mynote{Check a small paragraph about how this device works and what is useful for}
 
-Later, the ultrasound Doppler probe was placed close as possible to the radial artery. It produces an audible signal comparable with blood's speed at this point. For this, the device 's probe head requires being placed at a fixed angle. Using a pole the instrument's head was secured and placed on the party's wrist. The appliance also provides an external port for additional processing.  
+Later, the ultrasound Doppler probe was placed as close as possible to the radial artery. An audible signal is produced, which is comparable with the speed of blood flow at this point. For this, the probe head of the device requires to be placed at a fixed angle. Using a pole, the instrument's head was secured and placed on the party's wrist. The appliance also provides an external port for additional processing.  
 
 \mynote{add a paragraph description of how Ultrasound Doppler works}
 
 \mynote{adding the correct name of the pole}
 
-Finally, impedance plethysmography electrodes were allocated. For this, ECG electrodes provided good contact area required for the experiment. Current probes were placed following the path of the left radial artery, one below the elbow (brachial artery) and a second on top of the radial artery close to the wrist. Sensing electrodes were located next to the previous electrodes towards the internal side of the forearm. The distance between sensing electrodes was recorded as the length of the volume segment. Also, arm's circumference at these electrodes position also was taken. Using equation xx is possible to estimate the volume of the segment.  The device as described in Section xx provides two channels, impedance baseline and plethysmography waveform. 
+Finally, impedance plethysmography electrodes were placed on the skin. For this, ECG electrodes were selected as they a provided good contact area which was required for the experiment to be carried out successfully. Current probes were placed following the path of the left radial artery, one below the elbow (brachial artery) and a second on top of the radial artery close to the wrist. \nknote{sensing wrong word}Sensing electrodes were located next to the previous electrodes towards the internal side of the forearm. The distance between sensing electrodes was recorded as the length of the volume segment. Additionally, the arm's circumference at these electrodes position was also taken. Using equation xx it is possible to estimate the volume of the \nknote{?segment which segment?}segment.  The device as described in Section xx provides two channels, impedance baseline and plethysmography waveform. 
 
 \mynote{add reference to circumference equation}
 
@@ -89,21 +89,21 @@ Finally, impedance plethysmography electrodes were allocated. For this, ECG elec
 \subsection{Data acquisition}
 \label{section4.1.2}
 
-As outlined in the previous section, all the instruments provided external ports for external data processing. These output ports were connected to a DAQ NI-6211 (National Instruments). This analogue to digital converter card provides 32* channels and a combined sampling rate of \SI{250}{\kilo\sample\per\second}. It is connected to a personal computer via USB port (Version 1.0). All the signal were sampled at \SI{1}{\kilo\hertz}.
+As outlined in the previous section, all the instruments provided external ports for external data processing. These output ports were connected to a DAQ NI-6211 (National Instruments). This analogue to digital converter card provides 32* channels and a combined sampling rate of \SI{250}{\kilo\sample\per\second}. It is connected to a personal computer via USB port (Version 1.0). All the signals were sampled at \SI{1}{\kilo\hertz}.
 
 \mynote{Maybe explain about the resolution of the DAQ. If this is a 16 bit the resolution is 2 to 16}
 
-A virtual instrument using LabView was created for displaying, processing and storing raw data. Fig. Xx shows the front-end of the program. A custom virtual instrument was programmed showing four channels of waveforms. iPG, ECG, PPG and Ultrasound Doppler were used for displaying signals.
+A virtual instrument using LabView was created for displaying, processing and storing raw data. Fig. Xx shows the front-end of the program. A custom virtual instrument was programmed showing four channels of waveforms. iPG, ECG, PPG and Ultrasound Doppler were those selected for portraying the signals.
 
 \mynote{Add image of the front end of the LabVIEW instrument}
 
-For display purposes, a band-pass filter was applied to the iPG and PPG signals. Nevertheless, the data recorded only was from the unfiltered waveforms because post-processing was required.  
+For display purposes, a band-pass filter was applied to the iPG and PPG signals. Nevertheless, the data recorded  was only from the unfiltered waveforms because post-processing was required. \nknote{expand on this and unsure if nevertheless is appropriate pls explain context to me to confirm} 
 
 \mynote{check what filters were applied to the signal}
 
-Two tabs provided settings and voltage adjustment for PPG signal. The participant tab required the following data: left arm dimensions, blood pressure and path name. At the end of the experimental procedure, all raw data was stored on an LVM file created by LabView. In the second tab, the VI adjusts the light intensity of the light PPG device. Usually a \SI{20}{\milli\ampere} is enough to provide a good quality signal. 
+Two tabs provided settings and voltage adjustment for PPG signal. The participant tab required the following data: left arm dimensions, blood pressure and path name. At the end of the experimental procedure, all raw data was stored on an LVM file created by LabView. In the second tab, the VI adjusted the light intensity of the light PPG device. Usually a \SI{20}{\milli\ampere} is enough to provide a good quality signal. \nknote{what do you mean by this how is is good quality in what way?}
 
-The main panel apart from just displaying waveforms also provides control buttons and a timer.  Pressing the start button starts a timer and waveforms begin to be stored in memory. Pushing on the same button again stops the timer and saves all the data in a local LVM file. 
+The main panel apart from just displaying waveforms also provide control buttons and a timer.  Pressing the start button starts a timer and waveforms begin to be stored in memory. Pushing on the same button again stops the timer and saves all the data in a local LVM file. 
 
 \mynote{Add proper description of the DAQ used, including channels}
 \mynote{Add reference of LabView in bibliography}
@@ -112,9 +112,9 @@ The main panel apart from just displaying waveforms also provides control button
 \subsection{Experimental protocol}
 \label{section4.1.3}
 
-This experiment was aiming to look into waveform changes when an occlusion occurs. Achieving this is possible by applying a mechanical blockage using a standard blood pressure instrument. This device requires being pumped manually using an inflation bulb. The instrument also provides a gauge indicating cuff's pressure level. The cuff was secured to the left biceps of the participant. 
+This experiment was aiming to look into waveform changes when an occlusion occurs. Achieving this is possible by applying a mechanical blockage using a standard blood pressure instrument. This device necessitates being pumped manually using an inflation bulb. The instrument also provides a gauge indicating the cuff's pressure level. The cuff was secured to the left biceps of the participant. 
 
-The protocol required recording three different types of blood flow occlusion. The first kind of blood flow restriction was venous occlusion.  This obstruction can be produced by inflating the cuff usually between \SIrange{10}{20}{\mmHg} below diastolic pressure. Thus, blocking the venous blood return from the forearm.  Overall, for each participator the target pressure was \SI{20}{\mmHg} under their diastolic pressure recorded at the beginning of the session. 
+The protocol required recording three different types of blood flow occlusion. The first kind of blood flow restriction was venous occlusion.  This obstruction can be produced by inflating the cuff usually between \SIrange{10}{20}{\mmHg} below diastolic pressure.\nknote{how do you know this works what is your reference} Thus, blocking the venous blood return from the forearm.  Overall, for each participant, the target pressure was \SI{20}{\mmHg} under their diastolic pressure recorded at the beginning of the session.\nknote{how can you confirm this why do you conclude this} 
 
 The second class of blood flow restriction was partial arterial occlusion. This kind of blockage decreases the amount of arterial blood coming into the forearm but also stops venous blood return. As an illustration, this can be obtained by applying a mechanical compression to the upper arm. The desired value should be between diastolic and systolic pressure. Therefore, the objective was to occlude in the mean value between diastolic and systolic pressure. For that, it was calculated using the following equation.
 
@@ -127,48 +127,48 @@ The second class of blood flow restriction was partial arterial occlusion. This 
 
 where $P_d$ is diastolic pressure and $P_s$ is systolic pressure. 
 
-The last kind of occlusion needed is total occlusion, which is possible to obtain by occluding above systolic pressure. In this experiment, blood flow was blocked inflating the cuff above \SI{20}{\mmHg} of participant's systolic value recorded. This kind occlusion completely restricts the inflow and outflow of venous and arterial blood. Hence, it is expected that not change of volume takes place.
+The last kind of occlusion needed is total occlusion, which is possible to obtain by occluding above systolic pressure\nknote{reference}. In this experiment, blood flow was blocked by inflating the cuff above \SI{20}{\mmHg} of participant's systolic value recorded. This method of occlusion completely restricts the inflow and outflow of venous and arterial blood. Hence, it is expected that no change of volume takes place.
 
 \subsubsection{Recording waveforms}
 
-At this point, as soon as all the instruments were operating successfully a small test took place. While waveforms were being shown on screen, \SI{2}{\min} of recordings were taken but not recorded yet. Participants were reminded to limit their movements during the experiment. 
+At this point, as soon as all the instruments were operating successfully, a small test took place. While waveforms were being shown on screen, \SI{2}{\min} of recordings were taken but not recorded yet. Participants were reminded to limit their movements during the experiment. 
 
-As soon as all signals were readable and free of noise, the start button of the VI was pushed to initiate the study. In the beginning, \SI{5}{\min} of baseline recordings were obtained. These waveforms provided the standard control wave to compare with occluded waveforms. Then, as soon as the timer reached this time the cuff was inflated rapidly at \SI{20}{\mmHg} below diastolic pressure. Therefore, producing venous occlusion and swelling the forearm. This level of blockage was held for \SI{3}{\min} followed by a swift cuff's deflation. 
+As soon as all signals were readable and free of noise, the start button of the VI was pushed to initiate the study. In the beginning, \SI{5}{\min} of baseline recordings were obtained. These waveforms provided the standard control wave to compared with occluded waveforms. Then, as soon as the timer reached this time the cuff was inflated rapidly at \SI{20}{\mmHg} below diastolic pressure. Therefore, producing venous occlusion \nknote{swelling the forearm sounds wrong}and swelling the forearm. This level of blockage was held for \SI{3}{\min} followed by swiftly deflating the cuff. 
 
-Similarly, it was required repeating the procedure with partial arterial occlusion. As found in the literature, after an occlusion happens \SI{5}{\min} are needed to restore blood pressure. For this reason, cuff's air valve was left open bleeding all the air contained inside. After this period, the cuff was quickly inflated again until reaching the pressure calculate in equation \ref{eq:meanpressure}. The cuff's pressure was maintained at this level for \SI{3}{\min} proceeded by a quick pressure release. 
+Similarly, it was required repeating the procedure with partial arterial occlusion.\nknote{?? previous sentence i dont know what you are trying to say} As found in the literature, after an occlusion happens \SI{5}{\min} are needed to restore blood pressure. For this reason, the cuff's air valve was left open bleeding all the air contained inside. After this period, the cuff was quickly inflated again until reaching the pressure calculate in equation \ref{eq:meanpressure}. The cuff's pressure was maintained at this level for \SI{3}{\min} proceeded by a quick pressure release. 
 
-Last, for the purpose of total blood occlusion a similar method, was applied as before. One more time, \SI{5}{\min} of baseline waveforms were taken followed by a fleet cuff inflation to \SI{20}{\mmHg} above diastolic pressure. This compression was kept for \SI{3}{\min}. At this point, maintaining this crushing effect can be painful after a couple of minutes. As a result, some of the helpers ended up re-accommodating and producing motion artefacts. 
+Last, for the purpose of total blood occlusion a similar method, was applied. One more time, \SI{5}{\min} of baseline waveforms were taken followed by a fleeting cuff inflation to \SI{20}{\mmHg} above diastolic pressure. This compression was kept for \SI{3}{\min}. At this point, maintaining this tourniquet effect can be painful after a couple of minutes. As a result, some of the helpers ended up re-accommodating and producing motion artefacts. 
 
-Finally, the last \SI{5}{\min} of baseline waveforms were recorded to study the recovering effect. When time was up the stop button was pushed on saving all the data into an LVM file for further processing in Matlab. 
+Finally, the last \SI{5}{\min} of baseline waveforms were recorded to study the recovering effect. When time was up, the stop button was pushed on saving all the data onto an LVM file for further processing in Matlab. 
 
 %********************************** % Swction section 4.2******************************************
 \section{Data processing}
 \label{section4.2}
 
-Once data were stored in the local LVM file, it was post-processed in Matlab~\cite{MATLAB:2016}. In detail, a GUI Matlab program was created capable of comparing signals, apply filters, find peaks and windowed sections of data. A front-end of the application can be seen in Fig. xxx.
+Once data was stored in the local LVM file, it was post-processed in Matlab~\cite{MATLAB:2016}. To go into this in more detail, a GUI Matlab program was created capable of comparing signals, apply filters, find peaks and windowed sections of data. A front-end of the application can be seen in Fig. xxx.
 
 \mynote{Create an image about the front-end of Matlab}
 
-First, in the beginning, it was required to import LVM file structure into Matlab. Due to the LVM file contained unwanted headers a reading text command could not parse the data into Matlab easily. Moreover, sampling at \SI{1}{\kilo\hertz} created files of approximately \SI{300}{MB}. Importing this file size terribly slowed down the workstation. For this reason, while importing into Matlab, data was decimated in a magnitude of ten. Consequently, each physiological waveform was reduced to less than \SI{1}{MB} of size. After all, having files of this extent improved processing speed and used fewer resources. 
+At first, importing an LVM file structure into Matlab was necessary. Due to the LVM file containing unwanted headers, a reading text command could not parse the data into Matlab easily. Moreover, sampling at \SI{1}{\kilo\hertz} created files of approximately \SI{300}{MB}. Importing this file size slowed down the workstation tremendously. For this reason, while importing into Matlab, data was decimated in a magnitude of ten. Consequently, each physiological waveform was reduced to less than \SI{1}{MB} of size. After all, having files to this extent improved processing speed and used fewer resources. 
 
 \mynote{create a table showing the structure of the LVM file}
 
-This data decimation does not affect the waveform data.  In fact, according to Nyquist rate, data was being oversampled. Physiological signals are between \SIrange{1}{2}{\hertz} for signals depending on heart rate. According to Nyquist up to \SI{4}{\hertz} would have provided enough sampling for the waveforms. Nevertheless, a sampling of \SI{100}{\hertz} is sufficient to provide a high resolution. However, having oversampled signals was not a random case. Indeed it allows implementing high order digital filters with sharp cut-off frequency. 
+This data decimation does not affect the waveform data. In fact, according to Nyquist rate, data was being oversampled. Physiological signals are between \SIrange{1}{2}{\hertz} for signals depending on heart rate. According to Nyquist up to \SI{4}{\hertz} would have provided enough sampling for the waveforms. Nevertheless, a sampling of \SI{100}{\hertz} is sufficient to provide a high resolution. Even so, having oversampled signals was not a random case. Indeed it allows implementing high order digital filters with sharp cut-off frequencies. 
 
 \mynote{Add a little bit of Nyquist theorem for oversampling}
 
-As soon as decimated data was imported into Matlab, the parsing program converted each waveform into a Matlab formatted file (.mat). Furthermore, this waveform data can be imported faster into the GUI than raw files. In essence, filters, windowing and data processing can be performed on-line saving in computing resources. However, this data is not very significant until being converted into distinct values instead of volts.
+As soon as decimated data was imported into Matlab, the parsing program converted each waveform into a Matlab formatted file (.mat). Furthermore, this waveform data can be imported faster into the GUI than raw files. In essence, filters, windowing and data processing can be performed on-line saving in computing resources/nknote{dont understand previous sentence}. However, this data is not very significant until being converted into distinct values instead of volts.
 
 %********************************** % Swction section 4.2.1******************************************
 \subsection{Converting Data}
 \label{section4.2.1}
 
-When importing data into the GUI program is needed to convert data into meaningful scales. All physiological data described in section \ref{section4.1.1} coming from the devices were in volts. Some data need conversions such as iPG, ultrasound and laser Doppler flowmetry.
+When importing data into the GUI program, data needs to be converted into meaningful scales. All physiological data described in section \ref{section4.1.1} coming from the devices were in volts. Some data need conversions such as iPG, ultrasound and laser Doppler flowmetry.
 
 \mynote{Add a section describing how the wave was extracted and converted into redeable values. The algorithm used for this}
 
 \subsubsection{Obtaining the impedance value}
-Impedance plethysmography signals needed to be converted from volts into current and impedance respectively. The iPG device provides a channel for current sense $(V_{IDC})$, which corresponds to the peak voltage value of the current being delivered by the instrument. This value can be calculated by knowing the gain of the different stages of the circuits. First, according to the circuit schematic current is being sensed by a \SI{10}{\ohm} resistor $(R_x)$. Then, this signal is amplified by an In-Amp which gain $(G_1)$ was 276. Following this stage, the signal is halved by a half-wave rectifier. Later, this wave is fully rectified using a peak detection circuit. In the final analysis, the current value can be calculated using equation \ref{eq:current}
+Impedance plethysmography signals needed to be converted from volts into current and impedance respectively. The iPG device provides a channel for current sense $(V_{IDC})$, which corresponds to the peak voltage value of the current being delivered by the instrument. This value can be calculated by knowing the gain of the different stages of the circuits. First of all, according to the circuit schematic current is being sensed by a \SI{10}{\ohm} resistor $(R_x)$.nknote{dont unerstand previous sentence DNUPS} Then, this signal is amplified by an In-Ampnknote{make sure this part flows doesnt sound right} which gain $(G_1)$ was 276. Following this stage, the signal is halved by a half-wave rectifier. Later, this wave is fully rectified using a peak detection circuit. In the final analysis, the current value can be calculated using equation \ref{eq:current}
 
 \begin{align}
 	\label{eq:current}
@@ -179,7 +179,7 @@ Impedance plethysmography signals needed to be converted from volts into current
 \mynote{Add a section in the design of the device showing how current waveform is converted from AC signal to DC and then into a value.}
 \mynote{add reference to the circuit that performs this task conversion task}
 
-From the second channel $(V_{ZDC}$ of the iPG device the voltage coming from this port is equivalent to the impedance of the forearm. First, it is wanted to know the real voltage value $(V_z)$ from the forearm segment read by the impedance device. Given this pint, as it can be seen from figure xxx, signal initially was amplified by In-Amp (IAxx). The gain of this stage was set to 35.65. Then the signal was rectified by the super-diode circuit. These two are the only components affecting the signal path. In conclusion, the voltage can be calculated by using equation \ref{eq:vzdc}.
+From the second channel $(V_{ZDC}$ of the iPG device the voltage coming from this port is equivalent to the impedance of the forearm. Firstly, it is wanted to know the real voltage value nknote{doesnt make sense} $(V_z)$ from the forearm segment read by the impedance device. As can be seen from figure xxx, the signal was initially amplified by In-Amp (IAxx). The gain of this stage was set to 35.65. Then the signal was rectified by the super-diode circuit. These two are the only components affecting the signal path. In conclusion, the voltage can be calculated by using equation \ref{eq:vzdc}.
 
 \mynote{add reference of a schematic showing the stages of the signal and a reference to the chip}
 
@@ -188,14 +188,14 @@ From the second channel $(V_{ZDC}$ of the iPG device the voltage coming from thi
 	V_z = \frac{V_{ZDC} \times 2}{35.65} \tagaddtext{[\si{\volt}]}
 \end{align}
 
-Finally, the impedance value can be computed by converting the voltage into impedance using ohm's law. This can be achieved by replacing equation \ref{eq:current} and \ref{eq:vzdc} into \ref{eq:impedance}.
+Finally, the impedance value can be computed by converting the voltage into impedance using Ohm's law. This can be achieved by replacing equation \ref{eq:current} and \ref{eq:vzdc} into \ref{eq:impedance}.
 
 \begin{align}
 	\label{eq:impedance}
 	Z = \frac{v}{i}=\frac{V_z}{I} \tagaddtext{[\si{\ohm}]}
 \end{align}
 
-The third channel of the iPG device is the plethysmography waveform $V_{ZAC}$. This wave is an amplified version of the analogue signal contained within $V_{ZDC}$. Analysing signal's path, it can be noticed that two different circuits process the waveform. First, the signal comes from $V_{ZDC}$, meaning that the gain of IA-xxx also affects the signal $V_{ZAC}$. Following the circuit, the signal is filtered by a band-pass filter described in section 3.1.6. This filter has a gain in DC of 142.42. Then, the voltage of the plethysmography wave can be found by combining both gains. The calculation can be performed with equation \ref{eq:ViPG}.
+The third channel of the iPG device is the plethysmography waveform $V_{ZAC}$. This wave is an amplified version of the analogue signal contained within $V_{ZDC}$. Analysing the signal's path, it is noticeable that two different circuits process the waveform. First, the signal comes from $V_{ZDC}$, meaning that the gain of IA-xxx also affects the signal $V_{ZAC}$. Following the circuit, the signal is filtered by a band-pass filter described in section 3.1.6. This filter has a gain in DC of 142.42. Then, the voltage of the plethysmography wave can be found by combining both gains. The calculation can be performed with equation \ref{eq:ViPG}.
 
 \begin{align}
 	\label{eq:ViPG}
@@ -204,7 +204,7 @@ The third channel of the iPG device is the plethysmography waveform $V_{ZAC}$. T
 
 \mynote{create a label and a link to the section 3.1.6}
 
-Likewise, the impedance value of the dynamic signal can be calculated using ohm's law. By replacing the voltage value of the plethysmography signal from equation \ref{eq:ViPG} and the value of the current from equation \ref{eq:current}.
+Likewise, the impedance value of the dynamic signal can be calculated using Ohm's law. By replacing the voltage value of the plethysmography signal from equation \ref{eq:ViPG} and the value of the current from equation \ref{eq:current}.
 
 \begin{align}
 	\label{eq:zipg}
@@ -215,9 +215,9 @@ Likewise, the impedance value of the dynamic signal can be calculated using ohm'
 \label{sectionUD}
 The instrument used in this study was a Huntleigh model MD2 with sensor type VP8. The frequency of the transmitter is \SI{8}{\mega\hertz} which is ideal for blood flow estimation. The principle of this device relates to the frequency of a source to its velocity relative to a sensor~\cite{surgeonhand2002Hand}.  In other words, if an electromagnetic wave is transmitted at a fixed frequency and is reflected by a moving body, then the frequency of the received signal will be shifted~\cite{ht:MD2}.  
 
-The device can detect moving blood cells within a vessel.  When a cell passes through the electromagnetic beam a frequency shift occurs, which is proportional to the blood flow velocity. Nevertheless, the Doppler shift is also affected by the angle of the head of the probe and the direction of the flow.
+The device can detect moving blood cells within a vessel.  When a cell passes through the electromagnetic beam a frequency shift occurs, which is proportional to the blood flow velocity. Nevertheless, the Doppler shift is also affected by the angle of the head of the probe and the direction of the flow.nknote{reference?}
 
-Because average velocities found in the human body are within the audible frequency range, the device reproduces this sound. An output channel also reproduces this audible signal for further processing. According to the specification of the instrument a \SI{3.5}{\volt} signal at the output is equivalent to a \SI{8}{\kilo\hertz} shift signal. Using this as a reference is possible to calculate the shift frequency using equation \ref{eq:fshift}.
+Because average velocities found in the human body are within the audible frequency range, the device reproduces this soundnknote{reference}. An output channel also reproduces this audible signal for further processing. According to the specification of the instrument a \SI{3.5}{\volt} signal at the output is equivalent to a \SI{8}{\kilo\hertz} shift signal. Using this as a reference it is possible to calculate the shift frequency using equation \ref{eq:fshift}.
 
 \begin{align}
 	\label{eq:fshift}
@@ -226,18 +226,18 @@ Because average velocities found in the human body are within the audible freque
 
 where $V_{UD}$ is the analogue output voltage of the instrument. 
 
-According to the Doppler equation described in \ref{eq:doppler}, it is possible to find the velocity of a blood cell derived from its frequency shift. However, there is a correction angle $(\theta)$ between the ultrasound beam and the direction of blood flow. For this reason, the head of the sensor was positioned \SI{45}{\degree} angle to the radial artery on the wrist.
+According to the Doppler equation described in \ref{eq:doppler}, it is possible to find the velocity of a blood cell derived from its frequency shift. However, there is a correction angle $(\theta)$ between the ultrasound beam and the direction of blood flow. For this reason, the head of the sensor was positioned at a \SI{45}{\degree} angle to the radial artery on the wrist.
 
 \begin{align}
 	\label{eq:doppler}
 	v = \frac{f_D \times C}{2 f_O \times Cos(\theta)} \tagaddtext{[\si{\meter\per\second}]}
 \end{align}
 
-where $f_D$ is the Doppler frequency, $C$ is the speed of sound assumed to be \SI{1540}{\meter\per\second}, $f_0$ is the oscillation frequency of the Doppler instrument in this case \SI{8}{\mega\hertz} and $\theta$ the angle between the ultrasound sensor and the target vessel which is \SI{45}{\degree}.
+where $f_D$ is the Doppler frequency, $C$ is the speed of sound assumed to be \SI{1540}{\meter\per\second}, $f_0$ is the oscillation frequency of the Doppler instrument in this case \SI{8}{\mega\hertz} and $\theta$ the angle between the ultrasound sensor and the target vessel which is \SI{45}{\degree}.nknote{this paragraph doesnt make sense}
 
-This angle position was locked using a laboratory stand and a clamp. The angle was fixed to \SI{45}{\degree} angle using a goniometer. Nevertheless, this is one of the shortcomings of this method. The angle can be estimated according to the position sensor's case but not to the surface of the crystal of the sensor. There is an incident error that can not be quantified easily. However, for the event of this study, it was assumed that the angle is \SI{45}{\degree}.
+This angle position was locked using a laboratory stand and a clamp. The angle was fixed to \SI{45}{\degree} angle using a goniometer. Nevertheless, this is one of the shortcomings of this method. The angle can be estimated according to the position of the sensor's case but not to the surface of the crystal of the sensor. There is an incident error that cannot be quantified easily. However, for the event of this study, it was assumed that the angle is \SI{45}{\degree}.
 
-Now the blood flow can be computed by converting velocity to flow if the cross section area of the vessel is known, as in equation \ref{eq:flow}. Not knowing this area precisely is another drawback of this method to calculate blood flow accurately. To know the real cross section area of a vessel requires of imaging methods such as Doppler Ultrasonography. 
+Now the blood flow can be computed by converting velocity to flow if the cross section area of the vessel is known, as in equation \ref{eq:flow}. Not knowing this area precisely is another drawback of this method to calculate blood flow accurately. To know the real cross section area of a vessel requires imaging methods such as Doppler Ultrasonography. 
 
 \begin{align}
 	\label{eq:flow}
@@ -246,7 +246,7 @@ Now the blood flow can be computed by converting velocity to flow if the cross s
 
 where $\dot{Q}$ is flow, $v$ is the velocity of the blood cell and $A$ the cross-sectional area of the radial artery.
 
-However, blood flow can be estimated by using averages cross-sectional area of radial arteries in the population. A study has been found that males have slight larger radial arteries diameter than females (\SI{2.3(039)}{\mm} and \SI{2.11(029)}{\mm} respectively)~\cite{ashraf2010size}. These dimensions were used to calculated the blood flow in the present experiment. Converting this information into a more common scale litre per minute is possible by multiplying by 60 seconds and converting $m^3$ into litres. 
+However, blood flow can be estimated by using the average cross-sectional area of radial arteries in the population. A study has been found that males have slight larger radial arteries diameter than females (\SI{2.3(039)}{\mm} and \SI{2.11(029)}{\mm} respectively)~\cite{ashraf2010size}. These dimensions were used to calculate the blood flow in the present experiment. It is possible to convert this information into a more common scale of litre per minute by multiplying by 60 seconds and converting $m^3$ into litres. 
 
 \begin{align}
 \label{eq:flow_l/min}
@@ -256,11 +256,11 @@ However, blood flow can be estimated by using averages cross-sectional area of r
 \subsubsection{Converting LDF}
 \label{section:ldf}
 The Laser Doppler Flowmetry device utilised in the study was the xxx
-\mynote{Confirm the model of the LDF device}. LDF is a non-invasive optical method to estimate the blood perfusion in the microcirculation. This device uses the same Doppler principle as described in section \ref{sectionUD} but instead of sound a beam of light is the source. Similarly, when red blood cell scatters a light of beam, it produces a frequency shift~\cite{fredriksson2007laser}. 
+\mynote{Confirm the model of the LDF device}. LDF is a non-invasive optical method to estimate the blood perfusion in the microcirculation. This device uses the same Doppler principle as described in section \ref{sectionUD} but instead of sound, a beam of light is the source. Similarly, when a red blood cell scatters a light of beam, it produces a frequency shift~\cite{fredriksson2007laser}. 
 
 LDF produces a blood perfusion signal that is comparable to the RBC perfusion or also known as flux. The units of this measurement are Blood Perfusion Unit (BPU) which is an arbitrary unit scale. BPU is the product of the mean number of moving blood cells in the small volume under the probe and the average velocity of moving blood cells. 
 
-This instrument provides an output port that allows exporting the waveform. This connector provides a signal between \SIrange{0}{5}{\volt} which varies according to the flux signal. The configuration menu allows modifying the output scale. It provides three steps at top limit of \SIlist{1000;500;100}{BPU} output for \SI{5}{\volt}. The measurements taken in this study showed being below \SI{100}{BPU}. Hence, using equation \ref{eq:BPU} converts the output voltage into BPU's.
+This instrument provides an output port that allows exporting the waveform. This connector provides a signal between \SIrange{0}{5}{\volt} which varies according to the flux signal. The configuration menu allows modifying the output scale. It provides three steps at a top limit of \SIlist{1000;500;100}{BPU} output for \SI{5}{\volt}. The measurements taken in this study showed being below \SI{100}{BPU}. Hence, using equation \ref{eq:BPU} converts the output voltage into BPU's.
 
 \begin{align}
 	\label{eq:BPU}
@@ -272,7 +272,7 @@ This instrument provides an output port that allows exporting the waveform. This
 \subsection{Digital filtering}
 \label{section4.2.2}
 
-The signals obtained from the devices contained variable sources of noise. For instance: respiration, mains noise, motion, high-frequency noise from the iPG current source (\SI{30}{\kilo\hertz}). To remove these sources of different noise filters were designed in Matlab for post-processing. The command \textit{designfilt} can create a variety type of filters. In the GUI any user can apply any filter on demand to any signal available. Table \ref{table:filters} overview the filters designed available for processing the waveforms. 
+The signals obtained from the devices contained variable sources of noise. These included respiration, mains noise, motion, high-frequency noise from the iPG current source (\SI{30}{\kilo\hertz}). To remove these sources of different noise, filters were designed in Matlab for post-processing. The command \textit{designfilt} can create a variety of different filters. In the GUI, any user can apply any filter on demand to any signal available. Table \ref{table:filters} gives an overview of the filters that were designed and made available for processing the waveforms. 
 
 \begin{table}[b]
 	\caption{Filters available from the GUI}
@@ -297,11 +297,11 @@ The signals obtained from the devices contained variable sources of noise. For i
 	\end{tabular}
 \end{table}
 
-According to the quality of the data, a specific kind of filter was applied to a distinct signal. For instance, raw iPG data contain high-frequency noise coming from the device main carrier frequency. That sort of noise is easily removable using the high-pass filter available. Moreover, combining filters is possible. For instance, the iPG waveform is extractable from the impedance signal. Applying a mix of band-stop and band-pass filters is possible to recover the signal $iPG_{AC}$.
+According to the quality of the data, a specific kind of filter was applied to a distinct signalnknote{what do you mean}. For instance, raw iPG data contained high-frequency noise coming from the devices main carrier frequency. That sort of noise is easily removable using the high-pass filter available. Moreover, combining filters is possible. For instance, the iPG waveform is extractable from the impedance signal. In applying a mix of band-stop and band-pass filters is possible to recover the signal $iPG_{AC}$.
 
-Similar processing is viable with the PPG signals. From the DC signal is feasible to extract the AC waveform. Similarly, combining band-stop and band-pass filters.
+Similar processing is viable with the PPG signals. From the DC signal it is feasible to extract the AC waveform. Similarly, one can combine band-stop and band-pass filters.
 
-In general, low-pass filters are useful to remove mains noise and high-frequency noises. Band-stop filters eliminate specific noise such as motion artefact and respiration but still DC is needed. A characteristic of this kind of noise is that is low frequency and usually below heart rate frequency. High-pass filters are practical to remove DC signals but still keeping high-frequency characteristics.
+In general, low-pass filters are useful to remove mains noise and high-frequency noises. Band-stop filters eliminate specific noise such as motion artefact and respiration but DC is still needed. A characteristic of this kind of noise is that it is low frequency and usually below heart rate frequency. nknote{why is this relevant what does this mean?}High-pass filters are practical to remove DC signals but still keeping high-frequency characteristics.
 
 \mynote{Add section describing how the signals were referenced to zero using the method}
 
