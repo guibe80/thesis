@@ -21,7 +21,7 @@ Previous to the recruitment of participants, they received documentation explain
 
 %********************************** %First Section  **************************************
 \section{Experimental procedure} %Section - 4.1
-\label{section4.1}
+\label{section procedure 1}
 
 After filling paperwork and completing acclimatisation different instruments were used to acquired physiological signals. These measurements included ECG, PPG, laser Doppler flowmeter, Doppler ultrasound and impedance plethysmography. Table \ref{table:instruments} describes the purpose of each instrument in this experiment. 
 
@@ -44,7 +44,7 @@ After filling paperwork and completing acclimatisation different instruments wer
 
 %**********************************% Subsection 4.1.1  *************************************
 \subsection{Instruments setup}
-\label{section4.1.1}
+\label{section procedure 1.1}
 
 First, iPG data were from the left arm of all assistants. However, this measurement requires recording forearm's segment volume by weighing length and circumference. In fact, it can be calculated using equation \ref{eq:v_e}. Additional, distance from the heart to shoulder, upper arm length, and shoulder to index finger length was also recorded. 
 
@@ -87,7 +87,7 @@ Finally, impedance plethysmography electrodes were placed on the skin. For this,
 
 %********************************** %Second subection *************************************
 \subsection{Data acquisition}
-\label{section4.1.2}
+\label{section procedure 1.2}
 
 As outlined in the previous section, all the instruments provided external ports for external data processing. These output ports were connected to a DAQ NI-6211 (National Instruments). This analogue to digital converter card provides 32* channels and a combined sampling rate of \SI{250}{\kilo\sample\per\second}. It is connected to a personal computer via USB port (Version 1.0). All the signals were sampled at \SI{1}{\kilo\hertz}.
 
@@ -110,7 +110,7 @@ The main panel apart from just displaying waveforms also provide control buttons
 
 %********************************** %Third subection *************************************
 \subsection{Experimental protocol}
-\label{section4.1.3}
+\label{section procedure 1.3}
 
 This experiment was aiming to look into waveform changes when an occlusion occurs. Achieving this is possible by applying a mechanical blockage using a standard blood pressure instrument. This device necessitates being pumped manually using an inflation bulb. The instrument also provides a gauge indicating the cuff's pressure level. The cuff was secured to the left biceps of the participant. 
 
@@ -143,7 +143,7 @@ Finally, the last \SI{5}{\min} of baseline waveforms were recorded to study the 
 
 %********************************** % Swction section 4.2******************************************
 \section{Data processing}
-\label{section4.2}
+\label{section procedure 2}
 
 Once data was stored in the local LVM file, it was post-processed in Matlab~\cite{MATLAB:2016}. To go into this in more detail, a GUI Matlab program was created capable of comparing signals, applying filters, as well as finding peaks and windowed sections of data. A front-end of the application can be seen in Fig. xxx.
 
@@ -161,11 +161,15 @@ As soon as decimated data was imported into Matlab, the parsing program converte
 
 %********************************** % Swction section 4.2.1******************************************
 \subsection{Converting Data}
-\label{section4.2.1}
+\label{section procedure 2.1}
 
+<<<<<<< HEAD
 When importing data into the GUI program, data needs to be converted into meaningful scales. All physiological data described in section \ref{section4.1.1} coming from the devices were in volts. Some data needs conversions such as iPG, ultrasound and laser Doppler flowmetry.
+=======
+When importing data into the GUI program, data needs to be converted into meaningful scales. All physiological data described in section \ref{section procedure 1.1} coming from the devices were in volts. Some data need conversions such as iPG, ultrasound and laser Doppler flowmetry.
+>>>>>>> 038cc4f82fc238b05756ca65abd3c8b0033734fd
 
-\mynote{Add a section describing how the wave was extracted and converted into redeable values. The algorithm used for this}
+\mynote{Add a section describing how the wave was extracted and converted into readable values. The algorithm used for this}
 
 \subsubsection{Obtaining the impedance value}
 Impedance plethysmography signals needed to be converted from volts into current and impedance respectively. The iPG device provides a channel for current sense $(V_{IDC})$, which corresponds to the peak voltage value of the current being delivered by the instrument. This value can be calculated by knowing the gain of the different stages of the circuits. According to the circuit schematic, current is being sensed by a \SI{10}{\ohm} resistor $(R_x)$.\nknote{dont unerstand previous sentence DNUPS} Then, this signal is amplified by an In-Ampnknote{make sure this part flows doesnt sound right} which gain $(G_1)$ was 276. Following this stage, the signal is halved by a half-wave rectifier. Later, this wave is fully rectified using a peak detection circuit. In the final analysis, the current value can be calculated using equation \ref{eq:current}
@@ -255,7 +259,7 @@ However, blood flow can be estimated by using the average cross-sectional area o
 
 \subsubsection{Converting LDF}
 \label{section:ldf}
-The Laser Doppler Flowmetry device utilised in the study was the xxx \mynote{Confirm the model of the LDF device}. LDF is a non-invasive optical method to estimate the blood perfusion in the microcirculation. This device uses the same Doppler principle as described in section \ref{sectionUD} but instead of sound, a beam of light is the source. Similarly, when a red blood cell scatters a light of beam, it produces a frequency shift~\cite{fredriksson2007laser}. 
+The Laser Doppler Flowmetry device utilised in the study was the xxx \mynote{Confirm the model of the LDF device}. LDF is a non-invasive optical method to estimate the blood perfusion in the microcirculation. This device uses the same Doppler principle as described in section \ref{sectionDU} but instead of sound, a beam of light is the source. Similarly, when a red blood cell scatters a light of beam, it produces a frequency shift~\cite{fredriksson2007laser}. 
 
 LDF produces a blood perfusion signal that is comparable to the RBC perfusion or also known as flux. The units of this measurement are Blood Perfusion Unit (BPU) which is an arbitrary unit scale. BPU is the product of the mean number of moving blood cells in the small volume under the probe and the average velocity of moving blood cells. 
 
@@ -269,7 +273,7 @@ This instrument provides an output port that allows exporting the waveform. This
 
 %********************************** % Swction section 4.2.2******************************************
 \subsection{Digital filtering}
-\label{section4.2.2}
+\label{section procedure 2.2}
 
 The signals obtained from the devices contained variable sources of noise. These included respiration, mains noise, motion, high-frequency noise from the iPG current source (\SI{30}{\kilo\hertz}). To remove these sources of different noise, filters were designed in Matlab for post-processing. The command \textit{designfilt} can create a variety of different filters. In the GUI, any user can apply any filter on demand to any signal available. Table \ref{table:filters} gives an overview of the filters that were designed and made available for processing the waveforms. 
 
@@ -318,7 +322,7 @@ There are two methods to calculate blood flow. One of them is using venous occlu
 
 \subsection{Volume calculation during venous occlusion}
 \label{section.4.3.1}
-One of the methods to measure changes of volume involves occluding the venous return in one limb. This routine known as venous occlusion plethysmography is explained in detail in section xxx. This technique requires inflating a cuff below diastolic pressure to stop the blood's venous return in an extremity. Just like in the procedure described in section \ref{section4.1.3}. 
+One of the methods to measure changes of volume involves occluding the venous return in one limb. This routine known as venous occlusion plethysmography is explained in detail in section xxx. This technique requires inflating a cuff below diastolic pressure to stop the blood's venous return in an extremity. Just like in the procedure described in section \ref{section procedure 1.3}. 
 
 \mynote{double check a reference to Medical Background how this works. Create a reference to this section}
 
@@ -349,7 +353,7 @@ Where $\dot{Q_L}$ is the blood flow per \SI{100}{\milli\litre} of tissue, $R_B$ 
 
 %********************************** % Section 4.3.2 ******************************************
 \subsection{Volume and flow calculation beat by beat}
-\label{section4.3.2}
+\label{section procedure 3.2}
 Impedance plethysmography also provides the opportunity to calculate the change in volume and the blood flow from every heart beat. Achieving this calculation is possible if there is a high-quality plethysmography waveform. For this reason, the impedance device includes an analogue port called $V_{ZAC}$. As described previously in section xxx, this port extracts the plethysmography waveform from the basal impedance $iPG_{AC}$. In fact, due to the filtering and amplification stages of the circuit, the signal has been amplified more than 2.500 times. Providing more characteristics and resolution of the waveform when digitalised.
 
 \mynote{Verify the name of the port and also the section where should be referenced}
@@ -414,8 +418,13 @@ In conclusion, it is possible to compute the blood flow of \SI{100}{\milli\litre
 
 %********************************** % Section 4.3.3 ******************************************
 \subsection{Additional haemodynamic parameters analysis beat by beat}
+<<<<<<< HEAD
 \label{section4.3.3}
 From the landmarks \nknote{?landmarks} detected in the data, additional haemodynamic parameters are deductible. Three reference points within each pulse can provide rheographic information. The first one is the rheographic index of the pulse volume, which is obtained from the peak value of the systolic section of the plethysmography waveform $R_{M2}$ in impedimetric form. It provides information about the height of the peak compared to the baseline of the waveform. It can be calculated using equation \ref{eq:A}.
+=======
+\label{section procedure 3.3}
+From the landmarks detected in the data, additional haemodynamic parameters are deductible. Three reference points within each pulse can provide rheographic information. The first one is the rheographic index of the pulse volume, which is obtained from the peak value of the systolic section of the plethysmography waveform $R_{M2}$ in impedimetric form. It provides information about the height of the peak compared to the baseline of the waveform. It can be calculated using equation \ref{eq:A}.
+>>>>>>> 038cc4f82fc238b05756ca65abd3c8b0033734fd
 
 \begin{align}
 	\label{eq:A}

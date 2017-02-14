@@ -1,0 +1,38 @@
+%!TEX root = ../thesis.tex
+%*******************************************************************************
+%*********************************** First Chapter *****************************
+%*******************************************************************************
+
+\chapter{Discussion}  %Title of the First Chapter
+
+\ifpdf
+    \graphicspath{{Chapter7/Figs/Raster/}{Chapter7/Figs/PDF/}{Chapter7/Figs/}}
+\else
+    \graphicspath{{Chapter7/Figs/Vector/}{Chapter7/Figs/}}
+\fi
+
+
+%********************************** %First Section  **************************************
+\section{Converting iPG into Blood Flow} %Section - 7.1 
+\label{section discussion 1}
+As it has been discussed in this document, there are two ways to calculate blood flow from the iPG data. Initially, it is needed to model the segment of the body as a cylinder. Luckily, most of the body parts can be expressed as this geometrical figure. For this study, a device was designed to measure the change of volume in the forearm. Eventually, this could be calibrated to work in other parts of the body such as lower extremities. 
+
+The study performed in this document seeks to demonstrate how the iPG data could help to detect changes in venous and arterial circulation. According to the literature, iPG is a method used to quantify blood flow from the principle that the impedance of a body part is directly proportional to its volume as described by Nyober's equation  (see equation \ref{eq:Nyober}).  Hence, since the 1970's this theory has been tested assuring the effectivity of the method. 
+
+There are different contributors to the impedimetric signal. One of them are the tissues such as fat, muscle, blood or even bone. Most of this organs are static, meaning that if the movement is limited the only reading will be equivalent to the impedance reading of these organs. This resistive value is known as basal impedance.  However,  the circulatory system is dynamic and create small changes during the cardiac cycle.  When the ventricles contract this produces a small increment of the size of the vessels by filling them with blood. 
+\mynote{check a reference about circulatory and added to this section. Also, check how to related to the medical background}. Therefore, this increment in blood within the tissue creates an increment of volume, and change of volume in time can be converted into the flow rate.
+
+The first method to measure blood flow is called venous occlusion plethysmography \cite{wilkinson2001venous}. This approach inquires the increment of impedance when an occlusion is performed in the upper part of a limb using a cuff. The most common occlusion level is about \SI{40}{\mmHg} for a determined time. This occlusion could be for some seconds until minutes depending on the study to be done. 
+
+By occluding the venous return and not altering the arterial flow, blood can enter into the limb but cannot leave.  As a result, there is a linear increase in the volume of the limb. Hence, this increase of capacity can be quantified by the impedimetric method which is clearly perceptible in the variation of the DC component of the signal. In fact, this is because the blood begins to cluster in the limb. As the blood's population increases, the conductivity of the forearm's section also increases. Therefore, the resistivity proportionally decreases. 
+
+During the experiment presented in this document, this was performed throughout region 1 and region 2.  As shown by figure \ref{fig:rb:all_participants}, it is clear that most of the participants experience a variation in the basal impedance readings.  However, some of them were affected by motion which produced changes in the trend, like in participant 1. However, in most of the participants was seen this linear decrease of impedance.  
+
+%********************************** %Second Section  *************************************
+\section{How much is related the iPG blood flow with other instruments?} %Section - 7.2
+\label{section discussion 4}
+
+%********************************** % Third Section  *************************************
+\section{Option to evaluate blood flow using iPG DC and AC waveforms}  %Section - 7.3 
+\label{section discussion 3}
+
