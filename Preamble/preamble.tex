@@ -73,6 +73,7 @@
 % This is for people stuck with older versions of texlive
 %\usepackage{sty/caption/subcaption}
 \usepackage{subcaption}
+\captionsetup[sub]{font=footnotesize,labelfont={bf,sf}}
 
 %This allows to create image placeholder with a dummy image.
 \newcommand{\dummyfig}[1]{
@@ -100,7 +101,9 @@
 \usepackage{siunitx} % use this package module for SI units
 \DeclareSIUnit{\sample}{S}
 \DeclareSIUnit{\bfv}{\ml\per\min 100\ml}
-\sisetup{separate-uncertainty,multi-part-units = single}%
+\sisetup{separate-uncertainty,multi-part-units = single 
+         ,exponent-to-prefix = true
+         ,zero-decimal-to-integer}%
 
 
 %Definition of tagaddtext for the units in the equation
