@@ -12,6 +12,12 @@
     \graphicspath{{Chapter3/Figs/Vector/}{Chapter3/Figs/}}
 \fi
 
+This document proposes the design of a device able to monitor blood flow continuously and able to distinguish between venous and arterial occlusions using bioelectrical impedance. This chapter describes the principles behind bioelectrical impedance plethysmography which is the method used to acquire the physiological measurements. The first section covers the theory of bioelectrical impedance and how an electromagnetic wave interacts with the cells, the electrode conflict and the impedance plethysmography principles. 
+
+\mynote{This introduction must be complemented once I complete the whole chapter}
+
+
+\section{Bioelectrical impedance}
 Before describing how impedance plethysmography operates, it is better to understand how the principle of bioelectrical impedance is defined. First of all, the term electrical impedance spectroscopy (EIS) is referred as the study of the absorption of energy depending upon the frequency of electromagnetic (EM) waves. When measurements are performed in a biological sample, then this method could be referred either as electrical impedance or bioelectrical impedance~\cite{ivorra2003bioimpedance}. The term to be used in this document will be bioelectrical electrical impedance. The EM spectrum is quite broad, and the interaction with tissue occurs in the frequency range from \SIrange[scientific-notation = engineering]{100}{10000000}{\hertz}~\cite{bertemes2002tissue}. In this thesis, the frequencies of interest are focused in the low-frequency range. Indeed, plethysmography devices operate commonly in the bandwidth below few \si{\kilo\hertz}.
 
 The human body is constituted by four basic tissues known as epithelium which covers and protects the whole surface of the body, muscle which is in charge of the movement, connective tissue that supports and protect organs, and nervous tissue which provides the internal transmission line for the electrical impulses coming from the brain. Cells that constitute these tissues play a fundamental role in terms of current conduction when an analogue current (AC) is applied to the body~\cite{lvovich2012impedance}. Hence, impedance readings vary according to the parameters of these cells as well as its protein content. It is especially significant to understand the geometry and characteristics of the blood cells, which transport $0_2$ around the body. The functionality of these cells and amount per \si{\micro\litre} of human blood were described by table \ref{table:cell} in section \ref{section literature 1}.
@@ -52,7 +58,6 @@ According to previous analysis, the cell can be simplified in an equivalent elec
 
 Since $C_m$ and $R_m$ have the same values when the current enters and exits the cell, this can be simplified in the electric model as two resistors in series ($2R_m$) and two capacitances in parallel ($C_m/2$) as can be seen in figure \ref{fig:cell simp model}.
 
-
 When an EM field is applied to the tissue, cells respond according to the frequency applied showing three distinctive areas in the spectrum as described by Schawn et al.~\cite{schwan1957electrical,schwan1962electrical}. Figure \ref{fig:ABG dispersion} displays the dielectric response against frequency, which reveals valuable information about the functional and structural properties of the cell~\cite{lvovich2012impedance}. According to the graph, there are three denominating areas $\alpha$, $\beta$ and $\gamma$ dispersion. Firstly, $\alpha$ dispersion (from \SI{10}{\hertz} to a few \si{\kilo\hertz}) is generally associated with frequency dependent properties of the cells’ membrane. Secondly, $\beta$ dispersion (\SI{10}{\kilo\hertz} to several \si{\mega\hertz}) is related to the dielectric property of the cell membrane and the interaction between the internal and external mediums. Finally, $\gamma$ dispersion (> \SI{10}{\giga\hertz}) is due to dielectric relaxation of bulk dispersing media, the Debye dispersion in water (\SI{17}{\giga\hertz}) and the presence of small molecules. 
 
 \begin{figure}[!htpb]
@@ -70,6 +75,24 @@ The ideal electrical model of the cell shown in figure \ref{fig:cell models} is 
 
 Another example of this is in the myocardial muscle studied in pigs where two superimposed depressions were observed in-between \SIrange[scientific-notation = engineering]{10}{1000000}{\hertz} ~\cite{casas1999vivo}. Different resistivity values have been obtained when measuring bioelectrical impedance during the cardiac cycle longitudinally and transversally \cite{steendijk1993four}. \mynote{Maybe this paragraph is not requires as might refer to death cells rather than plethysmography}
 
+\subsection{Mathematical representation of electrical impedance}
+Different mathematical models have been studied based on the ideal and basic model shown in figure \ref{fig:cell simp model}. Still, this model does not completely represent the effect of the membrane at high frequencies. Debye produced the following equation that took into account suspension of free poles \cite{bertemes2002tissue}.
+
+\begin{align}
+	\label{eq:Debye}
+	\varepsilon_r^* = \varepsilon_{HF} + \frac{\varepsilon_{LF} - \varepsilon_{HF}}{1 + j \omega \tau}
+\end{align}
+
+In this equation, $\varepsilon_r^*$ represents the complex relative permeability, $\varepsilon_{LF}$ and $\varepsilon_{HF}$ denotes permeability at low and high frequency respectively and $\tau$ is the relaxation time constant. Finally, $j \omega =2 \pi$ indicates the angular frequency in radians. However, it was not until 1941 when Cole brothers with their empirical work took into account dispersion by including in the Debye equation an additional parameter called $\alpha$, resulting in equation \ref{eq:cole cole}. Presently, this equation is widely used to get the approximate value of impedance when taking biomedical measurements \cite{cole1941dispersion}.
+
+\begin{align}
+	\label{eq:cole cole}
+	\varepsilon_r^* = \varepsilon_{HF} + \frac{\varepsilon_{LF} - \varepsilon_{HF}}{(1 + j \omega \tau)^{1-\alpha}}
+\end{align}
+
+Parameter $\alpha$ is limited for values between 0 and 1. When its value is equal to zero, the Cole–Cole equation will give the Debye equation as a solution for polar dielectrics as expressed in equation \ref{eq:Debye}. Consequently, from this mathematical statement is possible to obtain data representation known as the Cole–Cole plot, which is a two dimensional graph where the plot of $\varepsilon \prime\prime$ or the imaginary part of the equation is in the y axis vs. $\varepsilon \prime$ in the $x$ which is the real part of the solution. However, this is not the only alternative to plot the results J. Ross Macdonald~\cite{macdonald2005impedance, macdonald1992impedance} has also suggested a representation of the data in a three–dimensional plot between the previous variables plus frequency in logarithmic scale $\log_{10}(f)$.
+
+
 %********************************** %First Section  **************************************
 \section{Impedance plethysmography principle} %Section - 1.1                                                                                                                                                                                                 
 \label{section impedance 1}
@@ -83,7 +106,6 @@ For mathematical analysis, a single cylinder will be initially studied and then 
 \label{eq:resistivity}
 R=\sigma\frac{L}{A}
 \end{align}
-
 
 where $\rho$ is the tissue’s conductivity, $A$ the cross sectional area of the cylinder and $L$ its length. From conductance equation can be deducted that if length increases conductance will decrease. Opposite, if the volume of the cross section $A$ increases then conductivity will increase. A representation of this cylinder can be seen in \ref{fig:cylinder model}. Hence, it is possible to find the volume as function of its resistance can be described with the following equation.
 
@@ -154,7 +176,7 @@ As it has been described impedance plethysmography relies on the change of volum
 It has also been proved that blood is electrically anisotropic because of the orientation of the RBC’s \cite{Visser1992Electric}. Moreover, geometry and orientation also affect the reading of resistivity. Which also means that direction of measurement also affects the readings. 
  
 
-%********************************** % Third Section  *************************************
+%********************************** % Second Section  *************************************
 \section{Electrode conflict}  %Section - 3.2 
 \label{section impedance 2}
 Electrodes play a key feature in a bioelectrical impedance system. The right electrode geometry, distance and material may influence in the readings from a biological sample. Consequently, it is needed to use electrodes that have minor impedance compared to the one from the subject under test. Currently, most common materials used in bioelectrical impedance are platinum (\textit{Pt}), gold (\textit{Au}) or stainless steel. Other independent variables such temperature, ionic tissue contents and protein adhesion influence in the change of electrode impedance~\cite{ivorra2003bioimpedance,martinsen2011bioimpedance}. The geometry of the electrode also affects its resistance ($R$) as explain by ohm’s law in equation \ref{eq:resist}.
@@ -179,6 +201,13 @@ When an electrode adheres to the skin, and electrical current passes through, a 
 
 An electric circuit model can represent the electric–tissue interface; this simplified electric representation is shown in figure \ref{fig:e-t circuit}. In more detail, this model is characterised by a charge transfer resistance ($R_{CT}$) in parallel with interface’s impedance ($Z_{CPE}$) in series with the tissue impedance ($Z_t$).  Some authors have defined the interface’s impedance as either a constant phase angle impedance ($Z_{CPA}$)~\cite{franks2005impedance} or constant phase element ($C_{PE}$) \cite{barsoukov2005impedance,mcadams2006characterization}. 
 
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=4.5cm,keepaspectratio]{figure8}    
+	\caption[Equivalent circuit electrode–tissue interface]{Equivalent circuit electrode–tissue interface (Adapted from Franks~\cite{franks2005impedance})}
+	\label{fig:e-t circuit}
+\end{figure}
+
 The value of $Z_{ZPA}$ can be calculated from the following empirical equation \ref{eq:zcpa} given by McAdams~\cite{mcadams1995linear}.
 
 \begin{align}
@@ -186,16 +215,71 @@ The value of $Z_{ZPA}$ can be calculated from the following empirical equation \
 Z_{CPA} = K(j\omega)^{-\beta}
 \end{align}
 
-where $K$ is a measure of the magnitude of $Z_{CPA}$, $\beta$ is a constant ($0 \leq \beta \leq 1$) representing inhomogeneities in the surface (typically \num{0.8} for many biomedical electrode systems) and $\omega = 2\pi f$. When $\beta = 1$, $Z_{CPE}$ is equivalent a purely capacitive impedance element \cite{franks2005impedance,mcadams1995linear,mcadams2006characterization}.
+where $K$ is a measure of the magnitude of $Z_{CPA}$, $\beta$ is a constant ($0 \leq \beta \leq 1$) representing inhomogeneities in the surface (typically \num{0.8} for many biomedical electrode systems) and $\omega = 2\pi f$. When $\beta = 1$, $Z_{CPE}$ is equivalent a purely capacitive impedance element \cite{franks2005impedance,mcadams2006characterization,mcadams1995linear}.
 
+Electrodes are also a source of error when taking measurements. Some blunders can even distort the original signal; such as thermal noise also known as Johnson-Nyquist noise. This type of noise is entirely inherent to the electrode and also depends on other external variables.  The equation \ref{eq:nyquist noise} represents the level of noise coming from the electrode~\cite{mcadams1995linear}.
+
+\begin{align}
+\label{eq:nyquist noise}
+V_n(rms)=\sqrt{(4 K_b T R \Delta f)}
+\end{align}
+
+where $K_b$ is Boltzman constant, $T$ is absolute temperature, $R$ is the electrode’s resistance and $\Delta f$ is the bandwidth of the measurements. 
+
+In summary, it can be appreciated that the noise ($V_n(rms)$) is directly proportional the bandwidth’s measurements ($\Delta f$). At high operating frequency is expected a higher the level of noise. In the case of impedance plethysmography the bandwidth is in the lower range of \si{\kilo\hertz} which minimises the effect of the Johnson-Nyquist noise.
+
+Another source of errors caused by electrode can be derived from their position in the body, lack of surface contact or mismatch in materials and geometries. Therefore, to improve and maximise the area of contact, some electrodes requires of conductive gel. It has been demonstrated that using commercially available electrodes for electrocardiogram (ECG) purposes does provide good impedimetric readings, compared to specially designed electrodes~\cite{caicedo2012use}.
+
+An experiment using this type of electrodes was carried out to determine whether removing one or four electrodes and then put them back in the same position could produce errors in readings. It was found that putting electrodes away and then adhere them again within an extended period represented a minimum change in impedance readings. Most of the changes were presented in variations in the geometry of the segment under test caused by the electrode's reposition that might have varied either the current path or the voltage reading. One of the most important conclusions was that a way to cancel out the effect of electrode repositioning the measurement should be calculating the impedance ratio at different frequencies~\cite{lozano1997electrode}.
+
+At the moment of taking measurements for localised bioelectrical impedance using tetrapolar configuration, the distribution of the electrodes affects the sensitivity of the system as well as the geometry of the cells containing within the tissue ~\cite{bertemes2002tissue}. Experiments found that separation of injection and detection electrode pairs affects current penetration depth. In other words, the largest the separation between the pair of electrodes the deepest the AC signal could go.
+
+%********************************** % Third Section  *************************************
+\section{Geselowitz theorem}  %Section - 3.3 
+
+Geselowitz \cite{geselowitz1971application} studied the change in conductivity within a constant geometry. In short, his analysis applied the lead field theory into impedance plethysmography. Simplifying the origin of the equation, the total impedance of the whole volume is equivalent to the sum of all the small impedances within each small volume $dV$~\cite{martinsen2011bioimpedance}.
 
 \begin{figure}[!htpb]
 	\centering
-	\includegraphics[width=5.2cm,keepaspectratio]{figure8}    
-	\caption[Equivalent circuit electrode–tissue interface]{Equivalent circuit electrode–tissue interface (Adapted from Franks~\cite{franks2005impedance})}
-	\label{fig:e-t circuit}
+	\includegraphics[width=6.3cm,keepaspectratio]{figure9}    
+	\caption[Volume conductor with 4 electrodes]{Volume conductor $V$ of conductivity $\sigma_1$. A:B represent current injection electrodes and C:D are sensing electrodes.}
+	\label{fig:volume}
 \end{figure}
 
+
+
+The analysis of this equation starts from the study of the four-electrode measurement and the change in conductivity of the internal region of a volume conductor \cite{bertemes2002tissue}. From Figure 2.24 is assumed that a volume conductor is electrically linear and surrounded by an insulator $\xi$. If the internal conductivity changes from $\sigma_1$ to $\sigma_2$ (equivalent to $\sigma_1+\Delta \sigma$) then the potential field of the current injection will change from $\phi$ to $\phi \prime$ (equal to $\phi+\Delta \phi$) but sensing potential field $\psi$ will remain unchanged. Then the field equation can be written as follows:
+
+\begin{align}
+	\label{eq:potential field}
+	\int_{\Omega} \sigma . (\phi - \phi \prime) . \nabla \psi d \overline{S} = \int_{V} (\sigma_1 - \sigma_2).(\nabla \phi \prime \bullet \nabla \psi).dV 
+\end{align}
+
+
+By replacing the terms by the equivalents, the equation can be rewritten according to the next equation.
+
+\begin{align}
+	\label{eq:potential field2}
+	- \Delta \phi_{CD} . (-I_{\psi}) = - \int_{V} \Delta \sigma . [\nabla (\phi + \Delta \phi) \bullet \nabla \psi].dV
+\end{align}
+
+The impedance change can be deducted by dividing the function by the currents involved $I_{phi}$ and $I_{\psi}$. As a result, the Geselowitz’s equation is equivalent to:
+
+\begin{align}
+	\label{eq:Geselowitz}
+	\Delta Z = \frac{\Delta \phi_{CD}}{I_\phi} = - \int_V \Delta \sigma (x,y,z).\bigg[\frac{\nabla(\phi + \Delta \phi)}{I_{\phi}} \bullet \frac{\nabla \psi}{I_{\psi}}\bigg].dV
+\end{align}
+
+The previous equation is the key to calculating the change in impedance in a volume within defined boundaries. However, this only applies to homogeneous and isotropic volume conductors. This equation can be simplified if is assumed that a unit of current passes through and the volume conductor can be denoted by a number of discrete elements of uniform conductivity in three dimensional space ($x,y,z$). As a result, the equitation can be simplified as follows:
+
+\begin{align}
+	\label{eq:Geselowitz2}
+	\Delta Z = - \Delta \sigma \cdot \int_V \nabla(\phi + \Delta \phi) \bullet \nabla \psi . dV = - \Delta \sigma \cdot S
+\end{align}
+
+\mynote{Check if this expression is cdot or jist normal multiplication}
+
+where $S$ represents the sensitivity matrix in three dimensions, and it is independent of conductance. Calculate this variable requires a series of assumptions such as the initial conductivity distribution is uniform \cite{dehghani1999incorporating}. This document is not centred in the mathematical analysis of the sensitivity S but to deduct that impedance changes are directly related to the change of geometry of the segment. Several studies have been proof that sensitivity varies according to the electrodes position and geometry as researched by Filho \cite{bertemes2002tissue}.
 
 %********************************** %Nomenclatures in chapter  **************************************
 \nomenclature[z-EM]{EM}{Electromagnetic}
