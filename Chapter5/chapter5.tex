@@ -3,7 +3,7 @@
 %*********************************** Fifth Chapter *****************************
 %*******************************************************************************
 
-\chapter{Experimental Procedure}  %Title of the First Chapter
+\chapter{Experimental Procedure}  %Title of the Fifth Chapter
 \label{chapter procedure}
 
 \ifpdf
@@ -20,7 +20,7 @@ Previous to the recruitment of participants, they received documentation explain
 
 
 %********************************** %First Section  **************************************
-\section{Experimental procedure} %Section - 4.1
+\section{Experimental procedure} %Section - 5.1
 \label{section procedure 1}
 
 After filling paperwork and completing acclimatisation different instruments were used to acquired physiological signals. These measurements included ECG, PPG, laser Doppler flowmeter, Doppler ultrasound and impedance plethysmography. Table \ref{table:instruments} describes the purpose of each instrument in this experiment. 
@@ -40,9 +40,9 @@ After filling paperwork and completing acclimatisation different instruments wer
 	\end{tabu}  
 \end{table}
 
-\mynote{check how to align this table properly}
+The ECG device used for taking the electrocadiographic was a Cardioline\textsuperscript{\textregistered} Delta 60 plus \cite{remco:delta60} in a 4 electrodes configuration. The PPG device that registered the photo-plethysmography waveform was the Zen PPG, using a finger sensor operating at \SI{680}{\nano\meter} \mynote{Check the sensor used}.  The LDF instrument used for this experiment was a moor VMS-LDF2. This instrument operates with a laser light at a wavelength of \SI{785}{\nano\meter} \cite{moor:LDF2}. The Doppler ultrasound utilised was a Huntleigh Healthcare MD2 instrument with a sensor head of \SI{8}{\mega\hertz} \cite{ht:MD2}. Finally, the iPG device was de device described in the previous section. 
 
-%**********************************% Subsection 4.1.1  *************************************
+%**********************************% Subsection 5.1.1  *************************************
 \subsection{Instruments setup}
 \label{section procedure 1.1}
 
@@ -66,9 +66,7 @@ Following this step, a PPG probe was placed on the index finger. The PPG instrum
 \mynote{Check for the type of probe used. Nellcor?}
 \mynote{I am not 100\% sure that has two outputs}
 
-In the next step, the laser Doppler flowmetry probe was attached on the mid-section of the forearm. This device measures small changes in blood flow to the vascular bed under the skin. \nknote{the next sentences doesn't make sense counts with an analogue?}The instrument counts with an analogue port that extracts the waveform for further processing.  
-
-\mynote{Check for maker of the Doppler Flowmetry device}
+In the next step, the laser Doppler flowmetry probe~\cite{moor:LDF2} was attached on the mid-section of the forearm. This device measures small changes in blood flow of the vascular bed under the skin. At the back of the instrument, there is an external analogue port where the signal acquired by the device can be extracted for further processing.  
 
 \mynote{Check a small paragraph about how this device works and what is useful for}
 
@@ -254,7 +252,7 @@ However, blood flow can be estimated by using the average cross-sectional area o
 
 \subsubsection{Converting LDF}
 \label{section:ldf}
-The Laser Doppler Flowmetry device utilised in the study was the xxx \mynote{Confirm the model of the LDF device}. LDF is a non-invasive optical method to estimate the blood perfusion in the microcirculation. This device uses the same Doppler principle as described in section \ref{sectionDU} but instead of sound, a beam of light is the source. Similarly, when a red blood cell scatters a light of beam, it produces a frequency shift~\cite{fredriksson2007laser}. 
+The Laser Doppler Flowmetry device utilised in the study was the moor VMS-LDF instrument. LDF is a non-invasive optical method to estimate the blood perfusion in the microcirculation. This device uses the same Doppler principle as described in section \ref{sectionDU} but instead of sound, a beam of light is the source. Similarly, when a red blood cell scatters a light of beam, it produces a frequency shift~\cite{fredriksson2007laser}. 
 
 LDF produces a blood perfusion signal that is comparable to the RBC perfusion or also known as flux. The units of this measurement are Blood Perfusion Unit (BPU) which is an arbitrary unit scale. BPU is the product of the mean number of moving blood cells in the small volume under the probe and the average velocity of moving blood cells. 
 
@@ -307,7 +305,7 @@ In general, low-pass filters are useful to remove mains noise and high-frequency
 \section{Converting Impedance to Volume and Flow}
 \label{section procedure 3}
 
-After the conversion of impedance from volts, it is possible to compute changes of volume and flow. Chapter \ref{chapterdesign} describes in depth the governing equations. Additionally, the analysis of the impedance plethysmography waveform will provide further data of the blood's haemodynamics. Such as the relation between systole and diastole cycles with the iPG signal.
+After the conversion of impedance from volts, it is possible to compute changes of volume and flow. Chapter \ref{chapter design} describes in depth the governing equations. Additionally, the analysis of the impedance plethysmography waveform will provide further data of the blood's haemodynamics. Such as the relation between systole and diastole cycles with the iPG signal.
 
 As explained in equation \ref{eq:dvdr} changes of impedances are equivalent to a fluctuation of volume.  The impedance calculated from equations \ref{eq:impedance} and \ref{eq:zipg} is the information needed to put into this Nyober's equation.\nknote{does this last sentence make sense?}
 

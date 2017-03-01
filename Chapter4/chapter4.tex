@@ -92,18 +92,20 @@ There are two kinds of impedance plethysmography method according to the electro
 
 Electrodes location was based on the closeness to the main blood vessel and were placed as shown in Figure~\ref{fig:electrode}. According to the arm anatomy, the radial artery is the proper site to use for one of the current electrodes. The other was placed close to the brachial artery, being the elbow region the most accessible area. The sensing electrodes were placed right on the elbow where is the nearest point to the brachial artery that is connected to the radial artery forming the ideal loop to detect changed in impedance $\Delta Z$. 
 
-\begin{figure}
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=7.75cm,keepaspectratio]{figure1}	
     \caption{Electrode placement in forearm}
     \label{fig:electrode}
-    \dummyfig{Electrode placement in forearm} 
 \end{figure}
 
 The proposed system can be subdivided into two different sections, front–end which is the part of the device that interacts directly with the limb under test and the back–end that performs the wave generation, signal conditioning, computational calculation, and data representation. The following image shows the block diagram of the proposed device.
 
-\begin{figure}
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=\textwidth,keepaspectratio]{figure2}
     \caption{Block diagram of impedance plethysmography device}
     \label{fig:block}
-    \dummyfig{Block diagram} 
 \end{figure}
 
 \subsection{Direct digital synthesis (DDS)}
@@ -119,10 +121,11 @@ The Op–Amp selected for this design was the AD8066 (Analog Devices); which is 
 
 \mynote{Add graphics according to the description on each file}
 
-\begin{figure}
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=9cm,keepaspectratio]{figure3}  
     \caption{Modified Howland circuit schematic}
     \label{fig:mhc}
-    \dummyfig{MHC schematic} 
 \end{figure}
 
 The MHC design requires low tolerance resistors to minimize potential errors introduced to the system. Consequently, resistors of \SIlist{1;100}{\kohm} with a tolerance of \SI{0.1}{\percent} were used in the final implementation. Figure \ref{fig:mhc} shows the schematic implemented of the differential MHC, only the top Op–Amp is analysed to prove that the equivalence was met, the one on the bottom follows the same equations but with inverted output. The circuit’s resistors from the equation are equivalent to the followings: $R_{2A}=R_1, R_{2B}=R_2, R_1 = R_3 + R_4, R_3 = R_5$ and $R_4 = R_6$. Thus, the equivalent equation can be re-written as follows: 
@@ -147,7 +150,7 @@ G^+_m=\frac{i_{out}}{v_{in+}}=\frac{100K\Omega + 1K\Omega}{101K\Omega \times 1K\
 G^-_m=-\frac{i_{out}}{v_{in-}}=\frac{100K\Omega + 1K\Omega}{101K\Omega \times 1K\Omega}=\frac{101K\Omega}{101M\Omega}=-1\times10^{-3}S 
 \end{align}
 
-As it can be seen from \ref{eq:G+} and \ref{eq:G-}, the transconductance in both feedbacks is equivalent to \SI{1}{\milli\siemens}. The negative sign in $G^{-}_m$ is caused by a phase shift of \SI{180}{\degree}. Due to both top and bottom Op–Amps showed in Figure 3 having the same design, the total transconductance of the circuit in differential mode is equal to \SI{1}{\milli\siemens}. In other words, per every volt generated at the input (pins input– and input+) the output produces \SI{1}{\mA} of electric current. By interfacing the previous section with this one, it is possible to deliver four different levels of current \SIlist{1.33;2.16;3.60;4.36}{\mA}.
+As it can be seen from \ref{eq:G+} and \ref{eq:G-}, the transconductance in both feedbacks is equivalent to \SI{1}{\milli\siemens}. The negative sign in $G^{-}_m$ is caused by a phase shift of \SI{180}{\degree}. Due to both top and bottom Op–Amps showed in Figure 3 having the same design, the total transconductance of the circuit in differential mode is equal to \SI{1}{\milli\siemens}. In other words, per every volt generated at the input (pins input– and input+) the output produces \SI{1}{\mA} of electric current. By interfacing the previous with this one, it is possible to deliver four different levels of current \SIlist{1.33;2.16;3.60;4.36}{\mA}.
 
 \subsection{Current Sensing Circuit}
 As shown from figure 3, at the output of the transconductance amplifier there are \SI{10}{\ohm} resistors at each side of the differential output. These small resistors have been placed there to sense the current being driven into the patient. Using Ohm's law $v=R \times i$ is possible to convert the current passing through that line into voltage. However, because the flowing current is in the order of $mA$ and resistor value is quite small, the voltage obtained is in the order of $mV$. Consequently, the resultant voltage is too close to the noise level, distorting the real value and not being able to be correctly detected by any analogue to digital converter. This can be complemented by using a high input impedance amplifier avoiding any current leakage through the current sensing IC.  
@@ -157,10 +160,11 @@ The most suitable device for this design was the In–Amp AD8421~\cite{ad:AD8421
 \subsection{Voltage sensing circuit}
 A sensing circuit was created according to design theory explained in section. This circuit as its name implies senses or captures the output voltage coming from the unknown impedance in the limb segment. Likewise, the current injection design, this electric circuit requires high-quality components with high input impedance, high bandwidth over the frequency of interest, high CMRR and dual power supply capability compatible the power supply designed. Hence, the IC used in the previous section meet all the requirements. 
 
-\begin{figure}
-    \label{fig:sensing}
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=8cm,keepaspectratio]{figure4}
     \caption{Voltage sensing circuit schematic}
-    \dummyfig{Voltage sensing circuit} 
+    \label{fig:sensing}
 \end{figure}
 
 The AD8421\cite{ad:AD8421} with its robust input impedance of and typical input bias current of \SI{1}{\nA} guarantees that the voltage drop from the interface electrode-skin is minimum. It can be calculated that the maximum error introduced by this voltage drop is close to \SI{0.0001}{\percent} per mA flowing through the body segment. 
@@ -183,10 +187,11 @@ The gain of the IC can be modified using its gain pins increasing the dynamic ra
 \subsection{Envelope detection circuit}
 This circuit produces a DC voltage equivalent to the limb's impedance and extracts the pulsating signal (AC) from the impedance signal (DC). An active diode configuration derives the AC waveform. This circuit was created with an Op-Amp TL08XX\cite{ti:TL08xx} and a diode 1N4148. The combination of these two components create a ''super diode'' or ''perfect diode''. Indeed, the Op-Amp complements voltage loses of the diode where the voltage drop of the diode is compensated. The negative feedback created from the output of the diode towards the negative pin of the Op-Amp compensates diode's voltage drop. As a consequence, the input signal $Z_{in}$ coming into the signal is half-wave rectified crossing by zero. 
 
-\begin{figure}
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=7.3cm,keepaspectratio]{figure5}
+ 	\caption{Envelope detection circuit schematic}
     \label{fig:envelope}
-    \caption{Envelope detection circuit schematic}
-    \dummyfig{Envelope circuit} 
 \end{figure}
 
 The signal obtained for the super diode circuit is passed to a hold circuit. The RC configuration keeps its charge until of the circuit, the selected by the impedance plethysmography device is \SI{50}{\kHz} which means that the distance peak to peak is \SI{20}{\micro\sec}. The time constant of the RC network can be calculated from the following equation:

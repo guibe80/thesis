@@ -177,8 +177,8 @@ It has also been proved that blood is electrically anisotropic because of the or
  
 
 %********************************** % Second Section  *************************************
-\section{Electrode conflict}  %Section - 3.2 
-\label{section impedance 2}
+\section{Electrode conflict}  %Section - 3.3
+\label{section impedance 3}
 Electrodes play a key feature in a bioelectrical impedance system. The right electrode geometry, distance and material may influence in the readings from a biological sample. Consequently, it is needed to use electrodes that have minor impedance compared to the one from the subject under test. Currently, most common materials used in bioelectrical impedance are platinum (\textit{Pt}), gold (\textit{Au}) or stainless steel. Other independent variables such temperature, ionic tissue contents and protein adhesion influence in the change of electrode impedance~\cite{ivorra2003bioimpedance,martinsen2011bioimpedance}. The geometry of the electrode also affects its resistance ($R$) as explain by ohm’s law in equation \ref{eq:resist}.
 
 \begin{align}
@@ -193,11 +193,11 @@ When an electrode adheres to the skin, and electrical current passes through, a 
 \begin{figure}[!htpb]
 	\centering
 	\includegraphics[width=5.5cm,keepaspectratio]{figure7}    
-	\caption[Dual layer representation on an elecgtrode]{Schematic representation of a double layer on an electrode (BMD) model. 1. Inner Helmholtz plane, (IHP), 2. Outer Helmholtz plane (OHP), 3. Diffuse layer, 4. Solvated ions (cations) 5. Specifically adsorbed ions (redox ion, which contributes to the pse)}
+	\caption[Dual layer representation on an electrode]{Schematic representation of a double layer on an electrode (BMD) model. 1. Inner Helmholtz plane, (IHP), 2. Outer Helmholtz plane (OHP), 3. Diffuse layer, 4. Solvated ions (cations) 5. Specifically adsorbed ions (redox ion, which contributes to the phase shift element)}
 	\label{fig:DLC}
 \end{figure}
 
-\mynote{I have to reference this section. I think is from Martinesen}
+\mynote{I have to reference this section. I think is from Martinesen.}
 
 An electric circuit model can represent the electric–tissue interface; this simplified electric representation is shown in figure \ref{fig:e-t circuit}. In more detail, this model is characterised by a charge transfer resistance ($R_{CT}$) in parallel with interface’s impedance ($Z_{CPE}$) in series with the tissue impedance ($Z_t$).  Some authors have defined the interface’s impedance as either a constant phase angle impedance ($Z_{CPA}$)~\cite{franks2005impedance} or constant phase element ($C_{PE}$) \cite{barsoukov2005impedance,mcadams2006characterization}. 
 
@@ -234,9 +234,9 @@ An experiment using this type of electrodes was carried out to determine whether
 
 At the moment of taking measurements for localised bioelectrical impedance using tetrapolar configuration, the distribution of the electrodes affects the sensitivity of the system as well as the geometry of the cells containing within the tissue ~\cite{bertemes2002tissue}. Experiments found that separation of injection and detection electrode pairs affects current penetration depth. In other words, the largest the separation between the pair of electrodes the deepest the AC signal could go.
 
-%********************************** % Third Section  *************************************
-\section{Geselowitz theorem}  %Section - 3.3 
-
+%********************************** % Fourth Section  *************************************
+\section{Geselowitz theorem}  %Section - 3.4
+\label{section impedance 4}
 Geselowitz \cite{geselowitz1971application} studied the change in conductivity within a constant geometry. In short, his analysis applied the lead field theory into impedance plethysmography. Simplifying the origin of the equation, the total impedance of the whole volume is equivalent to the sum of all the small impedances within each small volume $dV$~\cite{martinsen2011bioimpedance}.
 
 \begin{figure}[!htpb]
@@ -245,7 +245,6 @@ Geselowitz \cite{geselowitz1971application} studied the change in conductivity w
 	\caption[Volume conductor with 4 electrodes]{Volume conductor $V$ of conductivity $\sigma_1$. A:B represent current injection electrodes and C:D are sensing electrodes.}
 	\label{fig:volume}
 \end{figure}
-
 
 The analysis of this equation starts from the study of the four-electrode measurement and the change in conductivity of the internal region of a volume conductor \cite{bertemes2002tissue}. From Figure \ref{fig:volume} is assumed that a volume conductor is electrically linear and surrounded by an insulator $\xi$. If the internal conductivity changes from $\sigma_1$ to $\sigma_2$ (equivalent to $\sigma_1+\Delta \sigma$) then the potential field of the current injection will change from $\phi$ to $\phi \prime$ (equal to $\phi+\Delta \phi$) but sensing potential field $\psi$ will remain unchanged. Then the field equation can be written as follows:
 
@@ -279,8 +278,124 @@ The previous equation is the key to calculating the change in impedance in a vol
 
 where $S$ represents the sensitivity matrix in three dimensions, and it is independent of conductance. Calculate this variable requires a series of assumptions such as the initial conductivity distribution is uniform \cite{dehghani1999incorporating}. This document is not centred in the mathematical analysis of the sensitivity S but to deduct that impedance changes are directly related to the change of geometry of the segment. Several studies have been proof that sensitivity varies according to the electrodes position and geometry as researched by Filho \cite{bertemes2002tissue}.
 
+
+%********************************** % Fifth Section  *************************************
+\section{Bioimpedance and Impedance plethysmography state of the art} %Section - 3.5
+\label{section impedance 5}
+Either a bioimpedance device or impedance plethysmography device operates under the principles described before. However, there are different alternatives to circuits and methods to measure impedance from the human body.  
+
+Currently, there are efforts to implement impedance into wearable technology. For instance, Samsung Electronics released a hand-wrist size wearable device called simband~\cite{simsense}. In their product announcement, Samsung uses electrical impedance to measure the galvanic impedance response (GSR) and Bio-Impedance (Bio-Z). In figure \ref{fig:simsense} shows the actual sensor band (simsense), in its second generation counts with different sensors apart from the ones previously mentioned. Such as electrocardiogram signals (ECG), photoplethysmography (PPG),  accelerometers and skin temperature. Nevertheless, this kind of device falls into the research spectrum and is still under development.
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=8cm,keepaspectratio]{figure10}    
+	\caption[\nth{2} generation Simsense board for the Simband]{\nth{2} generation Simsense board for the Simband. Image from \cite{simsense}}
+	\label{fig:simsense}
+\end{figure}
+
+However, there are a significant number of devices that uses bioimpedance for different medical applications, such as impedance cardiography (ICG) devices. This kind of devices has been developed to measure different properties of the heart such as stroke volume (SV), cardiac output (CO) and systematic vascular resistance (SVR)~\cite{neath2005utility}.  Nevertheless, apart from its main application, this instrument has also been used to measure other medical parameters like proximal vein thrombosis (PVT)~\cite{hull1978impedance} or to measure levels of ischemia during orthopaedic surgery~\cite{distefano1973bioelectrical}.
+
+Some companies are also working on creating alternative medical applications for bioelectrical impedance technology. One example of this is Australian company ImpediMed~\cite{impedimed} which own patents for this technology and have manufactured commercial devices approved by FDA focused on detecting body fluid contents in 3 different areas: Lymphedema product line designed to detect lymphatic obstruction conducting to inflammation and liquid retention.  Fluid Status/Body Composition product line intended to measure the content of water and fat in the human body. At last is their BMI research product, which has been created to calculate body mass index (BMI) using bioelectrical impedance analysis.
+
+Another company that successfully has FDA approved medical devices using bioimpedance in the market is Cheetah Medical \cite{cheetah} from Israel. This company based in Boston U.S. has remarkably developed a product to measure haemodynamics non-invasive using four electrodes configuration. The device is used in different hospital areas such as in critical care, haemodialysis, emergency department and operating theatres.
+
+Next is Tanita Corporation, a Japanese company pioneer in the production of digital weight scales capable of performing a whole body composition analysis using either bioelectrical spectroscopy analysis or segmental bioelectrical impedance methods~\cite{tanita}. Moreover, their products are FDA approved and can provide an enormous number of readings from the human body including extracellular water content (EWC), intracellular water content (IWC), muscle balance, segmental analysis of muscle mass and fat percentage.
+
+At last is the German company medis (Medizinische Messtechnik GmbH) which is a spin-off company from Institute of Biomedical Engineering of the Technical University Ilmenau. They manufacture medical equipment for cardiovascular diagnosis including impedance cardiographs and impedance plethysmography devices. However, their devices also combined other methods such as PPG and ECG to obtain a better assessment of the haemodynamics. 
+
+\section{Basic components of a bioelectrical impedance device}
+\label{section impedance 6}
+It is evident that there are several number of medical devices using either biomedical or bioelectrical impedance technology. Nonetheless, regardless of the application most of the instruments include in their design the block diagram shown in figure \ref{fig:block diagram bioimpedance} within their designs. 
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=9cm,keepaspectratio]{figure11}    
+	\caption[Block diagram of a common bioimpedance device]{An bioimpedance device requires front-end and back-end components in order to detect changes of impedance efficiently.}
+	\label{fig:block diagram bioimpedance}
+\end{figure}
+
+An impedance system can be divided into three different blocks: the first one called back–end commonly consists of the signal generation and digital analysis circuits to evaluate the signal sensed. Next is the front–end block that is comprised of all the circuitry before the contact with the skin such as current injection and signal detection electronics. Ultimately, skin electrode interface that behaves as an electronic circuit described in section \ref{section impedance 3}. 
+
+Besides the back–end block is divided into two different sections. First signal generation circuits that depend on either extremely precise oscillators or Digital Signal Synthesizers (DDS) to generate accurate signal waves in a wide bandwidth with highly accurate amplitudes. The frequency exactness of these electronic circuits could be up to \SI{0.1}{\percent} \cite{ad:AD5930}.  Different kind of waveforms may be applied, but the most common one is a sinusoidal wave. 
+
+In the other extreme is the signal processing circuits, used to evaluate signal’s amplitude and phase sensed by the front–end block.  As a matter of fact, powerful processors or microprocessors are used to digitalize and analyse the signals identified. Moreover, modern devices are also aided by advanced either Digital Signal Processors (DSP) or high–speed analogue to digital converters (ADC) capable of oversampling the signals detected. This kind of high precision and high–speed processors and chips are highly specialised and expensive.
+
+Likewise, the front–end is also divided into two different sections current injection and signal detection circuits. The current injection circuit, as its name indicates, it is in charge of transferring the signal coming from the wave generator into the electrodes; some of the characteristics of these circuits are high bandwidth, accuracy and linearity. 
+
+On the other hand, signal detection circuits receive the signal after this has passed through the sample under test. In contrast with specialised digital circuitry used on the back–end, the front–end mostly relies in highly precise analogue systems. These circuits can be implemented with either discrete components or custom chips. However, discrete components may have a limited response when bandwidths in the order of Megahertz is required. Consequently, custom microchip design containing current injection and sensing circuits are a better option because it reduces the influence of stray capacitances. 
+
+\subsection{Methods of measuring bioelectrical impedance}
+\label{section impedance 6.1}
+Some authors have called bioelectrical impedance analysis (BIA) the method to interpret impedance measurements from the human body \cite{kyle2004bioelectrical}. Different techniques have been developed using a single or multiple frequencies and a different amount of electrodes. This section describes the most common form of BIA techniques available explaining their operation frequency, electrodes location and data representation.
+
+\subsubsection{Single Frequency BIA}
+Single frequency bioimpedance analysis uses a single frequency to perform whole body’s impedance analysis. The most common frequency used for this purpose is \SI{50}{\kilo\hertz}, used mostly for body composition analysis where current flows through the entire body applying electrodes on the hands and feet in a tetrapolar set up as displayed in Figure \ref{fig:single f BIA}. This method can provide an approach to whole body composition analysis, including free–fat mass (FFM) and a weighted sum of ECW and ICW resistivities \cite{kyle2004bioelectrical}. Nonetheless, measurements can be notably affected by the subject’s hydration level \cite{gudivaka1999single,schoeller2000bioelectrical}.
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=0.7\textwidth,keepaspectratio]{figure12}    
+	\caption[Common electrodes placement for whole body BIA and BIS]{Common electrode location for single frequency BIA, multi–frequency BIA and BIS (Adapted from Kyle \cite{kyle2004bioelectrical})}
+	\label{fig:single f BIA}
+\end{figure}
+
+\subsubsection{Multi–frequency BIA}
+This method is very similar to the one described previously; it also focuses on whole body analysis. Even though this technique uses empirical linear regression models and multiple set frequencies to evaluate total body water (TBW), FFM, ICW and ECW. Likewise, it has been effective as a tool to assess amyotrophic lateral sclerosis (ALS) \cite{wang2011electrical}. The most common frequencies used are \SIlist{1;5;50;100;200;500}{\kilo\hertz} \cite{kyle2004bioelectrical}. 
+
+However, some studies have revealed that there is a poor reproducibility in frequencies below \SI{5}{\kilo\hertz} and above \SI{200}{\kilo\hertz}. Also, multi–frequency BIA has some improvements compared to single frequency BIA when measuring similar parameters in the body but they are not clinically significant \cite{hannan1995comparison}. Last, single frequency BIA is more accurate to calculate TBW in critically ill subjects, whereas multi–frequency BIA is more accurate and less biased predicting ECW \cite{patel1996estimation}. 
+
+\subsubsection{Bioelectrical impedance spectroscopy (BIS)}
+Although multi–frequency BIA and BIS use a broad range of frequencies, BIS uses mathematical analysis and a mixture of equations to find the whole body’s equivalent impedance. One of these mathematical analysis’ is the implementation of the Cole–Cole \cite{cole1941dispersion} calculation as shown in Equation \ref{eq:cole cole} and mixing theory model from Hanai [35]. From these models, it is possible to predict and, which can provide information about TBW and ECW \cite{hanai1968electrical}. 
+
+For this method to work properly, it has to use mathematical models, constants and equations obtained from a healthy population \cite{patel1994estimation}. If this technique needs to be utilised for a specific purpose or population, such as monitoring a disease, either a new calibration or a different mathematical model must be applied to get a closer correlation between the results obtained, and the ones predicted \cite{schoeller2000bioelectrical, de1997predicting}. However, the use of mixture methods has shown combined results, some of them being accurate, with others showing no improvement or even worse results compared to previous techniques using regression approaches \cite{kyle2004bioelectrical}. The use of BIS can be adequate and more accurate if previous data is known to fit the better curve to the results. As a result, some researchers have implemented the use of neural networks to try to predict results according to previous readings \cite{songer2001tissue,kun2003algorithm}. 
+
+\subsubsection{Segmental bioelectrical impedance analysis}
+This method requires applying two additional electrodes in other parts of the body such as opposite wrist and foot, wrist and shoulder, upper iliac spine and ankle, proximal part of the forearm and lower leg, and shoulder and upper thigh. However, there is no standardisation in the position of the electrodes, which might result in different current distribution for the whole body measurements \cite{kyle2004bioelectrical, woodrow1996segmental}. There is a good correlation between appendicular lean body mass evaluated by X–ray absorptiometry (DXA) and segmental BIA adjusted by stature, at all frequencies. It also showed that upper extremities constitute the main component of impedance at high frequencies because there is a higher content of fat in arms than in legs \cite{delorenzo2003segmental}. 
+
+\mynote{Double check this. I think is not completely true}
+
+However, it has been recommended not to be used this method in healthy young adults as lacks of accuracy \cite{laforgia2008body,leahy2012comparison}. Calculating TBW requires measuring the length of the body segments (arm, trunk and leg) in order to make calculations for the analysis but Thomas et al. [44] considers that this extra effort is not justified when similar outputs can be obtained with BIA method. In contrast, segmental BIA has been found useful in the in the calculation of fluid distribution in some illnesses such as ascites (abnormal accumulation fluid in the abdominal cavity) and during surgery \cite{kyle2004bioelectrical}. Moreover, it is very practical for patients with renal failure, where and imbalance of fluids can be detected more accurately \cite{woodrow1996segmental} \cite{thomas2003comparison}. 
+
+\subsubsection{Localised bioelectrical impedance analysis}
+All the previous methods are focused on whole body measurements. On the other hand, localised BIA aims to avoid the incidence of the effects of different variables such as hydration, fat fraction, geometry boundary conditions, etc. According to this focusing in well–defined segments of the body allows minimising the effect of those variables. Moreover, when the segment is confined into a small volume such small segment is possible to calculate blood flow or plethysmography. The use of four electrodes is critical for this kind of applications because it creates the boundaries of the system. 
+
+The calculation of the BIA also simplifies because empirical regression models according to the population can be applied \cite{kyle2004bioelectrical}. In some cases is required to get dimensions of the limb of interest to obtain its geometric volume for a more detailed calculation.  Some of the cases where this technique has been applied are the analysis of limb ischemia \cite{songer2001tissue,kun1994tissue} breast cancer \cite{zou2003review}, detection and monitoring of Lymphedema \cite{vicini2012bioelectrical} and local abdominal fat mass \cite{scharfetter2001assessing} just to name some. 
+
+\subsubsection{Bioelectrical impedance vector analysis}
+This method developed by Piccoli et al. \cite{piccoli2002impedance, piccoli2002impedance} at the beginning of 2000’s assesses fluid body volume through patterns of vector distribution based on resistance ($R$) and admittance ($X_{c}$) values \cite{thomas2003comparison}. Furthermore, on top of those values, BIVA requires height and genre from the patient so as to establish a statistical ranking compared to similar population (reference population). Data is represented in a graph $R$ vs. $X_{c}$, comparing subject’s data to ellipses tolerances from reference population at \SIlist{50;75;95}{\hertz} previously calculated in a healthy population of the same race, the age and sex \cite{kyle2004bioelectrical,piccoli2002impedance, piccoli2002impedance}. As an illustration, if a measurement taken falls below \SI{75}{\percent} on the left of right of the ellipse then it can indicate an anomaly in tissue’s impedance. This data can be interpreted as changes in tissue hydration and more or less body cell mass (BCM) in lean body tissue. BIVA has been validated for different medical instances for the management of body hydration such as in acute heart failure, haemodialysis, hydration, diuresis, ultrafiltration and body hydration in emergency room \cite{disomma2011consensus}. 
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=0.4\textwidth,keepaspectratio]{figure13}    
+	\caption[BIVA representation]{BIVA representing the vector distribution based on resistance and admittance}
+	\label{fig:BIVA plot}
+\end{figure}
+
+
+
+%********************************** % Sixth Section  *************************************
+\section{Impedance plethysmography devices} %Section - 3.6
+\label{section impedance 7}
+During the study of this document, localised BIA is the method used to determine to find the blood flow in a specific limb section of the body.
+
+
+\subsection{Basal impedance}
+\subsection{Plethysmography waveform}
+
 %********************************** %Nomenclatures in chapter  **************************************
 \nomenclature[z-EM]{EM}{Electromagnetic}
 \nomenclature[z-EIS]{EIS}{Electrical impedance spectroscopy}
 \nomenclature[z-BLM]{BLM}{Bilayer lipid membrane}
 \nomenclature[z-DLC]{DLC}{Dual layer capacitance}
+\nomenclature[z-GSR]{GSR}{Galvanic impedance response}
+\nomenclature[z-EWC]{EWC}{Extracellular water content}
+\nomenclature[z-IWC]{IWC}{Intracellular water content}
+\nomenclature[z-ICG]{ICG}{Impedance cardiography}
+\nomenclature[z-PVT]{PVT}{Proximal vein thrombosis}
+\nomenclature[z-BMI]{BMI}{Body mass index}
+\nomenclature[z-BIVA]{BIVA}{Bioelectrical impedance vector analysis}
+\nomenclature[z-SVR]{SVR}{Systemic vascular resistance}
+\nomenclature[z-DSP]{DSP}{Digital signal processors}
+\nomenclature[z-FFM]{FFM}{Free-fat mass}
+\nomenclature[z-TBW]{TBW}{Total body water}
+\nomenclature[z-ALS]{ALS}{Amyotrophic lateral sclerosis}
+\nomenclature[z-BCM]{BCM}{Body cell mass}
