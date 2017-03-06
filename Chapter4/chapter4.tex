@@ -162,7 +162,7 @@ A sensing circuit was created according to design theory explained in section. T
 
 \begin{figure}[!htpb]
 	\centering
-	\includegraphics[width=8cm,keepaspectratio]{figure4}
+	\dummyfig{Peak detection circuit} 
     \caption{Voltage sensing circuit schematic}
     \label{fig:sensing}
 \end{figure}
@@ -202,11 +202,13 @@ The signal obtained for the super diode circuit is passed to a hold circuit. The
 
 As it can be noticed the holding time at $5\tau = 0.6 Sec$, meaning that this configuration can detect the peak of a signal as little as \SI{1.66}{\hertz}. As a result, this produces a DC signal comparable with the peak value of the input signal. Then, the output signal of the waveform coming from the current sensor is passed through a buffer ensuring this output port a low impedance. 
 
-\begin{figure}
-     \label{fig:peak}
-    \caption{Peak detection circuit for current path}
-    \dummyfig{Peak detection circuit} 
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=8cm,keepaspectratio]{figure4}
+	\caption{Voltage sensing circuit schematic}
+	\label{fig:peak}
 \end{figure}
+
 
 In contrast, following signal path for the extraction of AC signal, the signal is passed through a series of filters. First, a high pass filter is used removing DC components of the signal. This was achieved by the passive filter composed by $C_4$ and $R_5$. It must be noticed that $R_5$ is virtually connected to ground (GND). Creating a filter with cut frequency given by following equation:  
 
