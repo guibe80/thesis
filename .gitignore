@@ -27,7 +27,7 @@
 *.nls
 *.sh
 *.nlo
-*.pdf
+thesis.pdf
 *.tdo
 *.txss
 Chapter3/Fig_Cons/*
