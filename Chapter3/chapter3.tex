@@ -16,8 +16,31 @@ This document proposes the design of a device able to monitor blood flow continu
 
 \mynote{This introduction must be complemented once I complete the whole chapter}
 
+\section{Electrical impedance principle}
+%https://books.google.co.uk/books?id=M74ecVj5q9UC&printsec=frontcover&dq=inauthor:%22Luca+Callegaro%22&hl=en&sa=X&ved=0ahUKEwjMyPSt5MnSAhUJJcAKHZAPBGcQ6AEIHDAA#v=onepage&q&f=false
+From the electrical point of view impedance is defined as the opposition that a medium presents to either an alternating current (AC) or voltage. The impedance is equivalent to the complex ration between the voltage and the current.  
+
+\begin{figure*}[!htpb]
+	\centering
+	\begin{subfigure}[t]{0.4\textwidth}
+		\centering
+		\includegraphics[width=6cm,trim={0.05cm 0.05cm 0.05cm 0.15cm},clip,keepaspectratio]{figure0a}    
+		\caption{Current driven impedance}
+		\label{fig:impedance a}
+	\end{subfigure}
+	~
+	\begin{subfigure}[t]{0.4\textwidth}
+		\centering
+		\includegraphics[width=6cm,trim={0.05cm 0.05cm 0.05cm 0.15cm},clip,keepaspectratio]{figure0b}    
+		\caption{Voltage driven impedance}
+		\label{fig:impedance b}
+	\end{subfigure}
+	\caption[Impedance representation from two-terminal element]{Schematic of the electrical impedance. The three elements requires are the voltage $v(t)$, the alternating current $i(t)$ and the opposition to the current ($z(t)$). The impedance can be driven by either current or voltage.}
+	\label{fig:impedance}
+\end{figure*}
 
 \section{Bioelectrical impedance}
+\label{section impedance 1}
 Before describing how impedance plethysmography operates, it is better to understand how the principle of bioelectrical impedance is defined. First of all, the term electrical impedance spectroscopy (EIS) is referred as the study of the absorption of energy depending upon the frequency of electromagnetic (EM) waves. When measurements are performed in a biological sample, then this method could be referred either as electrical impedance or bioelectrical impedance~\cite{ivorra2003bioimpedance}. The term to be used in this document will be bioelectrical electrical impedance. The EM spectrum is quite broad, and the interaction with tissue occurs in the frequency range from \SIrange[scientific-notation = engineering]{100}{10000000}{\hertz}~\cite{bertemes2002tissue}. In this thesis, the frequencies of interest are focused in the low-frequency range. Indeed, plethysmography devices operate commonly in the bandwidth below few \si{\kilo\hertz}.
 
 The human body is constituted by four basic tissues known as epithelium which covers and protects the whole surface of the body, muscle which is in charge of the movement, connective tissue that supports and protect organs, and nervous tissue which provides the internal transmission line for the electrical impulses coming from the brain. Cells that constitute these tissues play a fundamental role in terms of current conduction when an analogue current (AC) is applied to the body~\cite{lvovich2012impedance}. Hence, impedance readings vary according to the parameters of these cells as well as its protein content. It is especially significant to understand the geometry and characteristics of the blood cells, which transport $0_2$ around the body. The functionality of these cells and amount per \si{\micro\litre} of human blood were described by table \ref{table:cell} in section \ref{section literature 1}.
@@ -94,8 +117,8 @@ Parameter $\alpha$ is limited for values between 0 and 1. When its value is equa
 
 
 %********************************** %First Section  **************************************
-\section{Impedance plethysmography principle} %Section - 1.1                                                                                                                                                                                                 
-\label{section impedance 1}
+\section{Impedance plethysmography principle} %Section - 1.2                                                                                                                                                                                                 
+\label{section impedance 2}
 Referred as impedance plethysmography (iPG) involves the measurement of the change of impedance due to change of blood flow. For instance, when heart’s systole increases blood flow, the volume of a limb rises due to the inflow of blood (swelling)~\cite{martinsen2011bioimpedance}. Consequently, there are changes of impedance correlated to the changes of volume and flow in a limb. Some medical application might require the use of occlusion cuffs to analyse venous filling. There are several medical applications for this kind of technique such as heart stroke volume (SV) measurement, cardiac output (CO), thoracic respiratory volume, oedema and detection of deep vein thrombosis (DVT)~\cite{holohan1996plethysmography}.
 
 As previously described in section \ref{section literature 3.5}, iPG is the measurement of volume changes through the equivalent bioelectrical impedance of a part of the human body~\cite{corciova2011peripheral}. In this document is presented the measurements from an in-vivo studio of the plethysmographic changes in a segment of the left forearm. As it can be deduced, one would assume that this segment of the upper limb could be modelled as a cylinder within a cylinder. Where the inner cylinder represents a blood vessel and the outermost is the surrounding tissue. 
@@ -501,19 +524,22 @@ The impedance plethysmography provides information about the venous and arterial
 	\label{fig:iPG signals}
 \end{figure}
 
-Figure \ref{fig:iPG signals} shows the three different components of an impedance plethysmography waveform. The origin and the clinical application of the waveforms are described as follows. 
+Figure \ref{fig:iPG signals} shows the three different components of an impedance plethysmography waveform. The signal consists of the following components: basal impedance or resting baseline impedance (RBI), venous volumes changes and arterial pulses. 
 
 \subsubsection{Basal impedance}
-Also knows as the resistive baseline impedance, this is the most significant data obtain from an impedance plethysmography device. The main contributors to this impedance are muscles, blood and bones. The resistivity of muscles is about \SI{200}{\ohm\cm}, while the resistivity of bone and fat is greater than \SI{2000}{\ohm\cm} and the blood resistivity is about \SI{150}{\ohm\cm} \cite{gabriel1996dielectric}. Therefore, this combination of impedances can be expressed as a parallel model of resistances where muscle and blood which are the main contributors of the RBI. The range of this impedance value is from \SIrange{10}{100}{\ohm}. 
+Also knows as the resistive baseline impedance, this is the most significant data obtain from an impedance plethysmography device (see figure \ref{fig:iPG signals}). The main contributors to this impedance are muscles, blood and bones. The resistivity of muscles is about \SIrange{200}{300}{\ohm\cm}, while the resistivity of bone and fat is greater than \SI{2000}{\ohm\cm} and the blood resistivity is about \SI{150}{\ohm\cm} \cite{gabriel1996dielectric}. Therefore, this combination of impedances can be expressed as a parallel model of resistances where muscle and blood which are the main contributors of the RBI. The range of this impedance value is from \SIrange{10}{100}{\ohm}. 
 
-\mynote{Double check the comments of the resistivity of the Muscle.}
-
-It has been demonstrated that is possible to gather information about the development of ischemic tissue by studying the changes of baseline during time. Some studies have shown that there is an increase in the impedance value during ischemic events in the bandwidth of \SIrange{1}{100}{\kilo\hertz} in different kind of tissue \cite{songer2001tissue,casas1999vivo,kun1994tissue,ristic1997muscle} which is within the frequency measurement of iPG. 
+It has been demonstrated that is possible to gather information about the development of ischemic tissue by studying the changes of baseline during a time. Some studies have shown that there is an increase in the impedance value during ischemic events in the bandwidth of \SIrange{1}{100}{\kilo\hertz} in different kind of tissue \cite{songer2001tissue,casas1999vivo,kun1994tissue,ristic1997muscle} which is within the frequency measurement of iPG. 
 
 \subsubsection{Venous occlusion plethysmography}
-The second signal that can be obtain from
+The second signal that obtained from the baseline signal provides information about the venous volume changes. Variations in the venous volume tone occur naturally during respiration which causes a modulation of the signal during the respiratory cycle between \SIrange{0.2}{0.3}{\hertz}. However, by occluding the venous return is possible to produce larger volume variations which are represented as a greater displacement of the basal impedance of about \SI{1}{\Omega} or \SI{5}{\percent} from the mean value. 
+
+The most common method to evaluate venous volume is known as venous occlusion plethysmography, which is quite common in the assessment of peripheral vascular diseases such as deep venous thrombosis. Impedance plethysmography VOP (see figure \ref{fig:iPG signals}) provides a similar result as other well-established methods such as strain gauge, air cuff and water displacement techniques \mynote{Reference the other papers}. This method requires occluding the proximal section of the limb using a cuff with a pressure above the venous pressure usually about \SI{40}{\mmHg}.  The holding of the blood return increases the volume of the limb with each heart cycle. The accumulation of blood in the measured segment increases its conductivity reducing the total resistivity.  A deviation from up to \SI{10}{\percent} from the basal impedance can be achieved depending on the occlusive pressure, arterial inflow, venous tone, central venous pressure (CVP), and the capacity of the venous vascular bed. 
 
 \subsubsection{Arterial pulse amplitude}
+The third signal component of an impedance plethysmography is the arterial pulsations which are waveforms synchronous with the heart cycle (\SIrange{1}{2}{\hertz}). This signal is just a fraction of the total impedance; it is just \SI{0.1}{\percent} of the total impedance signal, approximately \SI{0.02}{\ohm} in the limbs of healthy young adults. Obtaining this signal can be quite challenging as its value lies close to noise levels. Therefore, the signal should be isolated by using sharp filters and averaging some pulses. Changes of the waveform shape are due to different reasons such as tissue volume, arterial inflow, arterial vessel compliance, proximal occlusion, peripheral resistance as well as electrodes topology, geometry and location.  Changes in the signal amplitude is an indicator of arterial problems. For instance, with age arteriosclerosis reduces the arteries elasticity. Hence the arterial pulse amplitude reduces in magnitude.
+
+
 
 %********************************** %Nomenclatures in chapter  **************************************
 \nomenclature[z-EM]{EM}{Electromagnetic}
@@ -533,7 +559,7 @@ The second signal that can be obtain from
 \nomenclature[z-TBW]{TBW}{Total body water}
 \nomenclature[z-ALS]{ALS}{Amyotrophic lateral sclerosis}
 \nomenclature[z-BCM]{BCM}{Body cell mass}
-\nomenclature{z-IEC}{IEC}{International Electrotechnical Commission}
+\nomenclature[z-IEC]{IEC}{International Electrotechnical Commission}
 \nomenclature[z-VF]{VF}{Ventricular fibrillation}
 \nomenclature[z-RF]{RF}{Radio frequency}
 \nomenclature[z-RMS]{RMS}{Root mean square}
@@ -541,3 +567,4 @@ The second signal that can be obtain from
 \nomenclature[z-RBI]{RBI}{Resting baseline impedance}
 \nomenclature[z-APA]{APA}{Arterial pressure amplitude}
 \nomenclature[z-VOP]{VOP}{Venous occlusion plethysmography}
+\nomenclature[z-CVP]{CVP}{Central venous pressure}
