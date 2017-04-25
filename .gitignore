@@ -29,6 +29,8 @@ Readings/
 *.sh
 *.nlo
 thesis.pdf
+test.pdf
+test.tex
 *.tdo
 *.txss
 Chapter3/Fig_Cons/*

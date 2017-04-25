@@ -139,9 +139,80 @@ Last, for the purpose of total blood occlusion a similar method, was applied. On
 
 Finally, the last \SI{5}{\min} of baseline waveforms were recorded to study the recovering effect. When time was up, the stop button was pushed on saving all the data onto an LVM file for further processing in Matlab. 
 
-%********************************** % Swction section 4.2******************************************
-\section{Data processing}
+%%********************************** % Section 5.2 ******************************************
+\section{Physiological measurements}
 \label{section procedure 2}
+Previous the beginning of the study, physiological measurements were taken from the participants of the study. Data such age, sex and arm to hearth distance were collected initially. The table \ref{tbl:physiological} summarise the information provided by each of the participants. In total, three female and six male participants took part of the study. Their ages ranged between \SIrange{23}{37}{year-old} (mean \num{29.12(494)}). 
+
+\begin{table}[!htbp] %tbl:physiologica
+	\caption{Participants' forearm measurements and initial volume.}
+	\label{tbl:physiological}
+	\centering
+	\begin{tabular}{lcc|ccc}
+		\toprule
+		&              &              &         \multicolumn{3}{c}{\textbf{Dimensions [\si{\cm}]}}         \\
+		& \textbf{Age} & \textbf{Sex} & \textbf{Arm length} & \textbf{Shoulder} & \textbf{Total length} \\
+		&              &              &                     &  \textbf{to heart}   &                       \\ \midrule
+		Participant 1 &      26      &     Male     &         80          &          26          &          106          \\
+		Participant 2 &      23      &    Female    &         66          &          24          &          90           \\
+		Participant 3 &      27      &    Female    &         74          &          24          &          98           \\
+		Participant 4 &      37      &     Male     &         68          &          24          &          92           \\
+		Participant 5 &      29      &    Female    &         62          &          24          &          86           \\
+		Participant 6 &      36      &     Male     &         70          &          24          &          94           \\
+		Participant 7 &      29      &     Male     &         73          &          23          &          96           \\
+		Participant 8 &      26      &     Male     &         69          &          23          &          92           \\ \bottomrule
+	\end{tabular}
+\end{table}
+
+Additionally to the physiological measurements, the distance of the impedance potential electrodes and the arm circumference at the same point was also recorded. It is possible to estimate the forearm's segment total volume by measuring the distance between the potential electrodes ($l$), and the circumference on the location of each electrode (C$_1$ and C$_2$).  
+
+Taking these dimensions with a measuring tape may induce some errors in the measurement. For instance, applying too much pressure towards the arm when taking the measurement may read a lower circumference value.  However, it allows estimating the initial volume of the forearm segment which represents the original volume of the conductive portion. Table \ref{tbl:measurments} shows the dimensions of the participant's forearm between the sensing electrodes and the segment's volume calculated from Equation \ref{eq:v_e}.
+
+\begin{table}[!htbp] %tbl:measurments
+	\caption{Participants' forearm measurements and initial volume.}
+	\label{tbl:measurments}
+	\sisetup{separate-uncertainty=true}
+	\centering
+	\begin{tabular}{lcccccc    S[table-format=2.2]@{\,\( \pm \)\,}S[table-format=1.2]}
+		\toprule
+		&  \textbf{L [\si{\cm}]}   &  \textbf{C$_1$ [\si{\cm}]}  &  \textbf{C$_2$ [\si{\cm}]}  &   \textbf{Ve [\si{\cubic\cm}]} \\\midrule
+		Participant 1 & 14.8 & 17.5 & 27.5 & 606.05 \\
+		Participant 2 & 11.0 & 15.0 & 20.0 & 269.90 \\
+		Participant 3 & 13.0 & 19.0 & 26.5 & 540.27 \\
+		Participant 4 & 10.0 & 17.5 & 25.0 & 363.07 \\
+		Participant 5 & 10.0 & 17.5 & 23.5 & 336.81 \\
+		Participant 6 & 11.0 & 18.5 & 27.0 & 458.32 \\
+		Participant 7 & 13.5 & 15.0 & 23.0 & 393.55 \\
+		Participant 8 & 11.5 & 17.0 & 23.5 & 378.49 \\ \bottomrule
+	\end{tabular}
+\end{table}
+
+Executing a mechanical occlusion of the brachial artery in the upper arm limits the blood flow towards the forearm. Finding the right arterial pressure level is necessary to know the proper pressure levels to perform venous, partial arterial and total occlusion. Before starting the study, three readings of blood pressure were taken per participant. Then, the results were averaged and recorded. The mean systolic and diastolic pressures of all the partakers of the investigation were \SI{116.25(1366)}{\mmHg} and \SI{72.75(723)}{\mmHg} respectively. The venous occlusion level was targeted to \SI{20}{\mmHg} below systolic pressure the total mean was \SI{55.00(801)}{\mmHg}, the partial arterial pressure was calculated using equation \ref{eq:meanpressure}, the average was about \SI{94.63(1021)}{\mmHg} and total occlusion was around \SI{136.25(1367)}{\mmHg}. Table \ref{tbl:occlusions} details the blood pressures recorded per participant.
+
+\begin{table}[!htbp] %tbl:occlusions
+	\caption[Blood pressure and occlusion levels of the participants]{Participants' initial blood pressure and levels for venous, partial arterial and total occlusion.}
+	\label{tbl: venous occlusions}
+	\centering
+	\begin{tabular}    {lcccc}
+		\toprule
+		& \textbf{Blood pressure}  &  \textbf{Occlusion 1}   & \textbf{Occlusion 2}  &  \textbf{Occlusion 3} \\
+		&  [\si{\mmHg}]   &        [\si{\mmHg}]  &    [\si{\mmHg}]   &  [\si{\mmHg}]\\ \midrule
+		Participant 1  &  124/78   &        50  &    101   &  144\\ 
+		Participant 2  &  105/65   &        50  &     85   &  125 \\
+		Participant 3  &  120/78   &        60  &     99   &  140 \\
+		Participant 4  &  120/72   &        60  &     96   &  140 \\
+		Participant 5  &  100/60   &        40  &     80   &  120 \\
+		Participant 6  &  143/82   &        60  &    113   &  163 \\
+		Participant 7  &  107/73   &        65  &     90   &  127 \\
+		Participant 8  &  111/74   &        55  &     93   &  131 \\\bottomrule
+	\end{tabular}
+\end{table}
+
+With the data from table \ref{tbl:occlusions} was possible to set the parameters for the experimental procedure. The column \textit{occlusion 1} establishes the proper pressure for venous occlusion plethysmography. With the pressures from column \textit{occlusion 2} the arterial blood flow was restricted into the forearm but this is also a VOP method. In chapter xxx, \mynote{Reference chapter where I am, comparing the measurements of VOP and partial artery} differences between these two measurements are analysed. Finally, \textit{occlusion 3} provides information of changes of impedance during total occlusion.
+
+%********************************** % Swction section 5.3******************************************
+\section{Data processing}
+\label{section procedure 3}
 
 Once data was stored in the local LVM file, it was post-processed in Matlab~\cite{MATLAB:2016}. To go into this in more detail, a GUI Matlab program was created capable of comparing signals, applying filters, as well as finding peaks and windowed sections of data. A front-end of the application can be seen in Fig. xxx.
 
@@ -159,7 +230,7 @@ As soon as decimated data was imported into Matlab, the parsing program converte
 
 %********************************** % Swction section 4.2.1******************************************
 \subsection{Converting Data}
-\label{section procedure 2.1}
+\label{section procedure 3.1}
 When importing data into the GUI program, data needs to be converted into meaningful scales. All physiological data described in section \ref{section procedure 1.1} coming from the devices were in volts. Some data need conversions such as iPG, ultrasound and laser Doppler flowmetry.
 
 \mynote{Add a section describing how the wave was extracted and converted into readable values. The algorithm used for this}
@@ -264,9 +335,9 @@ This instrument provides an output port that allows exporting the waveform. This
 \end{align}
 
 
-%********************************** % Swction section 4.2.2******************************************
+%********************************** % Swction section 5.3.2******************************************
 \subsection{Digital filtering}
-\label{section procedure 2.2}
+\label{section procedure 3.2}
 
 The signals obtained from the devices contained variable sources of noise. These included respiration, mains noise, motion, high-frequency noise from the iPG current source (\SI{30}{\kilo\hertz}). To remove these sources of different noise, filters were designed in Matlab for post-processing. The command \textit{designfilt} can create a variety of different filters. In the GUI, any user can apply any filter on demand to any signal available. Table \ref{table:filters} gives an overview of the filters that were designed and made available for processing the waveforms. 
 
@@ -301,9 +372,9 @@ In general, low-pass filters are useful to remove mains noise and high-frequency
 
 \mynote{Add section describing how the signals were referenced to zero using the method}
 
-%********************************** % Section 4.3 ******************************************
+%********************************** % Section 5.4 ******************************************
 \section{Converting Impedance to Volume and Flow}
-\label{section procedure 3}
+\label{section procedure 4}
 
 After the conversion of impedance from volts, it is possible to compute changes of volume and flow. Chapter \ref{chapter design} describes in depth the governing equations. Additionally, the analysis of the impedance plethysmography waveform will provide further data of the blood's haemodynamics. Such as the relation between systole and diastole cycles with the iPG signal.
 
@@ -314,7 +385,7 @@ There are two methods to calculate blood flow. One of them is using venous occlu
 \mynote{Improve this paragraph, explaining both methods}
 
 \subsection{Volume calculation during venous occlusion}
-\label{section.4.3.1}
+\label{section procedure 4.1}
 One of the methods to measure changes of volume involves occluding the venous return in one limb. This routine known as venous occlusion plethysmography is explained in detail in section xxx. This technique requires inflating a cuff below diastolic pressure to stop the blood's venous return in an extremity. Just like in the procedure described in section \ref{section procedure 1.3}. 
 
 \mynote{double check a reference to Medical Background how this works. Create a reference to this section}
@@ -342,11 +413,13 @@ In order to make these values more meaningful, they need to be converted in a ti
 	\dot{Q_L} = \bigg( \frac{1}{R_B} \bigg) \bigg( \frac{\Delta R}{\Delta t} \bigg) \times 60  \times 100  \tagaddtext{[\si{ml/min.100.ml}]}
 \end{align} 
 
+\mynote{Confirm this equation by referencing it to the paper. Becuase I'm using the 5.13 to calculate the blood flow not the 5.14. In fact, I'm using equation 5.18 to calculate the BF}
+
 Where $\dot{Q_L}$ is the blood flow per \SI{100}{\milli\litre} of tissue, $R_B$ is the impedance base value in \si{\ohm}, $\Delta R_B$ is the change of impedance within ${\Delta t}$ in \si{\sec}.
 
 %********************************** % Section 4.3.2 ******************************************
 \subsection{Volume and flow calculation beat by beat}
-\label{section procedure 3.2}
+\label{section procedure 4.2}
 Impedance plethysmography also provides the opportunity to calculate the change in volume and the blood flow from every heart beat. Achieving this calculation is possible if there is a high-quality plethysmography waveform. For this reason, the impedance device includes an analogue port called $V_{ZAC}$. As described previously in section xxx, this port extracts the plethysmography waveform from the basal impedance $iPG_{AC}$. In fact, due to the filtering and amplification stages of the circuit, the signal has been amplified more than 2.500 times. Providing more characteristics and resolution of the waveform when digitalised.
 
 \mynote{Verify the name of the port and also the section where should be referenced}
@@ -384,7 +457,7 @@ The heart rate is important in providing meaningful units to the measurements. U
 	HR = \frac{60}{(t_{M5}-t_{M1})}  \tagaddtext{[\si{bpm}]}
 \end{align}
 
-Next replacing \nknote{?} $EXHT$ and $HR$ from equations \ref{eq:RB} and \ref{eq:exht} respectively, into Nyober's equation (see \ref{eq:Nyober}) is possible to calculate the blood flow.\nknote{sentence doesnt make sense} However, computing it as blood flow withnknote{? with?} units (\si{\milli\litre\per\minute}), the HR must be included in the equation. In the end, Nyober's equation can be re-written as \ref{eq:bf}. 
+Next replacing \nknote{?} $EXHT$ and $HR$ from equations \ref{eq:RB} and \ref{eq:exht} respectively, into Nyober's equation (see \ref{eq:Nyober}) is possible to calculate the blood flow.\nknote{sentence doesnt make sense} However, computing it as blood flow with \nknote{? with?} units (\si{\milli\litre\per\minute}), the HR must be included in the equation. In the end, Nyober's equation can be re-written as \ref{eq:bf}. 
 
 \begin{align}
 	\label{eq:bf}
@@ -409,9 +482,9 @@ In conclusion, it is possible to compute the blood flow of \SI{100}{\milli\litre
 	BF_{100ml} = \frac{BF}{V_e} \times \text{100 ml} \tagaddtext{[\si{\bfv}]}
 \end{align}
 
-%********************************** % Section 4.3.3 ******************************************
+%********************************** % Section 5.4.3 ******************************************
 \subsection{Additional haemodynamic parameters analysis beat by beat}
-\label{section4.3.3}
+\label{section procedure 4.3}
 From the landmarks \nknote{?landmarks} detected in the data, additional haemodynamic parameters are deductible. Three reference points within each pulse can provide rheographic information. The first one is the rheographic index of the pulse volume, which is obtained from the peak value of the systolic section of the plethysmography waveform $R_{M2}$ in impedimetric form. It provides information about the height of the peak compared to the baseline of the waveform. It can be calculated using equation \ref{eq:A}.
 
 \begin{align}

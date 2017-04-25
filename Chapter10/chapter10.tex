@@ -1,0 +1,101 @@
+%!TEX root = ../thesis.tex
+%*******************************************************************************
+%*********************************** Eight Chapter *****************************
+%*******************************************************************************
+
+\chapter{Discussion}  %Title of the First Chapter
+
+\ifpdf
+    \graphicspath{{Chapter10/Figs/Raster/}{Chapter10/Figs/PDF/}{Chapter10/Figs/}}
+\else
+    \graphicspath{{Chapter10/Figs/Vector/}{Chapter10/Figs/}}
+\fi
+
+
+%********************************** %First Section  **************************************
+\section{Converting iPG into Blood Flow for detecting venous and arterial changes} %Section - 7.1 
+\label{section discussion 1}
+As it has been discussed in this document, there are two ways to calculate blood flow from the iPG data. Initially, it is needed to model the segment of the body as a cylinder. Luckily, most of the body parts can be expressed as this geometrical figure. For this study, a device was designed to measure the change of volume in the forearm. Eventually, this could be calibrated to work in other parts of the body such as lower extremities. 
+
+The study performed in this document seeks to demonstrate how the iPG data could help to detect changes in venous and arterial circulation. According to the literature, iPG is a method used to quantify blood flow from the principle that the impedance of a body part is directly proportional to its volume as described by Nyober's equation  (see equation \ref{eq:Nyober}).  Hence, since the 1970's this theory has been tested assuring the effectiveness of the method. 
+
+There are different contributors to the impedimetric signal. One of them are the tissues such as fat, muscle, blood and bone. Most of this organs have intrinsic impedances when its movement is limited because motion changes different variables that could affect their impedance values. The sum of all these resistive values is known as basal impedance.  However,  the circulatory system is dynamic and create small changes during the cardiac cycle.  When the ventricles contract, it produces a slight increase in the size of the vessels by filling them with blood.
+\mynote{check a reference about circulatory and added to this section. Also, check how to related to the medical background}. Therefore, this filling of blood within the tissue raises its total volume. Hence, knowing the rate of change of volume in time can be translated into the flow rate.
+
+The first method to measure blood flow is called venous occlusion plethysmography \cite{wilkinson2001venous}. This approach inquires the increment of impedance when an occlusion is performed in the upper part of a limb using an inflatable cuff. The most common occlusion level is about \SI{40}{\mmHg} for a determined time. This occlusion could be for some seconds until minutes depending on the study to be done. 
+
+By occluding the venous return and not altering the arterial flow, blood can enter into the limb but cannot leave.  As a result, there is a linear increase in the volume of the limb. Hence, this gain of capacity can be quantified by the impedimetric method which is clearly perceptible in the variation of the basal impedance. In fact, this is because the blood begins to cluster in the limb. As the blood's population increases, the conductivity of the forearm's section also rises in volume. Therefore, the resistivity proportionally decreases. 
+
+During the experiment presented in this document the venous occlusion occurred throughout region 1 and region 2.  As shown by figure \ref{fig:rb:all_participants}, it is clear that most of the participants experience a variation in their basal impedance readings.  However, some of them were affected by motion which produced changes in the trend, like in participant 1. However, in most of the participants there was a linear decrease of impedance. 
+
+In a similar situation, there was a reduction in the forearm's inflow when the brachial artery in the upper arm was partially occluded at the midpoint of the participant's blood pressure. Performing this action stops the venous return but also alters the incoming arterial flow \mynote{Check a paper about changing the elasticity of a tube changes its flow}. As a result, again the forearm's volume increases shifting its resistivity. It was noticed that when this occurs, the basal impedance decreases in a larger slope. This greater slope might be an indication of a higher laminar flow coming from the artery \mynote{Check what happens during arterial occlusion}. This effect can be confirmed by the data obtained from the Doppler ultrasound. In figure \ref{fig:DU_flow} can be clearly seen that the participants experienced a decrease in their flow in the region 4 of the data between \SIrange{780}{960}{\second}.   
+
+All along total occlusion (Region 6) seemed that there was not a clear change trend of the participant's basal impedance.  Because both arterial and venous flow were blocked, there was not blood flow of any kind in the arm section. Therefore, this is the real basal impedance where all the tissues with their blood content were measured. The DC components of the PPG signal had a similar behaviour to this event where all participants had different responses. Indeed, only the Doppler ultrasound signal was able to reproduce a biological zero, the rest of the instruments showed some level of noisy data. 
+
+By quantifying the blood flow from the basal impedance signal can be seen that there was not a significant change in its average rate. The mean value in venous occlusion was equivalent to \flowbasalvenous{} which is quite similar to the calculated mean arterial that was \flowbasalarterial{}. From this, it can be concluded that just by estimating the blood flow from the impedimetric measurements is not possible to have a clear difference between either arterial or venous occlusion.
+
+However, the iPG signal can provide additional information that could give a clue about the change of flow during the occlusive events. This oscillatory signal comes from the expansion of the arteries and venous during the heart cycle. The filling of blood within the segment being examined creates a tiny change in the impedance. In other words, the basal impedance also contains a dynamic component that varies with the circulation. This small part is just a fraction of the total signal. In fact, the contribution of this dynamic signal is just \SI{0.04}{\percent} to the total impedance. Hence, the device described in chapter \ref{chapter design} was able to isolate satisfactory this waveform and provide a high-resolution version of this signal.
+
+Obtaining this level of detail was important as provided more features about changes in different parts of the impedance plethysmography waveform. The signal collected from this section of the arm gave characteristics of the circulatory process. Three points were clearly identified as shown in \ref{section results 3.1}. Nonetheless, this signal is unique to this set-up, waveforms from other devices have reported unlike waveform shape when used in different parts of the body \mynote{Look for papers showing plethysmographic waveform}. The plethysmographic waveform obtained contains information about the systolic peak, the dicrotic notch and the diastolic peak which were clearly identified by the algorithm implemented \mynote{I have to add a part where I explain how the algorithm works}. 
+
+According to Nyober's equation \ref{eq:Nyober} this small change of impedance can also be translated into the blood flow.  This method has been widely used when analysing blood flow beat to beat \mynote{Add reference to papers describing beat to beat} in different settings. This conversion is done by taking the impedimetric systolic peak as the $\Delta R$ described by Nyober's. Both systolic impedimetric peak values and blood flow calculations were conducted in section \ref{section results 3} and \ref{section results 5} respectively.  Because the blood flow is directly proportional to the amplitude of $\Delta R$ both values had the same trend. 
+
+It was observed that there were changes in the systolic peak (point A), dicrotic notch valley (point B) and diastolic peak (point C) when an occlusion occurs which also affected the blood flow response. During the process described in figure \ref{fig:iPG_change_points_venous} where the changes between region 1, 2 and 3 took place, it can be seen that there is an apparent increase in the size of all the reference points in most participants during the occlusion followed by a return to baseline. 
+	
+However, this increase of impedance amplitude indicated a raise in the blood flow as reported by \ref{section results 5} but is not possible to establish whether is an increase in venous or arterial flows. The Doppler ultrasound referenced continuously to the radial artery blood flow. By performing the statistical study shown in \ref{section correlation 2} was established that there is some level of correlation between both signals ($r^2 = 0.35$). Nonetheless, during occlusions, there was a slight difference in the amplitude response. Comparing both flows rate (see figure \ref{fig:DU_flow} and figure \ref{fig:blood_flow_plethysmography}) can be noticed that there was more sensitivity from the iPG than the DU at the time of the venous occlusion. From the Doppler ultrasound makes sense that the amplitude of the signal did not show marked changes during this occlusion since the arterial flow was not compromised. Although, the increase in the magnitude of the iPG waveform can not be related to an increase in arterial flow but might be caused by a venous circulation response to the occlusion and picked up by the impedance device. 
+
+On the other hand, during the partial arterial occlusion can be seen an alteration in the flow rate recorded by the Doppler ultrasound. Clearly, the signal's magnitude from this device reduced at the time of this event. When analysing the partial arterial occlusion event (regions 3,4 and 5) described by section \ref{fig:iPG_change_points_arterial} there were also an increase in points A  and B of the signal but point C reduced its amplitude. All these variations were common for most of the participants. The variation of the diastolic peak is an indicator of an arterial problem from the waveform obtained. However, at the moment of calculating the blood flow from the impedimetric data a raise in the blood flow was reported which is not completely concurrent with the DU's measurements. 
+
+As a conclusion, the iPG device seems capable of measuring blood flow in normal conditions with a good agreement with the amplitude of Doppler ultrasound measurements. However, there are variations in the basal impedance and the plethysmography waveform shape when a circulatory occlusion is present. It has been shown that converting the data to blood flow is not a good indicator of a decrease in blood supply as this incorrectly appears as an increase in blood flow. For this reason, monitoring the blood flow solely will not provide enough information to make a clinical decision additional data is required to identify where the real problem lies.    
+
+
+
+%********************************** %Second Section  *************************************
+\section{Basal impedance over plethysmography ratio} %Section - 7.2
+\label{section discussion 2}
+
+Despite the good level of correlation between DU's amplitude and the iPG's waveform, their blood flow rates do not provide enough details about venous or arterial occlusions. However, the information that the designed iPG device provides seems to present additional details that might give a clue about the kind of circulatory problem. 
+
+As it was described before, the basal impedance has been used to find venous problems by using the venous occlusion technique. However, when an arterial blockage occurs there is a similar response that makes harder to identify where the problem prevails. On the other hand, the amplitude of the impedance plethysmography waveform might provide additional information to discriminate between both kinds of occlusions. Possibly, by combining these two data sets would be possible to discriminate between a right level of circulation and a venous and arterial circulatory problem. 
+
+ \begin{figure}[!htpb]
+ 	\includegraphics[width=1\textwidth,keepaspectratio]{figure1}    
+ 	\caption[Comparison of the ratio of the plethysmography waveform over basal impedance during the whole experiment]{Measurement of the ratio between the plethysmography waveform over basal impedance during the whole experiment. The blue line represents the systolic peaks, the yellow line the dicrotic notch and the red line the diastolic peak.}
+ 	\label{fig:ratio Z}
+ \end{figure}
+
+Therefore, it is proposed a ratio indicator between the plethysmography waveform and the basal impedance as a method to differentiate between venous and arterial problems. For this method to work, it is necessary to identify the three points of the plethysmographic waveform, systolic peak, dicrotic notch and diastolic peak. The calculation of the ratio can be performed using the following equation.
+
+\begin{align}
+	\label{eq:ratio Z}
+	i_Z = \frac{Z_{PG}}{Z_{BAS}}
+\end{align}
+
+
+This is a dimensionless index with three indicators referencing each point of the plethysmography waveform. This method was applied to the participants in the study, and the results were portrayed in figure \ref{fig:ratio Z}. As the graph shows, for most of the data, the systolic peak is over the other two signals. When a venous or partial arterial occlusion occurs (regions 2 and 4), there is an increment in the index. 
+
+The dicrotic notch and the diastolic peak seem to change as a matching pair for most of the baseline signals where the dicrotic notch looks like being slightly lower than the diastolic peak. However, at the time of partial arterial blockage, the systolic index drops below the dicrotic notch index. This event is a clear differentiator between both types of flow restriction.
+
+%********************************** % Third Section  *************************************
+\section{Option to evaluate blood obstructions using iPG DC and AC waveforms}  %Section - 7.3 
+\label{section discussion 3}
+\mynote{To be run in grammarly the whole section}
+
+As it was described from the estimation of the blood from the impedance signal could not be a good indicator of circulatory disturbances in either the arterial or venous path. One reason for this, it is that mathematical expression describes there is a direct relation between the amplitude of the wave and the estimation of blood flow. However, when a mechanical constriction of the arm occurs in the venous or arterial circulation the amplitude of the waveform increases. Therefore, this increase in the $\Delta R$ will be calculated as an increase in blood flood which is not altogether correct. 
+
+For this reason, it is proposed a method where it is possible to detect problems in the circulatory path by quantifying and analysing differences in the waveform of the impedance plethysmography signal shape. As it was described in the section \ref{section results 3}, there are three reference points that can be used to describe an impedance plethysmography waveform. Normally, a non disturbed waveform is represented as systolic peak (point A) higher than the diastolic peak (point C) and the dicrotic notch point (point B) lower than those peaks. 
+
+However, as it has been noticed when a venous occlusion occurs, there are changes in the waveform's shape that are distinguishable with each phenomena. The first event that can be noticed is that the systolic peak increases in size. It seems that these gain of size is due to the blood pooling in the veins. Venous occlusion experienced this effect as well as the partial arterial occlusion. However, it must be noticed that partial arterial blockage is also a type of venous occlusion where it restricts the blood flow coming into the forearm. Hence, it is expected to also show an rise in the systolic peak. 
+
+Also, during the venous occlusion can be seen that most of the participants experienced an increase in the magnitude of the dicrotic notch and the diastolic peak. Consequently, it can be said that increase in the impedance plethysmography waveform may represent restriction in the venous circulation towards the forearm. 
+
+Nonetheless, this is not the only indicator of a venous circulatory problem. Likewise, the basal impedance also varies during this kind of occlusion because of the increase of blood volume in the veins. As a result, the basal impedance also decreases in time. Which is also an indicator of circulatory problem. So, presenting these two values in one quantifying number could provide a better indicator of blood flow restriction. 
+
+ 
+
+
+\begin{figure}[!htpb]
+	\includegraphics[width=1\textwidth,keepaspectratio]{figure2}    
+	\caption[Bland and Altman plot of the relation between LDF and iPG]{Bland and Altman~\cite{bland1986statistical} plot of the relation between LDF and iPG. Data set corresponds to participants 2, 5, 6 and 7. The data has been normalised comparing the amplitude of both measurements. The different regions has been plotted with various colours and symbols to differentiate every event. The dotted line represents the perfect agreement, the dark line is the linear regression.}
+	\label{fig:ration Z bar}
+\end{figure}

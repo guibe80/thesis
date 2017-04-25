@@ -17,8 +17,9 @@ This document proposes the design of a device able to monitor blood flow continu
 \mynote{This introduction must be complemented once I complete the whole chapter}
 
 \section{Electrical impedance principle}
+\label{section impedance 1}
 %https://books.google.co.uk/books?id=M74ecVj5q9UC&printsec=frontcover&dq=inauthor:%22Luca+Callegaro%22&hl=en&sa=X&ved=0ahUKEwjMyPSt5MnSAhUJJcAKHZAPBGcQ6AEIHDAA#v=onepage&q&f=false
-From the electrical point of view impedance is defined as the opposition that a medium presents to either an alternating current (AC) or voltage. The impedance is equivalent to the complex ration between the voltage and the current.  
+From the electrical point of view, impedance is defined as the opposition that a medium presents to either an alternating current (AC) or voltage (see figure \ref{fig:impedance}). The impedance is equivalent to the complex ration between the voltage and the current.  The resultant from this fraction is a complex ratio that is equal to either a resistance (also conductance) or reactance value. Hence, the impedance magnitude can be express as a relation of the output magnitude and the phase difference between the real and imaginary part as shown in equation \ref{eq:phasor} and it can be plotted in the complex plane as shown by figure \ref{fig:complex impedance}.
 
 \begin{figure*}[!htpb]
 	\centering
@@ -39,13 +40,75 @@ From the electrical point of view impedance is defined as the opposition that a 
 	\label{fig:impedance}
 \end{figure*}
 
+\begin{align}
+	\label{eq:phasor}
+	Z = \lvert Z \rvert  \angle \phi
+\end{align}
+
+There are different forms to represent impedance. However, bioelectrical impedance can be described by either resistance ($R$) or reactance ($X$). Where the resistive part represents the real part of the measurement and the reactance the imaginary one. Therefore, the impedance magnitude can be written in function of these two values as shown in equation \ref{eq:Z magnitude}.
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics{figure_2}    
+	\caption[Complex representation of impedance]{Plot of the impedance in the complex plane.}
+	\label{fig:complex impedance}
+\end{figure}
+
+\begin{gather}
+	\label{eq:Z magnitude}
+	Z = Z' + Z'' = R + jX = \lvert Z \rvert e^{j\theta}\\
+	|Z| = \sqrt{Z Z^{*}} = \sqrt{R^2 + X^2} \\
+	\theta = tan^{-1}\frac{X}{R} \\
+	\label{eq:resistance}
+	R = \lvert Z \rvert cos(\theta) \\
+	\label{eq:reactance}
+	X = \lvert Z \rvert sin(\theta)
+\end{gather}
+
+As it can be seen, when the angle difference of the impedance is \SI{0}{\degree}, the load is completely resistive. In contrast, when the phase difference is \SI{90}{\degree} the load is purely reactive. From the previous equations is possible to represent impedance in the complex plane as shown in figure \ref{fig:complex impedance}.
+
+As an example, when a sinusoidal steady-state waveform injects a current $i(t) = I_A sin(\omega t)$ to an unknown load, the response is a shifted sinusoidal waveform with a potential equivalent to $v(t) = V_B sin(\omega t + \phi)$. Figure \ref{fig:impedance wave} shows the representation of both waveforms. Hence, the impedance can be expressed as the ration of these two quantities based on Ohm's law (see equation \ref{eq:ohm}).
+
+\begin{align}
+	\label{eq:ohm}
+	Z = \frac{V}{I}
+\end{align}
+
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=0.8\textwidth,keepaspectratio, trim={0cm 0cm 0cm 0cm},clip]{figure_1}    
+	\caption[Impedance waveforms]{Waveform plot of a current ($I_A sin (\omega t)$) compared to the potential representation ($V_B cos (\omega t + \phi)$) of an unknown load.}
+	\label{fig:impedance wave}
+\end{figure}
+
+Using trigonometrical identities is possible to rewrite the potential in the following way:
+
+\begin{equation}
+	\label{eq:solve equation}
+	\begin{aligned}	
+		v(t) & = V_B sin(\omega t + \phi) \\
+		     & = V_B sin(\omega t) cos(\phi) + V_B cos(\omega t) sin(\phi)
+	\end{aligned}
+\end{equation}
+
+By replacing the values of the potential from \ref{eq:solve equation} and the current in to equation \ref{eq:ohm} is possible to find the resistive and reactive components as shown in equation \ref{eq:R Z} and \ref{eq:X Z}. The equivalence of the real and imaginary part are obtained by the principle of superposition of the trigonometric identities. 
+
+\begin{align}
+	\label{eq:R Z}
+	Z' = R = \frac{v(t)}{i(t)} = \frac{V_B sin(\omega t) cos(\phi)}{I_A sin(\omega t)} = \frac{V_B}{I_A}cos(\phi) \\
+	\label{eq:X Z}
+	Z'' = X = \frac{v(t)}{i(t)} = \frac{V_B cos(\omega t) sin(\phi)}{I_A sin(\omega t)} = \frac{V_B}{I_A}sin(\phi)
+\end{align}
+
+
 \section{Bioelectrical impedance}
-\label{section impedance 1}
-Before describing how impedance plethysmography operates, it is better to understand how the principle of bioelectrical impedance is defined. First of all, the term electrical impedance spectroscopy (EIS) is referred as the study of the absorption of energy depending upon the frequency of electromagnetic (EM) waves. When measurements are performed in a biological sample, then this method could be referred either as electrical impedance or bioelectrical impedance~\cite{ivorra2003bioimpedance}. The term to be used in this document will be bioelectrical electrical impedance. The EM spectrum is quite broad, and the interaction with tissue occurs in the frequency range from \SIrange[scientific-notation = engineering]{100}{10000000}{\hertz}~\cite{bertemes2002tissue}. In this thesis, the frequencies of interest are focused in the low-frequency range. Indeed, plethysmography devices operate commonly in the bandwidth below few \si{\kilo\hertz}.
+\label{section impedance 2}
+Before describing how impedance plethysmography operates, it is better to understand how the principle of bioelectrical impedance is defined. First of all, the term electrical impedance spectroscopy (EIS) is referred as the study of the absorption of energy depending upon the frequency of electromagnetic (EM) waves. When measurements are performed in a biological sample, then this method could be referred as either electrical bioimpedance or bioelectrical impedance~\cite{ivorra2003bioimpedance}. The term to be used in this document will be bioelectrical electrical impedance. The EM spectrum is quite broad, and the interaction with tissue occurs in the frequency range from \SIrange[scientific-notation = engineering]{100}{10000000}{\hertz}~\cite{bertemes2002tissue}. In this thesis, the frequencies of interest are focused in the low-frequency range. Indeed, plethysmography devices operate commonly in the bandwidth below few \si{\kilo\hertz}.
 
-The human body is constituted by four basic tissues known as epithelium which covers and protects the whole surface of the body, muscle which is in charge of the movement, connective tissue that supports and protect organs, and nervous tissue which provides the internal transmission line for the electrical impulses coming from the brain. Cells that constitute these tissues play a fundamental role in terms of current conduction when an analogue current (AC) is applied to the body~\cite{lvovich2012impedance}. Hence, impedance readings vary according to the parameters of these cells as well as its protein content. It is especially significant to understand the geometry and characteristics of the blood cells, which transport $0_2$ around the body. The functionality of these cells and amount per \si{\micro\litre} of human blood were described by table \ref{table:cell} in section \ref{section literature 1}.
+The human body is constituted by four basic tissues known as epithelium which covers and protects the whole surface of the body, muscle which is in charge of the movement, connective tissue that supports and protect organs, and nervous tissue which provides the internal transmission line for the electrical impulses coming from the brain. Cells that constitute these tissues play a fundamental role regarding current conduction when an analogue current (AC) is applied to the body~\cite{lvovich2012impedance}. Hence, impedance readings vary according to the parameters of these cells as well as its protein content. It is especially significant to understand the geometry and characteristics of the blood cells, which transport $0_2$ around the body. The functionality of these cells and amount per \si{\micro\litre} of human blood were described by Table \ref{table:cell} in section \ref{section literature 1}.
 
-As can be noticed from that table, RBC's statistically are more numerous than the other cells and it has particular resistive properties. Its disk shape can be ideally represented as a spherical particle with membranes around the surface, as represented by Figure \ref{fig:cell}. Live cells can be represented as multilayer cells where its internal cytoplasm has a characteristic permittivity ($\epsilon_{cp}$) and conductivity ($\rho_{cp}$). Likewise, these characteristics are similar to the one surrounding the cell called extracellular fluid ($\epsilon_m$ and $\rho_m$). However, the membrane has a very low permittivity ($\epsilon_{MBR}$) and conductivity ($\rho_{MBR}$) behaving as a dielectric. In contrast in dead cells the membrane becomes loose and does not provide resistance to electric current~\cite{lvovich2012impedance}.
+As can be noticed from that table, RBC's statistically are more numerous than the other cells, and it has particular resistive properties. Its disk shape can be ideally represented as a spherical particle with membranes around the surface, as represented by Figure \ref{fig:cell}. Live cells can be represented as multilayer cells where its internal cytoplasm has a specific permittivity ($\epsilon_{cp}$) and conductivity ($\rho_{cp}$). Likewise, these characteristics are similar to the one surrounding the cell called extracellular fluid ($\epsilon_m$ and $\rho_m$). However, the membrane has a very low permittivity ($\epsilon_{MBR}$) and conductivity ($\rho_{MBR}$) behaving as a dielectric. In contrast in dead cells, the membrane becomes loose and does not provide resistance to electric current~\cite{lvovich2012impedance}.
 
 \begin{figure}[!htpb]
 	\centering
@@ -77,7 +140,7 @@ On the other hand, parallel to BLM the ionic channels and pumps enhance membrane
 	\label{fig:cell models}
 \end{figure*}
 
-According to previous analysis, the cell can be simplified in an equivalent electric circuit model as shown in Figure \ref{fig:cell models}. This model shows that if AC is pumped into the extracellular medium, there are two possible paths for the current to go through. One way is around the cell which is represented by the resistive characteristic of the extracellular medium ($R_e$). In the second route, current flows through the cell. Indeed, AC may flow initially either over the BLM which is a represented as a capacitance ($C_m$) or across ionic channels ($R_m$).Once in the cell, current travels via the intracellular medium ($R_i$) that is mostly resistive. Lastly, the electrical current leaves the cell through the membrane, which it is again the same $C_m$ and $R_m$.
+According to previous analysis, the cell can be simplified in an equivalent electric circuit model as shown in Figure \ref{fig:cell models}. This model indicates that if AC is pumped into the extracellular medium, there are two possible paths for the current to go through. One way is around the cell which is represented by the resistive characteristic of the extracellular medium ($R_e$). In the second route, current flows through the cell. Indeed, AC may flow initially either over the BLM which is a represented as a capacitance ($C_m$) or across ionic channels ($R_m$).Once in the cell, current travels via the intracellular medium ($R_i$) that is mostly resistive. Lastly, the electrical current leaves the cell through the membrane, which it is again the same $C_m$ and $R_m$.
 
 Since $C_m$ and $R_m$ have the same values when the current enters and exits the cell, this can be simplified in the electric model as two resistors in series ($2R_m$) and two capacitances in parallel ($C_m/2$) as can be seen in figure \ref{fig:cell simp model}.
 
@@ -118,7 +181,7 @@ Parameter $\alpha$ is limited for values between 0 and 1. When its value is equa
 
 %********************************** %First Section  **************************************
 \section{Impedance plethysmography principle} %Section - 1.2                                                                                                                                                                                                 
-\label{section impedance 2}
+\label{section impedance 3}
 Referred as impedance plethysmography (iPG) involves the measurement of the change of impedance due to change of blood flow. For instance, when heart’s systole increases blood flow, the volume of a limb rises due to the inflow of blood (swelling)~\cite{martinsen2011bioimpedance}. Consequently, there are changes of impedance correlated to the changes of volume and flow in a limb. Some medical application might require the use of occlusion cuffs to analyse venous filling. There are several medical applications for this kind of technique such as heart stroke volume (SV) measurement, cardiac output (CO), thoracic respiratory volume, oedema and detection of deep vein thrombosis (DVT)~\cite{holohan1996plethysmography}.
 
 As previously described in section \ref{section literature 3.5}, iPG is the measurement of volume changes through the equivalent bioelectrical impedance of a part of the human body~\cite{corciova2011peripheral}. In this document is presented the measurements from an in-vivo studio of the plethysmographic changes in a segment of the left forearm. As it can be deduced, one would assume that this segment of the upper limb could be modelled as a cylinder within a cylinder. Where the inner cylinder represents a blood vessel and the outermost is the surrounding tissue. 
@@ -201,7 +264,7 @@ It has also been proved that blood is electrically anisotropic because of the or
 
 %********************************** % Second Section  *************************************
 \section{Electrode conflict}  %Section - 3.3
-\label{section impedance 3}
+\label{section impedance 4}
 Electrodes play a key feature in a bioelectrical impedance system. The right electrode geometry, distance and material may influence in the readings from a biological sample. Consequently, it is needed to use electrodes that have minor impedance compared to the one from the subject under test. Currently, most common materials used in bioelectrical impedance are platinum (\textit{Pt}), gold (\textit{Au}) or stainless steel. Other independent variables such temperature, ionic tissue contents and protein adhesion influence in the change of electrode impedance~\cite{ivorra2003bioimpedance,martinsen2011bioimpedance}. The geometry of the electrode also affects its resistance ($R$) as explain by ohm’s law in equation \ref{eq:resist}.
 
 \begin{align}
@@ -259,7 +322,7 @@ At the moment of taking measurements for localised bioelectrical impedance using
 
 %********************************** % Fourth Section  *************************************
 \section{Geselowitz theorem}  %Section - 3.4
-\label{section impedance 4}
+\label{section impedance 5}
 Geselowitz \cite{geselowitz1971application} studied the change in conductivity within a constant geometry. In short, his analysis applied the lead field theory into impedance plethysmography. Simplifying the origin of the equation, the total impedance of the whole volume is equivalent to the sum of all the small impedances within each small volume $dV$~\cite{martinsen2011bioimpedance}.
 
 \begin{figure}[!htpb]
@@ -304,7 +367,7 @@ where $S$ represents the sensitivity matrix in three dimensions, and it is indep
 
 %********************************** % Fifth Section  *************************************
 \section{Bioimpedance and Impedance plethysmography state of the art} %Section - 3.5
-\label{section impedance 5}
+\label{section impedance 6}
 Either a bioimpedance device or impedance plethysmography device operates under the principles described before. However, there are different alternatives to circuits and methods to measure impedance from the human body.  
 
 Currently, there are efforts to implement impedance into wearable technology. For instance, Samsung Electronics released a hand-wrist size wearable device called simband~\cite{simsense}. In their product announcement, Samsung uses electrical impedance to measure the galvanic impedance response (GSR) and Bio-Impedance (Bio-Z). In figure \ref{fig:simsense} shows the actual sensor band (simsense), in its second generation counts with different sensors apart from the ones previously mentioned. Such as electrocardiogram signals (ECG), photoplethysmography (PPG),  accelerometers and skin temperature. Nevertheless, this kind of device falls into the research spectrum and is still under development.
@@ -327,7 +390,7 @@ Next is Tanita Corporation, a Japanese company pioneer in the production of digi
 At last is the German company medis (Medizinische Messtechnik GmbH) which is a spin-off company from Institute of Biomedical Engineering of the Technical University Ilmenau. They manufacture medical equipment for cardiovascular diagnosis including impedance cardiographs and impedance plethysmography devices. However, their devices also combined other methods such as PPG and ECG to obtain a better assessment of the haemodynamics. 
 
 \section{Basic components of a bioelectrical impedance device}
-\label{section impedance 6}
+\label{section impedance 7}
 It is evident that there are several number of medical devices using either biomedical or bioelectrical impedance technology. Nonetheless, regardless of the application most of the instruments include in their design the block diagram shown in figure \ref{fig:block diagram bioimpedance} within their designs. 
 
 \begin{figure}[!htpb]
@@ -396,7 +459,7 @@ This method developed by Piccoli et al. \cite{piccoli2000relationship, piccoli20
 
 %********************************** % Sixth Section  *************************************
 \section{Electrical current in the human body} %Section - 3.7
-\label{section impedance 7}
+\label{section impedance 8}
 Injecting electric current in biological tissue requires some safety measurements so as to guarantee the patients welfare. Driving current into the human body may cause unpleasant effects like heating, electrolysis at the electrode–tissue interface or neuromuscular stimulation \cite{bertemes2002tissue, martinsen2011bioimpedance}. The latter being the most dangerous because it controls blood circulation and respiration. Levels of current sensation changes from person–to–person, sex and also depend on the electrode’s geometry. However, Brown et al. \cite{brown1998medical} have established a threshold current where sensation increases when frequency rises as shown in Figure \ref{fig:threshold sensation}.  It has been recognised the frequency dependency of the human body. The maximum sensitivity of the nervous system is in the frequency range between \SIrange[scientific-notation = engineering]{10}{1000}{\hertz}. At frequencies above \SI{1}{\kilo\hertz} sensitivity is considerably reduced and above \SI{100}{\kilo\hertz} it is entirely imperceptible. In fact, the heat effect is so high at these frequencies that electro-surgical devices use it. Square waves are not recommended because they have the DC and AC effect in one signal where the duration of the pulse an important parameter to be controlled \cite{martinsen2011bioimpedance}.
 
 \begin{figure}[!htpb]
@@ -481,8 +544,8 @@ Recommendations, guidelines and norms for patient safety are contained in intern
 where $f$ is the frequency of the measurement.
 
 %********************************** % Sixth Section  *************************************
-\section{Impedance plethysmography} %Section - 3.8
-\label{section impedance 8}
+\section{Impedance plethysmography} %Section - 3.9
+\label{section impedance 9}
 During the study described in this document, localised BIA is the most suitable method to estimate blood flow in a specific limb section of the body. For the purpose of this study, a segment refers the forearm. On top of this, the frequency and current injection are key features of a well-designed device. Also, the use of tetrapolar electrodes has become a standard when measuring impedance plethysmography. 
 
 As it was described in section \ref{section impedance 5}, there are some instruments able to detect impedance plethysmography (iPG). However, some of this devices provide only the basal impedance or the plethysmography component. Hence, for this study, a device was designed capable of providing both signal and an option to have an additional channel.
@@ -514,7 +577,7 @@ The impedance modulus is obtained using Ohm's law (equation \ref{eq:|Z|}). The r
  \end{align}
 
 \subsection{Impedance plethysmography waveforms}
-\label{section impedance 8.1}
+\label{section impedance 9.1}
 The impedance plethysmography provides information about the venous and arterial circulatory properties within a segment of the body. The impedance waveform is composed of a constant impedance value (basal impedance) and a dynamic component within it (arterial pulse amplitude). However, it is possible to obtain details about peripheral venous circulation when occluding a limb proximally. This kind of method is known as venous occlusion plethysmography (VOP).
 
 \begin{figure}[!htpb]

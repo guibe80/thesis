@@ -1,101 +1,559 @@
 %!TEX root = ../thesis.tex
 %*******************************************************************************
-%*********************************** Eight Chapter *****************************
+%*********************************** Sixth Chapter *****************************
 %*******************************************************************************
 
-\chapter{Discussion}  %Title of the First Chapter
+\chapter{Research of the shape changes of the arterial pulses during proximal occlusions}  %Title of the First Chapter
+\label{chapter apa}
 
 \ifpdf
-    \graphicspath{{Chapter8/Figs/Raster/}{Chapter8/Figs/PDF/}{Chapter8/Figs/}}
+\graphicspath{{Chapter8/Figs/Raster/}{Chapter8/Figs/PDF/}{Chapter8/Figs/}}
 \else
-    \graphicspath{{Chapter8/Figs/Vector/}{Chapter8/Figs/}}
+\graphicspath{{Chapter8/Figs/Vector/}{Chapter8/Figs/}}
 \fi
 
+The arterial pulses amplitude (APA) are the dynamic component of the impedance plethysmography signal. It lies within the basal impedance which represents about \SI{0.1}{\percent} of the total waveform \cite{anderson1984impedance}. Acquiring these signals can be quite challenging as noise levels could be higher than the actual signal making tough to isolate this waveform. However, obtaining this data provides valuable information about haemodynamics per heartbeat. It has been demonstrated that the shape of the waveform is an indicator of haemodynamic problems in the peripheral circulation. In this chapter, the analysis of the signals aims to differentiate morphological changes between baseline signals and the ones during venous, partial arterial and total occlusion.
 
-%********************************** %First Section  **************************************
-\section{Converting iPG into Blood Flow for detecting venous and arterial changes} %Section - 7.1 
-\label{section discussion 1}
-As it has been discussed in this document, there are two ways to calculate blood flow from the iPG data. Initially, it is needed to model the segment of the body as a cylinder. Luckily, most of the body parts can be expressed as this geometrical figure. For this study, a device was designed to measure the change of volume in the forearm. Eventually, this could be calibrated to work in other parts of the body such as lower extremities. 
+As it has been described in the previous chapter, there is a shift in the impedance's baseline during each occlusion. However, it is desirable to study the effect that the different kind occlusions of the upper arm produce in the plethysmography waveforms.  This information may provide clues whether an occlusion may be occurring in either the venous or arterial circulation.  The designed iPG device supplies an output port denominated $Z_{AC}$ \mynote{To double check if this is the correct port name from the initial description} which provides a high-resolution view of the arterial pulses waveform.  In fact, as shown in the design section \ref{section design 1.5}, the signal was filtered and amplified nearly 2500 times to achieve this level of detail. Hence, the waveform obtained provides more in-depth detail and also improves the noise rejection of the signal.
 
-The study performed in this document seeks to demonstrate how the iPG data could help to detect changes in venous and arterial circulation. According to the literature, iPG is a method used to quantify blood flow from the principle that the impedance of a body part is directly proportional to its volume as described by Nyober's equation  (see equation \ref{eq:Nyober}).  Hence, since the 1970's this theory has been tested assuring the effectiveness of the method. 
+The device produced an excellent result regarding filtering and isolation of the APA waveform. However, undoubtedly some of the noise was also amplified by the hardware. Therefore, further post-processing was required to clean up the plethysmography signal completely. Tighter filters (see table \ref{table:filters}) were applied to remove high and low frequency components. Also, the lower envelope component was also removed and levelled to zero. 
 
-There are different contributors to the impedimetric signal. One of them are the tissues such as fat, muscle, blood and bone. Most of this organs have intrinsic impedances when its movement is limited because motion changes different variables that could affect their impedance values. The sum of all these resistive values is known as basal impedance.  However,  the circulatory system is dynamic and create small changes during the cardiac cycle.  When the ventricles contract, it produces a slight increase in the size of the vessels by filling them with blood.
-\mynote{check a reference about circulatory and added to this section. Also, check how to related to the medical background}. Therefore, this filling of blood within the tissue raises its total volume. Hence, knowing the rate of change of volume in time can be translated into the flow rate.
+The APA waveform produced by the device is inverted as represented by various other plethysmography method such as photoplethysmography. During the systolic cycle, the blood vessels expand allowing more blood volume. Hence, the impedance drops proportionally to the amount of blood because the forearm's segment is more electrically conductive. On the other hand, during the diastolic cycle, blood vessels empty causing a reduction the quantity of blood contained in the segment. As a result, the impedance increases. 
 
-The first method to measure blood flow is called venous occlusion plethysmography \cite{wilkinson2001venous}. This approach inquires the increment of impedance when an occlusion is performed in the upper part of a limb using an inflatable cuff. The most common occlusion level is about \SI{40}{\mmHg} for a determined time. This occlusion could be for some seconds until minutes depending on the study to be done. 
+The analysis of the plethysmographic wave was performed by averaging the waveforms detected using specialized algorithms able to identify an APA signal. The following section discusses the change of wave shape from a non-occlusion state to an occluded one. At the end of the section, the results of all participants are summarised \mynote{I could add a description of how the signal looks. For instance by adding 10 or 20 beats to show how the device worked.}
 
-By occluding the venous return and not altering the arterial flow, blood can enter into the limb but cannot leave.  As a result, there is a linear increase in the volume of the limb. Hence, this gain of capacity can be quantified by the impedimetric method which is clearly perceptible in the variation of the basal impedance. In fact, this is because the blood begins to cluster in the limb. As the blood's population increases, the conductivity of the forearm's section also rises in volume. Therefore, the resistivity proportionally decreases. 
-
-During the experiment presented in this document the venous occlusion occurred throughout region 1 and region 2.  As shown by figure \ref{fig:rb:all_participants}, it is clear that most of the participants experience a variation in their basal impedance readings.  However, some of them were affected by motion which produced changes in the trend, like in participant 1. However, in most of the participants there was a linear decrease of impedance. 
-
-In a similar situation, there was a reduction in the forearm's inflow when the brachial artery in the upper arm was partially occluded at the midpoint of the participant's blood pressure. Performing this action stops the venous return but also alters the incoming arterial flow \mynote{Check a paper about changing the elasticity of a tube changes its flow}. As a result, again the forearm's volume increases shifting its resistivity. It was noticed that when this occurs, the basal impedance decreases in a larger slope. This greater slope might be an indication of a higher laminar flow coming from the artery \mynote{Check what happens during arterial occlusion}. This effect can be confirmed by the data obtained from the Doppler ultrasound. In figure \ref{fig:DU_flow} can be clearly seen that the participants experienced a decrease in their flow in the region 4 of the data between \SIrange{780}{960}{\second}.   
-
-All along total occlusion (Region 6) seemed that there was not a clear change trend of the participant's basal impedance.  Because both arterial and venous flow were blocked, there was not blood flow of any kind in the arm section. Therefore, this is the real basal impedance where all the tissues with their blood content were measured. The DC components of the PPG signal had a similar behaviour to this event where all participants had different responses. Indeed, only the Doppler ultrasound signal was able to reproduce a biological zero, the rest of the instruments showed some level of noisy data. 
-
-By quantifying the blood flow from the basal impedance signal can be seen that there was not a significant change in its average rate. The mean value in venous occlusion was equivalent to \flowbasalvenous{} which is quite similar to the calculated mean arterial that was \flowbasalarterial{}. From this, it can be concluded that just by estimating the blood flow from the impedimetric measurements is not possible to have a clear difference between either arterial or venous occlusion.
-
-However, the iPG signal can provide additional information that could give a clue about the change of flow during the occlusive events. This oscillatory signal comes from the expansion of the arteries and venous during the heart cycle. The filling of blood within the segment being examined creates a tiny change in the impedance. In other words, the basal impedance also contains a dynamic component that varies with the circulation. This small part is just a fraction of the total signal. In fact, the contribution of this dynamic signal is just \SI{0.04}{\percent} to the total impedance. Hence, the device described in chapter \ref{chapter design} was able to isolate satisfactory this waveform and provide a high-resolution version of this signal.
-
-Obtaining this level of detail was important as provided more features about changes in different parts of the impedance plethysmography waveform. The signal collected from this section of the arm gave characteristics of the circulatory process. Three points were clearly identified as shown in \ref{section results 3.1}. Nonetheless, this signal is unique to this set-up, waveforms from other devices have reported unlike waveform shape when used in different parts of the body \mynote{Look for papers showing plethysmographic waveform}. The plethysmographic waveform obtained contains information about the systolic peak, the dicrotic notch and the diastolic peak which were clearly identified by the algorithm implemented \mynote{I have to add a part where I explain how the algorithm works}. 
-
-According to Nyober's equation \ref{eq:Nyober} this small change of impedance can also be translated into the blood flow.  This method has been widely used when analysing blood flow beat to beat \mynote{Add reference to papers describing beat to beat} in different settings. This conversion is done by taking the impedimetric systolic peak as the $\Delta R$ described by Nyober's. Both systolic impedimetric peak values and blood flow calculations were conducted in section \ref{section results 3} and \ref{section results 5} respectively.  Because the blood flow is directly proportional to the amplitude of $\Delta R$ both values had the same trend. 
-
-It was observed that there were changes in the systolic peak (point A), dicrotic notch valley (point B) and diastolic peak (point C) when an occlusion occurs which also affected the blood flow response. During the process described in figure \ref{fig:iPG_change_points_venous} where the changes between region 1, 2 and 3 took place, it can be seen that there is an apparent increase in the size of all the reference points in most participants during the occlusion followed by a return to baseline. 
-	
-However, this increase of impedance amplitude indicated a raise in the blood flow as reported by \ref{section results 5} but is not possible to establish whether is an increase in venous or arterial flows. The Doppler ultrasound referenced continuously to the radial artery blood flow. By performing the statistical study shown in \ref{section correlation 2} was established that there is some level of correlation between both signals ($r^2 = 0.35$). Nonetheless, during occlusions, there was a slight difference in the amplitude response. Comparing both flows rate (see figure \ref{fig:DU_flow} and figure \ref{fig:blood_flow_plethysmography}) can be noticed that there was more sensitivity from the iPG than the DU at the time of the venous occlusion. From the Doppler ultrasound makes sense that the amplitude of the signal did not show marked changes during this occlusion since the arterial flow was not compromised. Although, the increase in the magnitude of the iPG waveform can not be related to an increase in arterial flow but might be caused by a venous circulation response to the occlusion and picked up by the impedance device. 
-
-On the other hand, during the partial arterial occlusion can be seen an alteration in the flow rate recorded by the Doppler ultrasound. Clearly, the signal's magnitude from this device reduced at the time of this event. When analysing the partial arterial occlusion event (regions 3,4 and 5) described by section \ref{fig:iPG_change_points_arterial} there were also an increase in points A  and B of the signal but point C reduced its amplitude. All these variations were common for most of the participants. The variation of the diastolic peak is an indicator of an arterial problem from the waveform obtained. However, at the moment of calculating the blood flow from the impedimetric data a raise in the blood flow was reported which is not completely concurrent with the DU's measurements. 
-
-As a conclusion, the iPG device seems capable of measuring blood flow in normal conditions with a good agreement with the amplitude of Doppler ultrasound measurements. However, there are variations in the basal impedance and the plethysmography waveform shape when a circulatory occlusion is present. It has been shown that converting the data to blood flow is not a good indicator of a decrease in blood supply as this incorrectly appears as an increase in blood flow. For this reason, monitoring the blood flow solely will not provide enough information to make a clinical decision additional data is required to identify where the real problem lies.    
-
-
-
-%********************************** %Second Section  *************************************
-\section{Basal impedance over plethysmography ratio} %Section - 7.2
-\label{section discussion 2}
-
-Despite the good level of correlation between DU's amplitude and the iPG's waveform, their blood flow rates do not provide enough details about venous or arterial occlusions. However, the information that the designed iPG device provides seems to present additional details that might give a clue about the kind of circulatory problem. 
-
-As it was described before, the basal impedance has been used to find venous problems by using the venous occlusion technique. However, when an arterial blockage occurs there is a similar response that makes harder to identify where the problem prevails. On the other hand, the amplitude of the impedance plethysmography waveform might provide additional information to discriminate between both kinds of occlusions. Possibly, by combining these two data sets would be possible to discriminate between a right level of circulation and a venous and arterial circulatory problem. 
-
- \begin{figure}[!htpb]
- 	\includegraphics[width=1\textwidth,keepaspectratio]{figure1}    
- 	\caption[Comparison of the ratio of the plethysmography waveform over basal impedance during the whole experiment]{Measurement of the ratio between the plethysmography waveform over basal impedance during the whole experiment. The blue line represents the systolic peaks, the yellow line the dicrotic notch and the red line the diastolic peak.}
- 	\label{fig:ratio Z}
- \end{figure}
-
-Therefore, it is proposed a ratio indicator between the plethysmography waveform and the basal impedance as a method to differentiate between venous and arterial problems. For this method to work, it is necessary to identify the three points of the plethysmographic waveform, systolic peak, dicrotic notch and diastolic peak. The calculation of the ratio can be performed using the following equation.
-
-\begin{align}
-	\label{eq:ratio Z}
-	i_Z = \frac{Z_{PG}}{Z_{BAS}}
-\end{align}
-
-
-This is a dimensionless index with three indicators referencing each point of the plethysmography waveform. This method was applied to the participants in the study, and the results were portrayed in figure \ref{fig:ratio Z}. As the graph shows, for most of the data, the systolic peak is over the other two signals. When a venous or partial arterial occlusion occurs (regions 2 and 4), there is an increment in the index. 
-
-The dicrotic notch and the diastolic peak seem to change as a matching pair for most of the baseline signals where the dicrotic notch looks like being slightly lower than the diastolic peak. However, at the time of partial arterial blockage, the systolic index drops below the dicrotic notch index. This event is a clear differentiator between both types of flow restriction.
-
-%********************************** % Third Section  *************************************
-\section{Option to evaluate blood obstructions using iPG DC and AC waveforms}  %Section - 7.3 
-\label{section discussion 3}
-\mynote{To be run in grammarly the whole section}
-
-As it was described from the estimation of the blood from the impedance signal could not be a good indicator of circulatory disturbances in either the arterial or venous path. One reason for this, it is that mathematical expression describes there is a direct relation between the amplitude of the wave and the estimation of blood flow. However, when a mechanical constriction of the arm occurs in the venous or arterial circulation the amplitude of the waveform increases. Therefore, this increase in the $\Delta R$ will be calculated as an increase in blood flood which is not altogether correct. 
-
-For this reason, it is proposed a method where it is possible to detect problems in the circulatory path by quantifying and analysing differences in the waveform of the impedance plethysmography signal shape. As it was described in the section \ref{section results 3}, there are three reference points that can be used to describe an impedance plethysmography waveform. Normally, a non disturbed waveform is represented as systolic peak (point A) higher than the diastolic peak (point C) and the dicrotic notch point (point B) lower than those peaks. 
-
-However, as it has been noticed when a venous occlusion occurs, there are changes in the waveform's shape that are distinguishable with each phenomena. The first event that can be noticed is that the systolic peak increases in size. It seems that these gain of size is due to the blood pooling in the veins. Venous occlusion experienced this effect as well as the partial arterial occlusion. However, it must be noticed that partial arterial blockage is also a type of venous occlusion where it restricts the blood flow coming into the forearm. Hence, it is expected to also show an rise in the systolic peak. 
-
-Also, during the venous occlusion can be seen that most of the participants experienced an increase in the magnitude of the dicrotic notch and the diastolic peak. Consequently, it can be said that increase in the impedance plethysmography waveform may represent restriction in the venous circulation towards the forearm. 
-
-Nonetheless, this is not the only indicator of a venous circulatory problem. Likewise, the basal impedance also varies during this kind of occlusion because of the increase of blood volume in the veins. As a result, the basal impedance also decreases in time. Which is also an indicator of circulatory problem. So, presenting these two values in one quantifying number could provide a better indicator of blood flow restriction. 
-
- 
-
+%%********************************** % Section 8.1 ******************************************
+\section{Dataset for the arterial amplitude analysis}
+\label{section apa 1}
+The isolated APA waveforms reproduce the change of volume per heart beat within the sensing electrodes of the iPG device placed in the forearm. The filling of the vessels with blood produces small changes in resistivity that vary with the circulatory cycle (see section \ref{section impedance 9.1}), describing different peaks during a heart cycle. 
 
 \begin{figure}[!htpb]
-	\includegraphics[width=1\textwidth,keepaspectratio]{figure2}    
-	\caption[Bland and Altman plot of the relation between LDF and iPG]{Bland and Altman~\cite{bland1986statistical} plot of the relation between LDF and iPG. Data set corresponds to participants 2, 5, 6 and 7. The data has been normalised comparing the amplitude of both measurements. The different regions has been plotted with various colours and symbols to differentiate every event. The dotted line represents the perfect agreement, the dark line is the linear regression.}
-	\label{fig:ration Z bar}
+	\centering
+	\includegraphics[width=10cm,keepaspectratio]{figure_apa_1}    
+	\caption[Marker ppoints in an iPG waveform]{Peaks and valleys of an iPG waveform ($\Delta R$) compared to ECG waveform.}
+	\label{fig:markers iPG}
 \end{figure}
+
+Commonly, an APA wave consists of several identifiable peaks and valleys. Figure \ref{fig:markers iPG} shows a typical impedance plethysmography pulse synchronous with a heartbeat along with a limb. The table \ref{tbl:APA markers} summarises the noticeable markers of the pulse waveforms when compared with an ECG.
+
+\begin{table}[!htpb]
+	\caption{Markers on the APA waveform}
+	\label{tbl:APA markers}
+	\centering
+	\begin{tabular}{c p{10cm}}
+		\textbf{Marker} & \textbf{Description} \\
+		\toprule 
+		R1 & Peak of the ECG QRS complex before an APA pulse. \\ 
+		L1 & Start of the systolic upslope of the APA signal. Point where  rapid change of impedance occurs. \\ 
+		A & Systolic point. Maximum peak of the APA signal.  \\ 
+		B & Dicrotic notch on the APA wave. \\ 
+		C & Maximum pulse after the dicrotic notch, named diastolic pulse  \\ 
+		R2 & Peak of the ECG QRS complex after the APA pulse.  \\ 
+		L2 & Starting point of the next APA wave. \\ 
+		\bottomrule
+	\end{tabular}
+\end{table} 
+
+An APA wave has to be identified as a valid one to be included in the computational analysis. Therefore, the programmed algorithm starts through the identification of the beginning of the upslope by locating the point $L1$ in the waveform. Once this spot has been identified, the systolic peak $A$ can be placed. Follow, the point $B$ is expected to be a valley with an amplitude below the previous peak. Then, the algorithm looks the following change of slope which is the diastolic peak $C$. Also, to minimise waves with abnormal amplitudes caused by noise, the algorithm calculates the mean peak at $A$ of the last 20 valid APA waves. If the value is greater than \SI{25}{\percent} ($\overline{A} > A*1.25$) then the wave is discarded. 
+
+From the method described previously, 5 participants datasets were obtained with a high amount of clean plethysmography waves. From these data, the changes during each occlusion among the points $A$, $B$ and $C$  were examined. The following analysis centres in the changes of impedance amplitude all along the different regions of the experiment, and the change of area of the waveform before and after the dicrotic notch point ($B$).
+ 
+%%********************************** % Section 8.2 ******************************************
+\section{Plethysmography waveform change during venous occlusion plethysmography}
+\label{section apa 2}
+This analysis corresponds to the waveform during baseline (\SIrange{0}{300}{\second}), venous occlusion (\SIrange{300}{480}{\second}) and return to control signal (\SIrange{480}{780}{\second}). This graph was obtained by averaging all the plethysmography waveforms detected by the algorithm and described in detail in section xxx \mynote{Add reference where the waveform detection algorithm is explained}. In the end, all the peaks were averaged obtaining the mean waveform displayed in the figure for baseline and venous occlusion.
+
+Figure \ref{fig:iPG_venous_baseline} shows the common impedance plethysmography waveform, with indicators of their amplitudes at different points of interest. The distance between systolic peak (Point A) to dicrotic notch (Point B) and diastolic peak (Point C) was calculated. This value was later transposed into the occlusion wave to identify their values during the venous occlusion test.
+
+As detailed in section xxx \mynote{Add note describing how the waveform is composed}, a plethysmography waveform consists of three distinct parts. The systolic peak, dicrotic notch and the diastolic peak, have been identified in figure \ref{fig:iPG_venous_baseline}. From a qualitative point of view, one can notice that there is a difference in the morphology of the waveform. An analysis on the change of each these points are presented in figure \ref{fig:iPG_change_points_venous} and analysed in detail as follows.
+
+\begin{figure*}[!htbp]
+	\centering
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=7cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure6a}
+		\caption{Average plethysmography waveform for baseline region 1 (\SIrange{0}{300}{\second})}
+		\label{fig:iPG_venous_baseline}
+	\end{subfigure}%
+	~ 
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=7cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure6b}
+		\caption{Average plethysmography waveform during venous occlusion region 2 (\SIrange{300}{480}{\second})}
+		\label{fig:iPG_venous_occlusion}
+	\end{subfigure}
+	\caption{Plethysmography waveform of the participant seven between baseline and venous occlusion}
+	\label{fig:iPG_venous}
+\end{figure*}
+
+\begin{figure*}[!htpb]
+	\centering
+	\begin{subfigure}[t]{0.48\textwidth}
+	\centering
+		\includegraphics[height=6cm,keepaspectratio]{figure7a2}    
+		\caption{Change of amplitude of the waveform at point A.}
+		\label{fig:change_A_venous}
+	\end{subfigure}%
+	~ 
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[height=6cm,keepaspectratio,keepaspectratio]{figure7b2}    
+		\caption{Change of amplitude of the waveform at point B}
+		\label{fig:change_B_venous}
+	\end{subfigure}
+	~
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[height=6cm,keepaspectratio]{figure7c2}    
+		\caption{Change of amplitude of the waveform at point C}
+		\label{fig:change_C_venous}
+\end{subfigure}%
+	\caption{Changes of the impedance peak values during baseline, partial arterial occlusion and return to baseline for points A,B and C.}
+	\label{fig:iPG_change_points_venous}
+\end{figure*}
+
+\subsubsection{Changes in systolic peak (Point A)}
+\label{section apa 3.1.1}
+Most of the signals showed a change in the height of their top systolic values after inflating the cuff to the values shown in column \textit{Occlusion 1} in Table~\ref{tbl:occlusions}. After quantifying the amplitude of the signal at this point, an increase in their peak value can be seen. Indeed \SI{87}{\percent} of the participants showed an increment in resistance with an average of \SI{20.93}{\percent}, only participant 8 was an exception where impedance decreased \SI{-11.11}{\percent}. Then, when the cuff's pressure was released, all the participants showed a decline of the peak value with an average of \SI{-27.88}{\percent}, returning to similar values prior to the occlusion. Figure \ref{fig:change_A_venous} indicates the relation of change in amplitude during the three conditions. 
+
+\mynote{If using box then I have to double check the data obtained. Boxplot uses median not mean}
+
+\begin{table}[!htbp]
+	\caption{Change of amplitude of the waveform at peak A during the transition from baseline to venous occlusion.}
+	\label{tbl:change_A_venous}
+	\centering\small
+\begin{tabular}{l
+				*{3}{S[table-format=1.4]@{\,\( \pm \)\,}S[table-format=1.4]} %Format for Z+-std
+		       cc}
+	\toprule
+	& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Baseline [\si{\ohm}]}}}
+	& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Occlusion [\si{\ohm}]}}}
+	& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Baseline [\si{\ohm}]}}}
+	& \multicolumn{2}{c}{\textbf{Change}} \\
+	& \multicolumn{2}{c}{}
+	& \multicolumn{2}{c}{}
+	& \multicolumn{2}{c}{}
+	&\textbf{R1-R2}&\textbf{R2-R3}\\\midrule
+	Participant 1    &     0.0283    &     0.0233    &     0.0342    &     0.0191    &     0.0305    &     0.0305    &      20.93\%    &     -13.29\%    \\
+	Participant 2    &     0.0491    &     0.0102    &     0.0595    &     0.0140    &     0.0449    &     0.0449    &      21.01\%    &     -29.68\%    \\
+	Participant 3    &     0.0346    &     0.0351    &     0.0374    &     0.0144    &     0.0294    &     0.0294    &       7.91\%    &     -22.89\%    \\
+	Participant 4    &     0.0252    &     0.0303    &     0.0272    &     0.0139    &     0.0222    &     0.0222    &       7.98\%    &     -19.87\%    \\
+	Participant 5    &     0.0345    &     0.0112    &     0.0481    &     0.0098    &     0.0376    &     0.0376    &      39.68\%    &     -30.69\%    \\
+	Participant 6    &     0.0233    &     0.0105    &     0.0306    &     0.0124    &     0.0251    &     0.0251    &      31.33\%    &     -23.52\%    \\
+	Participant 7    &     0.0359    &     0.0080    &     0.0537    &     0.0081    &     0.0365    &     0.0365    &      49.72\%    &     -47.78\%    \\
+	Participant 8    &     0.0237    &     0.0094    &     0.0211    &     0.0091    &     0.0127    &     0.0127    &     -11.11\%    &     -35.30\%    \\  \bottomrule
+\end{tabular} 
+\end{table}
+
+
+\subsubsection{Changes in dicrotic notch peak (Point B)}
+\label{section apa 3.1.2}
+The dicrotic notch point is located between the systolic and diastolic peaks. The forearm's iPG waveform looks like a dip as illustrated in figure \ref{fig:iPG_venous}. This locality in the waveform has been identified in this document as point B. 
+
+The value of this signal changed from baseline when venous occlusion occurred. After that, when cuff was deflated, all impedance peaks decreased. According to the data shown on Table \ref{tbl:change_B_venous}, one can see that most of the signals (\SI{75}{\percent}) show an increase in their value. Certainly, there was an increment in impedance with an average of \SI{29.30}{\percent}. However, partakers two and four noted a slight decrease in their values \SI{-0.47}{\percent} and \SI{-2.34}{\percent} which were not very significant compared to the others. In contrast, after releasing the pressure, all signals experience a reduction of their peak value (mean \SI{41.47}{\percent}).
+
+\begin{table}[!htbp]
+	\caption{Change of amplitude of the waveform at peak B during the transition from baseline to venous occlusion.}
+	\label{tbl:change_B_venous}
+	\centering\small
+	\begin{tabular}{l
+					*{3}{S[table-format=1.4]@{\,\( \pm \)\,}S[table-format=1.4]} %Format for Z+-std
+					cc}
+	\toprule
+	& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Baseline [\si{\ohm}]}}}
+	& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Occlusion [\si{\ohm}]}}}
+	& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Baseline [\si{\ohm}]}}}
+	& \multicolumn{2}{c}{\textbf{Change}} \\
+	& \multicolumn{2}{c}{}
+	& \multicolumn{2}{c}{}
+	& \multicolumn{2}{c}{}
+	&\textbf{R1-R2}&\textbf{R2-R3}\\\midrule
+	Participant 1    &     0.0160    &     0.0231    &     0.0232    &     0.0195    &     0.0153    &     0.0153    &     45.07    \%      &     -49.54    \%      \\  
+	Participant 2    &     0.0383    &     0.0144    &     0.0382    &     0.0167    &     0.0252    &     0.0252    &     -0.47    \%      &     -33.78    \%      \\  
+	Participant 3    &     0.0196    &     0.0315    &     0.0311    &     0.0181    &     0.0224    &     0.0224    &     58.38    \%      &     -44.40    \%      \\  
+	Participant 4    &     0.0176    &     0.0294    &     0.0172    &     0.0149    &     0.0138    &     0.0138    &     -2.34    \%      &     -19.25    \%      \\  
+	Participant 5    &     0.0294    &     0.0158    &     0.0385    &     0.0138    &     0.0237    &     0.0237    &     31.07    \%      &     -50.37    \%      \\  
+	Participant 6    &     0.0135    &     0.0138    &     0.0189    &     0.0161    &     0.0128    &     0.0128    &     39.49    \%      &     -44.62    \%      \\  
+	Participant 7    &     0.0256    &     0.0108    &     0.0374    &     0.0092    &     0.0276    &     0.0276    &     45.94    \%      &     -38.44    \%      \\  
+	Participant 8    &     0.0108    &     0.0111    &     0.0127    &     0.0117    &     0.0071    &     0.0071    &     17.28    \%      &     -51.42    \%      \\ \bottomrule
+	\end{tabular} 
+\end{table}
+
+\subsubsection{Changes in diastolic peak (Point C)}
+\label{section apa 3.1.3}
+The diastolic peak corresponds to point C of the waveform. Figure \ref{fig:change_C_venous} shows that there is not a clear trend compared to the other spots previously examined. In fact, three participants experienced a decline in the impedance at this point with an average drop of \SI{-11.74}{\percent} and the rest experienced an increase of impedance with an average rise of \SI{23}{\percent}. Table \ref{tbl:change_C_venous} shows the mean values of the impedance at this place. At this point, it is not possible to get a conclusion about the trend of this point of data \nknote{not sure about this prior sentence}. In contrast, after releasing the upper arm's pressure, most participants experience a decrease in their diastolic peak impedance, with an average of \SI{-24}{\percent}. Participant one was the only one that did not register any significant change. 
+
+\begin{table}[!htbp]
+	\caption{Change of amplitude of the waveform at peak C during the transition from baseline to venous occlusion.}
+	\label{tbl:change_C_venous}
+	\centering\small
+	\begin{tabular}{l
+					*{3}{S[table-format=1.4]@{\,\( \pm \)\,}S[table-format=1.4]} %Format for Z+-std
+					cc}
+	\toprule
+	& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Baseline [\si{\ohm}]}}}
+	& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Occlusion [\si{\ohm}]}}}
+	& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Baseline [\si{\ohm}]}}}
+	& \multicolumn{2}{c}{\textbf{Change}} \\
+	& \multicolumn{2}{c}{}
+	& \multicolumn{2}{c}{}
+	& \multicolumn{2}{c}{}
+	&\textbf{R1-R2}&\textbf{R2-R3}\\\midrule
+	Participant 1    &     0.0272    &     0.0281    &     0.0285    &     0.0260    &     0.0286    &     0.0286    &       4.79    \%      &       0.03    \%      \\  
+	Participant 2    &     0.0419    &     0.0150    &     0.0389    &     0.0191    &     0.0278    &     0.0278    &      -7.17    \%      &     -26.57    \%      \\  
+	Participant 3    &     0.0280    &     0.0397    &     0.0332    &     0.0219    &     0.0310    &     0.0310    &      18.37    \%      &      -7.80    \%      \\  
+	Participant 4    &     0.0225    &     0.0380    &     0.0185    &     0.0174    &     0.0178    &     0.0178    &     -17.99    \%      &      -2.94    \%      \\  
+	Participant 5    &     0.0330    &     0.0175    &     0.0452    &     0.0151    &     0.0279    &     0.0279    &      37.18    \%      &     -52.58    \%      \\  
+	Participant 6    &     0.0165    &     0.0212    &     0.0207    &     0.0251    &     0.0151    &     0.0151    &      25.96    \%      &     -34.25    \%      \\  
+	Participant 7    &     0.0294    &     0.0127    &     0.0381    &     0.0111    &     0.0309    &     0.0309    &      29.85    \%      &     -24.77    \%      \\  
+	Participant 8    &     0.0143    &     0.0140    &     0.0129    &     0.0163    &     0.0096    &     0.0096    &     -10.06    \%      &     -23.09    \%      \\  
+	\bottomrule
+	\end{tabular} 
+\end{table}
+
+%%********************************** % Section 5.3.2 ******************************************
+\subsection{Plethysmography waveform change during partial arterial occlusion}
+\label{section apa 3.2}
+During this type of occlusion, most of the signals also showed a modification on the height of their top systolic values. The analysis of this section resembles the baseline time in region 3 (\SIrange{480}{780}{\second}), three minutes of partial venous occlusion in region 4 (\SIrange{780}{960}{\second}) and return to baseline region 5 (\SIrange{960}{1260}{\second}). The cuff was inflated to the pressure presented in column \textit{Occlusion 2} in Table \ref{tbl:occlusions}. 
+
+Figure \ref{fig:iPG_change_points_arterial} shows the average waveform at baseline and during occlusion for participant seven. As can be seen from the graph, it is apparent that there is an increase in the systolic peak (point A) and a reduction in the diastolic peak at point C). Figure \ref{fig:iPG_change_points_arterial} also features the impedance change in each participant. The following sections will describe in detail the changes to each of the spots. 
+
+\begin{figure*}[!htbp]
+	\centering
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=7cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure8a}
+		\caption{Average plethysmography waveform during venous occlusion region 3 (\SIrange{480}{780}{\second})}
+		\label{fig:iPG_arterial_baseline}
+	\end{subfigure}%
+	~ 
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=7cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure8b}
+		\caption{Average plethysmography waveform during venous occlusion region 4 (\SIrange{780}{960}{\second})}
+		\label{fig:iPG_arterial_occlusion}
+	\end{subfigure}
+	\caption{Plethysmography waveform of the participant seven between baseline and partial arterial occlusion}
+	\label{fig:iPG_arterial}
+\end{figure*}
+
+\begin{figure*}[!htbp]
+	\centering
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[height=6cm,keepaspectratio]{figure9a2}    
+		\caption{Change of amplitude of the waveform at point A.}
+		\label{fig:change_A_arterial}
+	\end{subfigure}%
+	~ 
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[height=6cm,keepaspectratio,keepaspectratio]{figure9b2}    
+		\caption{Change of amplitude of the waveform at point B}
+		\label{fig:change_B_arterial}
+	\end{subfigure}
+	~
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[height=6cm,keepaspectratio]{figure9c2}    
+		\caption{Change of amplitude of the waveform at point C}
+		\label{fig:change_C_arterial}
+	\end{subfigure}%
+	\caption{Changes of the impedance peak values during baseline, partial arterial occlusion and return to baseline for points A,B and C.}
+	\label{fig:iPG_change_points_arterial}
+\end{figure*}
+
+\subsubsection{Changes in systolic peak (Point A)}
+\label{section apa 3.2.1}
+Through this occlusive event, six participants (\SI{75}{\percent}) experienced an increase in electrical resistivity at point A. The average increase was about \SI{18.10}{\percent}.  On the other hand, in the participants whose impedance decreased there was an average of \ SI {-6.77} {\ percent}. In general, one can note the growth at this point. Figure \ref{fig:change_A_arterial} shows the change in amplitude for each one. Table \ref{tbl:change_A_arterial} summarises the average impedances and the changes in each region. 
+
+After the cuff was deflated, the peak impedance of most of the participants (\SI{75}{\percent})  decreased in mean \SI{-21.13}{\percent}).  In contrast, participants three and four showed an increase in impedance of \SI{12.71}{\percent} and \SI{107.91}{\percent}. A large number of the latter being compared to its standard deviation shows that there must be noise in the signal affecting its quality.   
+
+\begin{table}[!htbp]
+	\caption{Change of amplitude of the waveform at peak A during the transition from baseline to venous occlusion.}
+	\label{tbl:change_A_arterial}
+	\centering\small
+	\begin{tabular}{l
+			*{3}{S[table-format=1.4]@{\,\( \pm \)\,}S[table-format=1.4]} %Format for Z+-std
+			cc}
+		\toprule
+		& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Baseline [\si{\ohm}]}}}
+		& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Occlusion [\si{\ohm}]}}}
+		& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Baseline [\si{\ohm}]}}}
+		& \multicolumn{2}{c}{\textbf{Change}} \\
+		& \multicolumn{2}{c}{}
+		& \multicolumn{2}{c}{}
+		& \multicolumn{2}{c}{}
+		&\textbf{R1-R2}&\textbf{R2-R3}\\\midrule
+		Participant 1    &     0.0305    &     0.0194    &     0.0275    &     0.0190    &     0.0265    &     0.0265    &     -9.73    \%      &      -3.30    \%      \\  
+		Participant 2    &     0.0449    &     0.0140    &     0.0497    &     0.0197    &     0.0461    &     0.0461    &     10.74    \%      &      -8.02    \%      \\  
+		Participant 3    &     0.0294    &     0.0379    &     0.0307    &     0.0185    &     0.0356    &     0.0356    &      4.11    \%      &      16.71    \%      \\  
+		Participant 4    &     0.0222    &     0.0242    &     0.0214    &     0.0152    &     0.0453    &     0.0453    &     -3.81    \%      &     107.91    \%      \\  
+		Participant 5    &     0.0376    &     0.0133    &     0.0433    &     0.0115    &     0.0351    &     0.0351    &     15.30    \%      &     -21.83    \%      \\  
+		Participant 6    &     0.0251    &     0.0096    &     0.0272    &     0.0081    &     0.0251    &     0.0251    &      8.30    \%      &      -8.36    \%      \\  
+		Participant 7    &     0.0365    &     0.0097    &     0.0525    &     0.0092    &     0.0394    &     0.0394    &     43.53    \%      &     -35.69    \%      \\  
+		Participant 8    &     0.0127    &     0.0104    &     0.0161    &     0.0160    &     0.0098    &     0.0098    &     26.65    \%      &     -49.61    \%      \\      
+		\bottomrule
+	\end{tabular} 
+\end{table}\subsubsection{Changes in dicrotic notch peak (Point B)}
+\label{section apa 3.2.2}
+In the dicrotic notch position (point B), there was a similar trend as the one seen in the systolic peak. In total, seven out of eight participants registered an increase of impedance. The average increase at the dicrotic notch was about \SI{35.52}{\percent}. Only participant four showed a  slight drop in impedance (\SI{-2.44}{\percent}).  
+
+When the pressure was removed, six out of eight of the study members experienced a fall in electrical resistivity. On average, it reduced by \SI{-52.39}{\percent}. Again, participant four was the exception to this reduction, as well as participant three. Their impedance rose by \SI{5.72}{\percent} and \SI{4.61}{\percent}.
+
+Figure \ref{fig:change_B_arterial} evidences these changes in each region. Table \ref{fig:change_B_arterial} details the mean impedances and the ratio of change between each region.
+
+\begin{table}[!htbp]
+	\caption{Change of amplitude of the waveform at peak B during the transition from baseline to venous occlusion.}
+	\label{tbl:change_B_arterial}
+	\centering\small
+	\begin{tabular}{l
+			*{3}{S[table-format=1.4]@{\,\( \pm \)\,}S[table-format=1.4]} %Format for Z+-std
+			cc}
+		\toprule
+		& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Baseline [\si{\ohm}]}}}
+		& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Occlusion [\si{\ohm}]}}}
+		& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Baseline [\si{\ohm}]}}}
+		& \multicolumn{2}{c}{\textbf{Change}} \\
+		& \multicolumn{2}{c}{}
+		& \multicolumn{2}{c}{}
+		& \multicolumn{2}{c}{}
+		&\textbf{R1-R2}&\textbf{R2-R3}\\\midrule
+		Participant 1    &     0.0153    &     0.0232    &     0.0206    &     0.0220    &     0.0087    &     0.0087    &     35.05    \%      &     -77.89    \%      \\  
+		Participant 2    &     0.0252    &     0.0142    &     0.0345    &     0.0212    &     0.0231    &     0.0231    &     36.75    \%      &     -44.93    \%      \\  
+		Participant 3    &     0.0224    &     0.0536    &     0.0234    &     0.0247    &     0.0244    &     0.0244    &      4.42    \%      &       4.61    \%      \\  
+		Participant 4    &     0.0138    &     0.0256    &     0.0135    &     0.0177    &     0.0143    &     0.0143    &     -2.44    \%      &       5.72    \%      \\  
+		Participant 5    &     0.0237    &     0.0155    &     0.0294    &     0.0107    &     0.0237    &     0.0237    &     24.19    \%      &     -24.13    \%      \\  
+		Participant 6    &     0.0128    &     0.0150    &     0.0193    &     0.0096    &     0.0141    &     0.0141    &     50.42    \%      &     -40.66    \%      \\  
+		Participant 7    &     0.0276    &     0.0128    &     0.0327    &     0.0104    &     0.0205    &     0.0205    &     18.66    \%      &     -44.28    \%      \\  
+		Participant 8    &     0.0071    &     0.0118    &     0.0127    &     0.0196    &     0.0069    &     0.0069    &     79.15    \%      &     -82.44    \%      \\    
+\bottomrule
+	\end{tabular} 
+\end{table}
+
+\subsubsection{Changes in diastolic peak (Point C)}
+\label{section apa 3.2.3}
+Changes in the diastolic peak also presented a similar trend as seen in points A and B. However; the changes were not as marked as the ones seen before. Figure \ref{fig:change_C_arterial} and Table \ref{tbl:change_C_arterial} summarise the values obtained. In total, \SI{62.5}{\percent} showed an increase of impedance between region 3 and 4. It increased with a median of \SI{21.68}{\percent}. Participant eight showed a change significantly larger than the mean (\SI{71.41}{\percent}). Others study members pointed a decrease of electrical resistivity in \SI{-14.71}{\percent} on average.  
+
+On the opposite side of the exercise, after releasing the pressure, a similar number of partakers whose peak increased showed a reduction in impedance (\SI{62.5}{\percent}).  However, these were different members. On average, impedance reduced by \SI{-25.56}{\percent} in total. Again, participant eight showed a greater ratio of change significantly exceeding the mean. On the other hand, participants that exhibited an increase of impedance, the average was \SI{25.23}{\percent}. Participant four outperformed notably the average ratio (\SI{66.03}{\percent}).
+
+\begin{table}[!htbp]
+	\caption{Change of amplitude of the waveform at peak C during the transition from baseline to venous occlusion.}
+	\label{tbl:change_C_arterial}
+	\centering\small
+	\begin{tabular}{l
+			*{3}{S[table-format=1.4]@{\,\( \pm \)\,}S[table-format=1.4]} %Format for Z+-std
+			cc}
+		\toprule
+		& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Baseline [\si{\ohm}]}}}
+		& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Occlusion [\si{\ohm}]}}}
+		& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Baseline [\si{\ohm}]}}}
+		& \multicolumn{2}{c}{\textbf{Change}} \\
+		& \multicolumn{2}{c}{}
+		& \multicolumn{2}{c}{}
+		& \multicolumn{2}{c}{}
+		&\textbf{R1-R2}&\textbf{R2-R3}\\\midrule
+		Participant 1    &     0.0286    &     0.0323    &     0.0253    &     0.0307    &     0.0206    &     0.0206    &     -11.44    \%      &     -16.31    \%      \\  
+		Participant 2    &     0.0278    &     0.0196    &     0.0312    &     0.0272    &     0.0252    &     0.0252    &      12.45    \%      &     -21.78    \%      \\  
+		Participant 3    &     0.0310    &     0.0826    &     0.0268    &     0.0284    &     0.0283    &     0.0283    &     -13.49    \%      &       4.71    \%      \\  
+		Participant 4    &     0.0178    &     0.0327    &     0.0189    &     0.0229    &     0.0306    &     0.0306    &       5.94    \%      &      66.03    \%      \\  
+		Participant 5    &     0.0279    &     0.0171    &     0.0298    &     0.0119    &     0.0287    &     0.0287    &       6.74    \%      &      -3.96    \%      \\  
+		Participant 6    &     0.0151    &     0.0252    &     0.0169    &     0.0111    &     0.0176    &     0.0176    &      11.86    \%      &       4.96    \%      \\  
+		Participant 7    &     0.0309    &     0.0189    &     0.0249    &     0.0124    &     0.0232    &     0.0232    &     -19.19    \%      &      -5.65    \%      \\  
+		Participant 8    &     0.0096    &     0.0139    &     0.0164    &     0.0224    &     0.0087    &     0.0087    &      71.41    \%      &     -80.09    \%      \\  
+
+		\bottomrule
+	\end{tabular} 
+\end{table}
+
+\subsection{Plethysmography waveform change during total occlusion}
+\label{section apa 3.3}
+Performing total occlusion completely blocks the inflow and outflow of blood beneath the arm's cuff.  Hence, there is no change of volume within the arm's segment. As a result, impedance plethysmography should not present changes.  Figure \ref{fig:iPG_total} shows the plethysmography baseline in region 5 (\SIrange{960}{1260}{\second}) and region 6  (\SIrange{1260}{1440}{\second}) of participant seven. As portrayed by Figure \ref{fig:iPG_change_points_total}, the amplitudes of most of the participants dropped during the occlusion.
+
+However, participant four experienced different behaviour in all these points. The standard deviation of this participant also suggests that there would have been a problem with his plethysmography signal during the test. 
+
+In general, point A decreased on average by \SI{-66.15}{\percent} at its peak value occlusion. Then when the pressure was released, impedance recovered its value in \SI{75.98}{\percent}. A similar event occurred with point B; peak signals dropped a median of \SI{-63.29}{\percent} during blockage and recovered on average by \SI{74.02}{\percent}. Similarly, point C, decreased on average by \SI{-50.27}{\percent}  and increased by \SI{58.71}{\percent} after the occlusion.
+
+\begin{figure*}[!htbp]
+	\centering
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=7cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure10a}
+		\caption{Average plethysmography waveform during venous occlusion region 5 (\SIrange{960}{1260}{\second})}
+		\label{fig:iPG_total_baseline}
+	\end{subfigure}%
+	~ 
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=7cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure10b}
+		\caption{Average plethysmography waveform during venous occlusion region 6 (\SIrange{1260}{1440}{\second})}
+		\label{fig:iPG_total_occlusion}
+	\end{subfigure}
+	\caption{Plethysmography waveform of the participant seven between baseline and total occlusion}
+	\label{fig:iPG_total}
+\end{figure*}
+
+\begin{figure*}[!htbp]
+	\centering
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[height=6cm,keepaspectratio]{figure11a2}    
+		\caption{Change of amplitude of the waveform at point A.}
+		\label{fig:change_A_total}
+	\end{subfigure}%
+	~ 
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[height=6cm,keepaspectratio]{figure11b2}    
+		\caption{Change of amplitude of the waveform at point B}
+		\label{fig:change_B_total}
+	\end{subfigure}
+	~
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[height=6cm,keepaspectratio]{figure11c2}    
+		\caption{Change of amplitude of the waveform at point C}
+		\label{fig:change_C_total}
+	\end{subfigure}%
+	\caption{Changes of the impedance peak values during baseline, total occlusion and return to baseline for points A,B and C.}
+	\label{fig:iPG_change_points_total}
+\end{figure*}
+
+%%********************************** % Section 5.5 ******************************************
+\section{Blood flow calculation from plethysmography signal}
+\label{section apa 5}
+So far the blood flow has been analysed from occlusive methods using the techniques described in section \ref{section apa 4}. However, these procedures require mechanical occlusion to produce an increase in volume within the forearm being measured. Nevertheless, sometimes this can be uncomfortable, especially when the applied pressure is above the systolic value or when the person simply can not tolerate restriction of blood flow.
+
+For these cases, analysing the waveform also provides information about the blood flow.  The rush of blood into the vessel creates a small increase in volume within the limit of the potential electrodes which can be translated into a quantifiable blood flow. Having a device sensitive enough to detect these changes is crucial to provide an accurate estimation of the blood speed. As described in section \ref{section apa 3}, the waveform contained within the basal impedance was amplified by the device, achieving great detail. 
+
+In fact, several studies \mynote{Add a reference to a study about AC blood flow estimation} have demonstrated that it is possible to calculate blood flow from the plethysmography waveform. In this case, the change of impedance used to perform this calculation occurs between the foot of the wave and the systolic peak. This $\Delta Z$ is used to calculate blood flow by also applying Nyober's equation \ref{eq:Nyober}. 
+
+Figure \ref{fig:blood_flow_plethysmography} demonstrates the blood flow calculated from the amplitude of the systolic peak throughout the experimental session. Green dots show blood flow measurements during reference readings (regions 1, 3, 5 and 6). The other colours show venous occlusion in blue, partial arterial occlusion in red and total obstruction in grey. The dark line drawn above the signals corresponds to the calculation of the sixth-order polynomial fit during each measurement event. Overseeing the amplitude transition in each region will help explain how the flow changes with each occlusive event. The blood flow shown in the same figure does not include the negative sign which represents the direction of flow relative to the potential electrodes.
+
+\begin{figure}[!htb]
+	\includegraphics[width=\textwidth,keepaspectratio,trim={3cm 0cm 3cm 0 cm},clip]{figure15}    
+	\caption[Blood flow calculated from impedance plethysmography waveform at the time of the whole expetiment]{Blood flow calculated for all the participants during the experiment. Each dot represents the peak value of the waveform that has been converted into flow (\si{\bfv}). The green dotted area represent the baselines measurements (regions 1,3,5 and 7). The region 2 (venous occlusion) is represented by the blue dots, arterial occlusions (region 4) are in red and total occlusions (region 6) are in grey.}
+	\label{fig:blood_flow_plethysmography}
+\end{figure}
+
+As portrayed in the figure, between each transition, in the middle of baseline and occlusion, there is a change in the calculated flow. In most participants, the change between baseline and venous occlusion creates a blood surge followed by a tendency for the flow to stabilise. It is worth noting that the addition of blood flow in participant 2 occurred before the occlusion. The reason for this is that the obstruction probably started before \SI{300}{\second} and the pressure applied to the arm was rather slow. There are other cases where the flow change occurred so fast that an entirely blank space can be seen connecting both events, as in participants 5 and 7. This situation, as opposed to participant 2, was more likely due to the cuff being inflated faster which did not allow a gradual but instead sudden change in flow. Finally, participant 8 is an exception to this rule. This participant experienced a decrease in flow, followed by a recovery and, he did not show a flow surge.
+
+Between venous occlusion and baseline in region 3, the cuff was rapidly deflated to return blood flow to normal. However, from the calculated data it can be seen that there are no extreme changes in blood flow between these two sections. As noted, in most participants except partaker 1, there are small gaps between these two sections indicating that there is a slight change in blood flow. This action can be linked to a hyperaemic effect where as soon as the pressure of the cuff is released, the blood contained within the vessels of the forearm runs out to the upper part of the arm. After that, the blood flow tended to stabilise towards an average value. 
+
+Similarly, as between regions 1 and 2, the change between baseline (region 3) and partial arterial occlusion (region 4) generated alterations in the calculated blood flow. Some participants also showed a rapid increase in blood flow followed by settling in the blood velocity. The only ones that did not enact a similar behaviour were participants 2 and 8. However, partaker 7 appears to be Gaussian bell-shaped flow, which seems to indicate that the occlusion did not occur at the right moment but rather a little while later. Interestingly, the figure also shows that blood flow did not fully stabilise in participants 1, 3 and 8.
+
+The change between partial arterial occlusion and baseline had a similar effect as the one described for the release of pressure of venous blockage. Most of the participants showed a decrease in their blood flow, possibly caused by the hyperaemic effect. At this point one can note that participant 4 started to show random blood flow readings. 
+
+Total occlusion had a response as expected in almost all participants. When the blood flow was completely stopped, it was anticipated that its calculated value could tend to zero. In this case, the device was able to detect these changes. The only exception was participant 4 who again showed random results. At this point, it was to be expected that something wrong was happening with his measurements. Then, when the tourniquet was released, the blood flow returned in an exponential form and then set to an average value. In this case, the hyperaemic effect is more visible. It is worth noting that participant 8 showed a decline in blood flow measurements towards the midpoint of the test. This event agrees, with the participant expressing not feeling very well at the end of the test. One can speculate it being a coincidence, or maybe the device was able to detect these physiological changes in him.
+
+It seems evident that there is a blood surge when an occlusion occurs. Subsequently, the blood flow tends to stabilise at an average value. When the blockage is released, it seems that in some cases the flow tends to decrease and in others, there is no apparent change. The following sections will show the results of the change in mean blood flow during each occlusive event.
+
+
+%********************************** % Section 5.5.1 ******************************************
+\subsection{Blood flow change during venous occlusion}
+\label{sectio results 5.1}
+The following are the results of calculating mean blood flow between the transitions of baseline, venous occlusion and return to the reference signal. Once again, the result of the calculation is the absolute value, dropping the negative sign. Table \ref{tbl:blood_flow_iPG_venous} shows the result obtained by flow measurement in scale \si{\bfv}. The mean blood flow in region 1 was about \SI{2.398(0378)}{\bfv}. When the cuff was inflated below diastolic value, the blood flow calculated in region 2, there was an average blood flow step-up of about \SI{3.043(0378)}{\bfv} \nknote{?}. It is easy to see that in general terms there was an increment in the blood flow during the occlusion. In fact, \SI{75}{\percent} of the participants experienced this increment of blood flow. Only, study members 3 and 8 showed a decrease in their blood flow during this transition. The latter is not a surprise, as it was noted before, all his recordings started to go downwards from the beginning of the test. Their \nknote{who?} blood flow decreased in average roughly \SI{0.356(0023)}{\bfv}.
+
+Clearly, there is a blood flow decrement\nknote{decrement??} when the cuff's tension was released to return to baseline. Indeed, seven out of eight of the participants experienced a drop in their flow rate during this part of the experiment. The average blood flow for region 3 was approximately \SI{2.459(0852)}{\bfv}. The only one who did not experience this change was participant 6 whose flow rate dropped \SI{-0.0101}{\bfv} which means that there was practically no change. 
+
+\begin{table}[h]
+	\caption{Mean blood flow calculated form the plethysmography wave for baseline, venous occlusion and return to baseline}
+	\label{tbl:blood_flow_iPG_venous}
+	\centering
+	\begin{tabular}{l
+				    *{3}{S[table-format=1.3]@{\,\( \pm \)\,}S[table-format=1.3]} %Format for Z+-std
+					}
+		\toprule
+		& \multicolumn{2}{c}{\textbf{Region 1}}
+		& \multicolumn{2}{c}{\textbf{Region 2}} 
+		& \multicolumn{2}{c}{\textbf{Region 3}}  \\
+		& \multicolumn{2}{c}{\small{\si{[\bfv]}}} 
+		& \multicolumn{2}{c}{\small{\si{[\bfv]}}} 
+		& \multicolumn{2}{c}{\small{\si{[\bfv]}}} \\\midrule
+		Participant 1    &     2.206     &     1.772    &     2.695     &     1.638    &     2.528     &     1.481    \\  
+		Participant 2    &     2.715     &     1.185    &     3.786     &     1.161    &     3.122     &     1.252    \\  
+		Participant 3    &     1.809     &     1.282    &     1.469     &     0.796    &     1.376     &     1.260    \\  
+		Participant 4    &     2.178     &     2.032    &     3.088     &     2.010    &     2.177     &     1.959    \\  
+		Participant 5    &     2.227     &     1.082    &     3.132     &     0.947    &     3.142     &     1.277    \\  
+		Participant 6    &     3.035     &     1.289    &     4.049     &     1.146    &     3.581     &     1.330    \\  
+		Participant 7    &     2.579     &     0.930    &     4.057     &     0.924    &     2.567     &     0.827    \\  
+		Participant 8    &     2.437     &     0.874    &     2.065     &     0.901    &     1.176     &     0.729    \\  
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+%********************************** % Section 5.5.2 ******************************************
+\subsection{Blood flow change during partial arterial occlusion}
+\label{section apa 5.2}
+The change of blood flow between baseline and partial occlusion had not a common \nknote{?} in all the study participants response as the one seen in the previous section. Their flow rate increased from an average of \SI{2.458(0852)}{\bfv} to a mean blood flow of \SI{2.649(1200)}{\bfv}. It is clear that the increase was not as notorious compared to that seen on the venous occlusion. Indeed, only three participants (2, 5 and 7) showed an increment in blood flow with a centre of \SI{0.774(0983)}{\bfv}. Participant 3 showed a particularly higher increase in blood flow than the others with a value of \SI{1.099}{\bfv}. Conversely, the rest of the participants exhibited a small decrease in their blood flow with an average of \SI{-0.160(0101)}{\bfv}. 
+
+When the upper arm pressure was released, most participants were expected to show a decline in their flow. However, this was not the case. Clearly, three participants depicted a drop in the rate (5, 7 and 8 with an average of \SI{-0.541(0371)}{\bfv}). The rest of the study members showed an increase in their collected data. Notwithstanding, as previously described in this region, participant 4 showed random values whose results will therefore not be added up to the total mean in the following calculation. The midpoint increase in blood flow between the others was \SI{0.329(0205)}{\bfv}. At this stage, it is not possible to draw a clear conclusion of the change of blood flow when the arterial occlusion occurred. 
+
+\begin{table}[h]
+	\caption{Mean blood flow calculated form the plethysmography wave for baseline, partial arterial occlusion and return to baseline}
+	\label{tbl:blood_flow_iPG_arterial}
+	\centering
+	\begin{tabular}{l
+			*{3}{S[table-format=1.3]@{\,\( \pm \)\,}S[table-format=1.3]} %Format for Z+-std
+		}
+		\toprule
+		& \multicolumn{2}{c}{\textbf{Region 3}}
+		& \multicolumn{2}{c}{\textbf{Region 4}} 
+		& \multicolumn{2}{c}{\textbf{Region 5}}  \\
+		& \multicolumn{2}{c}{\small{\si{[\bfv]}}} 
+		& \multicolumn{2}{c}{\small{\si{[\bfv]}}} 
+		& \multicolumn{2}{c}{\small{\si{[\bfv]}}} \\\midrule
+		Participant 1    &     2.528     &     1.481    &     2.255     &     1.689    &     2.853     &     1.791    \\  
+		Participant 2    &     3.122     &     1.252    &     3.298     &     1.399    &     3.418     &     1.492    \\  
+		Participant 3    &     1.376     &     1.260    &     1.336     &     1.025    &     1.700     &     1.132    \\  
+		Participant 4    &     2.177     &     1.959    &     2.091     &     1.895    &     5.669     &     7.032    \\  
+		Participant 5    &     3.142     &     1.277    &     3.380     &     0.994    &     2.885     &     1.225    \\  
+		Participant 6    &     3.581     &     1.330    &     3.432     &     1.197    &     3.667     &     1.558    \\  
+		Participant 7    &     2.567     &     0.827    &     4.476     &     1.001    &     3.543     &     1.050    \\  
+		Participant 8    &     1.176     &     0.729    &     0.924     &     0.864    &     0.729     &     0.537    \\  
+	\bottomrule
+	\end{tabular}
+\end{table}
+
+%********************************** % Section 5.5.3 ******************************************
+\subsection{Blood flow change during total occlusion}
+\label{section apa 5.3}
+The results obtained from total occlusion were quite close to the expected values.  The majority of the study participants showed a decrease in blood circulation rate close to zero.  As is evident from table \ref{tbl:blood_flow_iPG_total}, almost all participants showed a large drop in the blood flow measurement when the blockage was applied in region 6. Once more, Participant 4 displayed a completely unusual response during the occlusion. The values obtained were on average \SI{0.599(0224)}{\bfv} discarding data from partaker 4 \nknote{do you mean to staop and make this a new sentence or what?}. Clearly, the flow obtained did not reflect a zero blood flow. The calculated values correspond to the amplitude of the noise level captured by the device. 
+
+\begin{table}[!htbp]
+	\caption{Mean blood flow calculated form the plethysmography wave for baseline, total occlusion and return to normality}
+	\label{tbl:blood_flow_iPG_total}
+	\centering
+	\begin{tabular}{l
+			*{3}{S[table-format=1.3]@{\,\( \pm \)\,}S[table-format=1.3]} %Format for Z+-std
+		}
+		\toprule
+		& \multicolumn{2}{c}{\textbf{Region 5}}
+		& \multicolumn{2}{c}{\textbf{Region 6}} 
+		& \multicolumn{2}{c}{\textbf{Region 7}}  \\
+		& \multicolumn{2}{c}{\small{\si{[\bfv]}}} 
+		& \multicolumn{2}{c}{\small{\si{[\bfv]}}} 
+		& \multicolumn{2}{c}{\small{\si{[\bfv]}}} \\\midrule
+		Participant 1    &     2.853     &     1.791    &     0.908     &     1.283    &     3.407     &     2.553    \\  
+		Participant 2    &     3.418     &     1.492    &     0.448     &     0.698    &     2.833     &     1.179    \\  
+		Participant 3    &     1.700     &     1.132    &     0.704     &     0.751    &     1.387     &     1.210    \\  
+		Participant 4    &     5.669     &     7.032    &     4.657     &     2.868    &     3.829     &     4.128    \\  
+		Participant 5    &     2.885     &     1.225    &     0.560     &     0.687    &     3.619     &     1.645    \\  
+		Participant 6    &     3.667     &     1.558    &     0.759     &     1.190    &     4.086     &     1.489    \\  
+		Participant 7    &     3.543     &     1.050    &     0.597     &     1.121    &     3.767     &     0.958    \\  
+		Participant 8    &     0.729     &     0.537    &     0.218     &     0.449    &     0.592     &     0.567    \\  
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+After the tourniquet had been withdrawn, the blood flow returned to baseline following an exponential shape \nknote{what shape?? do want another word?} in most of the participants as shown in figure \ref{fig:blood_flow_plethysmography}. The mean blood flow in the region 7 was about \SI{2.940(1276)}{\bfv}. However, it can be seen that participant 8 had an expected drop in the flow rate before the blockage and then an increase in value. This event is fascinating as these changes occurred in a blood flow bellow \SI{1}{\bfv} but the device was able to notice the swing of blood flow rate. At this stage, the sensitivity for calculation of small changes in blood flow needs improvement because it detected flow values in other participants when there was no plethysmography signal. However, it is quite remarkable to see that the instrument is capable of detecting changes in the trend.
+
+%%********************************** % Section 5.10 ******************************************
+\section{Conclusions}
+\label{section apa 10}
+All the signals recorded were clear and offered an overview of what could happen during each occlusive event. The designed impedance device demonstrated that it was able to detect changes in basal impedance and plethysmography signals. Moreover, it seems that each occlusive event manifests a particular response like slope change in basal impedance and waveform amplitude at systolic and diastolic peaks during occlusions. \nknote{change this last sentence}
+
+The other instruments were also able to detect changes during each event. For instance, the ultrasound device, referencing arterial flow, detected changes mostly in region 4 and 6 of the study. The LDF pointing towards microcirculatory flow was able to detect variations in flow in all the events. Moreover, it showed special sensitivity as soon as the flow was restored showing. \nknote{???} A clear hyperaemic response of the capillaries was portrayed in the signals. Red wavelength PPG was able to detect changes during all the events. The DC component of the signal detected changes during venous occlusion and partial arterial occlusion, but in total blockage it did not show a clear response. On the other hand, AC component portrayed variations to all occlusions showing sharp changes in amplitude during each occlusive episode. 
+
+%********************************** %Nomenclature found  *************************************
+\nomenclature[z-IPP]{IPP}{Impedance plethysmography pulses}
