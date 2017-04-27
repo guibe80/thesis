@@ -54,32 +54,58 @@ Commonly, an APA wave consists of several identifiable peaks and valleys. Figure
 	\end{tabular}
 \end{table} 
 
-An APA wave has to be identified as a valid one to be included in the computational analysis. Therefore, the programmed algorithm starts through the identification of the beginning of the upslope by locating the point $L1$ in the waveform. Once this spot has been identified, the systolic peak $A$ can be placed. Follow, the point $B$ is expected to be a valley with an amplitude below the previous peak. Then, the algorithm looks the following change of slope which is the diastolic peak $C$. Also, to minimise waves with abnormal amplitudes caused by noise, the algorithm calculates the mean peak at $A$ of the last 20 valid APA waves. If the value is greater than \SI{25}{\percent} ($\overline{A} > A*1.25$) then the wave is discarded. 
+An APA wave has to be identified as a valid one to be included in the computational analysis. Therefore, the programmed algorithm starts through the identification of the beginning and the end of a pulse by locating the upslope point $L1$ and $L2$ in the waveform. Once this spot has been identified, the systolic peak $A$ can be placed. Follow, the point $B$ is expected to be a valley with an amplitude below the previous peak. Then, the algorithm looks the following change of slope which is the diastolic peak $C$. In case that any of these conditions were not met, then the algorithm searches the APA wave from the next lower data point, looking for a matching wave pattern again. If a pattern is found ($L1 > A < B > slope change (C) > L2$), then this is count as a fixed wave. If there not match the pulse is marked as missing. Also, to minimise waves with abnormal amplitudes caused by noise, the algorithm calculates the mean peak at $A$ of the last 20 valid APA waves. If the value is greater than \SI{25}{\percent} ($A > A*1.25$) then the wave is discarded.  
 
-From the method described previously, 5 participants datasets were obtained with a high amount of clean plethysmography waves. From these data, the changes during each occlusion among the points $A$, $B$ and $C$  were examined. The following analysis centres in the changes of impedance amplitude all along the different regions of the experiment, and the change of area of the waveform before and after the dicrotic notch point ($B$).
- 
+The table \ref{tbl:detect APA} compiles the amount of APA waves recognised by the algorithm. The column \textit{detected waves} describes the pulses that comply with the profile of an iPG plethysmography wave. The third column shows the pulses that did not match the expected guide; then the algorithm tried to fix them by identifying the pattern in the next slope. As a result, the fixed column shows the total of pulse identified and the last column the ones discarded.
+
+In general, the quality of the APA pulses validated by the iPG device and verified by the algorithm were in average \SI{57.86(1637)}{\percent}. Participants 3, 4 and 8 displayed the highest number of pulses with errors (above \SI{50}{\percent}). However, by performing the fixing method the amount valid peaks improved to a total of \SI{84.94(764)}{\percent}.
+
+\begin{table}[!htbp]
+	\caption{Change of amplitude of the waveform at peak A during the transition from baseline to venous occlusion.}
+	\label{tbl:detect APA}
+	\centering\small
+	\begin{tabular}{lrrr>{\columncolor[gray]{0.8}}l>{\columncolor[gray]{0.9}}l}
+		\toprule
+		& \multicolumn{1}{c}{\textbf{Total}}
+		& \multicolumn{1}{c}{\textbf{Detected}} & \multicolumn{1}{c}{\textbf{Waves}}& \multicolumn{1}{c}{\textbf{Fixed}} & \multicolumn{1}{c}{\textbf{Discarded}} \\
+		& \multicolumn{1}{c}{\textbf{valleys}} & \multicolumn{1}{c}{\textbf{waves}} & \multicolumn{1}{c}{\textbf{with errors}}& \multicolumn{1}{c}{\textbf{waves}} & \multicolumn{1}{c}{\textbf{waves}} \\
+		\midrule
+		Participant 1	&1604	& 840 (\SI{52.37}{\percent})	&764 (\SI{47.63}{\percent})	&491 (\SI{30.61}{\percent})	&273 (\SI{17.02}{\percent})\\
+		Participant 2	&1689	&1159 (\SI{68.62}{\percent})	&530 (\SI{31.38}{\percent})	&409 (\SI{24.22}{\percent})	&121 ( \SI{7.16}{\percent})\\
+		Participant 3	&1651	& 699 (\SI{42.34}{\percent})	&952 (\SI{57.66}{\percent})	&695 (\SI{42.10}{\percent})	&257 (\SI{15.57}{\percent})\\
+		Participant 4	&1625	& 645 (\SI{39.69}{\percent})	&980 (\SI{60.31}{\percent})	&562 (\SI{34.58}{\percent})	&418 (\SI{25.72}{\percent})\\
+		Participant 5	&1664	&1199 (\SI{72.06}{\percent})	&465 (\SI{27.94}{\percent})	&345 (\SI{20.73}{\percent})	&120 ( \SI{7.21}{\percent})\\
+		Participant 6	&1745	& 936 (\SI{53.64}{\percent})	&809 (\SI{46.36}{\percent})	&471 (\SI{26.99}{\percent})	&338 (\SI{19.37}{\percent})\\
+		Participant 7	&1907	&1654 (\SI{86.73}{\percent})	&253 (\SI{13.27}{\percent})	&146 ( \SI{7.66}{\percent})	&107 ( \SI{5.61}{\percent})\\
+		Participant 8	&1651	& 784 (\SI{47.49}{\percent})	&867 (\SI{52.51}{\percent})	&491 (\SI{29.74}{\percent})	&376 (\SI{22.77}{\percent})\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+From these data, the changes during each occlusion among the points $A$, $B$ and $C$  were examined. The following analysis centres in the changes of impedance amplitude all along the different regions of the experiment, and the change of area of the waveform before and after the dicrotic notch point ($B$).
+
 %%********************************** % Section 8.2 ******************************************
 \section{Plethysmography waveform change during venous occlusion plethysmography}
 \label{section apa 2}
-This analysis corresponds to the waveform during baseline (\SIrange{0}{300}{\second}), venous occlusion (\SIrange{300}{480}{\second}) and return to control signal (\SIrange{480}{780}{\second}). This graph was obtained by averaging all the plethysmography waveforms detected by the algorithm and described in detail in section xxx \mynote{Add reference where the waveform detection algorithm is explained}. In the end, all the peaks were averaged obtaining the mean waveform displayed in the figure for baseline and venous occlusion.
+The analysis performed in this section corresponds to the APA waveforms captured during baseline in region 1 (\SIrange{0}{300}{\second}), venous occlusion (\SIrange{300}{480}{\second}) and return to control signal (\SIrange{480}{780}{\second}).  The previous section described the method how the valid pulses were collected. Consequently, all the valid pulses were grouped and aligned per region calculating the average waveform. 
 
-Figure \ref{fig:iPG_venous_baseline} shows the common impedance plethysmography waveform, with indicators of their amplitudes at different points of interest. The distance between systolic peak (Point A) to dicrotic notch (Point B) and diastolic peak (Point C) was calculated. This value was later transposed into the occlusion wave to identify their values during the venous occlusion test.
+Figure \ref{fig:iPG_venous_baseline} shows an impedance plethysmography waveform calculated from one of the participants during baseline and venous occlusion, with indicators of their amplitudes at the different points of interest. Some of the markers show the calculation of the distance between systolic peak (Point A) to dicrotic notch (Point B) and diastolic peak (Point C), as well as, the amplitude for each of these markers. The distance between (A $\rightarrow$ B) and (A $\rightarrow$ C) was later transposed into the occlusion wave to identify their values during the VOP test.
 
-As detailed in section xxx \mynote{Add note describing how the waveform is composed}, a plethysmography waveform consists of three distinct parts. The systolic peak, dicrotic notch and the diastolic peak, have been identified in figure \ref{fig:iPG_venous_baseline}. From a qualitative point of view, one can notice that there is a difference in the morphology of the waveform. An analysis on the change of each these points are presented in figure \ref{fig:iPG_change_points_venous} and analysed in detail as follows.
+Clearly,  from a qualitative point of view, one can notice that there is a difference in the morphology of the waveform during the occlusion.  Indeed, figure \ref{fig:iPG_change_points_venous} shows the change of the amplitude at these points for every participant and the return to baseline after the cuff pressure was released. A complete analysis of the change at each point is detailed as follows.
 
 \begin{figure*}[!htbp]
 	\centering
 	\begin{subfigure}[t]{0.48\textwidth}
 		\centering
-		\includegraphics[width=7cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure6a}
-		\caption{Average plethysmography waveform for baseline region 1 (\SIrange{0}{300}{\second})}
+		\includegraphics[height=5.5cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_2a}
+		\caption{Average APA waveform for baseline region 1 (\SIrange{0}{300}{\second})}
 		\label{fig:iPG_venous_baseline}
 	\end{subfigure}%
 	~ 
 	\begin{subfigure}[t]{0.48\textwidth}
 		\centering
-		\includegraphics[width=7cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure6b}
-		\caption{Average plethysmography waveform during venous occlusion region 2 (\SIrange{300}{480}{\second})}
+		\includegraphics[height=5.5cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_2b}
+		\caption{Average APA waveform during venous occlusion region 2 (\SIrange{300}{480}{\second})}
 		\label{fig:iPG_venous_occlusion}
 	\end{subfigure}
 	\caption{Plethysmography waveform of the participant seven between baseline and venous occlusion}
@@ -90,27 +116,28 @@ As detailed in section xxx \mynote{Add note describing how the waveform is compo
 	\centering
 	\begin{subfigure}[t]{0.48\textwidth}
 	\centering
-		\includegraphics[height=6cm,keepaspectratio]{figure7a2}    
+		\includegraphics[height=5.5cm,keepaspectratio,trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_3a} 
 		\caption{Change of amplitude of the waveform at point A.}
 		\label{fig:change_A_venous}
 	\end{subfigure}%
 	~ 
 	\begin{subfigure}[t]{0.48\textwidth}
 		\centering
-		\includegraphics[height=6cm,keepaspectratio,keepaspectratio]{figure7b2}    
+		\includegraphics[height=5.5cm,keepaspectratio,trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_3b}    
 		\caption{Change of amplitude of the waveform at point B}
 		\label{fig:change_B_venous}
 	\end{subfigure}
 	~
 	\begin{subfigure}[t]{0.48\textwidth}
 		\centering
-		\includegraphics[height=6cm,keepaspectratio]{figure7c2}    
+		\includegraphics[height=5.5cm,keepaspectratio,trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_3c}   
 		\caption{Change of amplitude of the waveform at point C}
 		\label{fig:change_C_venous}
-\end{subfigure}%
+	\end{subfigure}%
 	\caption{Changes of the impedance peak values during baseline, partial arterial occlusion and return to baseline for points A,B and C.}
 	\label{fig:iPG_change_points_venous}
 \end{figure*}
+
 
 \subsubsection{Changes in systolic peak (Point A)}
 \label{section apa 3.1.1}
@@ -222,14 +249,14 @@ Figure \ref{fig:iPG_change_points_arterial} shows the average waveform at baseli
 	\centering
 	\begin{subfigure}[t]{0.48\textwidth}
 		\centering
-		\includegraphics[width=7cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure8a}
+		\includegraphics[height=5.5cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_4a}
 		\caption{Average plethysmography waveform during venous occlusion region 3 (\SIrange{480}{780}{\second})}
 		\label{fig:iPG_arterial_baseline}
 	\end{subfigure}%
 	~ 
 	\begin{subfigure}[t]{0.48\textwidth}
 		\centering
-		\includegraphics[width=7cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure8b}
+		\includegraphics[height=5.5cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_4b}
 		\caption{Average plethysmography waveform during venous occlusion region 4 (\SIrange{780}{960}{\second})}
 		\label{fig:iPG_arterial_occlusion}
 	\end{subfigure}
@@ -241,21 +268,21 @@ Figure \ref{fig:iPG_change_points_arterial} shows the average waveform at baseli
 	\centering
 	\begin{subfigure}[t]{0.48\textwidth}
 		\centering
-		\includegraphics[height=6cm,keepaspectratio]{figure9a2}    
+		\includegraphics[height=5.5cm,keepaspectratio,trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_5a}    
 		\caption{Change of amplitude of the waveform at point A.}
 		\label{fig:change_A_arterial}
 	\end{subfigure}%
 	~ 
 	\begin{subfigure}[t]{0.48\textwidth}
 		\centering
-		\includegraphics[height=6cm,keepaspectratio,keepaspectratio]{figure9b2}    
+		\includegraphics[height=5.5cm,keepaspectratio,trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_5b}    
 		\caption{Change of amplitude of the waveform at point B}
 		\label{fig:change_B_arterial}
 	\end{subfigure}
 	~
 	\begin{subfigure}[t]{0.48\textwidth}
 		\centering
-		\includegraphics[height=6cm,keepaspectratio]{figure9c2}    
+		\includegraphics[height=5.5cm,keepaspectratio,trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_5c}    
 		\caption{Change of amplitude of the waveform at point C}
 		\label{fig:change_C_arterial}
 	\end{subfigure}%
@@ -378,14 +405,14 @@ In general, point A decreased on average by \SI{-66.15}{\percent} at its peak va
 	\centering
 	\begin{subfigure}[t]{0.48\textwidth}
 		\centering
-		\includegraphics[width=7cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure10a}
+		\includegraphics[height=5.5cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_6a}
 		\caption{Average plethysmography waveform during venous occlusion region 5 (\SIrange{960}{1260}{\second})}
 		\label{fig:iPG_total_baseline}
 	\end{subfigure}%
 	~ 
 	\begin{subfigure}[t]{0.48\textwidth}
 		\centering
-		\includegraphics[width=7cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure10b}
+		\includegraphics[height=5.5cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_6b}
 		\caption{Average plethysmography waveform during venous occlusion region 6 (\SIrange{1260}{1440}{\second})}
 		\label{fig:iPG_total_occlusion}
 	\end{subfigure}
@@ -397,21 +424,21 @@ In general, point A decreased on average by \SI{-66.15}{\percent} at its peak va
 	\centering
 	\begin{subfigure}[t]{0.48\textwidth}
 		\centering
-		\includegraphics[height=6cm,keepaspectratio]{figure11a2}    
+		\includegraphics[height=5.5cm,keepaspectratio,trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_7a}    
 		\caption{Change of amplitude of the waveform at point A.}
 		\label{fig:change_A_total}
 	\end{subfigure}%
 	~ 
 	\begin{subfigure}[t]{0.48\textwidth}
 		\centering
-		\includegraphics[height=6cm,keepaspectratio]{figure11b2}    
+		\includegraphics[height=5.5cm,keepaspectratio,trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_7b}    
 		\caption{Change of amplitude of the waveform at point B}
 		\label{fig:change_B_total}
 	\end{subfigure}
 	~
 	\begin{subfigure}[t]{0.48\textwidth}
 		\centering
-		\includegraphics[height=6cm,keepaspectratio]{figure11c2}    
+		\includegraphics[height=5cm,keepaspectratio,,trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_7c}    
 		\caption{Change of amplitude of the waveform at point C}
 		\label{fig:change_C_total}
 	\end{subfigure}%
