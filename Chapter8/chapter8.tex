@@ -93,65 +93,48 @@ Figure \ref{fig:iPG_venous_baseline} shows an impedance plethysmography waveform
 
 Clearly,  from a qualitative point of view, one can notice that there is a difference in the morphology of the waveform during the occlusion.  Indeed, figure \ref{fig:iPG_change_points_venous} shows the change of the amplitude at these points for every participant and the return to baseline after the cuff pressure was released. A complete analysis of the change at each point is detailed as follows.
 
-\begin{figure*}[!htbp]
+%This method allows multifigures being aligned using subcaptionbox
+\begin{figure*}
 	\centering
-	\begin{subfigure}[t]{0.48\textwidth}
-		\centering
-		\includegraphics[height=5.5cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_2a}
-		\caption{Average APA waveform for baseline region 1 (\SIrange{0}{300}{\second})}
-		\label{fig:iPG_venous_baseline}
-	\end{subfigure}%
-	~ 
-	\begin{subfigure}[t]{0.48\textwidth}
-		\centering
-		\includegraphics[height=5.5cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_2b}
-		\caption{Average APA waveform during venous occlusion region 2 (\SIrange{300}{480}{\second})}
-		\label{fig:iPG_venous_occlusion}
-	\end{subfigure}
+	\null\hfill%
+	\subcaptionbox{Average APA waveform for baseline region 1 (\SIrange{0}{300}{\second})\label{fig:iPG_venous_baseline}}
+	[0.48\textwidth]{\includegraphics[width=0.48\textwidth, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_2a}}%
+	\hfill%
+	\subcaptionbox{Average APA waveform during venous occlusion region 2 (\SIrange{300}{480}{\second})\label{fig:iPG_venous_occlusion}}
+	[0.48\textwidth]{\includegraphics[width=0.48\textwidth, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_2b}}%
+	\hfill\null%
 	\caption{Plethysmography waveform of the participant seven between baseline and venous occlusion}
 	\label{fig:iPG_venous}
+
+	\vspace{1cm}
+
+	\null\hfill%		
+	\subcaptionbox{Change of amplitude of the waveform at point A.\label{fig:change A venous}}
+	[0.48\textwidth]{\includegraphics[width=0.48\textwidth, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_3a}}%
+	\hfill%
+	\subcaptionbox{Change of amplitude of the waveform at point B.\label{fig:change B venous}}
+	[0.48\textwidth]{\includegraphics[width=0.48\textwidth, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_3b}}%
+	\hfill%
+	\subcaptionbox{Change of amplitude of the waveform at point C.\label{fig:change C venous}}
+	[0.48\textwidth]{\includegraphics[width=0.48\textwidth, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_3c}}%
+	\null%
+	\caption{Changes of the impedance peak values during baseline, venous occlusion and return to baseline for points A,B and C.}
+	\label{fig:iPG change points venous}
 \end{figure*}
 
-\begin{figure*}[!htpb]
-	\centering
-	\begin{subfigure}[t]{0.48\textwidth}
-	\centering
-		\includegraphics[height=5.5cm,keepaspectratio,trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_3a} 
-		\caption{Change of amplitude of the waveform at point A.}
-		\label{fig:change_A_venous}
-	\end{subfigure}%
-	~ 
-	\begin{subfigure}[t]{0.48\textwidth}
-		\centering
-		\includegraphics[height=5.5cm,keepaspectratio,trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_3b}    
-		\caption{Change of amplitude of the waveform at point B}
-		\label{fig:change_B_venous}
-	\end{subfigure}
-	~
-	\begin{subfigure}[t]{0.48\textwidth}
-		\centering
-		\includegraphics[height=5.5cm,keepaspectratio,trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_3c}   
-		\caption{Change of amplitude of the waveform at point C}
-		\label{fig:change_C_venous}
-	\end{subfigure}%
-	\caption{Changes of the impedance peak values during baseline, partial arterial occlusion and return to baseline for points A,B and C.}
-	\label{fig:iPG_change_points_venous}
-\end{figure*}
 
 
 \subsubsection{Changes in systolic peak (Point A)}
-\label{section apa 3.1.1}
-Most of the signals showed a change in the height of their top systolic values after inflating the cuff to the values shown in column \textit{Occlusion 1} in Table~\ref{tbl:occlusions}. After quantifying the amplitude of the signal at this point, an increase in their peak value can be seen. Indeed \SI{87}{\percent} of the participants showed an increment in resistance with an average of \SI{20.93}{\percent}, only participant 8 was an exception where impedance decreased \SI{-11.11}{\percent}. Then, when the cuff's pressure was released, all the participants showed a decline of the peak value with an average of \SI{-27.88}{\percent}, returning to similar values prior to the occlusion. Figure \ref{fig:change_A_venous} indicates the relation of change in amplitude during the three conditions. 
-
-\mynote{If using box then I have to double check the data obtained. Boxplot uses median not mean}
+\label{section apa 2.1}
+Figure \ref{fig:change A venous} shows the statistical variation of the systolic peak magnitude (point A) during the three conditions of the test baseline-occlusion-baseline. After inflating the cuff below the diastolic pressure, most of the APA signals displayed an increase of the impedance magnitude of this peak. Indeed, as detailed in table \ref{tbl:change A venous}, \SI{87}{\percent} of the participants showed an increment in electrical resistance during venous occlusion of about \SI{31.80}{\percent}, only participant 8 was an exception where his/her impedance decreased in \SI{-12.01}{\percent}. Then, when the cuff's pressure was released, all the participants showed a decline of the peak value with an average of \SI{-32.21}{\percent}, returning to similar baseline values before the venous occlusion. 
 
 \begin{table}[!htbp]
-	\caption{Change of amplitude of the waveform at peak A during the transition from baseline to venous occlusion.}
-	\label{tbl:change_A_venous}
+	\caption[Change of amplitude of the waveform at peak A during the transition baseline-venous occlusion-baseline.]{Change of amplitude of the waveform at peak A during the transition from baseline (region 1), venous occlusion (region 2) and return to baseline (region 3). The column change shows the percentile variations between the different regions.}
+	\label{tbl:change A venous}
 	\centering\small
 \begin{tabular}{l
 				*{3}{S[table-format=1.4]@{\,\( \pm \)\,}S[table-format=1.4]} %Format for Z+-std
-		       cc}
+		       >{\columncolor[gray]{0.8}}c>{\columncolor[gray]{0.9}}c}
 	\toprule
 	& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Baseline [\si{\ohm}]}}}
 	& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Occlusion [\si{\ohm}]}}}
@@ -161,31 +144,31 @@ Most of the signals showed a change in the height of their top systolic values a
 	& \multicolumn{2}{c}{}
 	& \multicolumn{2}{c}{}
 	&\textbf{R1-R2}&\textbf{R2-R3}\\\midrule
-	Participant 1    &     0.0283    &     0.0233    &     0.0342    &     0.0191    &     0.0305    &     0.0305    &      20.93\%    &     -13.29\%    \\
-	Participant 2    &     0.0491    &     0.0102    &     0.0595    &     0.0140    &     0.0449    &     0.0449    &      21.01\%    &     -29.68\%    \\
-	Participant 3    &     0.0346    &     0.0351    &     0.0374    &     0.0144    &     0.0294    &     0.0294    &       7.91\%    &     -22.89\%    \\
-	Participant 4    &     0.0252    &     0.0303    &     0.0272    &     0.0139    &     0.0222    &     0.0222    &       7.98\%    &     -19.87\%    \\
-	Participant 5    &     0.0345    &     0.0112    &     0.0481    &     0.0098    &     0.0376    &     0.0376    &      39.68\%    &     -30.69\%    \\
-	Participant 6    &     0.0233    &     0.0105    &     0.0306    &     0.0124    &     0.0251    &     0.0251    &      31.33\%    &     -23.52\%    \\
-	Participant 7    &     0.0359    &     0.0080    &     0.0537    &     0.0081    &     0.0365    &     0.0365    &      49.72\%    &     -47.78\%    \\
-	Participant 8    &     0.0237    &     0.0094    &     0.0211    &     0.0091    &     0.0127    &     0.0127    &     -11.11\%    &     -35.30\%    \\  \bottomrule
+    Participant 1 & 0.0270 & 0.0233 & 0.0353 & 0.0191 & 0.0295 & 0.0305 & 30.49 \% & -21.41 \% \\  
+	Participant 2 & 0.0485 & 0.0102 & 0.0609 & 0.0140 & 0.0462 & 0.0449 & 25.50 \% & -30.24 \% \\  
+	Participant 3 & 0.0345 & 0.0351 & 0.0397 & 0.0144 & 0.0292 & 0.0294 & 14.96 \% & -30.55 \% \\  
+	Participant 4 & 0.0214 & 0.0303 & 0.0289 & 0.0139 & 0.0197 & 0.0222 & 35.17 \% & -43.11 \% \\  
+	Participant 5 & 0.0352 & 0.0112 & 0.0485 & 0.0098 & 0.0382 & 0.0376 & 37.99 \% & -29.20 \% \\  
+	Participant 6 & 0.0232 & 0.0105 & 0.0300 & 0.0124 & 0.0249 & 0.0251 & 29.16 \% & -21.77 \% \\  
+	Participant 7 & 0.0357 & 0.0080 & 0.0534 & 0.0081 & 0.0365 & 0.0365 & 49.33 \% & -47.17 \% \\  
+	Participant 8 & 0.0238 & 0.0094 & 0.0209 & 0.0091 & 0.0128 & 0.0127 &-12.01 \% & -34.27 \% \\ \bottomrule
 \end{tabular} 
 \end{table}
 
 
 \subsubsection{Changes in dicrotic notch peak (Point B)}
-\label{section apa 3.1.2}
-The dicrotic notch point is located between the systolic and diastolic peaks. The forearm's iPG waveform looks like a dip as illustrated in figure \ref{fig:iPG_venous}. This locality in the waveform has been identified in this document as point B. 
+\label{section apa 2.2}
+The dicrotic notch (point B) is located between the systolic (point A) and diastolic peaks (point C) as represented in figure \ref{fig:markers iPG}.  Similarly, as the changes experienced by the systolic peak during this part of the experiment, the point B also increased in its magnitude. After that, when the cuff's pressure was released the amplitude at this location returned to an amplitude quite close to the baseline. 
 
-The value of this signal changed from baseline when venous occlusion occurred. After that, when cuff was deflated, all impedance peaks decreased. According to the data shown on Table \ref{tbl:change_B_venous}, one can see that most of the signals (\SI{75}{\percent}) show an increase in their value. Certainly, there was an increment in impedance with an average of \SI{29.30}{\percent}. However, partakers two and four noted a slight decrease in their values \SI{-0.47}{\percent} and \SI{-2.34}{\percent} which were not very significant compared to the others. In contrast, after releasing the pressure, all signals experience a reduction of their peak value (mean \SI{41.47}{\percent}).
+According to the data shown on Table \ref{tbl:change B venous}, one can see that most of the participants (\SI{87.5}{\percent}) showed an increase in the magnitude of their dicrotic notch point. Certainly, between those who experienced this increment, the impedance changed roughly \SI{47.73}{\percent} compared to the measurement at region 1. However, partaker two noted a slight decrease in their measured impedance \SI{-2.06}{\percent} which was not very significant compared to the others. In contrast, after releasing the upper arms blockage, all the participants experienced a drop of their point B magnitude of about  \SI{-51.68}{\percent}.
 
 \begin{table}[!htbp]
 	\caption{Change of amplitude of the waveform at peak B during the transition from baseline to venous occlusion.}
-	\label{tbl:change_B_venous}
+	\label{tbl:change B venous}
 	\centering\small
 	\begin{tabular}{l
 					*{3}{S[table-format=1.4]@{\,\( \pm \)\,}S[table-format=1.4]} %Format for Z+-std
-					cc}
+					>{\columncolor[gray]{0.8}}c>{\columncolor[gray]{0.9}}c}
 	\toprule
 	& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Baseline [\si{\ohm}]}}}
 	& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Occlusion [\si{\ohm}]}}}
@@ -195,28 +178,29 @@ The value of this signal changed from baseline when venous occlusion occurred. A
 	& \multicolumn{2}{c}{}
 	& \multicolumn{2}{c}{}
 	&\textbf{R1-R2}&\textbf{R2-R3}\\\midrule
-	Participant 1    &     0.0160    &     0.0231    &     0.0232    &     0.0195    &     0.0153    &     0.0153    &     45.07    \%      &     -49.54    \%      \\  
-	Participant 2    &     0.0383    &     0.0144    &     0.0382    &     0.0167    &     0.0252    &     0.0252    &     -0.47    \%      &     -33.78    \%      \\  
-	Participant 3    &     0.0196    &     0.0315    &     0.0311    &     0.0181    &     0.0224    &     0.0224    &     58.38    \%      &     -44.40    \%      \\  
-	Participant 4    &     0.0176    &     0.0294    &     0.0172    &     0.0149    &     0.0138    &     0.0138    &     -2.34    \%      &     -19.25    \%      \\  
-	Participant 5    &     0.0294    &     0.0158    &     0.0385    &     0.0138    &     0.0237    &     0.0237    &     31.07    \%      &     -50.37    \%      \\  
-	Participant 6    &     0.0135    &     0.0138    &     0.0189    &     0.0161    &     0.0128    &     0.0128    &     39.49    \%      &     -44.62    \%      \\  
-	Participant 7    &     0.0256    &     0.0108    &     0.0374    &     0.0092    &     0.0276    &     0.0276    &     45.94    \%      &     -38.44    \%      \\  
-	Participant 8    &     0.0108    &     0.0111    &     0.0127    &     0.0117    &     0.0071    &     0.0071    &     17.28    \%      &     -51.42    \%      \\ \bottomrule
+	Participant 1 & 0.0126 & 0.0231 & 0.0223 & 0.0195 & 0.0119 & 0.0153 & 76.94 \% & -82.52 \% \\  
+	Participant 2 & 0.0397 & 0.0144 & 0.0388 & 0.0167 & 0.0257 & 0.0252 & -2.06 \% & -33.19 \% \\  
+	Participant 3 & 0.0184 & 0.0315 & 0.0323 & 0.0181 & 0.0200 & 0.0224 & 75.98 \% & -67.36 \% \\  
+	Participant 4 & 0.0130 & 0.0294 & 0.0183 & 0.0149 & 0.0113 & 0.0138 & 40.21 \% & -53.52 \% \\  
+	Participant 5 & 0.0319 & 0.0158 & 0.0402 & 0.0138 & 0.0254 & 0.0237 & 25.92 \% & -46.26 \% \\  
+	Participant 6 & 0.0127 & 0.0138 & 0.0177 & 0.0161 & 0.0124 & 0.0128 & 39.75 \% & -41.55 \% \\  
+	Participant 7 & 0.0250 & 0.0108 & 0.0382 & 0.0092 & 0.0287 & 0.0276 & 52.71 \% & -37.97 \% \\  
+	Participant 8 & 0.0102 & 0.0111 & 0.0125 & 0.0117 & 0.0073 & 0.0071 & 22.58 \% & -51.08 \% \\   
+ \bottomrule
 	\end{tabular} 
 \end{table}
 
 \subsubsection{Changes in diastolic peak (Point C)}
-\label{section apa 3.1.3}
-The diastolic peak corresponds to point C of the waveform. Figure \ref{fig:change_C_venous} shows that there is not a clear trend compared to the other spots previously examined. In fact, three participants experienced a decline in the impedance at this point with an average drop of \SI{-11.74}{\percent} and the rest experienced an increase of impedance with an average rise of \SI{23}{\percent}. Table \ref{tbl:change_C_venous} shows the mean values of the impedance at this place. At this point, it is not possible to get a conclusion about the trend of this point of data \nknote{not sure about this prior sentence}. In contrast, after releasing the upper arm's pressure, most participants experience a decrease in their diastolic peak impedance, with an average of \SI{-24}{\percent}. Participant one was the only one that did not register any significant change. 
+\label{section apa 2.3}
+The last peak analysed corresponds to the point C or diastolic peak of the waveform. Again, figure \ref{fig:change C venous} shows that most of the participants (\SI{71.4}{\percent}) showed an increase in the magnitude at this point of about \SI{31.92}{\percent} compared to region 1. Only, participants 2 and 8 described a slight decrease of their impedance in an average of \SI{-7.97}{\percent}. Table \ref{tbl:change C venous} shows the mean values of the impedance at this location in the waveform. In contrast, after releasing the upper arm's pressure, all the participants experienced a decrease in their diastolic peak impedance, with an average of \SI{-32.33}{\percent}. Hence, the diastolic peak returned to values similar to the baseline, except for the ones that experience a decrease in resistance during the occlusion.
 
 \begin{table}[!htbp]
 	\caption{Change of amplitude of the waveform at peak C during the transition from baseline to venous occlusion.}
-	\label{tbl:change_C_venous}
+	\label{tbl:change C venous}
 	\centering\small
 	\begin{tabular}{l
 					*{3}{S[table-format=1.4]@{\,\( \pm \)\,}S[table-format=1.4]} %Format for Z+-std
-					cc}
+					>{\columncolor[gray]{0.8}}c>{\columncolor[gray]{0.9}}c}
 	\toprule
 	& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Baseline [\si{\ohm}]}}}
 	& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Occlusion [\si{\ohm}]}}}
@@ -226,14 +210,15 @@ The diastolic peak corresponds to point C of the waveform. Figure \ref{fig:chang
 	& \multicolumn{2}{c}{}
 	& \multicolumn{2}{c}{}
 	&\textbf{R1-R2}&\textbf{R2-R3}\\\midrule
-	Participant 1    &     0.0272    &     0.0281    &     0.0285    &     0.0260    &     0.0286    &     0.0286    &       4.79    \%      &       0.03    \%      \\  
-	Participant 2    &     0.0419    &     0.0150    &     0.0389    &     0.0191    &     0.0278    &     0.0278    &      -7.17    \%      &     -26.57    \%      \\  
-	Participant 3    &     0.0280    &     0.0397    &     0.0332    &     0.0219    &     0.0310    &     0.0310    &      18.37    \%      &      -7.80    \%      \\  
-	Participant 4    &     0.0225    &     0.0380    &     0.0185    &     0.0174    &     0.0178    &     0.0178    &     -17.99    \%      &      -2.94    \%      \\  
-	Participant 5    &     0.0330    &     0.0175    &     0.0452    &     0.0151    &     0.0279    &     0.0279    &      37.18    \%      &     -52.58    \%      \\  
-	Participant 6    &     0.0165    &     0.0212    &     0.0207    &     0.0251    &     0.0151    &     0.0151    &      25.96    \%      &     -34.25    \%      \\  
-	Participant 7    &     0.0294    &     0.0127    &     0.0381    &     0.0111    &     0.0309    &     0.0309    &      29.85    \%      &     -24.77    \%      \\  
-	Participant 8    &     0.0143    &     0.0140    &     0.0129    &     0.0163    &     0.0096    &     0.0096    &     -10.06    \%      &     -23.09    \%      \\  
+    Participant 1 & 0.0238 & 0.0281 & 0.0283 & 0.0260 & 0.0224 & 0.0286 & 18.81 \% & -24.75 \% \\  
+	Participant 2 & 0.0429 & 0.0150 & 0.0401 & 0.0191 & 0.0279 & 0.0278 & -6.48 \% & -28.45 \% \\  
+	Participant 3 & 0.0221 & 0.0397 & 0.0355 & 0.0219 & 0.0236 & 0.0310 & 60.85 \% & -53.94 \% \\  
+	Participant 4 & 0.0171 & 0.0380 & 0.0184 & 0.0174 & 0.0149 & 0.0178 &  7.42 \% & -20.30 \% \\  
+	Participant 5 & 0.0350 & 0.0175 & 0.0459 & 0.0151 & 0.0287 & 0.0279 & 31.16 \% & -49.18 \% \\  
+	Participant 6 & 0.0138 & 0.0212 & 0.0182 & 0.0251 & 0.0133 & 0.0151 & 31.53 \% & -35.22 \% \\  
+	Participant 7 & 0.0276 & 0.0127 & 0.0391 & 0.0111 & 0.0312 & 0.0309 & 41.77 \% & -28.58 \% \\  
+	Participant 8 & 0.0138 & 0.0140 & 0.0125 & 0.0163 & 0.0100 & 0.0096 & -9.47 \% & -18.24 \% \\  
+  
 	\bottomrule
 	\end{tabular} 
 \end{table}
@@ -241,68 +226,50 @@ The diastolic peak corresponds to point C of the waveform. Figure \ref{fig:chang
 %%********************************** % Section 5.3.2 ******************************************
 \subsection{Plethysmography waveform change during partial arterial occlusion}
 \label{section apa 3.2}
-During this type of occlusion, most of the signals also showed a modification on the height of their top systolic values. The analysis of this section resembles the baseline time in region 3 (\SIrange{480}{780}{\second}), three minutes of partial venous occlusion in region 4 (\SIrange{780}{960}{\second}) and return to baseline region 5 (\SIrange{960}{1260}{\second}). The cuff was inflated to the pressure presented in column \textit{Occlusion 2} in Table \ref{tbl:occlusions}. 
+During the partial occlusion of the brachial artery, similarly to venous occlusion, most of the participants also showed a change in the shape of their waveforms. The analysis of this section resembles the baseline time in region 3 (\SIrange{480}{780}{\second}), three minutes of partial venous occlusion in region 4 (\SIrange{780}{960}{\second}) and return to baseline region 5 (\SIrange{960}{1260}{\second}). The cuff was inflated to the pressure presented in column \textit{Occlusion 2} in Table \ref{tbl:occlusions}, laying between diastolic ans systolic pressures. 
 
-Figure \ref{fig:iPG_change_points_arterial} shows the average waveform at baseline and during occlusion for participant seven. As can be seen from the graph, it is apparent that there is an increase in the systolic peak (point A) and a reduction in the diastolic peak at point C). Figure \ref{fig:iPG_change_points_arterial} also features the impedance change in each participant. The following sections will describe in detail the changes to each of the spots. 
+Figure \ref{fig:iPG arterial} shows the average waveform of all the signals aligned at baseline and during the arm's occlusion for one of the participants. As is evident from the plot, there is an increase in the systolic peak (point A) and a reduction in the diastolic peak at point C). Figure \ref{fig:iPG change points arterial} also features the impedance change in each participant during the three regions of the experiment. The following sections will describe in detail the changes to each of the spots. 
 
-\begin{figure*}[!htbp]
+%This method allows multifigures being aligned using subcaptionbox
+\begin{figure*}
 	\centering
-	\begin{subfigure}[t]{0.48\textwidth}
-		\centering
-		\includegraphics[height=5.5cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_4a}
-		\caption{Average plethysmography waveform during venous occlusion region 3 (\SIrange{480}{780}{\second})}
-		\label{fig:iPG_arterial_baseline}
-	\end{subfigure}%
-	~ 
-	\begin{subfigure}[t]{0.48\textwidth}
-		\centering
-		\includegraphics[height=5.5cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_4b}
-		\caption{Average plethysmography waveform during venous occlusion region 4 (\SIrange{780}{960}{\second})}
-		\label{fig:iPG_arterial_occlusion}
-	\end{subfigure}
+	\null\hfill%
+	\subcaptionbox{Average plethysmography waveform during venous occlusion region 3 (\SIrange{480}{780}{\second})\label{fig:iPG arterial baseline}}
+	[0.48\textwidth]{\includegraphics[width=0.48\textwidth, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_4a}}%
+	\hfill%
+	\subcaptionbox{Average plethysmography waveform during venous occlusion region 4 (\SIrange{780}{960}{\second})\label{fig:iPG arterial occlusion}}
+	[0.48\textwidth]{\includegraphics[width=0.48\textwidth, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_4b}}%
+	\hfill\null%
 	\caption{Plethysmography waveform of the participant seven between baseline and partial arterial occlusion}
-	\label{fig:iPG_arterial}
-\end{figure*}
-
-\begin{figure*}[!htbp]
-	\centering
-	\begin{subfigure}[t]{0.48\textwidth}
-		\centering
-		\includegraphics[height=5.5cm,keepaspectratio,trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_5a}    
-		\caption{Change of amplitude of the waveform at point A.}
-		\label{fig:change_A_arterial}
-	\end{subfigure}%
-	~ 
-	\begin{subfigure}[t]{0.48\textwidth}
-		\centering
-		\includegraphics[height=5.5cm,keepaspectratio,trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_5b}    
-		\caption{Change of amplitude of the waveform at point B}
-		\label{fig:change_B_arterial}
-	\end{subfigure}
-	~
-	\begin{subfigure}[t]{0.48\textwidth}
-		\centering
-		\includegraphics[height=5.5cm,keepaspectratio,trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_5c}    
-		\caption{Change of amplitude of the waveform at point C}
-		\label{fig:change_C_arterial}
-	\end{subfigure}%
+	\label{fig:iPG arterial}
+	
+	\vspace{1cm}
+	
+	\null\hfill%		
+	\subcaptionbox{Change of amplitude of the waveform at point A.\label{fig:change A arterial}}
+	[0.48\textwidth]{\includegraphics[width=0.48\textwidth, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_5a}}%
+	\hfill%
+	\subcaptionbox{Change of amplitude of the waveform at point B.\label{fig:change B arterial}}
+	[0.48\textwidth]{\includegraphics[width=0.48\textwidth, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_5b}}%
+	\hfill%
+	\subcaptionbox{Change of amplitude of the waveform at point C.\label{fig:change C arterial}}
+	[0.48\textwidth]{\includegraphics[width=0.48\textwidth, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_5c}}%
+	\null%
 	\caption{Changes of the impedance peak values during baseline, partial arterial occlusion and return to baseline for points A,B and C.}
-	\label{fig:iPG_change_points_arterial}
+	\label{fig:iPG change points arterial}
 \end{figure*}
 
 \subsubsection{Changes in systolic peak (Point A)}
 \label{section apa 3.2.1}
-Through this occlusive event, six participants (\SI{75}{\percent}) experienced an increase in electrical resistivity at point A. The average increase was about \SI{18.10}{\percent}.  On the other hand, in the participants whose impedance decreased there was an average of \ SI {-6.77} {\ percent}. In general, one can note the growth at this point. Figure \ref{fig:change_A_arterial} shows the change in amplitude for each one. Table \ref{tbl:change_A_arterial} summarises the average impedances and the changes in each region. 
-
-After the cuff was deflated, the peak impedance of most of the participants (\SI{75}{\percent})  decreased in mean \SI{-21.13}{\percent}).  In contrast, participants three and four showed an increase in impedance of \SI{12.71}{\percent} and \SI{107.91}{\percent}. A large number of the latter being compared to its standard deviation shows that there must be noise in the signal affecting its quality.   
+Figure \ref{fig:change A arterial} indicates the change in amplitude for each one of the participants. Also, table \ref{tbl:change A arterial} summarises the average impedances and the variations in each region. Through this occlusive experiment, 7 participants (\SI{87.5}{\percent}) displayed an increase in electrical resistivity at point A of about \SI{13.52}{\percent}. However, some of these participants showed a tiny increase in their peaks between \SIrange{0.29}{2.24}{\percent}. In general, one can note the hike at this point. After the cuff was deflated, most of the participants (\SI{62.5}{\percent}) showed a decrease of the peak in an average of \SI{-21.86}{\percent}.  In contrast, participants one, three and four registered an increase in their impedance reading, being the later an outlier with an increase in his magnitude of \SI{110.69}{\percent}.
 
 \begin{table}[!htbp]
 	\caption{Change of amplitude of the waveform at peak A during the transition from baseline to venous occlusion.}
-	\label{tbl:change_A_arterial}
+	\label{tbl:change A arterial}
 	\centering\small
 	\begin{tabular}{l
-			*{3}{S[table-format=1.4]@{\,\( \pm \)\,}S[table-format=1.4]} %Format for Z+-std
-			cc}
+					*{3}{S[table-format=1.4]@{\,\( \pm \)\,}S[table-format=1.4]} %Format for Z+-std
+					>{\columncolor[gray]{0.8}}c>{\columncolor[gray]{0.9}}c}
 		\toprule
 		& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Baseline [\si{\ohm}]}}}
 		& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Occlusion [\si{\ohm}]}}}
@@ -311,32 +278,30 @@ After the cuff was deflated, the peak impedance of most of the participants (\SI
 		& \multicolumn{2}{c}{}
 		& \multicolumn{2}{c}{}
 		& \multicolumn{2}{c}{}
-		&\textbf{R1-R2}&\textbf{R2-R3}\\\midrule
-		Participant 1    &     0.0305    &     0.0194    &     0.0275    &     0.0190    &     0.0265    &     0.0265    &     -9.73    \%      &      -3.30    \%      \\  
-		Participant 2    &     0.0449    &     0.0140    &     0.0497    &     0.0197    &     0.0461    &     0.0461    &     10.74    \%      &      -8.02    \%      \\  
-		Participant 3    &     0.0294    &     0.0379    &     0.0307    &     0.0185    &     0.0356    &     0.0356    &      4.11    \%      &      16.71    \%      \\  
-		Participant 4    &     0.0222    &     0.0242    &     0.0214    &     0.0152    &     0.0453    &     0.0453    &     -3.81    \%      &     107.91    \%      \\  
-		Participant 5    &     0.0376    &     0.0133    &     0.0433    &     0.0115    &     0.0351    &     0.0351    &     15.30    \%      &     -21.83    \%      \\  
-		Participant 6    &     0.0251    &     0.0096    &     0.0272    &     0.0081    &     0.0251    &     0.0251    &      8.30    \%      &      -8.36    \%      \\  
-		Participant 7    &     0.0365    &     0.0097    &     0.0525    &     0.0092    &     0.0394    &     0.0394    &     43.53    \%      &     -35.69    \%      \\  
-		Participant 8    &     0.0127    &     0.0104    &     0.0161    &     0.0160    &     0.0098    &     0.0098    &     26.65    \%      &     -49.61    \%      \\      
+		&\textbf{R3-R4}&\textbf{R4-R5}\\\midrule
+	    Participant 1 & 0.0295 & 0.0194 & 0.0274 & 0.0190 & 0.0282 & 0.0265 & -7.03 \% &   2.59 \% \\  
+		Participant 2 & 0.0462 & 0.0140 & 0.0526 & 0.0197 & 0.0503 & 0.0461 & 13.78 \% &  -5.11 \% \\  
+		Participant 3 & 0.0292 & 0.0379 & 0.0298 & 0.0185 & 0.0354 & 0.0356 &  2.24 \% &  19.02 \% \\  
+		Participant 4 & 0.0197 & 0.0242 & 0.0198 & 0.0152 & 0.0416 & 0.0453 &  0.29 \% & 110.69 \% \\  
+		Participant 5 & 0.0382 & 0.0133 & 0.0458 & 0.0115 & 0.0357 & 0.0351 & 19.81 \% & -26.55 \% \\  
+		Participant 6 & 0.0249 & 0.0096 & 0.0282 & 0.0081 & 0.0247 & 0.0251 & 13.21 \% & -14.09 \% \\  
+		Participant 7 & 0.0365 & 0.0097 & 0.0529 & 0.0092 & 0.0388 & 0.0394 & 44.90 \% & -38.73 \% \\  
+		Participant 8 & 0.0128 & 0.0104 & 0.0128 & 0.0160 & 0.0096 & 0.0098 &  0.38 \% & -24.86 \% \\      
 		\bottomrule
 	\end{tabular} 
 \end{table}\subsubsection{Changes in dicrotic notch peak (Point B)}
 \label{section apa 3.2.2}
-In the dicrotic notch position (point B), there was a similar trend as the one seen in the systolic peak. In total, seven out of eight participants registered an increase of impedance. The average increase at the dicrotic notch was about \SI{35.52}{\percent}. Only participant four showed a  slight drop in impedance (\SI{-2.44}{\percent}).  
+In the dicrotic notch position (point B), the increase of its magnitude is clearer than in the systolic peak. In fact, all the participants depicted an increase in their impedance value at this point. Figure \ref{fig:change B arterial} evidence these shifts in each of the regions before and after the occlusion. Table \ref{fig:change B arterial} details participants' median impedances and the ratio of change in each region.
 
-When the pressure was removed, six out of eight of the study members experienced a fall in electrical resistivity. On average, it reduced by \SI{-52.39}{\percent}. Again, participant four was the exception to this reduction, as well as participant three. Their impedance rose by \SI{5.72}{\percent} and \SI{4.61}{\percent}.
-
-Figure \ref{fig:change_B_arterial} evidences these changes in each region. Table \ref{fig:change_B_arterial} details the mean impedances and the ratio of change between each region.
+In general, the average increase at the dicrotic notch as soon as the occlusion was applied was about \SI{29.91}{\percent}. When the pressure restricting the blood flow was removed, six out of eight of the study members experienced a fall in electrical resistivity towards baseline. On average, it reduced by \SI{-51.72}{\percent}. Again, participant four was the exception to this reduction, as well as participant three. Their impedance rose by \SI{37.37}{\percent} and \SI{3.25}{\percent} respectively.
 
 \begin{table}[!htbp]
 	\caption{Change of amplitude of the waveform at peak B during the transition from baseline to venous occlusion.}
-	\label{tbl:change_B_arterial}
+	\label{tbl:change B arterial}
 	\centering\small
 	\begin{tabular}{l
-			*{3}{S[table-format=1.4]@{\,\( \pm \)\,}S[table-format=1.4]} %Format for Z+-std
-			cc}
+					*{3}{S[table-format=1.4]@{\,\( \pm \)\,}S[table-format=1.4]} %Format for Z+-std
+					>{\columncolor[gray]{0.8}}c>{\columncolor[gray]{0.9}}c}
 		\toprule
 		& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Baseline [\si{\ohm}]}}}
 		& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Occlusion [\si{\ohm}]}}}
@@ -345,32 +310,32 @@ Figure \ref{fig:change_B_arterial} evidences these changes in each region. Table
 		& \multicolumn{2}{c}{}
 		& \multicolumn{2}{c}{}
 		& \multicolumn{2}{c}{}
-		&\textbf{R1-R2}&\textbf{R2-R3}\\\midrule
-		Participant 1    &     0.0153    &     0.0232    &     0.0206    &     0.0220    &     0.0087    &     0.0087    &     35.05    \%      &     -77.89    \%      \\  
-		Participant 2    &     0.0252    &     0.0142    &     0.0345    &     0.0212    &     0.0231    &     0.0231    &     36.75    \%      &     -44.93    \%      \\  
-		Participant 3    &     0.0224    &     0.0536    &     0.0234    &     0.0247    &     0.0244    &     0.0244    &      4.42    \%      &       4.61    \%      \\  
-		Participant 4    &     0.0138    &     0.0256    &     0.0135    &     0.0177    &     0.0143    &     0.0143    &     -2.44    \%      &       5.72    \%      \\  
-		Participant 5    &     0.0237    &     0.0155    &     0.0294    &     0.0107    &     0.0237    &     0.0237    &     24.19    \%      &     -24.13    \%      \\  
-		Participant 6    &     0.0128    &     0.0150    &     0.0193    &     0.0096    &     0.0141    &     0.0141    &     50.42    \%      &     -40.66    \%      \\  
-		Participant 7    &     0.0276    &     0.0128    &     0.0327    &     0.0104    &     0.0205    &     0.0205    &     18.66    \%      &     -44.28    \%      \\  
-		Participant 8    &     0.0071    &     0.0118    &     0.0127    &     0.0196    &     0.0069    &     0.0069    &     79.15    \%      &     -82.44    \%      \\    
+		&\textbf{R3-R4}&\textbf{R4-R5}\\\midrule
+		Participant 1 & 0.0119 & 0.0232 & 0.0162 & 0.0220 & 0.0083 & 0.0087 & 36.07 \% & -66.02 \% \\  
+		Participant 2 & 0.0257 & 0.0142 & 0.0354 & 0.0212 & 0.0251 & 0.0231 & 38.02 \% & -40.44 \% \\  
+		Participant 3 & 0.0200 & 0.0536 & 0.0222 & 0.0247 & 0.0229 & 0.0244 & 11.33 \% &   3.25 \% \\  
+		Participant 4 & 0.0113 & 0.0256 & 0.0116 & 0.0177 & 0.0158 & 0.0143 &  2.64 \% &  37.37 \% \\  
+		Participant 5 & 0.0254 & 0.0155 & 0.0314 & 0.0107 & 0.0248 & 0.0237 & 23.55 \% & -26.29 \% \\  
+		Participant 6 & 0.0124 & 0.0150 & 0.0197 & 0.0096 & 0.0121 & 0.0141 & 58.95 \% & -61.59 \% \\  
+		Participant 7 & 0.0287 & 0.0128 & 0.0340 & 0.0104 & 0.0211 & 0.0205 & 18.34 \% & -44.99 \% \\  
+		Participant 8 & 0.0073 & 0.0118 & 0.0110 & 0.0196 & 0.0058 & 0.0069 & 50.41 \% & -71.01 \% \\      
 \bottomrule
 	\end{tabular} 
 \end{table}
 
 \subsubsection{Changes in diastolic peak (Point C)}
 \label{section apa 3.2.3}
-Changes in the diastolic peak also presented a similar trend as seen in points A and B. However; the changes were not as marked as the ones seen before. Figure \ref{fig:change_C_arterial} and Table \ref{tbl:change_C_arterial} summarise the values obtained. In total, \SI{62.5}{\percent} showed an increase of impedance between region 3 and 4. It increased with a median of \SI{21.68}{\percent}. Participant eight showed a change significantly larger than the mean (\SI{71.41}{\percent}). Others study members pointed a decrease of electrical resistivity in \SI{-14.71}{\percent} on average.  
+Changes in the diastolic peak also presented a similar increasing trend as seen in points A and B. However; the changes were not as marked as the ones seen in the dicrotic notch. Figure \ref{fig:change C arterial} and Table \ref{tbl:change C arterial} summarise the values obtained. In total, \SI{75}{\percent} of the participants showed an increase of impedance between region 3 and 4. It increased with a median of \SI{18.74}{\percent}. Participant eight showed a change significantly larger than the mean (\SI{44.11}{\percent}). Study members one and seven pointed a decrease of electrical resistivity in \SI{-19.91}{\percent} on average.  
 
-On the opposite side of the exercise, after releasing the pressure, a similar number of partakers whose peak increased showed a reduction in impedance (\SI{62.5}{\percent}).  However, these were different members. On average, impedance reduced by \SI{-25.56}{\percent} in total. Again, participant eight showed a greater ratio of change significantly exceeding the mean. On the other hand, participants that exhibited an increase of impedance, the average was \SI{25.23}{\percent}. Participant four outperformed notably the average ratio (\SI{66.03}{\percent}).
+On the opposite side of the exercise, after releasing the pressure, (\SI{87.5}{\percent}) of the partakers showed a reduction in their impedance, including those whose impedance rose during the occlusion. On average, impedance reduced by \SI{-19.77}{\percent} in total. Again, participant four showed an increase in the ratio of change before and after the blockage significantly exceeding the median of all the measurements. Moreover, this study member outperformed notably the average ratio after the occlusion (\SI{90.32}{\percent}). As portrayed by the other measuring points, this confirms that the data obtained from this study member were not from physiological origin but motion or randomness. 
 
 \begin{table}[!htbp]
 	\caption{Change of amplitude of the waveform at peak C during the transition from baseline to venous occlusion.}
-	\label{tbl:change_C_arterial}
+	\label{tbl:change C arterial}
 	\centering\small
 	\begin{tabular}{l
-			*{3}{S[table-format=1.4]@{\,\( \pm \)\,}S[table-format=1.4]} %Format for Z+-std
-			cc}
+					*{3}{S[table-format=1.4]@{\,\( \pm \)\,}S[table-format=1.4]} %Format for Z+-std
+					>{\columncolor[gray]{0.8}}c>{\columncolor[gray]{0.9}}c}
 		\toprule
 		& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Baseline [\si{\ohm}]}}}
 		& \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Occlusion [\si{\ohm}]}}}
@@ -379,16 +344,15 @@ On the opposite side of the exercise, after releasing the pressure, a similar nu
 		& \multicolumn{2}{c}{}
 		& \multicolumn{2}{c}{}
 		& \multicolumn{2}{c}{}
-		&\textbf{R1-R2}&\textbf{R2-R3}\\\midrule
-		Participant 1    &     0.0286    &     0.0323    &     0.0253    &     0.0307    &     0.0206    &     0.0206    &     -11.44    \%      &     -16.31    \%      \\  
-		Participant 2    &     0.0278    &     0.0196    &     0.0312    &     0.0272    &     0.0252    &     0.0252    &      12.45    \%      &     -21.78    \%      \\  
-		Participant 3    &     0.0310    &     0.0826    &     0.0268    &     0.0284    &     0.0283    &     0.0283    &     -13.49    \%      &       4.71    \%      \\  
-		Participant 4    &     0.0178    &     0.0327    &     0.0189    &     0.0229    &     0.0306    &     0.0306    &       5.94    \%      &      66.03    \%      \\  
-		Participant 5    &     0.0279    &     0.0171    &     0.0298    &     0.0119    &     0.0287    &     0.0287    &       6.74    \%      &      -3.96    \%      \\  
-		Participant 6    &     0.0151    &     0.0252    &     0.0169    &     0.0111    &     0.0176    &     0.0176    &      11.86    \%      &       4.96    \%      \\  
-		Participant 7    &     0.0309    &     0.0189    &     0.0249    &     0.0124    &     0.0232    &     0.0232    &     -19.19    \%      &      -5.65    \%      \\  
-		Participant 8    &     0.0096    &     0.0139    &     0.0164    &     0.0224    &     0.0087    &     0.0087    &      71.41    \%      &     -80.09    \%      \\  
-
+		&\textbf{R3-R4}&\textbf{R4-R5}\\\midrule
+	    Participant 1 & 0.0224 & 0.0323 & 0.0176 & 0.0307 & 0.0171 & 0.0206 & -21.35 \% &  -2.21 \% \\  
+		Participant 2 & 0.0279 & 0.0196 & 0.0295 & 0.0272 & 0.0250 & 0.0252 &   5.96 \% & -16.45 \% \\  
+		Participant 3 & 0.0236 & 0.0826 & 0.0275 & 0.0284 & 0.0256 & 0.0283 &  16.56 \% &  -7.98 \% \\  
+		Participant 4 & 0.0149 & 0.0327 & 0.0166 & 0.0229 & 0.0301 & 0.0306 &  11.22 \% &  90.32 \% \\  
+		Participant 5 & 0.0287 & 0.0171 & 0.0308 & 0.0119 & 0.0293 & 0.0287 &   7.32 \% &  -5.03 \% \\  
+		Participant 6 & 0.0133 & 0.0252 & 0.0174 & 0.0111 & 0.0123 & 0.0176 &  30.32 \% & -37.72 \% \\  
+		Participant 7 & 0.0312 & 0.0189 & 0.0254 & 0.0124 & 0.0241 & 0.0232 & -18.48 \% &  -4.27 \% \\  
+		Participant 8 & 0.0100 & 0.0139 & 0.0141 & 0.0224 & 0.0076 & 0.0087 &  41.11 \% & -64.75 \% \\  
 		\bottomrule
 	\end{tabular} 
 \end{table}
@@ -401,47 +365,31 @@ However, participant four experienced different behaviour in all these points. T
 
 In general, point A decreased on average by \SI{-66.15}{\percent} at its peak value occlusion. Then when the pressure was released, impedance recovered its value in \SI{75.98}{\percent}. A similar event occurred with point B; peak signals dropped a median of \SI{-63.29}{\percent} during blockage and recovered on average by \SI{74.02}{\percent}. Similarly, point C, decreased on average by \SI{-50.27}{\percent}  and increased by \SI{58.71}{\percent} after the occlusion.
 
-\begin{figure*}[!htbp]
+%This method allows multifigures being aligned using subcaptionbox
+\begin{figure*}
 	\centering
-	\begin{subfigure}[t]{0.48\textwidth}
-		\centering
-		\includegraphics[height=5.5cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_6a}
-		\caption{Average plethysmography waveform during venous occlusion region 5 (\SIrange{960}{1260}{\second})}
-		\label{fig:iPG_total_baseline}
-	\end{subfigure}%
-	~ 
-	\begin{subfigure}[t]{0.48\textwidth}
-		\centering
-		\includegraphics[height=5.5cm, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_6b}
-		\caption{Average plethysmography waveform during venous occlusion region 6 (\SIrange{1260}{1440}{\second})}
-		\label{fig:iPG_total_occlusion}
-	\end{subfigure}
+	\null\hfill%
+	\subcaptionbox{Average plethysmography waveform during venous occlusion region 5 (\SIrange{960}{1260}{\second})\label{fig:iPG_total_baseline}}
+	[0.48\textwidth]{\includegraphics[width=0.48\textwidth, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_6a}}%
+	\hfill%
+	\subcaptionbox{Average plethysmography waveform during venous occlusion region 6 (\SIrange{1260}{1440}{\second})\label{fig:iPG_total_occlusion}}
+	[0.48\textwidth]{\includegraphics[width=0.48\textwidth, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_6b}}%
+	\hfill\null%
 	\caption{Plethysmography waveform of the participant seven between baseline and total occlusion}
 	\label{fig:iPG_total}
-\end{figure*}
-
-\begin{figure*}[!htbp]
-	\centering
-	\begin{subfigure}[t]{0.48\textwidth}
-		\centering
-		\includegraphics[height=5.5cm,keepaspectratio,trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_7a}    
-		\caption{Change of amplitude of the waveform at point A.}
-		\label{fig:change_A_total}
-	\end{subfigure}%
-	~ 
-	\begin{subfigure}[t]{0.48\textwidth}
-		\centering
-		\includegraphics[height=5.5cm,keepaspectratio,trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_7b}    
-		\caption{Change of amplitude of the waveform at point B}
-		\label{fig:change_B_total}
-	\end{subfigure}
-	~
-	\begin{subfigure}[t]{0.48\textwidth}
-		\centering
-		\includegraphics[height=5cm,keepaspectratio,,trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_7c}    
-		\caption{Change of amplitude of the waveform at point C}
-		\label{fig:change_C_total}
-	\end{subfigure}%
+	
+	\vspace{1cm}
+	
+	\null\hfill%		
+	\subcaptionbox{Change of amplitude of the waveform at point A.\label{fig:change_A_total}}
+	[0.48\textwidth]{\includegraphics[width=0.48\textwidth, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_7a}}%
+	\hfill%
+	\subcaptionbox{Change of amplitude of the waveform at point B.\label{fig:change_B_total}}
+	[0.48\textwidth]{\includegraphics[width=0.48\textwidth, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_7b}}%
+	\hfill%
+	\subcaptionbox{Change of amplitude of the waveform at point C.\label{fig:change_C_total}}
+	[0.48\textwidth]{\includegraphics[width=0.48\textwidth, trim={0.5cm 0cm 1.5cm 0 cm}, clip]{figure_apa_7c}}%
+	\null%
 	\caption{Changes of the impedance peak values during baseline, total occlusion and return to baseline for points A,B and C.}
 	\label{fig:iPG_change_points_total}
 \end{figure*}
