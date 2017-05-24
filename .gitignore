@@ -1,4 +1,5 @@
 Readings/
+*.nlg
 *.tex~
 *.fdb_latexmk
 *.fls
