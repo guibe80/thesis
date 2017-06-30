@@ -1,132 +1,97 @@
 %!TEX root = ../thesis.tex
 % ******************************* Thesis Appendix A ****************************
-\chapter{How to install \LaTeX} 
-
-\section*{Windows OS}
-
-\subsection*{TeXLive package - full version}
-\begin{enumerate}
-\item	Download the TeXLive ISO (2.2GB) from\\
-\href{https://www.tug.org/texlive/}{https://www.tug.org/texlive/}
-\item	Download WinCDEmu (if you don't have a virtual drive) from \\
-\href{http://wincdemu.sysprogs.org/download/}
-{http://wincdemu.sysprogs.org/download/}
-\item	To install Windows CD Emulator follow the instructions at\\
-\href{http://wincdemu.sysprogs.org/tutorials/install/}
-{http://wincdemu.sysprogs.org/tutorials/install/}
-\item	Right click the iso and mount it using the WinCDEmu as shown in \\
-\href{http://wincdemu.sysprogs.org/tutorials/mount/}{
-http://wincdemu.sysprogs.org/tutorials/mount/}
-\item	Open your virtual drive and run setup.pl
-\end{enumerate}
-
-or
-
-\subsection*{Basic MikTeX - \TeX~ distribution}
-\begin{enumerate}
-\item	Download Basic-MiK\TeX (32bit or 64bit) from\\
-\href{http://miktex.org/download}{http://miktex.org/download}
-\item	Run the installer 
-\item	To add a new package go to Start >> All Programs >> MikTex >> Maintenance (Admin) and choose Package Manager
-\item	Select or search for packages to install
-\end{enumerate}
-
-\subsection*{TexStudio - \TeX~ editor}
-\begin{enumerate}
-\item	Download TexStudio from\\
-\href{http://texstudio.sourceforge.net/\#downloads}
-{http://texstudio.sourceforge.net/\#downloads} 
-\item	Run the installer
-\end{enumerate}
-
-\section*{Mac OS X}
-\subsection*{MacTeX - \TeX~ distribution}
-\begin{enumerate}
-\item	Download the file from\\
-\href{https://www.tug.org/mactex/}{https://www.tug.org/mactex/}
-\item	Extract and double click to run the installer. It does the entire configuration, sit back and relax.
-\end{enumerate}
-
-\subsection*{TexStudio - \TeX~ editor}
-\begin{enumerate}
-\item	Download TexStudio from\\
-\href{http://texstudio.sourceforge.net/\#downloads}
-{http://texstudio.sourceforge.net/\#downloads} 
-\item	Extract and Start
-\end{enumerate}
+\chapter{Schematics of the iPG instrument} 
 
 
-\section*{Unix/Linux}
-\subsection*{TeXLive - \TeX~ distribution}
-\subsubsection*{Getting the distribution:}
-\begin{enumerate}
-\item	TexLive can be downloaded from\\
-\href{http://www.tug.org/texlive/acquire-netinstall.html}
-{http://www.tug.org/texlive/acquire-netinstall.html}.
-\item	TexLive is provided by most operating system you can use (rpm,apt-get or yum) to get TexLive distributions
-\end{enumerate}
+\ifpdf
+\graphicspath{{Appendix1/Figs/Raster/}{Appendix1/Figs/PDF/}{Appendix1/Figs/}}
+\else
+\graphicspath{{Appendix1/Figs/Vector/}{Appendix1/Figs/}}
+\fi
 
-\subsubsection*{Installation}
-\begin{enumerate}
-\item	Mount the ISO file in the mnt directory
-\begin{verbatim}
-mount -t iso9660 -o ro,loop,noauto /your/texlive####.iso /mnt
-\end{verbatim}
+\section*{Power supply}
+\label{Appendix: Power Supply}
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=0.55\paperwidth,keepaspectratio, angle=90]{power_supply_top}
+	\caption[Top-up view of the power supply]{Top-up view of the power supply. Each box represents the Voltage regulators circuits. The schematic also includes indicators LED, switches and output ports.}
+	\label{fig:schematic PS}
+\end{figure}
 
-\item	Install wget on your OS (use rpm, apt-get or yum install)
-\item	Run the installer script install-tl.
-\begin{verbatim}
-	cd /your/download/directory
-	./install-tl
-\end{verbatim}
-\item	Enter command `i' for installation
+\begin{landscape}
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=\paperwidth,keepaspectratio]{power_supply_12}
+	\caption[Schematic of the \SI{12}{\volt} voltage regulator]{The schematic shows the configuration of the voltage regulator LM317, the resistors selected set the output voltage at \SI{12}{\volt}. The capacitors filter ripples from the batteries.}
+	\label{fig:schematic PS 12}
+\end{figure}
+\end{landscape}
 
-\item	Post-Installation configuration:\\
-\href{http://www.tug.org/texlive/doc/texlive-en/texlive-en.html\#x1-320003.4.1}
-{http://www.tug.org/texlive/doc/texlive-en/texlive-en.html\#x1-320003.4.1} 
-\item	Set the path for the directory of TexLive binaries in your .bashrc file
-\end{enumerate}
+\begin{landscape}
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=\paperwidth,keepaspectratio]{power_supply_N12}
+	\caption[Schematic of the -\SI{12}{\volt} voltage regulator]{The schematic shows the configuration of the voltage regulator LM337, the resistors selected set the output voltage at -\SI{12}{\volt}. The capacitors filter noise peaks.}
+	\label{fig:schematic PS N12}
+\end{figure}
+\end{landscape}
 
-\subsubsection*{For 32bit OS}
-For Bourne-compatible shells such as bash, and using Intel x86 GNU/Linux and a default directory setup as an example, the file to edit might be \begin{verbatim}
-edit $~/.bashrc file and add following lines
-PATH=/usr/local/texlive/2011/bin/i386-linux:$PATH; 
-export PATH 
-MANPATH=/usr/local/texlive/2011/texmf/doc/man:$MANPATH;
-export MANPATH 
-INFOPATH=/usr/local/texlive/2011/texmf/doc/info:$INFOPATH;
-export INFOPATH
-\end{verbatim}
-\subsubsection*{For 64bit OS}
-\begin{verbatim}
-edit $~/.bashrc file and add following lines
-PATH=/usr/local/texlive/2011/bin/x86_64-linux:$PATH;
-export PATH 
-MANPATH=/usr/local/texlive/2011/texmf/doc/man:$MANPATH;
-export MANPATH 
-INFOPATH=/usr/local/texlive/2011/texmf/doc/info:$INFOPATH;
-export INFOPATH
-
-\end{verbatim}
+\begin{landscape}
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=\paperwidth,keepaspectratio]{power_supply_5}
+	\caption[Schematic of the \SI{5}{\volt} voltage regulator]{The schematic shows the configuration of the voltage regulator AL117E50G, the output is fixed to \SI{5}{\volt}. The capacitors filter noises from the power bank.}
+	\label{fig:schematic PS 5}
+\end{figure}
+\end{landscape}
 
 
-
-%\subsection{Installing directly using Linux packages} 
-\subsubsection*{Fedora/RedHat/CentOS:}
-\begin{verbatim} 
-sudo yum install texlive 
-sudo yum install psutils 
-\end{verbatim}
-
-
-\subsubsection*{SUSE:}
-\begin{verbatim}
-sudo zypper install texlive
-\end{verbatim}
+\section*{DDS}
+\label{Appendix: DDS PS}
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=0.9\paperwidth,keepaspectratio,angle=90]{DDS_power_supply}
+	\caption[Schematic of the Power supply of the DDS]{The power supply circuit provides 3 different voltages \SI{5}{\volt} for analogue and digital circuitry, and \SI{3}{\volt} for voltage reference. There are three different ground paths for each source. }
+	\label{fig:DDS PS}
+\end{figure}
 
 
-\subsubsection*{Debian/Ubuntu:}
-\begin{verbatim} 
-sudo apt-get install texlive texlive-latex-extra 
-sudo apt-get install psutils
-\end{verbatim}
+\begin{landscape}
+	\begin{figure}[!htpb]
+		\centering
+		\includegraphics[width=\paperwidth,keepaspectratio]{DDS}
+		\caption[Direct digital synthesis circuit schematic]{Schematic of the AD5930, it includes the \SI{50}{\mega\hertz} oscillator and output filters.}
+		\label{fig:DDS}
+	\end{figure}
+\end{landscape}
+
+\section*{Differential gain amplifier}
+\label{Appendix: DGA}
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=0.9\paperwidth,keepaspectratio,angle=90]{DGA}
+	\caption[Schematic of the differential gain amplifier circuit]{Differential gain amplifier controlled by 4 position dip-switch adjusting the gain of the signal output.}
+	\label{fig:DGA}
+\end{figure}
+
+\begin{landscape}
+	\begin{figure}[!htpb]
+		\centering
+		\includegraphics[width=\paperwidth,keepaspectratio]{DDS_PS_6}
+		\caption[Positive power supply (\SI{6}{\volt}) for the differential amplifier]{Power supply circuit based on the IC LF60CDT.}
+		\label{fig:DGA PS 6}
+	\end{figure}
+\end{landscape}
+
+\begin{landscape}
+	\begin{figure}[!htpb]
+		\centering
+		\includegraphics[width=\paperwidth,keepaspectratio]{DDS_PS_N6}
+		\caption[Negative power supply (\SI{-6}{\volt}) for the differential amplifier]{Power supply circuit based on the IC LM337, the resistors were adjusted to achieve -\SI{6}{\volt}.}
+		\label{fig:DGA PS -6}
+	\end{figure}
+\end{landscape}
+
+\section*{Modified Howland circuit}
+
+\section*{Voltage sense circuit}

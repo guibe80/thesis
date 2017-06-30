@@ -80,17 +80,15 @@ Finally, the waveform obtained from impedance plethysmography can also be applie
 
 As it can be noticed, there are multiple applications where impedance plethysmography can be applied, but so far this has been achieved by devices that can only provide only either basal impedance (DC), waveform (AC) and single channel application. The aim of this work is to design a device that can be used for any to study any of the previous applications using a single apparatus. This device should be able to provide the characteristics described in a multi-channel device.  
 
-
 \section{Material and methods}
-Designing an impedance device requires knowing the characteristics requires for the measurements. Nonetheless, some of the recommendations should start with meeting patient's safety. Meaning, that the amount of current to be driven by the device should be imperceptible within the limits of the safety standards. For this, one of the first recommendation is to be able to operate by batteries as a class B device. Ensuring that the currents are floating in the patient also guarantying current flow will be through the segment to be studied. Levels of current sensation changes from person–to–person, sex and depend on the electrode's geometry. However, Brown et al.~\cite{brown1998medical} has established a threshold current which is frequency dependent where \SI{5}{\mA} represent the limit for sensory nerve stimulation and shock sensation. The device designed can deliver four levels of current using a dip-switch (\SIlist{1;2;3;4}{\mA}). For the experiment of this document, the current was fixed to \SI{4}{\mA} which provided and accepted sensitivity for the system. 
+Designing an impedance device requires knowing the electrical characteristics of the load under test. Nonetheless, some of the recommendations should start with meeting patient's safety. Meaning, that the amount of current to be driven by the device should be imperceptible within the limits of the safety standards. For this, one of the first recommendation is to be able to operate by batteries as a class B device, ensuring that electrical currents are floating in the patient and also guarantying that current will be flowing through the segment to be studied. Levels of current sensation change from person–to–person, sex and also depends on the electrode's geometry. However, Brown et al.~\cite{brown1998medical} has established a threshold current which is frequency dependent where \SI{5}{\mA} represent the limit for sensory nerve stimulation and shock sensation. The device designed can deliver four levels of current using a dip-switch (\SIlist{1;2;3;4}{\mA}). For the experiment of this document, the current was fixed to \SI{4}{\mA} which provided and an excellent sensitivity for the system. 
 
-About the current delivered by the device, a programmable wave generator with the capacity of delivering up to 10 MHz sinusoidal waveform was included into the design. However, per the literature measuring impedance plethysmography can be achieved with frequencies between \SIrange[scientific-notation = engineering]{20}{200000}{\hertz}. A sinusoidal wave of \SI{50}{\kilo\hertz} was used during the presented test. 
+About the electrical current delivered by the device, a programmable wave generator with the potential of delivering up to 10 MHz sinusoidal waveforms was incorporated into the design. However, as per the literature measuring impedance plethysmography can be achieved with frequencies between \SIrange[scientific-notation = engineering]{20}{200000}{\hertz}. Therefore, a sinusoidal wave of \SI{50}{\kilo\hertz} was used during the experimental procedure.
 
-There are two kinds of impedance plethysmography method according to the electrode topology, bipolar and tetrapolar. Bipolar lacks two electrodes points to measure impedance. Tetrapolar configuration requires four contact points, a pair of electrodes injects current and another couple sense voltage. Using tetrapolar arrangement minimises the voltage drop during measurements because the potential sensing amplifier ideally has a bigger impedance compared to the interface electrode-skin. Therefore, electrical current would not flow between electrodes and the voltage amplifier. For this reason, four electrodes measurement was decided as the optimal method while designing the instrument. 
+\subsection{Electrodes topology and location}
+There are two kinds of impedance plethysmography method according to the electrode topology, bipolar and tetrapolar. Bipolar lacks two electrodes points to measure impedance. When measuring with bipolar electrodes arises a problem where the impedance of the electrodes might be greater than the biological tissue itself which can affect the measurement significantly. In the majority of the cases, it is quite difficult to differentiate the electrode's impedance from the tissue one \cite{brown2000bipolar}. Tetrapolar configuration requires four contact points, a pair of electrodes injects current and another couple sense voltage. Using tetrapolar arrangement minimises the voltage drop during measurements because the potential sensing amplifier ideally has a bigger impedance compared to the interface electrode-skin. Therefore, electrical current would not flow between electrodes and the voltage amplifier. For this reason, four electrodes measurement was decided as the optimal method while designing the instrument. 
 
-\mynote{Add a reference about comparison of bipolar and tetrapolar}
-
-Electrodes location was based on the closeness to the main blood vessel and were placed as shown in Figure~\ref{fig:electrode}. According to the arm anatomy, the radial artery is the proper site to use for one of the current electrodes. The other was placed close to the brachial artery, being the elbow region the most accessible area. The sensing electrodes were placed right on the elbow where is the nearest point to the brachial artery that is connected to the radial artery forming the ideal loop to detect changed in impedance $\Delta Z$. 
+Positioning the electrodes close to the main vessel improves the response of the system as the there is more conductive material where the electrical current can flow through. Figure~\ref{fig:electrode} shows in more detail the position of the electrodes to take measurements from the device. According to the arm anatomy, the radial artery is the proper site to use for one of the current electrodes. The other was placed close to the brachial artery around the cubital fossa region where this vessel is closer to the surface. The sensing electrodes were placed right on the elbow where is the nearest point to the brachial artery that is connected to the radial artery forming the ideal loop to detect changes in impedance $\Delta Z$.  
 
 \begin{figure}[!htpb]
 	\centering
@@ -110,13 +108,64 @@ The proposed system can be subdivided into two different sections, front–end w
 
 \mynote{I need to add ports names of the device}
 
+\subsection{Power supply}
+Implementing a good design requires good power supplies that could provide steady voltage output and supply enough current as needed by the circuitry. Due to the need of applying floating currents, a power supply was designed to operate with batteries minimising ground loops and increasing patient's safety.  The selection of this method of supplying power lessens the likelihood of electric shocks as well as reaching dangerous voltage levels. For these reasons, a couple of batteries A512/2 S (Sonnenschein) were used to power all the circuits. These cells provide \SI{2}{\ampere\hour} of capacity per bank.
+
+Some of the unique features needed for the power supply includes the capability of providing a dual voltage (\SI{\pm 12}{\volt}) as some Op–Amps require this level of supply to achieve maximum gain and low energy supply (\SI{5}{\volt}) essential for some digital components. The positive and negative voltages can be obtained by using one cell bank with normal polarisation and the other inverted. 
+
+In summary, the following table describes the characteristics and IC's used in the power supply module. Including level voltages, output current per channel and the specific function of each voltage level. 
+
+\begin{table}[!htpb]
+	\caption{Components of the Power Supply and its functions}
+	\centering
+	\label{table:power supply details}
+	\begin{tabular}{p{2 cm} p{2 cm} c p{6 cm}}
+		\toprule
+		\textbf{Voltage supply} & \textbf{Current supply} & \textbf{IC} & \textbf{Function} \\ 
+		\midrule
+		+\SI{12}{\volt} & \SI{1.5}{\ampere} & LM317 & Power supply for single and dual Op-Amps, In-Amps and as power supply for +\SI{5}{\volt} \\ 
+		\midrule 
+		-\SI{12}{\volt} & \SI{1.5}{\ampere} & LM337 & Negative power supply for single and dual Op-Amps and In-Amps \\ 
+		\midrule 
+		\SI{5}{\volt} & \SI{100}{\milli\ampere} & AP117E50G & Power supply for digital components working at TTL level \\ 
+		\bottomrule 
+	\end{tabular}
+\end{table}
+
+The schematic circuits for the power supply designed are shown in the appendix \ref{Appendix: Power Supply}, figure \ref{Appendix: Power Supply}. To operate the iPG device requires positive (VIN+) and negative (VIN–) supplies that can be provided by any external power, for safety batteries was the source of choice. The table \ref{table:power supply details} shows the components employed in the implementation, which operates within the desired appropriate range required by the device. The regulators LM3XX are voltage variable regulators. However, their output was set to \SI{\pm 12}{\volt} for each source, using the appropriate selection of resistors. The capacitors added to each of the regulators were selected according to the manufacturer’s recommendation to avoid any ripple at the output voltage.
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=7.5 cm,keepaspectratio]{figure_PS}
+	\caption{3D View of the Power Supply designed}
+	\label{fig:3D PS}
+\end{figure}
+
+In Altium Designer a PCB of \SI{50}{\milli\meter} x \SI{50}{\milli\meter} was produced considering input and ports as well as indicators and sensors. For instance, the ports included three input voltage pins VIN+, VIN– and ground (GND) coming from the batteries, an eight-pin male connector that provides regulated board to the next board. The indicators and sensors included a dip-switch working as power ON/OFF button, a set of three red-LED indicating the power of +\SI{12}{\volt}, -\SI{12}{\volt} and \SI{5}{\volt}, a three-pin port that connects to the ADC port of the microcontroller which monitors the batteries capacity. It also includes additional regulated voltage ports to feed other external modules.
+
+The final result can be appreciated in \ref{fig:3D PS}, where the 3D model representation from Altium design and the final PCB manufactured using LPKF machine are displayed side by side. \mynote{Check if I want to add the real picture}
+
+
 \subsection{Direct digital synthesis (DDS)}
-Following the block diagram from left to right, the whole system will be described. The first stage part of the diagram shows the wave generator. This signal was created using a programmable direct digital synthesis (DDS) integrated circuit (IC) which is capable of producing sine waves from \SI{10}{\hertz} to \SI{10}{\mega\hertz}. The DDS is controlled by a microcontroller ATMEL (Arduino) that send commands via serial peripheral interface bus (SPI) transmission interface (SPI) to set the oscillation frequency and start/stop the wave. The signal generated by the DDS is differential meaning that produces two sine waves in counter-phase (\SIlist{0;180}{\degree}). The DDS provides a current output of \SI{3}{\mA} which is transformed to an electrical voltage using a \SI{330}{\ohm} resistor at the output of the IC, setting the output at \SI{990}{\mV}. 
+Following the block diagram from left to right on figure \ref{fig:block}, the first part shows the wave generator. This section of the circuit produces the sinusoidal wave needed for the impedance measurements. This waveform should be low in distortion and noise. This signal was created using a programmable direct digital synthesis (DDS) integrated circuit (IC) which is capable of producing sine waves from \SI{10}{\hertz} to \SI{10}{\mega\hertz}. The IC used is the AD5930 (Analogue devices). In short, a DDS creates a wave according to a table of digital words in memory which are fed to a DAC that produces the analogue equivalent. This IC requires a set of instruction to operate. 
+
+In the appendix \ref{Appendix: DDS PS}, the figure \ref{fig:DDS PS} shows the schematic used in the design of the wave generator. Due to the noise that a digital circuit would feed into an analogue system, a separate power supply powers up this module. For this two voltage regulators (AP117E50G) provide \SI{5}{\volt} sources of energy for digital and analogue components, using two separated ground paths (GND - AGND). Also, a \SI{3}{\volt} reference is needed for the oscillator to operate which is supplied by the IC REF196. The DDS requires an external clock to work. Therefore a \SI{50}{\mega\hertz} oscillator provides the clock signal needed.
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=7.5 cm,keepaspectratio]{figure_DDS}
+	\caption{3D representation of the DDS module PCB}
+	\label{fig:3D DDS}
+\end{figure}
+
+A microcontroller ATMEL (Arduino) controls the DDS sending commands via serial peripheral interface bus (SPI) transmission interface. Through an instruction set by the manufacturer, it is possible to set the oscillation frequency of the sine wave, as well as start/stop the signal generation. The waveform generated by the DDS is differential, meaning that there are two sine waves outputs in counter-phase (\SIlist{0;180}{\degree}). The DDS provides a current output of \SI{3}{\mA} which is transformed to an electrical voltage using a \SI{200}{\ohm} resistor at the output of the IC, setting the output at approximately \SI{600}{\mV}. A set of capacitors also filters high-frequency noises. The connection between the microcontroller and other boards is possible using ribbon cables. The figure \ref{fig:3D DDS} shows the 3D representation of PCB module manufactured.
 
 \subsection{Differential amplifier gain}
 The following stage consists of a differential voltage amplifier. The gain of this amplifier can be modified by using a set of resistors at each side of the amplifier and can be set to 16 different combinations of gain using resistors of \SIlist{2;3;5;6}{\kohm}. As a result, DDS’ output voltage changes according to gain set in the differential amplifier. 
 
 \subsection{Modified Howland Amplifier}
+
+
 Then a transconductance amplifier is used to convert the voltage coming out from the differential amplifier into an electrical current. By driving current instead of voltage, a greater control is achieved because only the current selected will be passing through the patient. The configuration chosen is a modified Howland circuit set to \SI{1}{\milli\siemens} of gain.
  
 The Op–Amp selected for this design was the AD8066 (Analog Devices); which is a dual Op–Amp that offers high bandwidth of \SI{145}{\mega\hertz}, high input impedance of \SI{1000}{\giga\ohm} @ \SI{4.5}{\pF}, low noise of \SI{7}{\nano\volt\per\sqrt{Hz}} at \SI{10}{\kilo\hertz}, open loop gain of \SI{113}{\decibel} and CMMR of -\SI{100}{\decibel}~\cite{ad:AD8066}. All these characteristics made this Op–Amp ideal choice implementing MHC.
