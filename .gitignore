@@ -1,4 +1,8 @@
 Readings/
+*.docx
+*.doc
+*.xls
+*.xlsx
 *.nlg
 *.tex~
 *.fdb_latexmk
