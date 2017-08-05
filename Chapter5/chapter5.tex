@@ -12,9 +12,9 @@
     \graphicspath{{Chapter5/Figs/Vector/}{Chapter5/Figs/}}
 \fi
 
-This section will describe the protocol and signal obtained during the device performance test. City University London Research Ethics Committee approved the experimental procedure and protocol. Practice approved under reference \textit{''SREC 15-16 01 E 29 09 201''} of the \nth{11} of November 2015. 
+This chapter describes the protocol of the experimental procedure as well as the calculations performed to quantify the measurements obtained during the test. City University London Research Ethics Committee approved the experimental procedure and protocol. Examination authorised under reference \textit{''SREC 15-16 01 E 29 09 201''} of the \nth{11} of November 2015. 
 
-In this study, nine healthy volunteers participated. In total, six males and three females aged \numrange{23}{37} years old (mean 28.77) participated in the study. As per regulation of the committee, only healthy participants took part of the research. Any participant with cardiovascular disease history did not take in the study. 
+In this study, nine healthy volunteers participated where six were males and three females aged between \numrange{23}{37} years-old (mean 28.77). As per regulation of the committee, only healthy participants took part of the research. Any participant with cardiovascular disease history did not take in the study. 
 
 Previous to the recruitment of participants, they received documentation explaining the whole procedure. Once they agreed, the party returned the consent form signed to schedule the study. The experiments took place at the Research Centre for Biomedical Engineering of City, University of London. Upon arrival partaker acclimatised for \SI{10}{\min} which room temperature was \SI{22(2)}{\degreeCelsius}. During this period, it was clearly explained the experimental procedure to the attendant. Then the following steps took place.
 
@@ -40,83 +40,83 @@ After filling paperwork and completing acclimatisation different instruments wer
 	\end{tabu}  
 \end{table}
 
-The ECG device used for taking the electrocadiographic was a Cardioline\textsuperscript{\textregistered} Delta 60 plus \cite{remco:delta60} in a 4 electrodes configuration. The PPG device that registered the photo-plethysmography waveform was the Zen PPG, using a finger sensor operating at \SI{680}{\nano\meter} \mynote{Check the sensor used}.  The LDF instrument used for this experiment was a moor VMS-LDF2. This instrument operates with a laser light at a wavelength of \SI{785}{\nano\meter} \cite{moor:LDF2}. The Doppler ultrasound utilised was a Huntleigh Healthcare MD2 instrument with a sensor head of \SI{8}{\mega\hertz} \cite{ht:MD2}. Finally, the iPG device was de device described in the previous section. 
+The ECG device used for taking the electrocadiographic was a Cardioline\textsuperscript{\textregistered} Delta 60 plus \cite{remco:delta60} using a 4 electrodes configuration. The PPG device registering the photo-plethysmography waveform was the Zen PPG, using a finger sensor operating with a light source at \SI{680}{\nano\meter}.  The LDF instrument used in this experiment was the moor VMS-LDF2 \cite{moor:LDF2}. This instrument operates with a laser light at a wavelength of \SI{785}{\nano\meter}. The Doppler ultrasound utilised was a Huntleigh Healthcare MD2 instrument with a sensor head of \SI{8}{\mega\hertz} \cite{ht:MD2}. Finally, the iPG device described in the previous section was used to take the impedimetric readings. 
 
 %**********************************% Subsection 5.1.1  *************************************
-\subsection{Instruments setup}
+\subsection{Instruments set-up}
 \label{section procedure 1.1}
 
-First, iPG data were from the left arm of all assistants. However, this measurement requires recording forearm's segment volume by weighing length and circumference. In fact, it can be calculated using equation \ref{eq:v_e}. Additional, distance from the heart to shoulder, upper arm length, and shoulder to index finger length was also recorded. 
+Before attaching any instruments to the participants, it is required to take physical dimensions from them. This data is needed to convert into meaningful numbers some of the physiological measurements. For instance, the quantification of impedance plethysmography requires to know the geometric shape of the volume being measured. Hence, it is needed recording the forearm's segment volume by weighing length and circumference. Additionally, the distance from the heart to shoulder, upper arm length, and shoulder to index finger length was also recorded as reference points. 
+
+Then, all the participants sat in a comfortable chair. Their left arm rested on a soft cushion on a table next to a chair adjusted to collaborator's height. After that, blood pressure was taken using an automated instrument, recording diastolic and systolic values for each one. Next, each participant placed four ECG electrodes on themselves, forming an Einthoven triangle. According to the device's instructions, electrodes must be placed one on each shoulder and ankle. Then, leads were secured to the electrodes verifying that ECG signal was clean. The apparatus includes an output port that exports the waveform for further processing. 
+
+Following this step, a PPG probe was placed on the index finger. The PPG instrument used is a device designed by the biomedical research group of City University known as Zen PPG. This equipment has two channels available, but the experiment only required one port. Each channel provides two outputs containing AC and DC components of the photoplethysmography waveform. 
+
+%\mynote{Check for the type of probe used. Nellcor?}
+
+In the next step, the laser Doppler Flowmetry probe~\cite{moor:LDF2} was attached on the mid-section of the forearm. This device detects moving red blood cells within a vessel under the vascular bed in the skin. This device also has an external analogue port where the signal acquired can be exported for post-processing.  
+
+Next, the Ultrasound Doppler probe was placed as close as possible to the radial artery. When the probe is placed closed to a main vessel the speed of blood flow produces a unique audible signal. However, calculating blood flow form this signal requires a set of skills by placing the probe at a fix angle and closeness to the artery to be measured. Therefore, the probe head of the instrument needs to be placed at a fixed angle. Hence, the instrument's head was secured using a laboratory stand and clamp pointing at the party's radial artery on the wrist. The appliance also provides an external port for additional processing.  
+
+Finally, the impedance plethysmography electrodes were placed on the forearm's skin. For this, ECG electrodes were utilised as they a provided good contact essential for the experiment to be carried out successfully. The current probes were placed following the path of the left radial artery, one below the elbow (brachial artery) and a second on top of the radial artery close to the wrist. The potential electrodes were located next to the previous electrodes towards the internal side of the forearm. The diameter of the circumference around these electrodes as well as its distance separation was recorded. With this physical measurements is possible to calculate the volume of the forearm's segment to be measured. The total volume of that portion of the arm was calculated using equation \ref{eq:v_e}.
 
 \begin{align}
 	\label{eq:v_e}
 	V_e =\frac{l \times (C_1^2+C_1 \times C_2 + C_2^2)}{(12 \times \pi)} \tagaddtext{[\si{\cubic\centi\meter}]}
 \end{align}
 
-where $V_e$ is segment's volume, $l$ is the length between sensing electrodes, $C_1$ is the circumference of elbow's electrode and $C_2$ is the circumference of wrist's electrode.
+where $V_e$ is segment's volume, $l$ is the length between the potential electrodes, $C_1$ and $C_2$ are the circumference measurement at elbow and wrist electrodes respectively.
 
-Second, all participants sat in a comfortable chair. Their left arm was resting on a soft cushion on a table next to a chair adjusted to collaborator's height. Then, blood pressure was taken using an automated instrument recording diastolic and systolic values. Then, participants placed four ECG leads themselves, forming an Einthoven triangle. According to the device's instructions, electrodes must be placed one on each shoulder and ankle. Then, leads were secured to the electrodes verifying that ECG signal was clean. The apparatus includes an output port that exports the waveform for further processing. 
+The whole experiment set-up can be seen on figure \ref{fig:experimental set-up} where all the instruments and its positions are noted.
 
-\mynote{Check process description for previous paragraph} 
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=15cm,keepaspectratio]{figure1}
+	\caption{Position of instruments during the experiment}
+	\label{fig:experimental set-up}
+\end{figure}
 
-\mynote{reference of the blood pressure device}
-
-Following this step, a PPG probe was placed on the index finger. The PPG instrument used is a design of the research group known as Zen PPG. This equipment has two channels, but the experiment only required one channel. It provides two analogue outputs containing AC and DC components of the photoplethysmography waveform. 
-
-\mynote{Check for the type of probe used. Nellcor?}
-\mynote{I am not 100\% sure that has two outputs}
-
-In the next step, the laser Doppler flowmetry probe~\cite{moor:LDF2} was attached on the mid-section of the forearm. This device measures small changes in blood flow of the vascular bed under the skin. At the back of the instrument, there is an external analogue port where the signal acquired by the device can be extracted for further processing.  
-
-\mynote{Check a small paragraph about how this device works and what is useful for}
-
-Later, the Doppler ultrasound probe was placed as close as possible to the radial artery. An audible signal is produced, which is comparable with the speed of blood flow at this point. For this, the probe head of the device requires to be placed at a fixed angle. Using a pole, the instrument's head was secured and placed on the party's wrist. The appliance also provides an external port for additional processing.  
-
-\mynote{add a paragraph description of how Ultrasound Doppler works}
-
-\mynote{adding the correct name of the pole}
-
-Finally, impedance plethysmography electrodes were placed on the skin. For this, ECG electrodes were selected as they a provided good contact area which was required for the experiment to be carried out successfully. Current probes were placed following the path of the left radial artery, one below the elbow (brachial artery) and a second on top of the radial artery close to the wrist. \nknote{sensing wrong word}Sensing electrodes were located next to the previous electrodes towards the internal side of the forearm. The distance between sensing electrodes was recorded as the length of the volume segment. Additionally, the arm's circumference at these electrodes position was also taken. Using equation xx it is possible to estimate the volume of the \nknote{?segment which segment?}segment.  The device as described in Section xx provides two channels, impedance baseline and plethysmography waveform. 
-
-\mynote{add reference to circumference equation}
-
-\mynote{add reference to the previous chapter describing the device}
 
 
 %********************************** %Second subection *************************************
 \subsection{Data acquisition}
 \label{section procedure 1.2}
 
-As outlined in the previous section, all the instruments provided external ports for external data processing. These output ports were connected to a DAQ NI-6211 (National Instruments). This analogue to digital converter card provides 32* channels and a combined sampling rate of \SI{250}{\kilo\sample\per\second}. It is connected to a personal computer via USB port (Version 1.0). All the signals were sampled at \SI{1}{\kilo\hertz}.
+As outlined in the previous section, all the instruments provided external ports for further data processing. These output ports were connected to a DAQ NI-6211 (National Instruments). This analogue to digital converter card provides 32* channels and a combined sampling rate of \SI{250}{\kilo\sample\per\second}. The DAQ connects to a personal computer via USB port (Version 1.0). All the signals were sampled at \SI{1}{\kilo\hertz} with a reference voltage between \SIrange{0}{10}{\volt} for the iPG channel $Z_{DC}$ and \SI{\pm 5}{\volt} for the other signals. Therefore, the resolution of the DAQ was \SI{152.6}{\micro\volt}, which it was calculated using equation \ref{eq:resolution}. 
 
-\mynote{Maybe explain about the resolution of the DAQ. If this is a 16 bit the resolution is 2 to 16}
+\begin{align}
+	\label{eq:resolution}
+	Res =\frac{V_{p-p}}{2^{n}}		\tagaddtext{[\si{\volt}]}
+\end{align}
 
-A virtual instrument using LabView was created for displaying, processing and storing raw data. Fig. Xx shows the front-end of the program. A custom virtual instrument was programmed showing four channels of waveforms. iPG, ECG, PPG and Ultrasound Doppler were those selected for portraying the signals.
+where $V_{p-p}$ is the reference voltage peak to peak and $n$ is the number of bits used to sample the signal. 
 
-\mynote{Add image of the front end of the LabVIEW instrument}
+A virtual instrument using LabView \cite{LabView:2016} was created for displaying, processing and storing raw data. Figure \ref{fig:experimental set-up 2} shows the front-end of the program. The programmed custom virtual instrument shows four channels of waveforms. For the purpose of the experiment iPG, ECG, PPG and Ultrasound Doppler were those selected for portraying the signals.
 
-For display purposes, a band-pass filter was applied to the iPG and PPG signals. Nevertheless, the data recorded  was only from the unfiltered waveforms because post-processing was required. \nknote{expand on this and unsure if nevertheless is appropriate pls explain context to me to confirm} 
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=15cm,keepaspectratio]{figure2}
+	\caption{Additional instruments used during the experiment}
+	\label{fig:experimental set-up 2}
+\end{figure}
 
-\mynote{check what filters were applied to the signal}
+For displaying purposes, a band-pass filters were applied to the iPG and PPG signals removing unwanted DC components and high frequency noises. The waveforms from the other instruments did not require filtering as the devices provided a clean signal. 
 
-Two tabs provided settings and voltage adjustment for PPG signal. The participant tab required the following data: left arm dimensions, blood pressure and path name. At the end of the experimental procedure, all raw data was stored on an LVM file created by LabView. In the second tab, the VI adjusted the light intensity of the light PPG device. Usually a \SI{20}{\milli\ampere} is enough to provide a good quality signal. \nknote{what do you mean by this how is is good quality in what way?}
+The virtual instrument also included configuration capabilities. Two tabs within the program provided field for partaker's physical measurements, general application settings and adjustment for the PPG instrument. The participant tab required the following data: left arm dimensions, blood pressure and file path name. In the second tab, the VI adjusts the light intensity of the PPG probe. Usually a \SI{20}{\milli\ampere} is enough to provide a good amplitude signal. At the end of the experimental procedure, all raw data was stored on an LVM file created by LabView.
 
-The main panel apart from just displaying waveforms also provide control buttons and a timer.  Pressing the start button starts a timer and waveforms begin to be stored in memory. Pushing on the same button again stops the timer and saves all the data in a local LVM file. 
+The main panel apart from just displaying waveforms also includes control buttons and a timer.  Pressing the start button commences a timer and stores the data waveform in memory. Pushing on the same button again stops the timer and saves all the data in a local LVM file. 
 
-\mynote{Add proper description of the DAQ used, including channels}
-\mynote{Add reference of LabView in bibliography}
+%\mynote{Add proper description of the DAQ used, including channels}
 
 %********************************** %Third subection *************************************
 \subsection{Experimental protocol}
 \label{section procedure 1.3}
 
-This experiment was aiming to look into waveform changes when an occlusion occurs. Achieving this is possible by applying a mechanical blockage using a standard blood pressure instrument. This device necessitates being pumped manually using an inflation bulb. The instrument also provides a gauge indicating the cuff's pressure level. The cuff was secured to the left biceps of the participant. 
+One of the aims of this experiment is to look into iPG waveform's alterations when there is an obstruction in the blood flow in the forearm. It is possible to restrict the blood circulation to this area by applying a mechanical blockage in the upper arm using an standard inflatable blood pressure instrument. The device used necessitates being pumped manually using an inflation bulb. A gauge in the instrument indicating the cuff's pressure level. The cuff was secured to the left biceps of the participant. 
 
-The protocol required recording three different types of blood flow occlusion. The first kind of blood flow restriction was venous occlusion.  This obstruction can be produced by inflating the cuff usually between \SIrange{10}{20}{\mmHg} below diastolic pressure.\nknote{how do you know this works what is your reference} Thus, blocking the venous blood return from the forearm.  Overall, for each participant, the target pressure was \SI{20}{\mmHg} under their diastolic pressure recorded at the beginning of the session.\nknote{how can you confirm this why do you conclude this} 
+The protocol required recording three different types of blood flow occlusion. The first kind restricts the blood flow return by blocking the venous circulation. This method is widely used to assess peripheral circulatory problems as described by Wilkinson et al. \cite{wilkinson2001venous}. This obstruction can be produced by inflating the cuff usually just below diastolic pressure between \SIrange{10}{20}{\mmHg}. Thus, blocking the upper arm obstructs the blood flowing within the median cubital and basilic veins without obstructing the arterial inflow of the brachial artery.  Overall, for each participant, the target pressure was \SI{20}{\mmHg} under their diastolic pressure recorded at the beginning of the session.
 
-The second class of blood flow restriction was partial arterial occlusion. This kind of blockage decreases the amount of arterial blood coming into the forearm but also stops venous blood return. As an illustration, this can be obtained by applying a mechanical compression to the upper arm. The desired value should be between diastolic and systolic pressure. Therefore, the objective was to occlude in the mean value between diastolic and systolic pressure. For that, it was calculated using the following equation.
-
-\mynote{find a classy explanation about arterial blood occlusion, explaining that not allowing full compliance reduce flow}
+The second class of blood flow limitation was a partial arterial occlusion. This kind of blockage decreases the amount of arterial blood coming into the forearm but also stops venous blood return, studies have demonstrated that constricting an artery reduces the arterial flow towards the periphery \cite{uchida1977cyclical}. As an illustration, this can be obtained by applying a mechanical compression to the upper arm between diastolic and systolic pressures, increasing the wall pressure of the brachial artery. Therefore, the objective was to constrict the upper arm about the mean value between diastolic and systolic pressure. For that, it was calculated using the following equation.
 
 \begin{align}
 	\label{eq:meanpressure}
@@ -125,19 +125,26 @@ The second class of blood flow restriction was partial arterial occlusion. This 
 
 where $P_d$ is diastolic pressure and $P_s$ is systolic pressure. 
 
-The last kind of occlusion needed is total occlusion, which is possible to obtain by occluding above systolic pressure\nknote{reference}. In this experiment, blood flow was blocked by inflating the cuff above \SI{20}{\mmHg} of participant's systolic value recorded. This method of occlusion completely restricts the inflow and outflow of venous and arterial blood. Hence, it is expected that no change of volume takes place.
+The last kind of occlusion needed is total occlusion, which is possible to obtain by occluding above systolic pressure. Also known as  “Suprasystolic” or “stop-flow” can provides valuable tonometric information \cite{lowe2009non}. In this experiment, blood flow was blocked by inflating the cuff above \SI{20}{\mmHg} of participant's systolic value previously measured. This method of occlusion completely restricts the inflow and outflow of venous and arterial blood. Hence, it is expected that no change of volume takes place all along this part of the test.
 
 \subsubsection{Recording waveforms}
 
-At this point, as soon as all the instruments were operating successfully, a small test took place. While waveforms were being shown on screen, \SI{2}{\min} of recordings were taken but not recorded yet. Participants were reminded to limit their movements during the experiment. 
+At this point, as soon as all the instruments were operating successfully, a small test took place. While waveforms were being shown on screen, \SI{2}{\min} of recordings were taken but not recorded yet. Participants were advised to limit their movements during the experiment. 
 
-As soon as all signals were readable and free of noise, the start button of the VI was pushed to initiate the study. In the beginning, \SI{5}{\min} of baseline recordings were obtained. These waveforms provided the standard control wave to compared with occluded waveforms. Then, as soon as the timer reached this time the cuff was inflated rapidly at \SI{20}{\mmHg} below diastolic pressure. Therefore, producing venous occlusion \nknote{swelling the forearm sounds wrong}and swelling the forearm. This level of blockage was held for \SI{3}{\min} followed by swiftly deflating the cuff. 
+As soon as all signals were readable and free of noise, the start button of the VI was pushed to initiate the study. In the beginning, \SI{5}{\min} of baseline recordings were obtained. These waveforms provided the standard control wave to compared with occluded waveforms. Then, as soon as the timer reached this time the cuff was inflated rapidly at \SI{20}{\mmHg} below diastolic pressure. Therefore, producing venous occlusion and an increment in the total volume of the forearm because of the blood pooling effect. This level of blockage was held for \SI{3}{\min} followed by swiftly deflating the cuff. 
 
-Similarly, it was required repeating the procedure with partial arterial occlusion.\nknote{?? previous sentence i dont know what you are trying to say} As found in the literature, after an occlusion happens \SI{5}{\min} are needed to restore blood pressure. For this reason, the cuff's air valve was left open bleeding all the air contained inside. After this period, the cuff was quickly inflated again until reaching the pressure calculate in equation \ref{eq:meanpressure}. The cuff's pressure was maintained at this level for \SI{3}{\min} proceeded by a quick pressure release. 
+The next step of the experiment required to produce the partial arterial occlusion, using similar time spans as the ones during venous occlusion. As described in the literature reperfusion after an occlusion does not affect blood pressure, heart rate or blood flow \cite{kharbanda2002transient}. Hence, \SI{5}{\min} is enough time  to restore the blood flow to normal limits. For this reason, the cuff's air valve was left open bleeding all the air contained inside. After this period, the cuff was quickly inflated again until reaching the pressure calculate in equation \ref{eq:meanpressure}. The cuff's pressure was maintained at this level for \SI{3}{\min} proceeded by a quick pressure release. 
 
-Last, for the purpose of total blood occlusion a similar method, was applied. One more time, \SI{5}{\min} of baseline waveforms were taken followed by a fleeting cuff inflation to \SI{20}{\mmHg} above diastolic pressure. This compression was kept for \SI{3}{\min}. At this point, maintaining this tourniquet effect can be painful after a couple of minutes. As a result, some of the helpers ended up re-accommodating and producing motion artefacts. 
+Last, for the purpose of total blood occlusion a similar method, was applied. One more time, \SI{5}{\min} of baseline waveforms were taken followed by a fleeting cuff inflation to \SI{20}{\mmHg} above diastolic pressure. This compression was kept for \SI{3}{\min}. At this point, maintaining this tourniquet effect can be painful after a couple of minutes. As a result, some of the helpers ended up re-accommodating and producing motion artefacts in the data. 
 
-Finally, the last \SI{5}{\min} of baseline waveforms were recorded to study the recovering effect. When time was up, the stop button was pushed on saving all the data onto an LVM file for further processing in Matlab. 
+Finally, the last \SI{5}{\min} of baseline waveforms were recorded to study the recovering effect. When time was up, the stop button was pushed on saving all the data onto an LVM file for further processing in Matlab. Figure \ref{fig:pressure applied} shows the pressure levels applied during the whole experiment.
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=15cm,keepaspectratio]{figure3}
+	\caption{Pressure applied to the participant during the experiment. The clear areas represent the resting period of \SI{5}{\minute}, the shaded areas represent the pressure applied at the desired level during \SI{3}{\minute}}
+	\label{fig:pressure applied}
+\end{figure}
 
 %%********************************** % Section 5.2 ******************************************
 \section{Physiological measurements}
