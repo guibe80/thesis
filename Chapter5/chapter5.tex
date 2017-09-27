@@ -14,7 +14,7 @@
 
 This chapter describes the protocol of the experimental procedure as well as the calculations performed to quantify the measurements obtained during the test. City University London Research Ethics Committee approved the experimental procedure and protocol. Examination authorised under reference \textit{''SREC 15-16 01 E 29 09 201''} of the \nth{11} of November 2015. 
 
-In this study, nine healthy volunteers participated where six were males and three females aged between \numrange{23}{37} years-old (mean 28.77). As per regulation of the committee, only healthy participants took part of the research. Any participant with cardiovascular disease history did not take in the study. 
+In this study, eight healthy volunteers participated where six were males and three females aged between \numrange{23}{37} years-old (mean 28.77). As per regulation of the committee, only healthy participants took part of the research. Any participant with cardiovascular disease history did not take in the study. 
 
 Previous to the recruitment of participants, they received documentation explaining the whole procedure. Once they agreed, the party returned the consent form signed to schedule the study. The experiments took place at the Research Centre for Biomedical Engineering of City, University of London. Upon arrival partaker acclimatised for \SI{10}{\min} which room temperature was \SI{22(2)}{\degreeCelsius}. During this period, it was clearly explained the experimental procedure to the attendant. Then the following steps took place.
 
@@ -130,9 +130,9 @@ Taking these dimensions with a measuring tape may induce some errors in the data
 
 One of the aims of this experiment is to look into iPG waveform's alterations when there is an obstruction in the blood flow in the forearm. It is possible to restrict the blood circulation to this area by applying a mechanical blockage in the upper arm using an standard inflatable blood pressure instrument. The device used necessitates being pumped manually using an inflation bulb. A gauge in the instrument indicating the cuff's pressure level. The cuff was secured to the left biceps of the participant. 
 
-The protocol required recording three different types of blood flow occlusion. The first kind restricts the blood flow return by blocking the venous circulation. This method is widely used to assess peripheral circulatory problems as described by Wilkinson et al. \cite{wilkinson2001venous}. This obstruction can be produced by inflating the cuff usually just below diastolic pressure between \SIrange{10}{20}{\mmHg}. Thus, blocking the upper arm obstructs the blood flowing within the median cubital and basilic veins without obstructing the arterial inflow of the brachial artery.  Overall, for each participant, the target pressure was \SI{20}{\mmHg} under their diastolic pressure recorded at the beginning of the session.
+The protocol required recording three different types of blood flow occlusion. The first kind restricts the blood flow return by blocking the venous circulation, technique known as Venous Occlusion Plethysmography (VOP). This method is widely used to assess peripheral circulatory problems as described by Wilkinson et al. \cite{wilkinson2001venous}. This obstruction can be produced by inflating the cuff usually just below diastolic pressure between \SIrange{10}{20}{\mmHg}. Thus, blocking the upper arm obstructs the blood flowing within the median cubital and basilic veins without obstructing the arterial inflow of the brachial artery.  Overall, for each participant, the target pressure was \SI{20}{\mmHg} under their diastolic pressure recorded at the beginning of the session.
 
-The second class of blood flow limitation was a partial arterial occlusion. This kind of blockage decreases the amount of arterial blood coming into the forearm but also stops venous blood return, studies have demonstrated that constricting an artery reduces the arterial flow towards the periphery \cite{uchida1977cyclical}. As an illustration, this can be obtained by applying a mechanical compression to the upper arm between diastolic and systolic pressures, increasing the wall pressure of the brachial artery. Therefore, the objective was to constrict the upper arm about the mean value between diastolic and systolic pressure. For that, it was calculated using the following equation.
+The second class of blood flow limitation was a partial arterial occlusion (PAO). This kind of blockage decreases the amount of arterial blood coming into the forearm but also stops venous blood return, studies have demonstrated that constricting an artery reduces the arterial flow towards the periphery \cite{uchida1977cyclical}. As an illustration, this can be obtained by applying a mechanical compression to the upper arm between diastolic and systolic pressures, increasing the wall pressure of the brachial artery. Therefore, the objective was to constrict the upper arm about the mean value between diastolic and systolic pressure. For that, it was calculated using the following equation.
 
 \begin{align}
 	\label{eq:meanpressure}
@@ -141,7 +141,7 @@ The second class of blood flow limitation was a partial arterial occlusion. This
 
 where $P_d$ is diastolic pressure and $P_s$ is systolic pressure. 
 
-The last kind of occlusion needed is total occlusion, which is possible to obtain by occluding above systolic pressure. Also known as  “Suprasystolic” or “stop-flow” can provides valuable tonometric information \cite{lowe2009non}. In this experiment, blood flow was blocked by inflating the cuff above \SI{20}{\mmHg} of participant's systolic value previously measured. This method of occlusion completely restricts the inflow and outflow of venous and arterial blood. Hence, it is expected that no change of volume takes place all along this part of the test.
+The last kind of occlusion needed is total occlusion (TO), which is possible to obtain by occluding above systolic pressure. Also known as  “Suprasystolic” or “stop-flow” can provides valuable tonometric information \cite{lowe2009non}. In this experiment, blood flow was blocked by inflating the cuff above \SI{20}{\mmHg} of participant's systolic value previously measured. This method of occlusion completely restricts the inflow and outflow of venous and arterial blood. Hence, it is expected that no change of volume takes place all along this part of the test.
 
 \subsubsection{Blood pressure occlusion estimation}
 Finding these blood pressure levels requires to measure and record the blood pressure for each participant. Therefore, before starting the study, three readings of blood pressure were taken and averaged per participant using an automated blood pressure instrument brand Omron IntelliSense (Omron Healthcare). The mean systolic and diastolic pressures of all the partakers of the investigation were \SI{116.25(1366)}{\mmHg} and \SI{72.75(723)}{\mmHg} respectively. The venous occlusion level was targeted to \SI{20}{\mmHg} below systolic pressure the total mean was \SI{55.00(801)}{\mmHg}, the partial arterial pressure was calculated using equation \ref{eq:meanpressure}, the average was about \SI{94.63(1021)}{\mmHg} and total occlusion was around \SI{136.25(1367)}{\mmHg}. Table \ref{tbl:occlusions} details the blood pressures recorded per participant.
@@ -207,6 +207,8 @@ The next step of the experiment required to produce the partial arterial occlusi
 Last, for the purpose of total blood occlusion a similar method, was applied. One more time, \SI{5}{\min} of baseline waveforms were taken followed by a fleeting cuff inflation to \SI{20}{\mmHg} above diastolic pressure. This compression was kept for \SI{3}{\min}. At this point, maintaining this tourniquet effect can be painful after a couple of minutes. As a result, some of the helpers ended up re-accommodating and producing motion artefacts in the data. 
 
 Finally, the last \SI{5}{\min} of baseline waveforms were recorded to study the recovering effect. When time was up, the stop button was pushed on saving all the data onto an LVM file for further processing in Matlab. Figure \ref{fig:pressure applied} shows the pressure levels applied during the whole experiment.
+
+For an easy understanding of the different stages of the experiment, each event had identified as a region. Thus, the regions 1, 3, 5 and 7 represents the non-occlusive events or baseline readings. In contrast regions 2, 4 and 6 equals to VOP, PAO and TO events.
 
 \begin{figure}[!htpb]
 	\centering
@@ -550,6 +552,8 @@ At the end, all the data collected and the mathematical operations were input in
 \nomenclature[z-bpu]{BPU}{Blood Perfusion Unit}
 \nomenclature[z-pi]{PI}{Perfusion Index}
 \nomenclature[z-du]{DU}{Doppler ultrasound}
+\nomenclature[z-pao]{PAO}{Partial Arterial Occlusion}
+\nomenclature[z-to]{TO}{Total Occlusion}
 \nomenclature[g-p]{$\pi$}{ $\simeq 3.14\ldots$}  
 \nomenclature[g-r]{$\rho$}{Blood resistivity $\simeq$ \SI{150}{\ohm\per\centi\meter}}  
 \nomenclature[g-t]{$\theta$}{Angle of incidence}

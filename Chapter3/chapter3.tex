@@ -12,14 +12,14 @@
     \graphicspath{{Chapter3/Figs/Vector/}{Chapter3/Figs/}}
 \fi
 
-One of the purposes of this work is to produce a device capable of measuring, detect and quantify changes in the venous and arterial circulation continuously. These changes are detectable by quantifying either changes on volume or blood flow. This document proposes the design of a device capable of monitoring both parameters during venous and arterial occlusion using bioelectrical impedance. 
+One of the purposes of this work is to produce a device capable of detecting, measuring,  and quantifying changes in the venous and arterial circulation continuously. The most common method to measure these changes is known as plethysmography.  With this information it is possible to quantify changes in blood volume which can also be translated into blood flow. This document proposes the design of an apparatus capable of monitoring both parameters during normal circulation as well as detecting changes in the plethysmographic waveform during circulatory occlusion using the bioelectrical impedance technique. 
 
-This chapter describes the principles behind bioelectrical impedance plethysmography which is the method used to acquire the physiological measurements. The first section covers the theory of bioelectrical impedance and how an electromagnetic wave interacts with the cells, the electrode conflict and the impedance plethysmography principles. 
+This chapter describes the principles behind bioelectrical impedance plethysmography in more detail. The first section covers the theory of bioelectrical impedance and how an electromagnetic wave interacts with the cells, the electrode conflict and the impedance plethysmography principles. 
 
 \section{Electrical impedance principle}
 \label{section impedance 1}
 %https://books.google.co.uk/books?id=M74ecVj5q9UC&printsec=frontcover&dq=inauthor:%22Luca+Callegaro%22&hl=en&sa=X&ved=0ahUKEwjMyPSt5MnSAhUJJcAKHZAPBGcQ6AEIHDAA#v=onepage&q&f=false
-From the electrical point of view, impedance is defined as the opposition that a medium presents to either an alternating current (AC) or voltage (see figure \ref{fig:impedance}). The impedance is equivalent to the complex ration between the voltage and the current.  The resultant from this fraction is a complex ratio that is equal to either a resistance (also conductance) or reactance value. Hence, the impedance magnitude can be express as a relation of the output magnitude and the phase difference between the real and imaginary part as shown in equation \ref{eq:phasor} and it can be plotted in the complex plane as shown by figure \ref{fig:complex impedance}.
+From the electrical point of view, impedance is defined as the opposition that a medium presents to either an alternating current (AC) or voltage (see figure \ref{fig:impedance}). Impedance is equal to the complex ratio between electrical voltage and current. The result from this mathematical fraction is a complex number which is known as symbol $Z$ (see equation \ref{eq:Z magnitude}). This comprises of a resistance (also known as conductance) and/or reactance value, commonly represented by the letters $R$ and $X$ respectively. Hence, the impedance measurement can be expressed as a relation of the output magnitude and the phase difference between the real and imaginary part as shown in equation \ref{eq:phasor} and it can be plotted in the complex plane as shown in figure \ref{fig:complex impedance}.
 
 \begin{figure*}[!htpb]
 	\centering
@@ -45,7 +45,7 @@ From the electrical point of view, impedance is defined as the opposition that a
 	Z = \lvert Z \rvert  \angle \phi
 \end{align}
 
-There are different forms to represent impedance. However, bioelectrical impedance can be described by either resistance ($R$) or reactance ($X$). Where the resistive part represents the real part of the measurement and the reactance the imaginary one. Therefore, the impedance magnitude can be written in function of these two values as shown in equation \ref{eq:Z magnitude}.
+There are different ways to represent impedance. However, bioelectrical impedance can be described by either resistance ($R$) or reactance ($X$). Where the resistive part represents the real part of the measurement and the reactance the imaginary one. Therefore, the impedance magnitude can be written as a function in these two values as shown in equation \ref{eq:Z magnitude}.
 
 \begin{figure}[!htpb]
 	\centering
@@ -65,7 +65,7 @@ There are different forms to represent impedance. However, bioelectrical impedan
 	X = \lvert Z \rvert sin(\theta)
 \end{gather}
 
-As it can be seen, when the angle difference of the impedance is \SI{0}{\degree}, the load is completely resistive. In contrast, when the phase difference is \SI{90}{\degree} the load is purely reactive. From the previous equations is possible to represent impedance in the complex plane as shown in figure \ref{fig:complex impedance}.
+As can be seen, when the angle difference of the impedance is \SI{0}{\degree}, the load is completely resistive. In contrast, when the phase difference is \SI{90}{\degree} the load is purely reactive. From the previous equations it is possible to represent impedance in the complex plane as shown in figure \ref{fig:complex impedance}.
 
 As an example, when a sinusoidal steady-state waveform injects a current $i(t) = I_A sin(\omega t)$ to an unknown load, the response is a shifted sinusoidal waveform with a potential equivalent to $v(t) = V_B sin(\omega t + \phi)$. Figure \ref{fig:impedance wave} shows the representation of both waveforms. Hence, the impedance can be expressed as the ration of these two quantities based on Ohm's law (see equation \ref{eq:ohm}).
 
@@ -82,7 +82,7 @@ As an example, when a sinusoidal steady-state waveform injects a current $i(t) =
 	\label{fig:impedance wave}
 \end{figure}
 
-Using trigonometrical identities is possible to rewrite the potential in the following way:
+Using trigonometrical identities it is possible to rewrite the potential in the following way:
 
 \begin{equation}
 	\label{eq:solve equation}
@@ -92,7 +92,7 @@ Using trigonometrical identities is possible to rewrite the potential in the fol
 	\end{aligned}
 \end{equation}
 
-By replacing the values of the potential from \ref{eq:solve equation} and the current in to equation \ref{eq:ohm} is possible to find the resistive and reactive components as shown in equation \ref{eq:R Z} and \ref{eq:X Z}. The equivalence of the real and imaginary part are obtained by the principle of superposition of the trigonometric identities. 
+By replacing the values of the potential from \ref{eq:solve equation} and the current in to equation \ref{eq:ohm} one can find the resistive and reactive components as shown in equation \ref{eq:R Z} and \ref{eq:X Z}. The equivalence of the real and imaginary part are obtained by the principle of superposition of the trigonometric identities. 
 
 \begin{align}
 	\label{eq:R Z}
@@ -104,11 +104,11 @@ By replacing the values of the potential from \ref{eq:solve equation} and the cu
 
 \section{Bioelectrical impedance}
 \label{section impedance 2}
-Before describing how impedance plethysmography operates, it is better to understand how the principle of bioelectrical impedance is defined. First of all, the term electrical impedance spectroscopy (EIS) is referred as the study of the absorption of energy depending upon the frequency of electromagnetic (EM) waves. When measurements are performed in a biological sample, then this method could be referred as either electrical bioimpedance or bioelectrical impedance~\cite{ivorra2003bioimpedance}. The term to be used in this document will be bioelectrical electrical impedance. The EM spectrum is quite broad, and the interaction with tissue occurs in the frequency range from \SIrange[scientific-notation = engineering]{100}{10000000}{\hertz}~\cite{bertemes2002tissue}. In this thesis, the frequencies of interest are focused in the low-frequency range. Indeed, plethysmography devices operate commonly in the bandwidth below few \si{\kilo\hertz}.
+Before describing how impedance plethysmography operates, it is better to understand how the principle of bioelectrical impedance is defined. First of all, the term electrical impedance spectroscopy (EIS) refers to the study of the absorption of energy depending upon the frequency of electromagnetic (EM) waves. When measurements are performed in a biological sample, then this method could be referred to as either electrical bioimpedance or bioelectrical impedance~\cite{ivorra2003bioimpedance}. The term to be used in this document will be bioelectrical electrical impedance. The EM spectrum is quite broad, and the interaction with tissue occurs in the frequency range from \SIrange[scientific-notation = engineering]{100}{10000000}{\hertz}~\cite{bertemes2002tissue}. In this thesis, the frequencies of interest are focused in the low spectrum range. Indeed, plethysmography devices commonly operate in the radio wave frequency of the electromagnetic spectrum.
 
-The human body is constituted by four basic tissues known as epithelium which covers and protects the whole surface of the body, muscle which is in charge of the movement, connective tissue that supports and protect organs, and nervous tissue which provides the internal transmission line for the electrical impulses coming from the brain. Cells that constitute these tissues play a fundamental role regarding current conduction when an analogue current (AC) is applied to the body~\cite{lvovich2012impedance}. Hence, impedance readings vary according to the parameters of these cells as well as its protein content. It is especially significant to understand the geometry and characteristics of the blood cells, which transport $0_2$ around the body. The functionality of these cells and amount per \si{\micro\litre} of human blood were described by Table \ref{table:cell} in section \ref{section literature 1}.
+The human body contains four basic tissues known as epithelium, muscle, connective tissue and nervous tissue. Epithelium covers and protects the whole surface of the body. The muscles are in charge of the movement whereas connective tissues support and protect organs. Nervous tissue provides the internal transmission line for the electrical impulses coming from the brain. Cells that make part of these tissues play a fundamental role regarding current conduction when an analogue current (AC) is applied to the body~\cite{lvovich2012impedance}. Hence, impedance readings vary according to the parameters of these cells as well as its protein content. It is especially significant to understand the geometry and characteristics of the blood cells, which transport $0_2$ around the body. The functionality of these cells and amount per \si{\micro\litre} of human blood were described by Table \ref{table:cell} in section \ref{section literature 1}.
 
-As can be noticed from that table, RBC's statistically are more numerous than the other cells, and it has particular resistive properties. Its disk shape can be ideally represented as a spherical particle with membranes around the surface, as represented by Figure \ref{fig:cell}. Live cells can be represented as multilayer cells where its internal cytoplasm has a specific permittivity ($\epsilon_{cp}$) and conductivity ($\rho_{cp}$). Likewise, these characteristics are similar to the one surrounding the cell called extracellular fluid ($\epsilon_m$ and $\rho_m$). However, the membrane has a very low permittivity ($\epsilon_{MBR}$) and conductivity ($\rho_{MBR}$) behaving as a dielectric. In contrast in dead cells, the membrane becomes loose and does not provide resistance to electric current~\cite{lvovich2012impedance}.
+Looking at that table, RBC's statistically are more numerous than the other cells, and it has particular resistive properties. Its disk shape can be ideally represented as a spherical particle with membranes around the surface, as represented by Figure \ref{fig:cell}. Live cells can be represented as multilayer cells where its internal cytoplasm has a specific permittivity ($\epsilon_{cp}$) and conductivity ($\rho_{cp}$). Likewise, these characteristics are similar to the one surrounding the cell called extracellular fluid ($\epsilon_m$ and $\rho_m$). However, the membrane has a very low permittivity ($\epsilon_{MBR}$) and conductivity ($\rho_{MBR}$) behaving as a dielectric. In contrast, in dead cells, the membrane becomes loose and does not provide resistance to electric current~\cite{lvovich2012impedance}.
 
 \begin{figure}[!htpb]
 	\centering
@@ -117,9 +117,9 @@ As can be noticed from that table, RBC's statistically are more numerous than th
 	\label{fig:cell}
 \end{figure}
 
-A cell can change its internal cytoplasm by two different means either changing the permeability of their bilayer lipid membrane (BLM) or by using ionic channels or pumps. The BLM is about \SI{7}{\nano\meter} thick, by altering its permeability it allows lipids and water molecules to pass through~\cite{ivorra2003bioimpedance}. The interface extracellular-membrane-intracellular ($\rho_m \rightarrow \rho_{MBR} \leftarrow \rho_{cp}$) behaves as a capacitor because the membrane is a dielectric between two conductors, which is represented as $C_m$ in figure \ref{fig:cell model}.
+A cell can change its internal cytoplasm by two different means, either changing the permeability of their bilayer lipid membrane (BLM) or by using ionic channels or pumps. The BLM is about \SI{7}{\nano\meter} thick. By altering its permeability it allows lipids and water molecules to pass through~\cite{ivorra2003bioimpedance}. The interface between the extracellular space, the cell membrane and intracellular space ($\rho_m \rightarrow \rho_{MBR} \leftarrow \rho_{cp}$) behaves as a capacitor. This is because the membrane is a dielectric between two conductors, which is represented as $C_m$ in figure \ref{fig:cell model}.
 
-On the other hand, parallel to BLM the ionic channels and pumps enhance membrane’s functionality. Ionic channels or “channel proteins” allow transport and exchange of certain types of ions such as $Na^{+}$, $K^{+}$, Chloride ($Cl^{-}$) and Calcium ($Ca^{2+}$) between the inside and outside of the cell~\cite{lvovich2012impedance}. Ion pumps are caused by sensitivity of the membrane to a voltage; it is also responsible for the membrane’s non–linear properties to low voltage. This pump also causes cell polarisation that allows the flow of ion charges in the body. Electrically, these channels act as a resistor ($R_m$).
+In contrast, parallel to BLM the ionic channels and pumps enhance membrane’s functionality. Ionic channels or “channel proteins” allow transport and exchange of certain types of ions such as $Na^{+}$, $K^{+}$, Chloride ($Cl^{-}$) and Calcium ($Ca^{2+}$) between the inside and outside of the cell~\cite{lvovich2012impedance}. Ion pumps are caused by sensitivity of the membrane to a voltage and are responsible for the membrane’s non–linear properties to low voltage. This pump causes cell polarisation that permits the flow of ion charges in the body. Electrically, these channels act as a resistor ($R_m$).
 
 \begin{figure*}[!htbp]
 	\centering
@@ -140,7 +140,7 @@ On the other hand, parallel to BLM the ionic channels and pumps enhance membrane
 	\label{fig:cell models}
 \end{figure*}
 
-According to previous analysis, the cell can be simplified in an equivalent electric circuit model as shown in Figure \ref{fig:cell models}. This model indicates that if AC is pumped into the extracellular medium, there are two possible paths for the current to go through. One way is around the cell which is represented by the resistive characteristic of the extracellular medium ($R_e$). In the second route, current flows through the cell. Indeed, AC may flow initially either over the BLM which is a represented as a capacitance ($C_m$) or across ionic channels ($R_m$).Once in the cell, current travels via the intracellular medium ($R_i$) that is mostly resistive. Lastly, the electrical current leaves the cell through the membrane, which it is again the same $C_m$ and $R_m$.
+According to previous analysis, the cell can be simplified in an equivalent electric circuit model as shown in Figure \ref{fig:cell models}. This model indicates that if AC is pumped into the extracellular medium, there are two possible paths for the current to go through. One way is around the cell which is represented by the resistive characteristic of the extracellular medium ($R_e$). In the second route, current flows through the cell. Indeed, AC may flow initially either over the BLM which is represented as a capacitance ($C_m$) or across ionic channels ($R_m$). Once in the cell, current travels via the intracellular medium ($R_i$) that is mostly resistive. Finally, the electrical current leaves the cell through the membrane, which it is again the same $C_m$ and $R_m$.
 
 Since $C_m$ and $R_m$ have the same values when the current enters and exits the cell, this can be simplified in the electric model as two resistors in series ($2R_m$) and two capacitances in parallel ($C_m/2$) as can be seen in figure \ref{fig:cell simp model}.
 
@@ -153,38 +153,38 @@ When an EM field is applied to the tissue, cells respond according to the freque
 	\label{fig:ABG dispersion}
 \end{figure}
 
-In addition, the $\beta$ dispersion region provides supplementary information about the cell. Lvovich \cite{lvovich2012impedance} has divided this area into three subregions depending on the interaction of the electrical current with the cell. The $\beta_1$ relaxation is due to the capacitive membrane $C_m$, occurring in the low \si{\kilo\hertz} range. When the frequency is increased between \si{\kilo\hertz} and low \si{\mega\hertz} range the internal cytoplasm of the cell can produce a $\beta_3$ dispersion because of a change from resistive to capacitive conduction. However, this capacitive component is often disregarded simplifying the model into just a resistive element $R_i$. Ultimately, $\beta_2$ happens in the range of low \si{\mega\hertz} when the electrical charge movement through the cell shifts to a capacitive conduction.
+In addition, the $\beta$ dispersion region provides supplementary information about the cell. Lvovich \cite{lvovich2012impedance} has divided this area into three subregions depending on the interaction of the electrical current with the cell. The $\beta_1$ relaxation is due to the capacitive membrane $C_m$, occurring in the low \si{\kilo\hertz} range. When the frequency is increased between \si{\kilo\hertz} and low \si{\mega\hertz} range, the internal cytoplasm of the cell can produce a $\beta_3$ dispersion because of a change from resistive to capacitive conduction. However, this capacitive component is often disregarded, simplifying the model into just a resistive element $R_i$. Ultimately, $\beta_2$ happens in the range of low \si{\mega\hertz} when the electrical charge movement through the cell shifts to a capacitive conduction.
 
-This research document is centred in the $\beta$ dispersion region between \SIrange[scientific-notation = engineering]{100}{1000000}{\hertz}. The impedance plethysmography device designed described in chapter \ref{chapter design} is capable to operate within this bandwidth. 
+This research document is centred in the $\beta$ dispersion region between \SIrange[scientific-notation = engineering]{100}{1000000}{\hertz}. The impedance plethysmography device designed described in chapter \ref{chapter design} is capable of operating within this bandwidth. 
 
-The ideal electrical model of the cell shown in figure \ref{fig:cell models} is a very close approximation that allows predicting bioelectrical impedance behaviour for dilute cell suspension. However, tissue is more complex than this having extra components to be analysed. For instance, tissue like muscle exhibits extreme anisotropy (conductivity is not the same when measured in different directions) \cite{lvovich2012impedance,dean2008electrical,foster1995dielectric}. Therefore, the position where electrodes are placed influences in the impedance of the readings. Also the change of volume of the blood vessels during the heart’s systole and diastole also changes impedance magnitude readings which is the principle used by impedance plethysmography. 
+The ideal electrical model of the cell shown in figure \ref{fig:cell models} is a very close approximation that allows predicting bioelectrical impedance behaviour for dilute cell suspension. However, tissue is more complex than this having extra components to be analysed.\mynotenp{??previous sentence} For instance, tissue like muscle exhibits extreme anisotropy (conductivity is not the same when measured in different directions) \cite{lvovich2012impedance,dean2008electrical,foster1995dielectric}. Therefore, the position where electrodes are placed influences in the impedance of the readings. In addition, the change of volume of the blood vessels during the heart’s systole and diastole also changes impedance magnitude readings which is the principle used by impedance plethysmography. 
 
 Another example of this is in the myocardial muscle studied in pigs where two superimposed depressions were observed in-between \SIrange[scientific-notation = engineering]{10}{1000000}{\hertz} ~\cite{casas1999vivo}. Different resistivity values have been obtained when measuring bioelectrical impedance during the cardiac cycle longitudinally and transversally \cite{steendijk1993four}. \mynote{Maybe this paragraph is not requires as might refer to death cells rather than plethysmography}
 
 \subsection{Mathematical representation of electrical impedance}
-Different mathematical models have been studied based on the ideal and basic model shown in figure \ref{fig:cell simp model}. Still, this model does not completely represent the effect of the membrane at high frequencies. Debye produced the following equation that took into account suspension of free poles \cite{bertemes2002tissue}.
+Different mathematical models have been studied based on the ideal and basic framework shown in figure \ref{fig:cell simp model}. Still,\mynotenp{change still} this model does not completely represent the effect of the membrane at high frequencies. Debye produced the following equation that took into account suspension of free poles \cite{bertemes2002tissue}.
 
 \begin{align}
 	\label{eq:Debye}
 	\varepsilon_r^* = \varepsilon_{HF} + \frac{\varepsilon_{LF} - \varepsilon_{HF}}{1 + j \omega \tau}
 \end{align}
 
-In this equation, $\varepsilon_r^*$ represents the complex relative permeability, $\varepsilon_{LF}$ and $\varepsilon_{HF}$ denotes permeability at low and high frequency respectively and $\tau$ is the relaxation time constant. Finally, $j \omega =2 \pi$ indicates the angular frequency in radians. However, it was not until 1941 when Cole brothers with their empirical work took into account dispersion by including in the Debye equation an additional parameter called $\alpha$, resulting in equation \ref{eq:cole cole}. Presently, this equation is widely used to get the approximate value of impedance when taking biomedical measurements \cite{cole1941dispersion}.
+In this equation, $\varepsilon_r^*$ represents the complex relative permeability, $\varepsilon_{LF}$ and $\varepsilon_{HF}$ denotes permeability at low and high frequency respectively and $\tau$ is the relaxation time constant.\mynotenp{?needs rewording previous sentence?} Finally, $j \omega =2 \pi$ indicates the angular frequency in radians. However, it was not until 1941 when Cole brothers with their empirical work took into account dispersion by including in the Debye equation an additional parameter called $\alpha$, resulting in equation \ref{eq:cole cole}. Presently, this equation is widely used to get the approximate value of impedance when taking biomedical measurements \cite{cole1941dispersion}.
 
 \begin{align}
 	\label{eq:cole cole}
 	\varepsilon_r^* = \varepsilon_{HF} + \frac{\varepsilon_{LF} - \varepsilon_{HF}}{(1 + j \omega \tau)^{1-\alpha}}
 \end{align}
 
-Parameter $\alpha$ is limited for values between 0 and 1. When its value is equal to zero, the Cole–Cole equation will give the Debye equation as a solution for polar dielectrics as expressed in equation \ref{eq:Debye}. Consequently, from this mathematical statement is possible to obtain data representation known as the Cole–Cole plot, which is a two dimensional graph where the plot of $\varepsilon \prime\prime$ or the imaginary part of the equation is in the y axis vs. $\varepsilon \prime$ in the $x$ which is the real part of the solution. However, this is not the only alternative to plot the results J. Ross Macdonald~\cite{macdonald2005impedance, macdonald1992impedance} has also suggested a representation of the data in a three–dimensional plot between the previous variables plus frequency in logarithmic scale $\log_{10}(f)$.
+Parameter $\alpha$ is limited for values between 0 and 1. When its value is equal to zero, the Cole–Cole equation will give the Debye equation as a solution for polar dielectrics as expressed in equation \ref{eq:Debye}. Consequently, from this mathematical statement it is possible to obtain data representation known as the Cole–Cole plot, which is a two dimensional graph where the plot of $\varepsilon \prime\prime$ or the imaginary part of the equation is in the y axis vs. $\varepsilon \prime$ in the $x$ which is the real part of the solution. However, this is not the only alternative to plot the results J. Ross Macdonald~\cite{macdonald2005impedance, macdonald1992impedance} has also suggested a representation of the data in a three–dimensional plot between the previous variables plus frequency in logarithmic scale $\log_{10}(f)$.\mynotenp{check the last two sentences make sense in engineering terms}
 
 
 %********************************** %First Section  **************************************
 \section{Impedance plethysmography principle} %Section - 1.2                                                                                                                                                                                                 
 \label{section impedance 3}
-Referred as impedance plethysmography (iPG) involves the measurement of the change of impedance due to change of blood flow. For instance, when heart’s systole increases blood flow, the volume of a limb rises due to the inflow of blood (swelling)~\cite{martinsen2011bioimpedance}. Consequently, there are changes of impedance correlated to the changes of volume and flow in a limb. Some medical application might require the use of occlusion cuffs to analyse venous filling. There are several medical applications for this kind of technique such as heart stroke volume (SV) measurement, cardiac output (CO), thoracic respiratory volume, oedema and detection of deep vein thrombosis (DVT)~\cite{holohan1996plethysmography}.
+Referred as impedance plethysmography (iPG) involves the measurement of the change of impedance due to changes in blood flow. For instance, when heart’s systole increases blood flow, the volume of a limb rises due to the inflow of blood (swelling)~\cite{martinsen2011bioimpedance}. Consequently, there are changes of impedance correlated to the changes of volume and flow in a limb. Some medical application might require the use of occlusion cuffs to analyse venous filling. There are several medical applications for this kind of technique such as heart stroke volume (SV) measurement, cardiac output (CO), thoracic respiratory volume, oedema and detection of deep vein thrombosis (DVT)~\cite{holohan1996plethysmography}. \mynotenp{is this paragraph not repeated earlier?}
 
-As previously described in section \ref{section literature 3.5}, iPG is the measurement of volume changes through the equivalent bioelectrical impedance of a part of the human body~\cite{corciova2011peripheral}. In this document is presented the measurements from an in-vivo studio of the plethysmographic changes in a segment of the left forearm. As it can be deduced, one would assume that this segment of the upper limb could be modelled as a cylinder within a cylinder. Where the inner cylinder represents a blood vessel and the outermost is the surrounding tissue. 
+As previously described in section \ref{section literature 3.5}, iPG is the measurement of volume changes through the equivalent bioelectrical impedance of a part of the human body~\cite{corciova2011peripheral}. In this document the measurements from an in-vivo studio of the plethysmographic changes in a segment of the left forearm are presented. One could imagine this segment of the upper limb to be modelled as a cylinder within a cylinder. Where the inner cylinder represents a blood vessel and the outermost is the surrounding tissue. 
 
 For mathematical analysis, a single cylinder will be initially studied and then the double cylinder model. An ideal circular solid model can be applied where the cross-sectional area might have a circular or elliptical form. Hence, measurement of electrical impedance might depend on its geometry. The following equation illustrates the segment’s geometry effects either conductance ($G$) or resistance ($R$). However, this document will use the resistance equivalent during the mathematical explanation.
 
@@ -193,7 +193,7 @@ For mathematical analysis, a single cylinder will be initially studied and then 
 R=\sigma\frac{L}{A}
 \end{align}
 
-where $\rho$ is the tissue’s conductivity, $A$ the cross sectional area of the cylinder and $L$ its length. From conductance equation can be deducted that if length increases conductance will decrease. Opposite, if the volume of the cross section $A$ increases then conductivity will increase. A representation of this cylinder can be seen in \ref{fig:cylinder model}. Hence, it is possible to find the volume as function of its resistance can be described with the following equation.
+Where $\rho$ is the tissue’s conductivity, $A$ is the cross sectional area of the cylinder and $L$ its length. From the conductance equation one can deduce that if length increases conductance will decrease. Opposite\mynotenp{?maybe you want to use "in contrast?"}, if the volume of the cross section $A$ increases then conductivity will increase. A representation of this cylinder can be seen in \ref{fig:cylinder model}. Hence, it is possible to find the volume as function of its resistance can be described with the following equation.\mynotenp{reword where the word function is}
 
 \begin{align}
 \label{eq:volume (R)}
@@ -208,7 +208,7 @@ v=G \rho L^2 = R\sigma A^2 = \frac{1}{R} \frac{L^2}{\sigma}
 \end{figure}
  
 
-It must be noticed from the previous equation that if $L$ is constant then volume $v$ is directly proportional to the conductance $G$. However, if the presumption is that the area $A$ is constant then volume $v$ is directly proportional to resistance $R$. In the case of human blood vessels, it is expected that swelling occurs transversely. In this case, a rise of volume $\Delta v$  is better represented as conductance increase in a parallel model~\cite{martinsen2011bioimpedance}. Hence, when a variation of volume $\Delta v$ occurs a change of impedance $\Delta G$ might also be present. As a result, both entities can be expressed as a relation between two parameters as shown in the equation below.
+The previous equation suggests that if $L$ is constant then volume $v$ is directly proportional to the conductance $G$. However, if the presumption is that the area $A$ is constant then volume $v$ is directly proportional to resistance $R$. In the case of human blood vessels, it is expected that swelling occurs transversely. In this case, a rise of volume $\Delta v$  is better represented as a conductance increase in a parallel model~\cite{martinsen2011bioimpedance}. Hence, when a variation of volume $\Delta v$ occurs a change of impedance $\Delta G$ might also be present. As a result, both entities can be expressed as a relation between two parameters as shown in the equation below.
 
  \mynote{Probably I should use the description I made from the Nyober equation}
 
@@ -218,14 +218,14 @@ It must be noticed from the previous equation that if $L$ is constant then volum
 \end{align}
 
 
-The same equation can be also represented as function of a change of resistivity $\Delta R$. In this case the equation changes to \ref{eq:volume (deltaR)}. It must be kept in mind that the minus sign represents that a resistance increase corresponds a volume decrease \cite{martinsen2011bioimpedance}. 
+The same equation can be also represented as function of a change of resistivity $\Delta R$. In this case the equation changes to \mynotenp{???} \ref{eq:volume (deltaR)}. One must keep in mind that the minus sign represents that resistance increase corresponds a volume decrease \cite{martinsen2011bioimpedance}. 
  
 \begin{align}
 	\label{eq:volume (deltaR)}
 	 \Delta v \cong \Delta R \rho \bigg( \frac{L}{R} \bigg)^2 \qquad (\Delta R \ll R)
 \end{align}
 
-Nevertheless, a human body segment could be sculpted as two-compartment cylinder model where length $L$ is constant and the two cylinders are physically in parallel (see figure \ref{fig:two cylinder modell}). Supposing that the volume of the inner cylinder is equivalent to $\Delta v + v_A$ and $v_t$ is the constant outer cylinder volume. Then, the following equation represents the change in conductivity when both tubes swell $(\Delta v > 0)$. From that equation can be deduced that the problem of high sensitivity plethysmography depends on selectively measuring the immittance in a selected volume~\cite{martinsen2011bioimpedance}.
+Nevertheless, a human body segment could be sculpted as two-compartment cylinder model where length $L$ is constant and the two cylinders are physically in parallel (see figure \ref{fig:two cylinder modell}). Supposing that the volume of the inner cylinder is equivalent to $\Delta v + v_A$ and $v_t$ is the constant outer cylinder volume. \mynotenp{doesnt make sense} Then, the following equation represents the change in conductivity when both tubes swell $(\Delta v > 0)$. From this equation one can deduce that the problem of high sensitivity plethysmography depends on selectively measuring the immittance in a selected volume~\cite{martinsen2011bioimpedance}.
 
 \begin{figure}[!htpb]
 	\centering
@@ -234,15 +234,15 @@ Nevertheless, a human body segment could be sculpted as two-compartment cylinder
 	\label{fig:two cylinder modell}
 \end{figure}
 
-In this case, the conductivities and cross section areas from surrounding tissue ($\sigma_t$) with area $A_t$ and tissue ($\sigma_b$) with area $A_b$ will also contribute towards the total conductance $G$ of the segment. Consequently, considering constant geometry, the conductance of these two cylinders could be expressed as the following equation.
+In this case, the conductivities and cross sectional areas from surrounding tissue ($\sigma_t$) with area $A_t$ and tissue ($\sigma_b$) with area $A_b$ will also contribute towards the total conductance $G$ of the segment. Consequently, considering constant geometry, the conductance of these two cylinders could be expressed as the following equation.
 
 \begin{align}
 G = (\sigma_b A_b + \sigma_t A_t) \frac{1}{L}
 \end{align}
 
-However, the previous equation does not represent plethysmography because area change has not been assumed when swelling occurs. But as Grimmes et al.~\cite{martinsen2011bioimpedance} describes the previous equation 'relates to flow system with a varying conductivity of the passing liquid, and flow with time is volume'.
+However, the previous equation does not represent plethysmography because area change has not been assumed \mynotenp{correct word? assumed?} when swelling occurs. As Grimmes et al.~\cite{martinsen2011bioimpedance} describes the previous equation 'relates to flow system with a varying conductivity of the passing liquid, and flow with time is volume'.
 
-But a segment of human body limb is a dynamic system where the cross sectional area changes with the pulsatile movement of the arteries.  For instance, when a blood bolus volume goes through an artery there is a temporary increase of local volume during heart systole (see figure \ref{fig:cylinder bolus}). There are different blood flows occurring during a heart cycle in the inner cylinder of the selected segment that is the blood vessel. First, during inflow phase blood vessel is filled, then during outflow phase, the diastole heart cycle transports blood further down but at the same time is returning through the venous system.
+A segment of the human limb is a dynamic system where the cross sectional area changes with the pulsatile movement of the arteries. For instance, during heart systole a blood bolus goes through an artery which temporarily increases the local volume (see figure \ref{fig:cylinder bolus}). A single vessel in the limb segment experiences two phases of flow throughout a heart cycle. First, during the inflow phase, the blood vessel is filled with blood, then during outflow phase, the diastole heart cycle transports blood further but at the same time is returning blood through the venous system.
 
 
 \begin{figure}[!htpb]
@@ -252,7 +252,8 @@ But a segment of human body limb is a dynamic system where the cross sectional a
 	\label{fig:cylinder bolus}
 \end{figure}
 
-For this reason tetrapolar method or four electrodes measurement are desirable as displayed in figure \ref{fig:cylinder bolus}. Some of the reasons exposed are that is easier to confine the measured tissue volume to the area of the volume increase. Also, the sensitivity will depend on the bolus length in relation to the measured distance between electrodes may also increase sensitivity~\cite{porter1985measurement}.
+For this reason the tetrapolar method or four electrodes measurement is desirable as displayed in figure \ref{fig:cylinder bolus}. Some of these reasons include that it is easier to confine the measured tissue volume to the area of the volume increase. Additionally, the sensitivity will depend on the bolus length in relation to the measured distance between electrodes may also increase sensitivity~\cite{porter1985measurement}.
+\mynote{This paragraph does not related the measurement of tetrapolar with the section of the chapter}
 
 
 %********************************** %Second Section  *************************************
