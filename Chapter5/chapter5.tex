@@ -144,11 +144,11 @@ where $P_d$ is diastolic pressure and $P_s$ is systolic pressure.
 The last kind of occlusion needed is total occlusion (TO), which is possible to obtain by occluding above systolic pressure. Also known as  “Suprasystolic” or “stop-flow” can provides valuable tonometric information \cite{lowe2009non}. In this experiment, blood flow was blocked by inflating the cuff above \SI{20}{\mmHg} of participant's systolic value previously measured. This method of occlusion completely restricts the inflow and outflow of venous and arterial blood. Hence, it is expected that no change of volume takes place all along this part of the test.
 
 \subsubsection{Blood pressure occlusion estimation}
-Finding these blood pressure levels requires to measure and record the blood pressure for each participant. Therefore, before starting the study, three readings of blood pressure were taken and averaged per participant using an automated blood pressure instrument brand Omron IntelliSense (Omron Healthcare). The mean systolic and diastolic pressures of all the partakers of the investigation were \SI{116.25(1366)}{\mmHg} and \SI{72.75(723)}{\mmHg} respectively. The venous occlusion level was targeted to \SI{20}{\mmHg} below systolic pressure the total mean was \SI{55.00(801)}{\mmHg}, the partial arterial pressure was calculated using equation \ref{eq:meanpressure}, the average was about \SI{94.63(1021)}{\mmHg} and total occlusion was around \SI{136.25(1367)}{\mmHg}. Table \ref{tbl:occlusions} details the blood pressures recorded per participant.
+Finding these blood pressure levels requires to measure and record the blood pressure for each participant. Therefore, before starting the study, three readings of blood pressure were taken and averaged per participant using an automated blood pressure instrument brand Omron IntelliSense (Omron Healthcare). The mean systolic and diastolic pressures of all the partakers of the investigation were \SI{116.25(1366)}{\mmHg} and \SI{72.75(723)}{\mmHg} respectively. The venous occlusion level was targeted to \SI{20}{\mmHg} below systolic pressure the total mean was \SI{55.00(801)}{\mmHg}, the partial arterial pressure was calculated using equation \ref{eq:meanpressure}, the average was about \SI{94.63(1021)}{\mmHg} and total occlusion was around \SI{136.25(1367)}{\mmHg}. Table \ref{tbl: venous occlusions} details the blood pressures recorded per participant.
 
-\begin{table}[!htbp] %tbl:occlusions
+\begin{table}[!htbp] %tbl: venous occlusions
 	\caption[Blood pressure and occlusion levels of the participants]{Participants' initial blood pressure and levels for venous, partial arterial and total occlusion.}
-	\label{tbl:occlusions}
+	\label{tbl: venous occlusions}
 	\centering
 	\begin{tabular}    {lcccc}
 		\toprule
@@ -165,7 +165,7 @@ Finding these blood pressure levels requires to measure and record the blood pre
 	\end{tabular}
 \end{table}
 
-With the data from table \ref{tbl:occlusions} was possible to set the parameters for the experimental procedure. The column \textit{occlusion 1} establishes the proper pressure for venous occlusion plethysmography (VOP). With the pressures from column \textit{occlusion 2} the arterial blood flow was restricted as well as the venous return. Finally, \textit{occlusion 3} provides information of changes of impedance during total occlusion.
+With the data from table \ref{tbl: venous occlusions} was possible to set the parameters for the experimental procedure. The column \textit{occlusion 1} establishes the proper pressure for venous occlusion plethysmography (VOP). With the pressures from column \textit{occlusion 2} the arterial blood flow was restricted as well as the venous return. Finally, \textit{occlusion 3} provides information of changes of impedance during total occlusion.
 
 %********************************** %Second subection *************************************
 \subsection{Data acquisition}
@@ -390,7 +390,7 @@ In general, low-pass filters are useful to remove mains noise and high-frequency
 
 After the conversion of impedance from volts, it is possible to compute changes of volume and flow. Chapter \ref{chapter design} describes in depth the governing equations for this operation. Additionally, the analysis of the impedance plethysmography waveform will provide further data of the blood's haemodynamics. Such as the relation between systole and diastole cycles with the APA signal.
 
-As the equation \ref{eq:dvdr} shows, the volume is a relation between impedance and length of the measuring electrodes. The equation \label{eq:Q} also shows that flow can be calculated if the length between electrodes ($l$), blood's resistivity ($\rho$) and impedance are known.  The basal impedance from that equation ($R_B$) is the foot of the $Z_{DC}$ waveform and the differential of impedance ($dR$) is equal to the amplitude of the APA signal ($Z_{AC}$). Therefore, the information obtained from equations \ref{eq:impedance} and \ref{eq:zipg} is the data needed to put into Nyober's equation to estimate either changes of volume or blood flow.
+As the equation \ref{eq:dvdr} shows, the volume is a relation between impedance and length of the measuring electrodes. The equation \ref{eq:Q} also shows that flow can be calculated if the length between electrodes ($l$), blood's resistivity ($\rho$) and impedance are known.  The basal impedance from that equation ($R_B$) is the foot of the $Z_{DC}$ waveform and the differential of impedance ($dR$) is equal to the amplitude of the APA signal ($Z_{AC}$). Therefore, the information obtained from equations \ref{eq:impedance} and \ref{eq:zipg} is the data needed to put into Nyober's equation to estimate either changes of volume or blood flow.
 
 There are two methods to calculate blood flow as described in \ref{chapter impedance}, one using the venous occlusion plethysmography technique \cite{anderson1984impedance,costeloe1980continuous,mohapatra1981non,golden1986assessment} and another analysing the amplitude of the APA waveform \cite{nyboer1974blood,costeloe1980continuous}. Both methods require using the resistivity derivative over time $dR/dt$. However, back projection of the Nyober's equation was used to calculate the blood flow in the impedance APA signal. The following section explains in detail the computation of these values.  
 
@@ -412,10 +412,10 @@ Once the volume is known and its equivalent in impedance the blood flow can be e
 	\frac{\Delta V}{\Delta t}= \rho \frac{l^2}{R_B^2} \times \frac{\Delta R}{\Delta t}
 \end{align} 
 
-In order to make these values more meaningful, they need to be converted in a time interval per minutes. Also, the limb blood flow should be expressed in units of \si{\milli\litre} per \SI{100}{\milli\litre} of limb volume. In this case, the equation can be declared as \ref{eq:QL}.
+In order to make these values more meaningful, they need to be converted in a time interval per minutes. Also, the limb blood flow should be expressed in units of \si{\milli\litre} per \SI{100}{\milli\litre} of limb volume. In this case, the equation can be declared as \ref{eq:Q_L}.
 
 \begin{align}
-	\label{eq:QL}
+	\label{eq:Q_L}
 	\dot{Q_L} = \bigg( \frac{1}{R_B} \bigg) \bigg( \frac{\Delta R}{\Delta t} \bigg) \times 60  \times 100  \tagaddtext{[\si{ml/min.100.ml}]}
 \end{align} 
 
