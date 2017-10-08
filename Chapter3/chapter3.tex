@@ -101,6 +101,110 @@ By replacing the values of the potential from \ref{eq:solve equation} and the cu
 	Z'' = X = \frac{v(t)}{i(t)} = \frac{V_B cos(\omega t) sin(\phi)}{I_A sin(\omega t)} = \frac{V_B}{I_A}sin(\phi)
 \end{align}
 
+%********************************** % Fourth Section  *************************************
+\section{Geselowitz theorem}  %Section - 3.4
+\label{section impedance 5}
+Geselowitz \cite{geselowitz1971application} studied the change in conductivity within a constant geometry. In short, his analysis applied the lead field theory into impedance plethysmography. Simplifying the origin of the equation, the total impedance of the whole volume is equivalent to the sum of all the small impedances within each small volume $dV$~\cite{martinsen2011bioimpedance}.
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=6.3cm,keepaspectratio]{figure9}    
+	\caption[Volume conductor with 4 electrodes]{Volume conductor $V$ of conductivity $\sigma_1$. A:B represent current injection electrodes and C:D are sensing electrodes.}
+	\label{fig:volume}
+\end{figure}
+
+The analysis of this equation starts from the study of the four-electrode measurement and the change in conductivity of the internal region of a volume conductor \cite{bertemes2002tissue}. From Figure \ref{fig:volume} is assumed that a volume conductor is electrically linear and surrounded by an insulator $\xi$. If the internal conductivity changes from $\sigma_1$ to $\sigma_2$ (equivalent to $\sigma_1+\Delta \sigma$) then the potential field of the current injection will change from $\phi$ to $\phi \prime$ (equal to $\phi+\Delta \phi$) but sensing potential field $\psi$ will remain unchanged. Then the field equation can be written as follows:
+
+\begin{align}
+	\label{eq:potential field}
+	\int_{\Omega} \sigma . (\phi - \phi \prime) . \nabla \psi d \overline{S} = \int_{V} (\sigma_1 - \sigma_2).(\nabla \phi \prime \bullet \nabla \psi).dV 
+\end{align}
+
+By replacing the terms by the equivalents, the equation can be rewritten according to the next equation.
+
+\begin{align}
+	\label{eq:potential field2}
+	- \Delta \phi_{CD} . (-I_{\psi}) = - \int_{V} \Delta \sigma . [\nabla (\phi + \Delta \phi) \bullet \nabla \psi].dV
+\end{align}
+
+The impedance change can be deducted by dividing the function by the currents involved $I_{phi}$ and $I_{\psi}$. As a result, the Geselowitz’s equation is equivalent to:
+
+\begin{align}
+	\label{eq:Geselowitz}
+	\Delta Z = \frac{\Delta \phi_{CD}}{I_\phi} = - \int_V \Delta \sigma (x,y,z).\bigg[\frac{\nabla(\phi + \Delta \phi)}{I_{\phi}} \bullet \frac{\nabla \psi}{I_{\psi}}\bigg].dV
+\end{align}
+
+The previous equation is the key to calculating the change in impedance in a volume within defined boundaries. However, this only applies to homogeneous and isotropic volume conductors. This equation can be simplified if is assumed that a unit of current passes through and the volume conductor can be denoted by a number of discrete elements of uniform conductivity in three dimensional space ($x,y,z$). As a result, the equitation can be simplified as follows:
+
+\begin{align}
+	\label{eq:Geselowitz2}
+	\Delta Z = - \Delta \sigma \cdot \int_V \nabla(\phi + \Delta \phi) \bullet \nabla \psi . dV = - \Delta \sigma \cdot S
+\end{align}
+
+\mynote{Check if this expression is cdot or jist normal multiplication}
+
+where $S$ represents the sensitivity matrix in three dimensions, and it is independent of conductance. Calculate this variable requires a series of assumptions such as the initial conductivity distribution is uniform \cite{dehghani1999incorporating}. This document is not centred in the mathematical analysis of the sensitivity S but to deduct that impedance changes are directly related to the change of geometry of the segment. Several studies have been proof that sensitivity varies according to the electrodes position and geometry as researched by Filho \cite{bertemes2002tissue}.
+
+
+
+%********************************** % Second Section  *************************************
+\section{Electrode conflict}  %Section - 3.3
+\label{section impedance 4}
+Electrodes play a key feature in a bioelectrical impedance system. The right electrode geometry, distance and material may influence in the readings from a biological sample. Consequently, it is needed to use electrodes that have minor impedance compared to the one from the subject under test. Currently, most common materials used in bioelectrical impedance are platinum (\textit{Pt}), gold (\textit{Au}) or stainless steel. Other independent variables such temperature, ionic tissue contents and protein adhesion influence in the change of electrode impedance~\cite{ivorra2003bioimpedance,martinsen2011bioimpedance}. The geometry of the electrode also affects its resistance ($R$) as explain by ohm’s law in equation \ref{eq:resist}.
+
+\begin{align}
+	\label{eq:resist}
+	R = \rho \frac{L}{A}
+\end{align}
+
+where $\rho$ is the electrical resistivity of the material, $A$ is the area of the electrode and $L$ its longitude or thickness. As it can be noticed, the resistance ($R$) reduces when the area ($A$) of the electrode increases. However, the total resistance ($R$) is directly proportional to the electrodes length. 
+
+When an electrode adheres to the skin, and electrical current passes through, a physical effect takes place. First, there is an electrical charge change from electronic to ionic conduction because inside the body the latter is only possible. Second, at the electrode–tissue boundary an electrochemical reaction follows, called electrolysis. This effect creates a “double layer capacitance (DLC)” (see figure \ref{fig:DLC}) that as its name indicates, adds a capacitive effect to boundary \cite{lvovich2012impedance}.  Consequently, applying an AC waveform inverts the electrode’s polarity during each cycle minimising this capacitive effect. However, this is a frequency dependent development, which means that at low frequencies can be quite notorious \cite{bertemes2002tissue}.  
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=5.5cm,keepaspectratio]{figure7}    
+	\caption[Dual layer representation on an electrode]{Schematic representation of a double layer on an electrode (BMD) model. 1. Inner Helmholtz plane, (IHP), 2. Outer Helmholtz plane (OHP), 3. Diffuse layer, 4. Solvated ions (cations) 5. Specifically adsorbed ions (redox ion, which contributes to the phase shift element)}
+	\label{fig:DLC}
+\end{figure}
+
+\mynote{I have to reference this section. I think is from Martinesen.}
+
+An electric circuit model can represent the electric–tissue interface; this simplified electric representation is shown in figure \ref{fig:e-t circuit}. In more detail, this model is characterised by a charge transfer resistance ($R_{CT}$) in parallel with interface’s impedance ($Z_{CPE}$) in series with the tissue impedance ($Z_t$).  Some authors have defined the interface’s impedance as either a constant phase angle impedance ($Z_{CPA}$)~\cite{franks2005impedance} or constant phase element ($C_{PE}$) \cite{barsoukov2005impedance,mcadams2006characterization}. 
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=4.5cm,keepaspectratio]{figure8}    
+	\caption[Equivalent circuit electrode–tissue interface]{Equivalent circuit electrode–tissue interface (Adapted from Franks~\cite{franks2005impedance})}
+	\label{fig:e-t circuit}
+\end{figure}
+
+The value of $Z_{ZPA}$ can be calculated from the following empirical equation \ref{eq:zcpa} given by McAdams~\cite{mcadams1995linear}.
+
+\begin{align}
+	\label{eq:zcpa}
+	Z_{CPA} = K(j\omega)^{-\beta}
+\end{align}
+
+where $K$ is a measure of the magnitude of $Z_{CPA}$, $\beta$ is a constant ($0 \leq \beta \leq 1$) representing inhomogeneities in the surface (typically \num{0.8} for many biomedical electrode systems) and $\omega = 2\pi f$. When $\beta = 1$, $Z_{CPE}$ is equivalent a purely capacitive impedance element \cite{franks2005impedance,mcadams2006characterization,mcadams1995linear}.
+
+Electrodes are also a source of error when taking measurements. Some blunders can even distort the original signal; such as thermal noise also known as Johnson-Nyquist noise. This type of noise is entirely inherent to the electrode and also depends on other external variables.  The equation \ref{eq:nyquist noise} represents the level of noise coming from the electrode~\cite{mcadams1995linear}.
+
+\begin{align}
+	\label{eq:nyquist noise}
+	V_n(rms)=\sqrt{(4 K_b T R \Delta f)}
+\end{align}
+
+where $K_b$ is Boltzman constant, $T$ is absolute temperature, $R$ is the electrode’s resistance and $\Delta f$ is the bandwidth of the measurements. 
+
+In summary, it can be appreciated that the noise ($V_n(rms)$) is directly proportional the bandwidth’s measurements ($\Delta f$). At high operating frequency is expected a higher the level of noise. In the case of impedance plethysmography the bandwidth is in the lower range of \si{\kilo\hertz} which minimises the effect of the Johnson-Nyquist noise.
+
+Another source of errors caused by electrode can be derived from their position in the body, lack of surface contact or mismatch in materials and geometries. Therefore, to improve and maximise the area of contact, some electrodes requires of conductive gel. It has been demonstrated that using commercially available electrodes for electrocardiogram (ECG) purposes does provide good impedimetric readings, compared to specially designed electrodes~\cite{caicedo2012use}.
+
+An experiment using this type of electrodes was carried out to determine whether removing one or four electrodes and then put them back in the same position could produce errors in readings. It was found that putting electrodes away and then adhere them again within an extended period represented a minimum change in impedance readings. Most of the changes were presented in variations in the geometry of the segment under test caused by the electrode's reposition that might have varied either the current path or the voltage reading. One of the most important conclusions was that a way to cancel out the effect of electrode repositioning the measurement should be calculating the impedance ratio at different frequencies~\cite{lozano1997electrode}.
+
+At the moment of taking measurements for localised bioelectrical impedance using tetrapolar configuration, the distribution of the electrodes affects the sensitivity of the system as well as the geometry of the cells containing within the tissue ~\cite{bertemes2002tissue}. Experiments found that separation of injection and detection electrode pairs affects current penetration depth. In other words, the largest the separation between the pair of electrodes the deepest the AC signal could go.
+
 
 \section{Bioelectrical impedance}
 \label{section impedance 2}
@@ -179,192 +283,6 @@ In this equation, $\varepsilon_r^*$ represents the complex relative permeability
 Parameter $\alpha$ is limited for values between 0 and 1. When its value is equal to zero, the Cole–Cole equation will give the Debye equation as a solution for polar dielectrics as expressed in equation \ref{eq:Debye}. Consequently, from this mathematical statement it is possible to obtain data representation known as the Cole–Cole plot, which is a two dimensional graph where the plot of $\varepsilon \prime\prime$ or the imaginary part of the equation is in the y axis vs. $\varepsilon \prime$ in the $x$ which is the real part of the solution. However, this is not the only alternative to plot the results J. Ross Macdonald~\cite{macdonald2005impedance, macdonald1992impedance} has also suggested a representation of the data in a three–dimensional plot between the previous variables plus frequency in logarithmic scale $\log_{10}(f)$.\mynotenp{check the last two sentences make sense in engineering terms}
 
 
-%********************************** %First Section  **************************************
-\section{Impedance plethysmography principle} %Section - 1.2                                                                                                                                                                                                 
-\label{section impedance 3}
-Referred as impedance plethysmography (iPG) involves the measurement of the change of impedance due to changes in blood flow. For instance, when heart’s systole increases blood flow, the volume of a limb rises due to the inflow of blood (swelling)~\cite{martinsen2011bioimpedance}. Consequently, there are changes of impedance correlated to the changes of volume and flow in a limb. Some medical application might require the use of occlusion cuffs to analyse venous filling. There are several medical applications for this kind of technique such as heart stroke volume (SV) measurement, cardiac output (CO), thoracic respiratory volume, oedema and detection of deep vein thrombosis (DVT)~\cite{holohan1996plethysmography}. \mynotenp{is this paragraph not repeated earlier?}
-
-As previously described in section \ref{section literature 3.5}, iPG is the measurement of volume changes through the equivalent bioelectrical impedance of a part of the human body~\cite{corciova2011peripheral}. In this document the measurements from an in-vivo studio of the plethysmographic changes in a segment of the left forearm are presented. One could imagine this segment of the upper limb to be modelled as a cylinder within a cylinder. Where the inner cylinder represents a blood vessel and the outermost is the surrounding tissue. 
-
-For mathematical analysis, a single cylinder will be initially studied and then the double cylinder model. An ideal circular solid model can be applied where the cross-sectional area might have a circular or elliptical form. Hence, measurement of electrical impedance might depend on its geometry. The following equation illustrates the segment’s geometry effects either conductance ($G$) or resistance ($R$). However, this document will use the resistance equivalent during the mathematical explanation.
-
-\begin{align}
-\label{eq:resistivity}
-R=\sigma\frac{L}{A}
-\end{align}
-
-Where $\rho$ is the tissue’s conductivity, $A$ is the cross sectional area of the cylinder and $L$ its length. From the conductance equation one can deduce that if length increases conductance will decrease. Opposite\mynotenp{?maybe you want to use "in contrast?"}, if the volume of the cross section $A$ increases then conductivity will increase. A representation of this cylinder can be seen in \ref{fig:cylinder model}. Hence, it is possible to find the volume as function of its resistance can be described with the following equation.\mynotenp{reword where the word function is}
-
-\begin{align}
-\label{eq:volume (R)}
-v=G \rho L^2 = R\sigma A^2 = \frac{1}{R} \frac{L^2}{\sigma}
-\end{align}
-
-\begin{figure}[!htpb]
-	\centering
-	\includegraphics[width=5.5cm,keepaspectratio]{figure4}    
-	\caption[Cylinder model for impedance calculation]{Cylinder model of length L and parallel volume increment}
-	\label{fig:cylinder model}
-\end{figure}
- 
-
-The previous equation suggests that if $L$ is constant then volume $v$ is directly proportional to the conductance $G$. However, if the presumption is that the area $A$ is constant then volume $v$ is directly proportional to resistance $R$. In the case of human blood vessels, it is expected that swelling occurs transversely. In this case, a rise of volume $\Delta v$  is better represented as a conductance increase in a parallel model~\cite{martinsen2011bioimpedance}. Hence, when a variation of volume $\Delta v$ occurs a change of impedance $\Delta G$ might also be present. As a result, both entities can be expressed as a relation between two parameters as shown in the equation below.
-
- \mynote{Probably I should use the description I made from the Nyober equation}
-
-\begin{align}
-	\label{eq:volume (deltav)}
-	\frac{\Delta G}{G} = \frac{\Delta v}{v} \qquad\text{or}\qquad \frac{\Delta G}{G} = \frac{\sigma}{L^2} \qquad\text{or}\qquad \Delta v = \Delta G \rho L^2
-\end{align}
-
-
-The same equation can be also represented as function of a change of resistivity $\Delta R$. In this case the equation changes to \mynotenp{???} \ref{eq:volume (deltaR)}. One must keep in mind that the minus sign represents that resistance increase corresponds a volume decrease \cite{martinsen2011bioimpedance}. 
- 
-\begin{align}
-	\label{eq:volume (deltaR)}
-	 \Delta v \cong \Delta R \rho \bigg( \frac{L}{R} \bigg)^2 \qquad (\Delta R \ll R)
-\end{align}
-
-Nevertheless, a human body segment could be sculpted as two-compartment cylinder model where length $L$ is constant and the two cylinders are physically in parallel (see figure \ref{fig:two cylinder modell}). Supposing that the volume of the inner cylinder is equivalent to $\Delta v + v_A$ and $v_t$ is the constant outer cylinder volume. \mynotenp{doesnt make sense} Then, the following equation represents the change in conductivity when both tubes swell $(\Delta v > 0)$. From this equation one can deduce that the problem of high sensitivity plethysmography depends on selectively measuring the immittance in a selected volume~\cite{martinsen2011bioimpedance}.
-
-\begin{figure}[!htpb]
-	\centering
-	\includegraphics[width=5.5cm,keepaspectratio]{figure5}    
-	\caption[Two compartment cylinder model]{Two compartment cylinder model of length L and parallel volume increment}
-	\label{fig:two cylinder modell}
-\end{figure}
-
-In this case, the conductivities and cross sectional areas from surrounding tissue ($\sigma_t$) with area $A_t$ and tissue ($\sigma_b$) with area $A_b$ will also contribute towards the total conductance $G$ of the segment. Consequently, considering constant geometry, the conductance of these two cylinders could be expressed as the following equation.
-
-\begin{align}
-G = (\sigma_b A_b + \sigma_t A_t) \frac{1}{L}
-\end{align}
-
-However, the previous equation does not represent plethysmography because area change has not been assumed \mynotenp{correct word? assumed?} when swelling occurs. As Grimmes et al.~\cite{martinsen2011bioimpedance} describes the previous equation 'relates to flow system with a varying conductivity of the passing liquid, and flow with time is volume'.
-
-A segment of the human limb is a dynamic system where the cross sectional area changes with the pulsatile movement of the arteries. For instance, during heart systole a blood bolus goes through an artery which temporarily increases the local volume (see figure \ref{fig:cylinder bolus}). A single vessel in the limb segment experiences two phases of flow throughout a heart cycle. First, during the inflow phase, the blood vessel is filled with blood, then during outflow phase, the diastole heart cycle transports blood further but at the same time is returning blood through the venous system.
-
-
-\begin{figure}[!htpb]
-	\centering
-	\includegraphics[width=7cm,keepaspectratio]{figure6}    
-	\caption[Four electrodes placement for iPG]{Four electrodes system with the effect of a bolus of blood passing through a selected segment}
-	\label{fig:cylinder bolus}
-\end{figure}
-
-For this reason the tetrapolar method or four electrodes measurement is desirable as displayed in figure \ref{fig:cylinder bolus}. Some of these reasons include that it is easier to confine the measured tissue volume to the area of the volume increase. Additionally, the sensitivity will depend on the bolus length in relation to the measured distance between electrodes may also increase sensitivity~\cite{porter1985measurement}.
-\mynote{This paragraph does not related the measurement of tetrapolar with the section of the chapter}
-
-
-%********************************** %Second Section  *************************************
-\subsection{Blood contribution to impedance} %Section - 3.2.1
-As it has been described impedance plethysmography relies on the change of volume caused by blood vessels filling up all along the cardiac cycle. Nonetheless, blood is highly conductive and influences the amplitude of the waveform. However, there are also particular properties that might modify its intrinsic signal. In one of the earliest research about the conductivity of blood, Sigman et al.~\cite{sigman1937effect} demonstrated that resistivity of blood depends on its flow. It was found that when blood velocity decreased from \SIrange{10}{40}{\centi\meter\per\second} its resistivity fell roughly \SI{7}{\percent}. Furthermore, it was found that haematocrit and temperature are also factors that affects the blood resistivity \cite{yamakoshi1980noninvasive}. However, in an in-vivo setting the temperature remains nearly constant. Blood can be simplified as a suspension of particles (erythrocytes or RDC) with a high resistivity floating in a conductive medium (plasma). The rest of blood’s cells do not represent a great component in the change of impedance because of its small size in comparison with the erythrocytes (see table \ref{table:cell}). In fact, the Sigman effect is not presented in either plasma or electrolytes~\cite{tremper1990principles}.  
-
-It has also been proved that blood is electrically anisotropic because of the orientation of the RBC’s \cite{Visser1992Electric}. Moreover, geometry and orientation also affect the reading of resistivity. Which also means that direction of measurement also affects the readings. 
- 
-
-%********************************** % Second Section  *************************************
-\section{Electrode conflict}  %Section - 3.3
-\label{section impedance 4}
-Electrodes play a key feature in a bioelectrical impedance system. The right electrode geometry, distance and material may influence in the readings from a biological sample. Consequently, it is needed to use electrodes that have minor impedance compared to the one from the subject under test. Currently, most common materials used in bioelectrical impedance are platinum (\textit{Pt}), gold (\textit{Au}) or stainless steel. Other independent variables such temperature, ionic tissue contents and protein adhesion influence in the change of electrode impedance~\cite{ivorra2003bioimpedance,martinsen2011bioimpedance}. The geometry of the electrode also affects its resistance ($R$) as explain by ohm’s law in equation \ref{eq:resist}.
-
-\begin{align}
-	\label{eq:resist}
-	R = \rho \frac{L}{A}
-\end{align}
-
-where $\rho$ is the electrical resistivity of the material, $A$ is the area of the electrode and $L$ its longitude or thickness. As it can be noticed, the resistance ($R$) reduces when the area ($A$) of the electrode increases. However, the total resistance ($R$) is directly proportional to the electrodes length. 
-
-When an electrode adheres to the skin, and electrical current passes through, a physical effect takes place. First, there is an electrical charge change from electronic to ionic conduction because inside the body the latter is only possible. Second, at the electrode–tissue boundary an electrochemical reaction follows, called electrolysis. This effect creates a “double layer capacitance (DLC)” (see figure \ref{fig:DLC}) that as its name indicates, adds a capacitive effect to boundary \cite{lvovich2012impedance}.  Consequently, applying an AC waveform inverts the electrode’s polarity during each cycle minimising this capacitive effect. However, this is a frequency dependent development, which means that at low frequencies can be quite notorious \cite{bertemes2002tissue}.  
-
-\begin{figure}[!htpb]
-	\centering
-	\includegraphics[width=5.5cm,keepaspectratio]{figure7}    
-	\caption[Dual layer representation on an electrode]{Schematic representation of a double layer on an electrode (BMD) model. 1. Inner Helmholtz plane, (IHP), 2. Outer Helmholtz plane (OHP), 3. Diffuse layer, 4. Solvated ions (cations) 5. Specifically adsorbed ions (redox ion, which contributes to the phase shift element)}
-	\label{fig:DLC}
-\end{figure}
-
-\mynote{I have to reference this section. I think is from Martinesen.}
-
-An electric circuit model can represent the electric–tissue interface; this simplified electric representation is shown in figure \ref{fig:e-t circuit}. In more detail, this model is characterised by a charge transfer resistance ($R_{CT}$) in parallel with interface’s impedance ($Z_{CPE}$) in series with the tissue impedance ($Z_t$).  Some authors have defined the interface’s impedance as either a constant phase angle impedance ($Z_{CPA}$)~\cite{franks2005impedance} or constant phase element ($C_{PE}$) \cite{barsoukov2005impedance,mcadams2006characterization}. 
-
-\begin{figure}[!htpb]
-	\centering
-	\includegraphics[width=4.5cm,keepaspectratio]{figure8}    
-	\caption[Equivalent circuit electrode–tissue interface]{Equivalent circuit electrode–tissue interface (Adapted from Franks~\cite{franks2005impedance})}
-	\label{fig:e-t circuit}
-\end{figure}
-
-The value of $Z_{ZPA}$ can be calculated from the following empirical equation \ref{eq:zcpa} given by McAdams~\cite{mcadams1995linear}.
-
-\begin{align}
-\label{eq:zcpa}
-Z_{CPA} = K(j\omega)^{-\beta}
-\end{align}
-
-where $K$ is a measure of the magnitude of $Z_{CPA}$, $\beta$ is a constant ($0 \leq \beta \leq 1$) representing inhomogeneities in the surface (typically \num{0.8} for many biomedical electrode systems) and $\omega = 2\pi f$. When $\beta = 1$, $Z_{CPE}$ is equivalent a purely capacitive impedance element \cite{franks2005impedance,mcadams2006characterization,mcadams1995linear}.
-
-Electrodes are also a source of error when taking measurements. Some blunders can even distort the original signal; such as thermal noise also known as Johnson-Nyquist noise. This type of noise is entirely inherent to the electrode and also depends on other external variables.  The equation \ref{eq:nyquist noise} represents the level of noise coming from the electrode~\cite{mcadams1995linear}.
-
-\begin{align}
-\label{eq:nyquist noise}
-V_n(rms)=\sqrt{(4 K_b T R \Delta f)}
-\end{align}
-
-where $K_b$ is Boltzman constant, $T$ is absolute temperature, $R$ is the electrode’s resistance and $\Delta f$ is the bandwidth of the measurements. 
-
-In summary, it can be appreciated that the noise ($V_n(rms)$) is directly proportional the bandwidth’s measurements ($\Delta f$). At high operating frequency is expected a higher the level of noise. In the case of impedance plethysmography the bandwidth is in the lower range of \si{\kilo\hertz} which minimises the effect of the Johnson-Nyquist noise.
-
-Another source of errors caused by electrode can be derived from their position in the body, lack of surface contact or mismatch in materials and geometries. Therefore, to improve and maximise the area of contact, some electrodes requires of conductive gel. It has been demonstrated that using commercially available electrodes for electrocardiogram (ECG) purposes does provide good impedimetric readings, compared to specially designed electrodes~\cite{caicedo2012use}.
-
-An experiment using this type of electrodes was carried out to determine whether removing one or four electrodes and then put them back in the same position could produce errors in readings. It was found that putting electrodes away and then adhere them again within an extended period represented a minimum change in impedance readings. Most of the changes were presented in variations in the geometry of the segment under test caused by the electrode's reposition that might have varied either the current path or the voltage reading. One of the most important conclusions was that a way to cancel out the effect of electrode repositioning the measurement should be calculating the impedance ratio at different frequencies~\cite{lozano1997electrode}.
-
-At the moment of taking measurements for localised bioelectrical impedance using tetrapolar configuration, the distribution of the electrodes affects the sensitivity of the system as well as the geometry of the cells containing within the tissue ~\cite{bertemes2002tissue}. Experiments found that separation of injection and detection electrode pairs affects current penetration depth. In other words, the largest the separation between the pair of electrodes the deepest the AC signal could go.
-
-%********************************** % Fourth Section  *************************************
-\section{Geselowitz theorem}  %Section - 3.4
-\label{section impedance 5}
-Geselowitz \cite{geselowitz1971application} studied the change in conductivity within a constant geometry. In short, his analysis applied the lead field theory into impedance plethysmography. Simplifying the origin of the equation, the total impedance of the whole volume is equivalent to the sum of all the small impedances within each small volume $dV$~\cite{martinsen2011bioimpedance}.
-
-\begin{figure}[!htpb]
-	\centering
-	\includegraphics[width=6.3cm,keepaspectratio]{figure9}    
-	\caption[Volume conductor with 4 electrodes]{Volume conductor $V$ of conductivity $\sigma_1$. A:B represent current injection electrodes and C:D are sensing electrodes.}
-	\label{fig:volume}
-\end{figure}
-
-The analysis of this equation starts from the study of the four-electrode measurement and the change in conductivity of the internal region of a volume conductor \cite{bertemes2002tissue}. From Figure \ref{fig:volume} is assumed that a volume conductor is electrically linear and surrounded by an insulator $\xi$. If the internal conductivity changes from $\sigma_1$ to $\sigma_2$ (equivalent to $\sigma_1+\Delta \sigma$) then the potential field of the current injection will change from $\phi$ to $\phi \prime$ (equal to $\phi+\Delta \phi$) but sensing potential field $\psi$ will remain unchanged. Then the field equation can be written as follows:
-
-\begin{align}
-	\label{eq:potential field}
-	\int_{\Omega} \sigma . (\phi - \phi \prime) . \nabla \psi d \overline{S} = \int_{V} (\sigma_1 - \sigma_2).(\nabla \phi \prime \bullet \nabla \psi).dV 
-\end{align}
-
-By replacing the terms by the equivalents, the equation can be rewritten according to the next equation.
-
-\begin{align}
-	\label{eq:potential field2}
-	- \Delta \phi_{CD} . (-I_{\psi}) = - \int_{V} \Delta \sigma . [\nabla (\phi + \Delta \phi) \bullet \nabla \psi].dV
-\end{align}
-
-The impedance change can be deducted by dividing the function by the currents involved $I_{phi}$ and $I_{\psi}$. As a result, the Geselowitz’s equation is equivalent to:
-
-\begin{align}
-	\label{eq:Geselowitz}
-	\Delta Z = \frac{\Delta \phi_{CD}}{I_\phi} = - \int_V \Delta \sigma (x,y,z).\bigg[\frac{\nabla(\phi + \Delta \phi)}{I_{\phi}} \bullet \frac{\nabla \psi}{I_{\psi}}\bigg].dV
-\end{align}
-
-The previous equation is the key to calculating the change in impedance in a volume within defined boundaries. However, this only applies to homogeneous and isotropic volume conductors. This equation can be simplified if is assumed that a unit of current passes through and the volume conductor can be denoted by a number of discrete elements of uniform conductivity in three dimensional space ($x,y,z$). As a result, the equitation can be simplified as follows:
-
-\begin{align}
-	\label{eq:Geselowitz2}
-	\Delta Z = - \Delta \sigma \cdot \int_V \nabla(\phi + \Delta \phi) \bullet \nabla \psi . dV = - \Delta \sigma \cdot S
-\end{align}
-
-\mynote{Check if this expression is cdot or jist normal multiplication}
-
-where $S$ represents the sensitivity matrix in three dimensions, and it is independent of conductance. Calculate this variable requires a series of assumptions such as the initial conductivity distribution is uniform \cite{dehghani1999incorporating}. This document is not centred in the mathematical analysis of the sensitivity S but to deduct that impedance changes are directly related to the change of geometry of the segment. Several studies have been proof that sensitivity varies according to the electrodes position and geometry as researched by Filho \cite{bertemes2002tissue}.
-
 
 %********************************** % Fifth Section  *************************************
 \section{Bioimpedance and Impedance plethysmography state of the art} %Section - 3.5
@@ -389,6 +307,93 @@ Another company that successfully has FDA approved medical devices using bioimpe
 Next is Tanita Corporation, a Japanese company pioneer in the production of digital weight scales capable of performing a whole body composition analysis using either bioelectrical spectroscopy analysis or segmental bioelectrical impedance methods~\cite{tanita}. Moreover, their products are FDA approved and can provide an enormous number of readings from the human body including extracellular water content (EWC), intracellular water content (IWC), muscle balance, segmental analysis of muscle mass and fat percentage.
 
 At last is the German company medis (Medizinische Messtechnik GmbH) which is a spin-off company from Institute of Biomedical Engineering of the Technical University Ilmenau. They manufacture medical equipment for cardiovascular diagnosis including impedance cardiographs and impedance plethysmography devices. However, their devices also combined other methods such as PPG and ECG to obtain a better assessment of the haemodynamics. 
+
+%********************************** % Sixth Section  *************************************
+\section{Electrical current in the human body} %Section - 3.7
+\label{section impedance 8}
+Injecting electric current in biological tissue requires some safety measurements so as to guarantee the patients welfare. Driving current into the human body may cause unpleasant effects like heating, electrolysis at the electrode–tissue interface or neuromuscular stimulation \cite{bertemes2002tissue, martinsen2011bioimpedance}. The latter being the most dangerous because it controls blood circulation and respiration. Levels of current sensation changes from person–to–person, sex and also depend on the electrode’s geometry. However, Brown et al. \cite{brown1998medical} have established a threshold current where sensation increases when frequency rises as shown in Figure \ref{fig:threshold sensation}.  It has been recognised the frequency dependency of the human body. The maximum sensitivity of the nervous system is in the frequency range between \SIrange[scientific-notation = engineering]{10}{1000}{\hertz}. At frequencies above \SI{1}{\kilo\hertz} sensitivity is considerably reduced and above \SI{100}{\kilo\hertz} it is entirely imperceptible. In fact, the heat effect is so high at these frequencies that electro-surgical devices use it. Square waves are not recommended because they have the DC and AC effect in one signal where the duration of the pulse an important parameter to be controlled \cite{martinsen2011bioimpedance}.
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=0.45\textwidth,keepaspectratio]{figure14}    
+	\caption[Threshold current sensation vs. frequency]{Threshold current sensation vs. frequency. Adapted from \cite{brown1998medical}}
+	\label{fig:threshold sensation}
+\end{figure}
+
+The table \ref{table:current in body} shows different levels of electric current tolerance of the human body. These effects are mostly dependant on current rather than frequency. When frequencies are above \SI{100}{\kilo\hertz} especially on the radio–frequency (RF) range (\SIrange[scientific-notation = engineering]{400000}{3000000}{\hertz}) the heating effect of the tissue is more common. As can be seen, to avoid patient’s discomfort, currents bellow \SI{5}{\milli\ampere} must be used in BIA device.
+
+\begin{table}[!htpb]
+	\caption{Effect of electric current in the human body}
+	\centering
+	\label{table:current in body}
+	\begin{tabular}{lp{0.525\textwidth}}
+		\toprule
+		\textbf{Current Level}                &         \textbf{Effect}          \\ \midrule
+		
+		< \SI{1}{\milli\ampere}                &  
+		\begin{tabular}[t]{@{\textbullet~}p{\textwidth}@{}} 
+			Usually not perceptible 
+		\end{tabular}
+		\\\midrule
+		\SI{1}{\milli\ampere}                  &  
+		\begin{tabular}[t]{@{\textbullet~}p{\textwidth}@{}} 
+			Threshold of current perception \\
+			Tingling sensation
+		\end{tabular}
+		\\\midrule
+		\SI{5}{\milli\ampere}                  &  
+		\begin{tabular}[t]{@{\textbullet~}p{\textwidth}@{}} 
+			Sensory nerve stimulation\\ 
+			Shock sensation 
+		\end{tabular}
+		\\\midrule
+		\SIrange{6}{25}{\milli\ampere} (Women) &  
+		\begin{tabular}[t]{@{\textbullet~}p{\textwidth}@{}} 
+			Painful electric shock \\ 
+			Lack of muscular control 
+		\end{tabular}
+		\\\midrule
+		\SIrange{9}{30}{\milli\ampere} (Men)   &  
+		\begin{tabular}[t]{@{\textbullet~}p{\textwidth}@{}} 
+			Difficult to let go – freezing current range \\
+			High muscle contraction
+		\end{tabular}	
+		\\\midrule
+		\SIrange{50}{150}{\milli\ampere}       &  
+		\begin{tabular}[t]{@{\textbullet~}p{\textwidth}@{}} 
+			Extreme pain \\
+			Possible respiratory arrest \\
+			Possible ventricular fibrillation (VF) \\
+			Sever muscular contraction \\
+			Possibly death
+		\end{tabular}
+		\\\midrule
+		\SIrange{1}{4.3}{\ampere}              &  
+		\begin{tabular}[t]{@{\textbullet~}p{\textwidth}@{}} 
+			Heart’s electric coordination compromised \\
+			Muscular contraction and nerve damage \\
+			Death likely 
+		\end{tabular}
+		\\\midrule
+		\SI{10}{\ampere}                       & 
+		\begin{tabular}[t]{@{\textbullet~}p{\textwidth}@{}} 
+			Cardiac arrest \\
+			Severe burns \\
+			Highly probability of death
+		\end{tabular}
+		\\\bottomrule                            
+	\end{tabular} 
+\end{table}
+
+Recommendations, guidelines and norms for patient safety are contained in international standards compiled by the International Electrotechnical Commission (IEC).  The standard applicable to medical equipment or equipment to be used with humans is referenced as IEC 60601 or IEC 601 for short. Some of the recommendations regarding safety are expressed as follows: first, the commission considers any frequency below \SI{0.1}{\hertz} as direct current, in order to avoid ulcers created by electrode–skin interface this type of current should be limited to \SI{10}{\uArms}. Moreover, for frequencies up to \SI{1}{\kilo\hertz}, it is recommended to limit current at \SI{100}{\uArms}. Secondly, avoiding nerve stimulation is crucial for patient safety; at frequencies above \SI{1}{\kilo\hertz}, muscular stimulation is very difficult. Therefore is recommended use frequencies above this value. Thirdly, one important recommendation of the standard is that the maximum current flowing through skin contact must be limited to \SI{0.5}{\milli\ampere} with single fault equipment. Lastly, as explained before in the RF range tissue could be heated, tissue burn can be avoided by limiting the current density and duration, for instance, is recommended using densities of less than \SI{1}{\milli\ampere\per\milli\meter\squared}. In practical applications of current vs. frequency, for frequencies above \SI{1}{\kilo\hertz}, the Commission has established the equation \ref{eq:current body} to calculate the maximum root–mean–square current when this is less than \SI{10}{\mArms}.
+
+\begin{align}
+	\label{eq:current body}
+	I_{MAX(RMS)} = 10^{-7}.f
+\end{align}
+
+where $f$ is the frequency of the measurement.
+
 
 \section{Basic components of a bioelectrical impedance device}
 \label{section impedance 7}
@@ -458,91 +463,82 @@ This method developed by Piccoli et al. \cite{piccoli2000relationship, piccoli20
 \end{figure}
 
 
-%********************************** % Sixth Section  *************************************
-\section{Electrical current in the human body} %Section - 3.7
-\label{section impedance 8}
-Injecting electric current in biological tissue requires some safety measurements so as to guarantee the patients welfare. Driving current into the human body may cause unpleasant effects like heating, electrolysis at the electrode–tissue interface or neuromuscular stimulation \cite{bertemes2002tissue, martinsen2011bioimpedance}. The latter being the most dangerous because it controls blood circulation and respiration. Levels of current sensation changes from person–to–person, sex and also depend on the electrode’s geometry. However, Brown et al. \cite{brown1998medical} have established a threshold current where sensation increases when frequency rises as shown in Figure \ref{fig:threshold sensation}.  It has been recognised the frequency dependency of the human body. The maximum sensitivity of the nervous system is in the frequency range between \SIrange[scientific-notation = engineering]{10}{1000}{\hertz}. At frequencies above \SI{1}{\kilo\hertz} sensitivity is considerably reduced and above \SI{100}{\kilo\hertz} it is entirely imperceptible. In fact, the heat effect is so high at these frequencies that electro-surgical devices use it. Square waves are not recommended because they have the DC and AC effect in one signal where the duration of the pulse an important parameter to be controlled \cite{martinsen2011bioimpedance}.
+%********************************** %First Section  **************************************
+\section{Impedance plethysmography principle} %Section - 1.2                                                                                                                                                                                                 
+\label{section impedance 3}
+Referred as impedance plethysmography (iPG) involves the measurement of the change of impedance due to changes in blood flow. For instance, when heart’s systole increases blood flow, the volume of a limb rises due to the inflow of blood (swelling)~\cite{martinsen2011bioimpedance}. Consequently, there are changes of impedance correlated to the changes of volume and flow in a limb. Some medical application might require the use of occlusion cuffs to analyse venous filling. There are several medical applications for this kind of technique such as heart stroke volume (SV) measurement, cardiac output (CO), thoracic respiratory volume, oedema and detection of deep vein thrombosis (DVT)~\cite{holohan1996plethysmography}. \mynotenp{is this paragraph not repeated earlier?}
+
+As previously described in section \ref{section literature 3.5}, iPG is the measurement of volume changes through the equivalent bioelectrical impedance of a part of the human body~\cite{corciova2011peripheral}. In this document the measurements from an in-vivo studio of the plethysmographic changes in a segment of the left forearm are presented. One could imagine this segment of the upper limb to be modelled as a cylinder within a cylinder. Where the inner cylinder represents a blood vessel and the outermost is the surrounding tissue. 
+
+For mathematical analysis, a single cylinder will be initially studied and then the double cylinder model. An ideal circular solid model can be applied where the cross-sectional area might have a circular or elliptical form. Hence, measurement of electrical impedance might depend on its geometry. The following equation illustrates the segment’s geometry effects either conductance ($G$) or resistance ($R$). However, this document will use the resistance equivalent during the mathematical explanation.
+
+\begin{align}
+	\label{eq:resistivity}
+	R=\sigma\frac{L}{A}
+\end{align}
+
+Where $\rho$ is the tissue’s conductivity, $A$ is the cross sectional area of the cylinder and $L$ its length. From the conductance equation one can deduce that if length increases conductance will decrease. Opposite\mynotenp{?maybe you want to use "in contrast?"}, if the volume of the cross section $A$ increases then conductivity will increase. A representation of this cylinder can be seen in \ref{fig:cylinder model}. Hence, it is possible to find the volume as function of its resistance can be described with the following equation.\mynotenp{reword where the word function is}
+
+\begin{align}
+	\label{eq:volume (R)}
+	v=G \rho L^2 = R\sigma A^2 = \frac{1}{R} \frac{L^2}{\sigma}
+\end{align}
 
 \begin{figure}[!htpb]
 	\centering
-	\includegraphics[width=0.45\textwidth,keepaspectratio]{figure14}    
-	\caption[Threshold current sensation vs. frequency]{Threshold current sensation vs. frequency. Adapted from \cite{brown1998medical}}
-	\label{fig:threshold sensation}
+	\includegraphics[width=5.5cm,keepaspectratio]{figure4}    
+	\caption[Cylinder model for impedance calculation]{Cylinder model of length L and parallel volume increment}
+	\label{fig:cylinder model}
 \end{figure}
 
-The table \ref{table:current in body} shows different levels of electric current tolerance of the human body. These effects are mostly dependant on current rather than frequency. When frequencies are above \SI{100}{\kilo\hertz} especially on the radio–frequency (RF) range (\SIrange[scientific-notation = engineering]{400000}{3000000}{\hertz}) the heating effect of the tissue is more common. As can be seen, to avoid patient’s discomfort, currents bellow \SI{5}{\milli\ampere} must be used in BIA device.
 
-\begin{table}[!htpb]
-	\caption{Effect of electric current in the human body}
-	\centering
-	\label{table:current in body}
-	\begin{tabular}{lp{0.525\textwidth}}
-		\toprule
-		\textbf{Current Level}                &         \textbf{Effect}          \\ \midrule
+The previous equation suggests that if $L$ is constant then volume $v$ is directly proportional to the conductance $G$. However, if the presumption is that the area $A$ is constant then volume $v$ is directly proportional to resistance $R$. In the case of human blood vessels, it is expected that swelling occurs transversely. In this case, a rise of volume $\Delta v$  is better represented as a conductance increase in a parallel model~\cite{martinsen2011bioimpedance}. Hence, when a variation of volume $\Delta v$ occurs a change of impedance $\Delta G$ might also be present. As a result, both entities can be expressed as a relation between two parameters as shown in the equation below.
 
-		< \SI{1}{\milli\ampere}                &  
-		\begin{tabular}[t]{@{\textbullet~}p{\textwidth}@{}} 
-		 Usually not perceptible 
-		\end{tabular}
-		\\\midrule
-		\SI{1}{\milli\ampere}                  &  
-		\begin{tabular}[t]{@{\textbullet~}p{\textwidth}@{}} 
-		 Threshold of current perception \\
-		 Tingling sensation
-		\end{tabular}
-		\\\midrule
-		\SI{5}{\milli\ampere}                  &  
-		\begin{tabular}[t]{@{\textbullet~}p{\textwidth}@{}} 
-		 Sensory nerve stimulation\\ 
-		 Shock sensation 
-		\end{tabular}
-		\\\midrule
-		\SIrange{6}{25}{\milli\ampere} (Women) &  
-		\begin{tabular}[t]{@{\textbullet~}p{\textwidth}@{}} 
-		 Painful electric shock \\ 
-		 Lack of muscular control 
-		\end{tabular}
-		\\\midrule
-		\SIrange{9}{30}{\milli\ampere} (Men)   &  
-		\begin{tabular}[t]{@{\textbullet~}p{\textwidth}@{}} 
-		 Difficult to let go – freezing current range \\
-		 High muscle contraction
-		\end{tabular}	
-		\\\midrule
-		\SIrange{50}{150}{\milli\ampere}       &  
-		\begin{tabular}[t]{@{\textbullet~}p{\textwidth}@{}} 
-		 Extreme pain \\
-		 Possible respiratory arrest \\
-		 Possible ventricular fibrillation (VF) \\
-		 Sever muscular contraction \\
-		 Possibly death
-		\end{tabular}
-		\\\midrule
-		\SIrange{1}{4.3}{\ampere}              &  
-		\begin{tabular}[t]{@{\textbullet~}p{\textwidth}@{}} 
-		 Heart’s electric coordination compromised \\
-		 Muscular contraction and nerve damage \\
-		 Death likely 
-		\end{tabular}
-		\\\midrule
-		\SI{10}{\ampere}                       & 
-		\begin{tabular}[t]{@{\textbullet~}p{\textwidth}@{}} 
-		 Cardiac arrest \\
-		 Severe burns \\
-		 Highly probability of death
-		\end{tabular}
-		\\\bottomrule                            
-	\end{tabular} 
-\end{table}
-
-Recommendations, guidelines and norms for patient safety are contained in international standards compiled by the International Electrotechnical Commission (IEC).  The standard applicable to medical equipment or equipment to be used with humans is referenced as IEC 60601 or IEC 601 for short. Some of the recommendations regarding safety are expressed as follows: first, the commission considers any frequency below \SI{0.1}{\hertz} as direct current, in order to avoid ulcers created by electrode–skin interface this type of current should be limited to \SI{10}{\uArms}. Moreover, for frequencies up to \SI{1}{\kilo\hertz}, it is recommended to limit current at \SI{100}{\uArms}. Secondly, avoiding nerve stimulation is crucial for patient safety; at frequencies above \SI{1}{\kilo\hertz}, muscular stimulation is very difficult. Therefore is recommended use frequencies above this value. Thirdly, one important recommendation of the standard is that the maximum current flowing through skin contact must be limited to \SI{0.5}{\milli\ampere} with single fault equipment. Lastly, as explained before in the RF range tissue could be heated, tissue burn can be avoided by limiting the current density and duration, for instance, is recommended using densities of less than \SI{1}{\milli\ampere\per\milli\meter\squared}. In practical applications of current vs. frequency, for frequencies above \SI{1}{\kilo\hertz}, the Commission has established the equation \ref{eq:current body} to calculate the maximum root–mean–square current when this is less than \SI{10}{\mArms}.
+\mynote{Probably I should use the description I made from the Nyober equation}
 
 \begin{align}
-	\label{eq:current body}
-     I_{MAX(RMS)} = 10^{-7}.f
+	\label{eq:volume (deltav)}
+	\frac{\Delta G}{G} = \frac{\Delta v}{v} \qquad\text{or}\qquad \frac{\Delta G}{G} = \frac{\sigma}{L^2} \qquad\text{or}\qquad \Delta v = \Delta G \rho L^2
 \end{align}
 
-where $f$ is the frequency of the measurement.
+
+The same equation can be also represented as function of a change of resistivity $\Delta R$. In this case the equation changes to \mynotenp{???} \ref{eq:volume (deltaR)}. One must keep in mind that the minus sign represents that resistance increase corresponds a volume decrease \cite{martinsen2011bioimpedance}. 
+
+\begin{align}
+	\label{eq:volume (deltaR)}
+	\Delta v \cong \Delta R \rho \bigg( \frac{L}{R} \bigg)^2 \qquad (\Delta R \ll R)
+\end{align}
+
+Nevertheless, a human body segment could be sculpted as two-compartment cylinder model where length $L$ is constant and the two cylinders are physically in parallel (see figure \ref{fig:two cylinder modell}). Supposing that the volume of the inner cylinder is equivalent to $\Delta v + v_A$ and $v_t$ is the constant outer cylinder volume. \mynotenp{doesnt make sense} Then, the following equation represents the change in conductivity when both tubes swell $(\Delta v > 0)$. From this equation one can deduce that the problem of high sensitivity plethysmography depends on selectively measuring the immittance in a selected volume~\cite{martinsen2011bioimpedance}.
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=5.5cm,keepaspectratio]{figure5}    
+	\caption[Two compartment cylinder model]{Two compartment cylinder model of length L and parallel volume increment}
+	\label{fig:two cylinder modell}
+\end{figure}
+
+In this case, the conductivities and cross sectional areas from surrounding tissue ($\sigma_t$) with area $A_t$ and tissue ($\sigma_b$) with area $A_b$ will also contribute towards the total conductance $G$ of the segment. Consequently, considering constant geometry, the conductance of these two cylinders could be expressed as the following equation.
+
+\begin{align}
+	G = (\sigma_b A_b + \sigma_t A_t) \frac{1}{L}
+\end{align}
+
+However, the previous equation does not represent plethysmography because area change has not been assumed \mynotenp{correct word? assumed?} when swelling occurs. As Grimmes et al.~\cite{martinsen2011bioimpedance} describes the previous equation 'relates to flow system with a varying conductivity of the passing liquid, and flow with time is volume'.
+
+A segment of the human limb is a dynamic system where the cross sectional area changes with the pulsatile movement of the arteries. For instance, during heart systole a blood bolus goes through an artery which temporarily increases the local volume (see figure \ref{fig:cylinder bolus}). A single vessel in the limb segment experiences two phases of flow throughout a heart cycle. First, during the inflow phase, the blood vessel is filled with blood, then during outflow phase, the diastole heart cycle transports blood further but at the same time is returning blood through the venous system.
+
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=7cm,keepaspectratio]{figure6}    
+	\caption[Four electrodes placement for iPG]{Four electrodes system with the effect of a bolus of blood passing through a selected segment}
+	\label{fig:cylinder bolus}
+\end{figure}
+
+For this reason the tetrapolar method or four electrodes measurement is desirable as displayed in figure \ref{fig:cylinder bolus}. Some of these reasons include that it is easier to confine the measured tissue volume to the area of the volume increase. Additionally, the sensitivity will depend on the bolus length in relation to the measured distance between electrodes may also increase sensitivity~\cite{porter1985measurement}.
+\mynote{This paragraph does not related the measurement of tetrapolar with the section of the chapter}
+
 
 %********************************** % Sixth Section  *************************************
 \section{Impedance plethysmography} %Section - 3.9
@@ -576,6 +572,15 @@ The impedance modulus is obtained using Ohm's law (equation \ref{eq:|Z|}). The r
  	\label{eq:|Z|}
  	\left| Z \right| = \frac{v}{i}
  \end{align}
+
+
+
+%********************************** %Second Section  *************************************
+\subsection{Blood contribution to impedance} %Section - 3.2.1
+As it has been described impedance plethysmography relies on the change of volume caused by blood vessels filling up all along the cardiac cycle. Nonetheless, blood is highly conductive and influences the amplitude of the waveform. However, there are also particular properties that might modify its intrinsic signal. In one of the earliest research about the conductivity of blood, Sigman et al.~\cite{sigman1937effect} demonstrated that resistivity of blood depends on its flow. It was found that when blood velocity decreased from \SIrange{10}{40}{\centi\meter\per\second} its resistivity fell roughly \SI{7}{\percent}. Furthermore, it was found that haematocrit and temperature are also factors that affects the blood resistivity \cite{yamakoshi1980noninvasive}. However, in an in-vivo setting the temperature remains nearly constant. Blood can be simplified as a suspension of particles (erythrocytes or RDC) with a high resistivity floating in a conductive medium (plasma). The rest of blood’s cells do not represent a great component in the change of impedance because of its small size in comparison with the erythrocytes (see table \ref{table:cell}). In fact, the Sigman effect is not presented in either plasma or electrolytes~\cite{tremper1990principles}.  
+
+It has also been proved that blood is electrically anisotropic because of the orientation of the RBC’s \cite{Visser1992Electric}. Moreover, geometry and orientation also affect the reading of resistivity. Which also means that direction of measurement also affects the readings. 
+
 
 \subsection{Impedance plethysmography waveforms}
 \label{section impedance 9.1}
