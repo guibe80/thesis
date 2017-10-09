@@ -49,35 +49,44 @@ However, these cells also perform other specialised tasks. Their properties and 
 \caption{Blood cell classification}
 \label{table:cell}
 \centering
-\begin{tabular}{p{2.5cm} p{1.5cm} p{3.5cm} p{6.4cm}}
+\begin{tabular}{ >{\raggedright}p{0.18\textwidth}  
+		         >{\raggedright}p{0.12\textwidth} 
+		         p{0.22\textwidth} 
+		         p{0.37\textwidth}}
 \toprule
-\textbf{Cell Type }& \textbf{Quantity} & \textbf{Geometry} & \textbf{Characteristic} \\
+  \textbf{Cell Type }
+& \textbf{Quantity} 
+& \textbf{Geometry} 
+& \textbf{Characteristic} \\
 \midrule
-Red Blood Cells (RBCs ) \newline or erythrocytes & \numrange{5e6}{6e6} & Shape: Disk \newline Diameter: 6-\SI{8}{\micro\meter} \newline Thickness: \SI{2}{\micro\meter} & 
-\begin{tabular}[t]{@{\textbullet~}p{6cm}@{}} 
-    Principal medium to deliver oxygen \\
-    Lack of nucleus \\
-    Cytoplasm rich in negatively charged Iron–containing Hb \\
-    Contains Ions of Sodium ($Na^+$) and Potassium ($K^+$) \\
-    Typical bilayer lipid membrane (Lipid composition defies physical properties such as membrane permeability and fluidity) 
-\end{tabular} \\
+	Red Blood Cells (RBCs) or erythrocytes 
+	& \numrange{5e6}{6e6} 
+	& Shape: Disk \newline Diameter: 6-\SI{8}{\micro\meter} \newline Thickness: \SI{2}{\micro\meter} 
+	& \begin{tabular}[t]{P{0.34\textwidth}} 
+	    \tabitem Principal medium to deliver oxygen \\
+	    \tabitem Lack of nucleus \\
+	    \tabitem Cytoplasm rich in negatively charged Iron–containing Hb \\
+	    \tabitem Contains Ions of Sodium ($Na^+$) and Potassium ($K^+$) \\
+	    \tabitem Typical bilayer lipid membrane (Lipid composition defies physical properties such as membrane permeability and fluidity) 
+	  \end{tabular} \\
 \midrule
-
-White Blood Cells (WBC) \newline or Monocytes & \numrange{4e3}{11e3} & Shape: Irregular \newline Diameter: 10–\SI{20}{\micro\meter} \newline Monocytes: 14–17 & 
-\begin{tabular}[t]{@{\textbullet~}p{6cm}@{}} 
-    Composed five different type of specialised cells to target different illnesses\\
-    Make part of the immune system \\
-    High count of these cells are indicators of disease 
-\end{tabular} \\
+	White Blood Cells (WBC) or Monocytes 
+	& \numrange{4e3}{11e3} 
+	& Shape: Irregular \newline Diameter: 10-\SI{20}{\micro\meter} \newline Monocytes: 14–17 
+	& \begin{tabular}[t]{P{0.34\textwidth}} 
+	    \tabitem Composed five different type of specialised cells to target different illnesses\\
+	    \tabitem Make part of the immune system \\
+	    \tabitem High count of these cells are indicators of disease 
+	  \end{tabular} \\
 \midrule
-
-Platelets & \numrange{150e3}{400e3} & Shape: Irregular \newline Diameter: 2–\SI{3}{\micro\meter}  &  
-\begin{tabular}[t]{@{\textbullet~}p{6cm}@{}}
-    Lack of nucleus  \\
-    Responsible for procoauglant activity \\
-    If count to low excessive blood may occur. Too high blood cloth might form (thrombosis)
-\end{tabular} \\ 
-
+	Platelets 
+	& \numrange{150e3}{400e3} 
+	& Shape: Irregular \newline Diameter: 2–\SI{3}{\micro\meter}  
+	& \begin{tabular}[t]{P{0.34\textwidth}}
+	    \tabitem Lack of nucleus  \\
+	    \tabitem Responsible for procoauglant activity \\
+	    \tabitem If count to low excessive blood may occur. Too high blood cloth might form (thrombosis)
+	  \end{tabular} \\ 
 \bottomrule
 \end{tabular}
 \end{table}
@@ -396,11 +405,11 @@ Clinically there are different methods to assess the development of this illness
 \caption{Leriche-Fontaine classification}
 \centering
 \label{table:Fontaine}
-\begin{tabular}{p{1.8cm} p{3.8cm} p{3.5cm} p{4.5cm}}
+\begin{tabular}{p{1.8cm} >{\raggedright}p{3.8cm} p{3.5cm} p{4.8cm}}
 \toprule
 \textbf{Stages}& \textbf{Symptoms} & \textbf{Pathophysiology} & \textbf{Pathophysiological \newline classification} \\
 \midrule
-Stage I & Asymptomatic \newline or effort pain & Relative hypoxia & Silent Arteriopathy \\
+Stage I & Asymptomatic or effort pain & Relative hypoxia & Silent Arteriopathy \\
 \midrule
 Stage II A & Effort pain \newline Pain free walking distance > \SI{200}{\meter} & Relative hypoxia & Stabilized Arteriopathy \newline Non-Invalidant claudication \\ 
 \midrule
@@ -669,11 +678,21 @@ This method present some advantages when used in a home setting. First, it can b
 
 \subsubsection{Bioelectrical Impedance plethysmography}
 \label{section literature BI}
-What is also known as impedance plethysmography (iPG),iPG involves the measurement of the change in impedance due to changes in blood flow. For instance, when the heart’s systole increases blood flow, the volume of a limb rises due to the inflow of blood (swelling) \cite{martinsen2011bioimpedance}. Consequently, there are changes of impedance correlated to the changes of volume and flow in a limb. Some medical application might require the use of occlusion cuffs to analyse venous filling. There are several medical applications for this kind of technique such as heart stroke volume (SV) measurement, cardiac output (CO), thoracic respiratory volume, oedema and detection of deep vein thrombosis (DVT) \cite{holohan1996plethysmography}.
+Bioelectrical impedance plethysmography is another method that measures changes in blood volume in different parts of the body, like in the thoracic cavity or limbs \cite{bera2014bioelectrical}. In principle, it senses small changes of bioelectrical impedance due to the increase of blood cells in a volume of tissue. For instance, when the heart’s systole increases blood flow, the volume of a limb rises due to the inflow of blood (swelling) \cite{martinsen2011bioimpedance}. Consequently, there are changes of impedance correlated to the small variation of volume and flow in a limb. Some medical application might require the use of pneumatic cuffs to analyse venous filling. There are several medical applications for this kind of technique such as heart stroke volume (SV) measurement, cardiac output (CO), thoracic respiratory volume, oedema and detection of deep vein thrombosis (DVT) \cite{holohan1996plethysmography}.
 
-This following section describes more in detail the definition of iPG, how it works, medical applications, how it is measured and the possible ways to represent it. This information will help uncover how volume and ischaemia can be related to calculating an index between the two measurements.
+In the chapter \ref{chapter impedance} the principles of operation of this technology are described in more detail. As a brief, this method requires applying a small amount of current into the body at a specific frequency, and amplitude, usually between \SIrange{1}{500}{\kHz} \cite{kyle2004bioelectrical} and bellow \SI{5}{\mA}. Body's bioelectrical impedance is a relation between the electrical potential measured, and the electrical current applied. Commonly a set of four electrodes are placed on the surface of the skin where a pair converts the electrical conductivity into ionic conductivity and the other to sense the voltage drop. An increase in the amount of blood in a section of the body drops its total impedance. Therefore, there is a direct relation between the population of red blood cells and the impedance measurement \cite{mattern1957determination}. 
 
+The blood flow rate can estimate from the impedance plethysmography signal. Some studies use venous occlusion plethysmography as a method to estimate the flow rate \cite{mohapatra1979measurement, costeloe1980continuous, yamakoshi1980limb}, whereas other techniques are centred in the analysis of the plethysmographic signal without occlusion \cite{brown1975impedance, marks1985computer, porter1985measurement, corciova2011peripheral}. 
+
+Nyober et al. \cite{nyober1950electrical}. proposed the reigning equation \ref{eq:DVDT} from which blood flow is estimated. The author defined that the blood flow is proportional to the change of impedance in relation to the distance between the potential electrodes and basal impedance of the tissue. The section \ref{section procedure Z to V and Q} describes more in detail the equation required to convert impedance into the blood flow.
+
+Calculating blood flow from the impedance signal can be applicable for home use, these are some of the advantages. First of all is non-invasive as just requires four electrodes for measurement. Additionally, the device uses low-energy, the current required to read impedance is below \SI{5}{\mA} which can be obtained with a battery operated instrument. Furthermore, the tissue's volume being monitored is more substantial than other techniques as the boundary of the measurement is limited by the position of the potential electrodes. In fact, whole body measurements can be achieved as described in free-fat measurements performed by Kyle et al. \cite{kyle2004bioelectrical}. IPG is less affected by temperature \cite{bera2014bioelectrical}. It provides more data than single point measurements as helps to assess venous blood volume and arterial pulsations \cite{bera2014bioelectrical}. Some of the disadvantages of this technique is that like all the methods is sensitive to motion. Electric current is required for measurement, thus is not suitable for a certain population, and finally, there is an electrode-skin impedance error when there is no full contact. 
+ 
 \section{Conclusion}
+This section introduces the circulatory system starting from blood cells and its functionality. It is important to remark the importance of blood cells in transporting nutrients and oxygen whole tissue around the body. The blood vessels structure was explained as well as the way how blood can reach every cell in the body, and the interchange of nutrients and by-products. The cardiac cycle showed how heart operates as a pump and how blood flows in and out of it. The anatomy of the upper extremities will serve as a reference when advancing further in this document.  
+
+Illnesses and problems due to poor circulation towards the periphery were described, and it explained why is essential to monitored blood flow in a home setting \mynote{I need to add this in the section about circulation}. Then different instruments were shown with the potential to quantify blood flow a home environment; the Doppler Ultrasound method was described, as well as various optical instruments. The venous occlusion plethysmography is a useful tool for quantifying blood rate. Three different apparatuses have the potential to be used at home. However, obtaining the flow rate from the bioelectrical impedance plethysmography seems to be an excellent choice because it assesses a large volume of tissue compared to other methods. 
+
 
 %********************************** %Nomenclatures in chapter  **************************************
 \nomenclature[z-Hb]{Hb}{Haemoglobin}

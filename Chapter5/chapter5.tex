@@ -239,13 +239,13 @@ The end data is the representation in volts of the physiological measurements ca
 
 %********************************** % Section section 5.2.1******************************************
 \subsection{Data conversion}
-\label{section procedure 2.1}
+\label{section procedure data conversion}
 The data imported into the GUI is a representation in volts of all the physiological measurements. Therefore, this information must be converted into significant values that represent the physical variable measured. For instance, the signals coming from the port $Z_{DC}$ of the iPG device is only the potential measurement of the forearms, not yet the net impedance. Converting this reading correctly into impedance needs to be divided by the current driven by the device. From this value, other physiological measurements can be derived such as volume and blood flow. On top of this, extra filtering needs to be applied to isolate certain characteristics of the waveforms. 
 
 The same situation applies for the readings from the Ultrasound Doppler and the Doppler Flowmetry. The signals collected are only the raw data in volts which must be converted to the right scale. The following section describes more in detail the mathematical equations and tools used to convert the raw signals effectively.  
 
 \subsubsection{Calculation of the basal impedance value}
-Impedance plethysmography signals need to be converted from volts and current values into its standard scale, which is Ohms ($\Omega$). The iPG device has a channel for current sense called $I_{DC}$, which voltage is equivalent to the peak value of the current being delivered by the instrument. The effective electrical current in amperes ($A$) can be calculated by the gain relation of the different stages of the signal path. According to the circuit schematic (see figure \ref{fig:mhc}), the electrical current is being sensed by a \SI{10}{\ohm} resistor $(R_s)$ in the module \textit{Modified Howland Amplifier module} (see section \ref{section MHC}). Then, this signal is amplified by an instrumentation amplifier in the \textit{current and voltage sensing module} (see section \ref{section V&I sense}) which gain $(G_1)$ was fixed to \num{276}. Following the signal path, the waveform is fractioned by the super-diode circuit which acts as a half-wave rectifier in the \textit{envelope detection module} (see section \ref{section envelope}). The hold circuit keeps the DC voltage constant at the output of the signal which is equivalent to the peak value of the current in volts. As a result, the electrical current in amperes can be calculated using the equation \ref{eq:current}.
+Impedance plethysmography signals need to be converted from volts and current values into its standard scale, which is Ohms ($\Omega$). The iPG device has a channel for current sense called $I_{DC}$, which voltage is equivalent to the peak value of the current being delivered by the instrument. The effective electrical current in amperes ($A$) can be calculated by the gain relation of the different stages of the signal path. According to the circuit schematic (see figure \ref{fig:mhc}), the electrical current is being sensed by a \SI{10}{\ohm} resistor $(R_s)$ in the module \textit{Modified Howland Amplifier module} (see section \ref{section MHC}). Then, this signal is amplified by an instrumentation amplifier in the \textit{current and voltage sensing module} (see section \ref{section V&I sense}) which gain $(G_1)$ was fixed to \num{276}. Following the signal path, the waveform is fractioned by the super-diode circuit which acts as a half-wave rectifier in the \textit{envelope detection module} (see section \ref{section material envelope}). The hold circuit keeps the DC voltage constant at the output of the signal which is equivalent to the peak value of the current in volts. As a result, the electrical current in amperes can be calculated using the equation \ref{eq:current}.
 
 \begin{align}
 	\label{eq:current}
@@ -256,7 +256,7 @@ Impedance plethysmography signals need to be converted from volts and current va
 
 The second channel of the iPG device labelled $Z_{DC}$ produces a DC voltage tantamount to the impedance of the forearm. Similarly, as the current sense voltage path, this channel also passes through a series of circuits which amplifies the original potential coming from the forearm's segment. Hence, the real voltage detected by the device can be debunked by the different gains involved in the signal path. 
 
-First, the unknown load is sense by the potential electrodes ($E_2$ and $E_3$ in figure \ref{fig:electrode}) which are directly connected to the \textit{voltage sense module} (see section \ref{section V&I sense}). The instrumentation amplifier (AD8421) of this module was configured to a gain \num{35.65}. In the \textit{envelope detection module} (see section \ref{section envelope}), the signal was rectified by the super-diode circuit, halving the signal amplitude. Therefore, the voltage can be deducted by using equation \ref{eq:vzdc}.
+First, the unknown load is sense by the potential electrodes ($E_2$ and $E_3$ in figure \ref{fig:electrode}) which are directly connected to the \textit{voltage sense module} (see section \ref{section V&I sense}). The instrumentation amplifier (AD8421) of this module was configured to a gain \num{35.65}. In the \textit{envelope detection module} (see section \ref{section material envelope}), the signal was rectified by the super-diode circuit, halving the signal amplitude. Therefore, the voltage can be deducted by using equation \ref{eq:vzdc}.
 
 \begin{align}
 	\label{eq:vzdc}
@@ -273,7 +273,7 @@ Finally, the impedance value can be computed by converting the voltage into impe
 \end{align}
 
 \subsubsection{Calculation of the Arterial Pulse Amplitude value}
-The third channel of the iPG device is the APA signal designated as $Z_{AC}$. This waveform is an amplified version of the dynamic signal contained within $Z_{DC}$. Analysing the signal's path, it is noticeable that two circuits work on the waveform. First of all, it is the circuit from where the signal is originated which is the same voltage as in port $Z_{DC}$, meaning that the gain described in the previous section also impacts the signal $Z_{AC}$. The second circuit affecting the signal is the band-pass filter in the \textit{envelope detection module} (see section \ref{section envelope}). As it can be appreciated in figure \ref{fig:envelope detector voltage}, this filter has a fixed gain of \num{142.42} and eliminates any DC and high-frequency noise components. Then, the voltage of the plethysmography wave can be found by combining both gains using equation \ref{eq:ViPG}.
+The third channel of the iPG device is the APA signal designated as $Z_{AC}$. This waveform is an amplified version of the dynamic signal contained within $Z_{DC}$. Analysing the signal's path, it is noticeable that two circuits work on the waveform. First of all, it is the circuit from where the signal is originated which is the same voltage as in port $Z_{DC}$, meaning that the gain described in the previous section also impacts the signal $Z_{AC}$. The second circuit affecting the signal is the band-pass filter in the \textit{envelope detection module} (see section \ref{section material envelope}). As it can be appreciated in figure \ref{fig:envelope detector voltage}, this filter has a fixed gain of \num{142.42} and eliminates any DC and high-frequency noise components. Then, the voltage of the plethysmography wave can be found by combining both gains using equation \ref{eq:ViPG}.
 
 \begin{align}
 	\label{eq:ViPG}
@@ -386,7 +386,7 @@ In general, low-pass filters are useful to remove mains noise and high-frequency
 
 %********************************** % Section 5.4 ******************************************
 \section{Converting Impedance to Volume and Flow}
-\label{section procedure 4}
+\label{section procedure Z to V and Q}
 
 After the conversion of impedance from volts, it is possible to compute changes of volume and flow. Chapter \ref{chapter design} describes in depth the governing equations for this operation. Additionally, the analysis of the impedance plethysmography waveform will provide further data of the blood's haemodynamics. Such as the relation between systole and diastole cycles with the APA signal.
 

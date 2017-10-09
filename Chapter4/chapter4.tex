@@ -3,7 +3,7 @@
 %****************************** Fourth Chapter *********************************
 %*******************************************************************************
 
-\chapter{Design of impedance plethysmography device}
+\chapter{Design of an impedance plethysmography device}
 \label{chapter design}
 
 \ifpdf
@@ -240,7 +240,7 @@ The most suitable device for this design was the In–Amp AD8421~\cite{ad:AD8421
 	\label{fig:peak}
 \end{figure}
 
-Likewise, this same circuit was used to detect the voltage produced by the limb segment. When the biological sample is excited with an electrical current, a potential develops as described in section \ref{section impedance 2}. For this, the electrodes $E_2$ and $E_3$ (see figure \ref{fig:electrode}) provided the connection towards the input pins of the In-Amp AD8421 \cite{ad:AD8421}. The robust input impedance of this IC and typical input bias current of \SI{1}{\nA} guarantees that the voltage drop from the interface electrode-skin is minimum. Therefore, the maximum error introduced by this voltage drop is close to \SI{0.0001}{\percent} per mA flowing through the body segment. The gain of the IC can be modified using its gain pins increasing the dynamic range of the sensing circuit. Consequently, a dip-switch 4 SPST was used to provide 16 different combinations of amplification which can be adapted according to the nature of the signal. The final schematic can be appreciated in the appendix \ref{Appendix: VSense} figure \ref{fig:Voltage sense}.
+Likewise, this same circuit was used to detect the voltage produced by the limb segment. When the biological sample is excited with an electrical current, a potential develops as described in section \ref{section impedance principle}. For this, the electrodes $E_2$ and $E_3$ (see figure \ref{fig:electrode}) provided the connection towards the input pins of the In-Amp AD8421 \cite{ad:AD8421}. The robust input impedance of this IC and typical input bias current of \SI{1}{\nA} guarantees that the voltage drop from the interface electrode-skin is minimum. Therefore, the maximum error introduced by this voltage drop is close to \SI{0.0001}{\percent} per mA flowing through the body segment. The gain of the IC can be modified using its gain pins increasing the dynamic range of the sensing circuit. Consequently, a dip-switch 4 SPST was used to provide 16 different combinations of amplification which can be adapted according to the nature of the signal. The final schematic can be appreciated in the appendix \ref{Appendix: VSense} figure \ref{fig:Voltage sense}.
 
 A sensing module was manufactured combining the current sense and two channels of potential detection as shown by figure \ref{fig:voltage sense}. The channel one was used to detect the voltage produced by the limb segment, and the second channel will be used for future studies on differential impedance measurements. The only difference between the current and potential circuits is the selection of the gain resistors which were allocated according to the range of the signals to be detected. The output signal produced by this module is later passed through a peak and envelope detection circuit described in the next section. 
 
@@ -273,7 +273,7 @@ A sensing module was manufactured combining the current sense and two channels o
 %\end{table} 
 
 \subsection{Envelope detection and AC extraction circuit module}
-\label{section envelope}
+\label{section material envelope}
 This module has two functions, one is to detect the peak value of the current and voltage sensing circuit, and the other is to extract the plethysmography waveform contained within the baseline impedance. Hence, three output signals are produced by this module. The first signal is a DC voltage equivalent to the amplitude of the voltage detected by the current sense path denominated $I_{DC}$. The second output channel is a DC signal equal to the potential detected on the limb segment represented by $Z_{DC}$. Finally, the third one is an AC signal which is the dynamic plethysmography signal or arterial pulse amplitude called $Z_{AC}$
 
 The envelope or peak detection is achieved using an active diode configuration and a hold circuit. The first part of this circuit was created using an Op-Amp TL08XX\cite{ti:TL08xx} and a diode 1N4148. The combination of these two components creates a ''super diode'' or ''perfect diode'' circuit. Indeed, the Op-Amp complements the diode's voltage drop when the signal crosses zero. The negative feedback created from the output of the diode towards the negative pin of the Op-Amp compensates the diode's voltage drop. As a consequence, the output signal at the cathode's diode is a half-wave rectified waveform crossing by zero. The figure \ref{fig:envelope} shows a model of this circuit. 
