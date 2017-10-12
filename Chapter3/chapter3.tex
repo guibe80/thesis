@@ -21,7 +21,7 @@ The bioelectrical impedance section explores more in detail the effect of AC in 
 %********************************** % Sixth Section  *************************************
 \section{Electrical current in the human body} %Section - 3.7
 \label{section impedance current in body}
-Injecting electric current in biological tissue requires some safety measurements so as to guarantee the patients welfare. Driving current into the human body may cause unpleasant effects like heating, electrolysis at the electrode–tissue interface or neuromuscular stimulation \cite{bertemes2002tissue, martinsen2011bioimpedance}. The latter being the most dangerous because it controls blood circulation and respiration. Levels of current sensation changes from person–to–person, sex and also depend on the electrode’s geometry. However, Brown et al. \cite{brown1998medical} have established a threshold current where sensation increases when frequency rises as shown in Figure \ref{fig:threshold sensation}.  It has been recognised the frequency dependency of the human body. The maximum sensitivity of the nervous system is in the frequency range between \SIrange[scientific-notation = engineering]{10}{1000}{\hertz}. At frequencies above \SI{1}{\kilo\hertz} sensitivity is considerably reduced and above \SI{100}{\kilo\hertz} it is entirely imperceptible. In fact, the heat effect is so high at these frequencies that electro-surgical devices use it. Square waves are not recommended because they have the DC and AC effect in one signal where the duration of the pulse an important parameter to be controlled \cite{martinsen2011bioimpedance}.
+Injecting electric current in biological tissue requires some safety measurements so as to guarantee the patients welfare. Driving current into the human body may cause unpleasant effects like heating, electrolysis at the electrode–tissue interface or neuromuscular stimulation \cite{bertemes2002tissue, martinsen2011bioimpedance}. The latter being the most dangerous because it controls blood circulation and respiration. Levels of current sensation changes from person–to–person, sex and also depend on the electrode’s geometry. However, Brown et al. \cite{brown1998medical} have established a threshold current where sensation increases when frequency rises as shown in Figure \ref{fig:threshold sensation}. It has been recognised the frequency dependency of the human body. The maximum sensitivity of the nervous system is in the frequency range between \SIrange[scientific-notation = engineering]{10}{1000}{\hertz}. At frequencies above \SI{1}{\kilo\hertz} sensitivity is considerably reduced and above \SI{100}{\kilo\hertz} it is entirely imperceptible. In fact, the heat effect is so high at these frequencies that electro-surgical devices use it. Square waves are not recommended because they have the DC and AC effect in one signal where the duration of the pulse an important parameter to be controlled \cite{martinsen2011bioimpedance}.
 
 \begin{figure}[!htpb]
 	\centering
@@ -95,7 +95,7 @@ The table \ref{table:current in body} shows different levels of electric current
 	\end{tabular} 
 \end{table}
 
-Recommendations, guidelines and norms for patient safety are contained in international standards compiled by the International Electrotechnical Commission (IEC).  The standard applicable to medical equipment or equipment to be used with humans is referenced as IEC 60601 or IEC 601 for short. Some of the recommendations regarding safety are expressed as follows: first, the commission considers any frequency below \SI{0.1}{\hertz} as direct current, in order to avoid ulcers created by electrode–skin interface this type of current should be limited to \SI{10}{\uArms}. Moreover, for frequencies up to \SI{1}{\kilo\hertz}, it is recommended to limit current at \SI{100}{\uArms}. Secondly, avoiding nerve stimulation is crucial for patient safety; at frequencies above \SI{1}{\kilo\hertz}, muscular stimulation is very difficult. Therefore is recommended use frequencies above this value. Thirdly, one important recommendation of the standard is that the maximum current flowing through skin contact must be limited to \SI{0.5}{\milli\ampere} with single fault equipment. Lastly, as explained before in the RF range tissue could be heated, tissue burn can be avoided by limiting the current density and duration, for instance, is recommended using densities of less than \SI{1}{\milli\ampere\per\milli\meter\squared}. In practical applications of current vs. frequency, for frequencies above \SI{1}{\kilo\hertz}, the Commission has established the equation \ref{eq:current body} to calculate the maximum root–mean–square current when this is less than \SI{10}{\mArms}.
+Recommendations, guidelines and norms for patient safety are contained in international standards compiled by the International Electrotechnical Commission (IEC). The standard applicable to medical equipment or equipment to be used with humans is referenced as IEC 60601 or IEC 601 for short. Some of the recommendations regarding safety are expressed as follows: first, the commission considers any frequency below \SI{0.1}{\hertz} as direct current, in order to avoid ulcers created by electrode–skin interface this type of current should be limited to \SI{10}{\uArms}. Moreover, for frequencies up to \SI{1}{\kilo\hertz}, it is recommended to limit current at \SI{100}{\uArms}. Secondly, avoiding nerve stimulation is crucial for patient safety; at frequencies above \SI{1}{\kilo\hertz}, muscular stimulation is very difficult. Therefore is recommended use frequencies above this value. Thirdly, one important recommendation of the standard is that the maximum current flowing through skin contact must be limited to \SI{0.5}{\milli\ampere} with single fault equipment \rvmynote{I have to check this, becuase it rises questions}. Lastly, as explained before in the RF range tissue could be heated, tissue burn can be avoided by limiting the current density and duration, for instance, is recommended using densities of less than \SI{1}{\milli\ampere\per\milli\meter\squared}. In practical applications of current vs. frequency, for frequencies above \SI{1}{\kilo\hertz}, the Commission has established the equation \ref{eq:current body} to calculate the maximum root–mean–square current when this is less than \SI{10}{\mArms}.
 
 \begin{align}
 	\label{eq:current body}
@@ -107,7 +107,7 @@ where $f$ is the frequency of the measurement.
 \section{Electrical impedance principle}
 \label{section impedance principle}
 %https://books.google.co.uk/books?id=M74ecVj5q9UC&printsec=frontcover&dq=inauthor:%22Luca+Callegaro%22&hl=en&sa=X&ved=0ahUKEwjMyPSt5MnSAhUJJcAKHZAPBGcQ6AEIHDAA#v=onepage&q&f=false
-From the electrical point of view, impedance is defined as the opposition that a medium presents to either an alternating current (AC) or voltage (see figure \ref{fig:impedance}). Impedance is equal to the complex ratio between electrical voltage and current. The result from this mathematical fraction is a complex number which is known as symbol $Z$ (see equation \ref{eq:Z magnitude}). This comprises of a resistance (also known as conductance) and/or reactance value, commonly represented by the letters $R$ and $X$ respectively. Hence, the impedance measurement can be expressed as a relation of the output magnitude and the phase difference between the real and imaginary part as shown in equation \ref{eq:phasor} and it can be plotted in the complex plane as shown in figure \ref{fig:complex impedance}.
+From the electrical point of view, impedance is defined as the opposition that a medium presents to either an alternating current (AC) or voltage (see figure \ref{fig:impedance}) \cite{callegaro2012electrical}. Impedance is equal to the complex ratio between electrical voltage and current. The result from this mathematical fraction is a complex number which is known as symbol $Z$ (see equation \ref{eq:Z magnitude}). This comprises of a resistance (also known as conductance) and/or reactance value, commonly represented by the letters $R$ and $X$ respectively. Hence, the impedance measurement can be expressed as a relation of the output magnitude and the phase difference between the real and imaginary part as shown in equation \ref{eq:phasor} and it can be plotted in the complex plane as shown in figure \ref{fig:complex impedance}.
 
 \begin{figure*}[!htpb]
 	\centering
@@ -155,45 +155,66 @@ There are different ways to represent impedance. However, bioelectrical impedanc
 
 As can be seen, when the angle difference of the impedance is \SI{0}{\degree}, the load is completely resistive. In contrast, when the phase difference is \SI{90}{\degree} the load is purely reactive. From the previous equations it is possible to represent impedance in the complex plane as shown in figure \ref{fig:complex impedance}.
 
-As an example, when a sinusoidal steady-state waveform injects a current $i(t) = I_A sin(\omega t)$ to an unknown load, the response is a shifted sinusoidal waveform with a potential equivalent to $v(t) = V_B sin(\omega t + \phi)$. Figure \ref{fig:impedance wave} shows the representation of both waveforms. Hence, the impedance can be expressed as the ration of these two quantities based on Ohm's law (see equation \ref{eq:ohm}).
+Another way to express and analyse impedance is with sinusoidals. For instance, when a sinusoidal steady-state waveform injects a current $i(t) = I_A cos(\omega t)$ to an unknown load, the response is a shifted sinusoidal waveform with a potential equivalent to $v(t) = V_B cos(\omega t + \phi)$. Figure \ref{fig:impedance wave} shows the representation of both waveforms. Hence, the impedance can be expressed as the ration of these two quantities based on Ohm's law (see equation \ref{eq:ohm}).
 
 \begin{align}
 	\label{eq:ohm}
 	Z = \frac{V}{I}
 \end{align}
 
-
 \begin{figure}[!htpb]
 	\centering
 	\includegraphics[width=0.8\textwidth,keepaspectratio, trim={0cm 0cm 0cm 0cm},clip]{figure_1}    
-	\caption[Impedance waveforms]{Waveform plot of a current ($I_A sin (\omega t)$) compared to the potential representation ($V_B cos (\omega t + \phi)$) of an unknown load.}
+	\caption[Impedance waveforms]{Waveform plot of a current ($I_A cos (\omega t)$) compared to the potential representation ($V_B cos (\omega t + \phi)$) of an unknown load.}
 	\label{fig:impedance wave}
 \end{figure}
 
-Using trigonometrical identities it is possible to rewrite the potential in the following way:
+
+However, performing mathematical operations with trigonometry identities could be quite tedious. Therefore, equivalent methods are used to analyse impedance in an electric circuit. Using Euler's formula is possible to express trigonometric functions in order of $e$. The equation \ref{eq:euler} shows the relation between both entities.
 
 \begin{equation}
-	\label{eq:solve equation}
-	\begin{aligned}	
-		v(t) & = V_B sin(\omega t + \phi) \\
-		     & = V_B sin(\omega t) cos(\phi) + V_B cos(\omega t) sin(\phi)
-	\end{aligned}
-\end{equation}
+	\label{eq:euler}
+	e^{j\omega t} = cos(\omega t) + j sin(\omega t)
+\end{equation}  
 
-By replacing the values of the potential from \ref{eq:solve equation} and the current in to equation \ref{eq:ohm} one can find the resistive and reactive components as shown in equation \ref{eq:R Z} and \ref{eq:X Z}. The equivalence of the real and imaginary part are obtained by the principle of superposition of the trigonometric identities. 
+Therefore, voltage and current can be rewritten in the form of complex exponential thanks to Euler's equation. 
+
+\begin{align}
+	\label{eq:volatge euler}
+	v(t) = V_B cos(\omega t + \phi) = V_B(e^{j(\omega t + \phi)}) \\
+	\label{eq:current euler}
+	i(t) = I_A cos(\omega t) = I_A(e^{j\omega t})	
+\end{align}
+
+Using Ohm equation \ref{eq:ohm} is possible to calculate the resultant impedance of the waveforms. Therefore, the expression using complex exponentials would be equal to:
+
+\begin{align}
+	\label{eq:complex Z}
+	Z = \frac{v(t)}{i(t)} = \frac{V_B(e^{j(\omega t + \phi)})}{I_A(e^{j\omega t})} = \frac{V_B}{I_A} e^{j\phi}
+\end{align}
+
+Then, by the Euler's equation is possible deduct the real and imaginary parts of the complex exponential of equation \ref{eq:complex Z}.
+
+\begin{align}
+	\label{eq:complex Z2}
+	Z = \frac{V_B}{I_A} e^{j\phi} = \frac{V_B}{I_A}(cos(\phi) + j sin(\phi)
+\end{align}
+
+By the principle of superposition is possible to assume that the real an imaginary components of impedance are given by the following formulas, which are equivalents to the ones obtained with phasor analysis equations	\ref{eq:resistance} and \ref{eq:reactance}.
 
 \begin{align}
 	\label{eq:R Z}
-	Z' = R = \frac{v(t)}{i(t)} = \frac{V_B sin(\omega t) cos(\phi)}{I_A sin(\omega t)} = \frac{V_B}{I_A}cos(\phi) \\
+	Z' = R = \frac{v(t)}{i(t)} = \frac{V_B}{I_A}cos(\phi) \\
 	\label{eq:X Z}
-	Z'' = X = \frac{v(t)}{i(t)} = \frac{V_B cos(\omega t) sin(\phi)}{I_A sin(\omega t)} = \frac{V_B}{I_A}sin(\phi)
+	Z'' = X = \frac{v(t)}{i(t)} = \frac{V_B}{I_A}sin(\phi)
 \end{align}
 
+As a conclusion, it is possible to obtain real and imaginaries values of impedance if the maximum amplitude of the voltage ($V_B$) and current ($I_A$) are known, as well as their difference in phase ($\phi$). 
 
 %********************************** % Fourth Section  *************************************
 \section{Current distribution in conductors (Geselowitz theorem)}  %Section - 3.4
 \label{section impedance Geselowitz}
-Geselowitz \cite{geselowitz1971application} studied the change in conductivity within a constant geometry. In short, his analysis applied the lead field theory into impedance plethysmography. Simplifying the origin of the equation, the total impedance of the whole volume is equivalent to the sum of all the small impedances within each small volume $dV$~\cite{martinsen2011bioimpedance}.
+Geselowitz \cite{geselowitz1971application} studied the change in conductivity within a constant geometry. In short, his analysis applied the lead field theory into electrical impedance. Simplifying the origin of the equation, the total impedance of the whole volume is equivalent to the sum of all the small impedances within each small volume $dV$ \cite{martinsen2011bioimpedance}.
 
 \begin{figure}[!htpb]
 	\centering
@@ -455,81 +476,166 @@ This method developed by Piccoli et al. \cite{piccoli2000relationship, piccoli20
 \end{figure}
 
 
+
 %********************************** %First Section  **************************************
-\section{The principle of impedance plethysmography}                                                                                                                                                                                                 
-\label{section impedance plethysmography principle}
-\rvmynote{Check the book and convert everything into resistvity}
+\section{The principle of impedance plethysmography} 
+\label{section iPG principle}
 Referred as impedance plethysmography (iPG) involves the measurement of the change of impedance due to changes in blood flow. For instance, when heart’s systole increases blood flow, the volume of a limb rises due to the inflow of arterial blood (swelling) \cite{martinsen2011bioimpedance}. Consequently, there are changes of impedance correlated to the changes of volume and flow in a limb. Some medical application might require the use of occlusion cuffs to analyse venous filling. There are several medical applications for this kind of technique such as heart stroke volume (SV) measurement, cardiac output (CO), thoracic respiratory volume, oedema and detection of deep vein thrombosis (DVT)~\cite{holohan1996plethysmography}. 
 
-As previously described in section \ref{section literature BI}, iPG is the measurement of volume changes through the equivalent bioelectrical impedance of a part of the human body~\cite{corciova2011peripheral}. In this document the measurements from an in-vivo study of the plethysmographic changes in a segment of the left forearm are presented. One could imagine this segment of the upper limb to be modelled as a cylinder within a cylinder. Where the inner cylinder represents a blood vessel and the outermost is the surrounding tissue. 
+As previously described in section \ref{section literature BI}, iPG is the measurement of volume changes through the equivalent bioelectrical impedance of a part of the human body \cite{corciova2011peripheral}. In this document the measurements from an in-vivo study of the plethysmographic changes in a segment of the left forearm are presented. One could imagine this segment of the upper limb to be modelled as a cylinder within a cylinder. Where the inner cylinder represents a blood vessel and the outermost is the surrounding tissue. 
 
-For mathematical analysis, a single cylinder will be initially studied and then the double cylinder model. An ideal circular solid model can be applied where the cross-sectional area might have a circular or elliptical form. Hence, measurement of electrical impedance might depend on its geometry. The following equation illustrates the segment’s geometry effects for a solid cylinder resistance ($R$). 
+The genesis of impedance plethysmography can be traced back to the model proposed by Jan Nyober~\cite{nyober1950electrical}. The author describes extremities as cylinders. The whole electrical conductance path is resulting from the sum of the parallel conductance of blood and tissue within a segment. In fact, this theory called parallel conductor was later confirmed by the experiments performed by Shimazu et al \cite{shimazu1982evaluation}. There have been some doubts about how much is blood's impedance contribution to the total impedance signal. Nonetheless, tt has been demonstrated through in vitro experiments that blood (haematocrit = $ 26 \pm 4 \%$) contributed to \SI{10}{\percent} of the signal. In the test, a saline buffer solution was compared between extensible arteries and rigid tubes~\cite{peura1978influence}. 
 
+In principle, recurring to the anatomy described in the section \ref{section literature anatomy}, the normal volume ($V$) of a human forearm contain within a certain length $L$ is given the bones, muscle, fat and blood structure around a cross sectional area ($A$) (see figure \ref{fig:two cylinder model}). When a circulatory cycle takes place, an additional amount of blood enters to the limb through the brachial artery, increasing the total volume of the limb in $\Delta V$. Thus, the new limb's total volume at the peak of the systole will be equivalent to $V + \Delta V$. As a result, a shunting impedance $Z_b$ is produced given by the following equation \cite{swanson1976origin, webster2009medical}:
+	
 \begin{align}
-	\label{eq:resistivity}
-	R=\rho\frac{L}{A}
+	\label{eq:blood impedance}
+	Z_b = \rho_b \frac{L}{\Delta A}
 \end{align}
 
-Where $\rho$ is the material's conductivity, $A$ is the cross sectional area of the cylinder and $L$ its length. From the resistance equation, one can deduce that if the cylinder's length increases resistance will increase. In contrast, if the cross-section area of the cylinder increases then the resistivity will decrease. A representation of this cylinder can be seen in \ref{fig:cylinder model}. Hence, it is possible to find the volume as function of its resistance can be described with the following equation.
-
-\mynotenp{reword where the word function is}
+where $\rho_b$ is the blood's conductivity and $\Delta A$ is the increase of the crossectional area of the limb. However, for this formula to works some assumptions must be taken into account: the arterial expansion is uniform along the tissue, the blood resistivity ($\rho$) is constant, and the flow of current is parallel to the artery \cite{bera2014bioelectrical}. Therefore, the artery volume change can be obtained with the following formula \cite{swanson1976origin, webster2009medical}.
 
 \begin{align}
-	\label{eq:volume (R)}
-	v=G \rho L^2 = R\sigma A^2 = \frac{1}{R} \frac{L^2}{\sigma}
+	\label{eq:delta volume}
+	\Delta V = L \times \Delta A = \rho_b \frac{L^2}{\Delta A}
 \end{align}
 
-\begin{figure}[!htpb]
-	\centering
-	\includegraphics[width=5.5cm,keepaspectratio]{figure4}    
-	\caption[Cylinder model for impedance calculation]{Cylinder model of length L and parallel volume increment}
-	\label{fig:cylinder model}
-\end{figure}
-
-The previous equation suggests that if $L$ is constant then volume $v$ is directly proportional to the conductance $G$. However, if the presumption is that the area $A$ is constant then volume $v$ is directly proportional to resistance $R$. In the case of human blood vessels, it is expected that swelling occurs transversely. In this case, a rise of volume $\Delta v$  is better represented as a conductance increase in a parallel model~\cite{martinsen2011bioimpedance}. Hence, when a variation of volume $\Delta v$ occurs a change of impedance $\Delta G$ might also be present. As a result, both entities can be expressed as a relation between two parameters as shown in the equation below.
-
-\mynote{Probably I should use the description I made from the Nyober equation}
+As it can be noticed from the previous equation, during the cardiac cycle the area of the artery increases form $A$ to $A + \Delta A$. However, the impedance of $Z_b$ is also affected by the additional impedance ($\Delta Z$) produced by the increment $\Delta A$, and this $Z_b$ is connected in parallel to $Z$. Therefore, Nyober \cite{nyober1950electrical} proposed that the practical parallel resistive value of the displaced blood can be originated from the parallel relation between the initial base resistance and the new resistance value, given by the following expression:
 
 \begin{align}
-	\label{eq:volume (deltav)}
-	\frac{\Delta G}{G} = \frac{\Delta v}{v} \qquad\text{or}\qquad \frac{\Delta G}{G} = \frac{\sigma}{L^2} \qquad\text{or}\qquad \Delta v = \Delta G \rho L^2
+	\label{eq:parallel model}
+	\Delta Z = (Z_b \parallel Z) - Z = \frac{Z^2}{Z + Z_b}
 \end{align}
 
-The same equation can be also represented as function of a change of resistivity $\Delta R$. In this case the equation changes to \mynotenp{???} \ref{eq:volume (deltaR)}. One must keep in mind that the minus sign represents that resistance increase corresponds a volume decrease \cite{martinsen2011bioimpedance}. 
+where $Z$ is equivalent to the limb's original resistance at diastole and $Z_b$ represents the increase of new total resistance. Now, as $Z_b \gg Z$, then $Z_b$ can be rewritten as:
 
 \begin{align}
-	\label{eq:volume (deltaR)}
-	\Delta v \cong \Delta R \rho \bigg( \frac{L}{R} \bigg)^2 \qquad (\Delta R \ll R)
+	\label{eq:parallel model2}
+	\frac{1}{Z_b}\cong -\frac{\Delta Z}{Z^2}
 \end{align}
 
-Nevertheless, a human body segment could be sculpted as two-compartment cylinder model where length $L$ is constant and the two cylinders are physically in parallel (see figure \ref{fig:two cylinder modell}). Supposing that the volume of the inner cylinder is equivalent to $\Delta v + v_A$ and $v_t$ is the constant outer cylinder volume. \mynotenp{doesnt make sense} Then, the following equation represents the change in conductivity when both tubes swell $(\Delta v > 0)$. From this equation one can deduce that the problem of high sensitivity plethysmography depends on selectively measuring the immittance in a selected volume~\cite{martinsen2011bioimpedance}.
-
-\begin{figure}[!htpb]
-	\centering
-	\includegraphics[width=5.5cm,keepaspectratio]{figure5}    
-	\caption[Two compartment cylinder model]{Two compartment cylinder model of length L and parallel volume increment}
-	\label{fig:two cylinder modell}
-\end{figure}
-
-In this case, the conductivities and cross sectional areas from surrounding tissue ($\sigma_t$) with area $A_t$ and tissue ($\sigma_b$) with area $A_b$ will also contribute towards the total conductance $G$ of the segment. Consequently, considering constant geometry, the conductance of these two cylinders could be expressed as the following equation.
+Finally, the change in the limb volume in relation to the change of impedance can be expressed by the following equation:
 
 \begin{align}
-	G = (\sigma_b A_b + \sigma_t A_t) \frac{1}{L}
+	\label{eq:nyober dV}
+	\Delta V = -\rho_b \frac{L^2}{Z^2}\Delta Z
 \end{align}
 
-However, the previous equation does not represent plethysmography because area change has not been assumed \mynotenp{correct word? assumed?} when swelling occurs. As Grimmes et al. \cite{martinsen2011bioimpedance} describes the previous equation 'relates to flow system with a varying conductivity of the passing liquid, and flow with time is volume'.
+Different equations aroused complementing the Nyboer's work. One of this modifications is the Kubicek et al. method~\cite{karnegis1966development}. His equation is widely used especially when measurements from the measurement of impedance cardiography from the thoracic box and to deduct stroke volume of the heart. Other, popular work is the contribution done by Sramek~\cite{sramek1986bomed}. The author also modified Kubicek's equation eliminating the dependence $L$ and $\rho_b$,  and introduced a constant obtained from statistical methods named "volume of electrical participating tissue". Alternative calculation methods have been developed using admittance instead of impedance. Yamakoshi~\cite{shimazu1982evaluation,yamakoshi1980limb,yamakoshi1978admittance} in his research and patent work uses impedance reciprocate, admittance $(Y=Z^{-1})$ to estimate blood flow using plethysmography which worked better with analogue computers of the time. In his work, the author states that the first gradient of the computation result to time is indicative of the blood rate in the limb being examined. However, the algorithms used in the present work will stick to the original equations proposed by Nyober. 
 
-A segment of the human limb is a dynamic system where the cross sectional area changes with the pulsatile movement of the arteries. For instance, during heart systole a blood bolus goes through an artery which temporarily increases the local volume (see figure \ref{fig:cylinder bolus}). A single vessel in the limb segment experiences two phases of flow throughout a heart cycle. First, during the inflow phase, the blood vessel is filled with blood, then during outflow phase, the diastole heart cycle transports blood further but at the same time is returning blood through the venous system.
+\subsection{Alternative applications of impedance plethysmography}
+The plethysmography waveform is also utilised to quantify measurements of pulsatile volume, blood flow beat to beat, blood pressure and pulse wave velocity. In this case, the waveform is equivalent to the AC component of the impedance signal. The contribution of this signal to the total of the signal is between \SIrange{0.1}{1}{\percent} of the total of the signal. Sometimes, it is necessary to implement low noise techniques to picking up the signal hidden within the basal impedance. 
 
-\begin{figure}[!htpb]
-	\centering
-	\includegraphics[width=7cm,keepaspectratio]{figure6}    
-	\caption[Four electrodes placement for iPG]{Four electrodes system with the effect of a bolus of blood passing through a selected segment}
-	\label{fig:cylinder bolus}
-\end{figure}
+The most typical application of the waveform is the quantification of blood flow beat to beat. Compared with the previous technique, this method does not require venous occlusion. By applying Nyboer's equation to the waveform signal is also possible to quantify peak-peak blood volume and peak net inflow. For instance, the patent presented by Marks~\cite{marks1985computer} shows the application of quantifying blood flow in upper extremities by computing the derivatives of the waveform signal producing the results claimed. Another example, taking measurements from lower limbs is the work performed by Porter~\cite{porter1985measurement} where impedance cardiography was used to obtain the waveform signals and computed using Kubicek's equation and concluding the potential use of the signal to evaluate limb oedema. 
+{eq:dvdr}
+Another application of the waveform is the evaluation of blood pressure continuously. Blinov~\cite{blinov1997plethysmographic} demonstrated that pressure could be deducted if blood flow is known. As explained before, blood flow can be estimated beat-beat by deriving the waveform after applying Nyober's equation. As a result, the equation transforms into:
 
-For this reason the tetrapolar method or four electrodes measurement is desirable as displayed in figure \ref{fig:cylinder bolus} \cite{young1967evaluation}. Some of these reasons include that it is easier to confine the measured tissue volume to the area of the volume increase. Additionally, the sensitivity will depend on the bolus length in relation to the measured distance between electrodes may also increase sensitivity~\cite{porter1985measurement}.
-\mynote{This paragraph does not related the measurement of tetrapolar with the section of the chapter}
+\begin{align}
+\label{eq:dvdr}
+dV = \rho \frac{l^2}{R^2_B} dR
+\end{align}
+
+Volume rate is defined as the change of volume in time. Then blood flow rate $(\dot{Q})$ is defined by the following equation:
+
+\begin{align}
+\label{eq:Q}
+\dot{Q} = \frac{dV}{dt}=-\rho \frac{l^2}{R^{2}_{B}} \frac{dR}{dt}
+\end{align}
+
+where $W$ is the hydraulic resistance and $P$ is pressure. The hydraulic resistance is a function of the geometry of the artery given by radius $r$ and the viscosity of the blood $\mu$.
+
+\begin{align}
+W=\frac{8 l \mu}{\pi r^4}
+\end{align}
+
+Replacing equation $W$ into equation $\dot{Q}$ the pressure for a defined segment can be expressed by the following equation:
+
+\begin{align}
+P = -\frac{8 l \mu \pi}{\rho} \frac{dR}{dt} = k \frac{dR}{dt}
+\end{align}
+
+where $k$ is a constant value function of the distance between the electrodes, physiological constants of the blood at a particular measurement frequency. The sign in the equation just denotes that the changes in the resistance and pressure are opposite. Thus the sign can be disregarded while performing calculations.
+
+Finally, the waveform obtained from impedance plethysmography can also be applied to evaluate pulse-wave velocity (PWV) in limbs. Measuring PWV can be accomplished by computing the time arrival difference between two reference measurement points and estimating the time difference between both waveforms. PWV is also an important indicator of deterioration in the cardiovascular system. This method requires two or more electrode arrays to measure the differential of electrical potential along a body segment. For its convince is easily applied to upper and lower limbs. This measurement technology has been successfully demonstrated by some researchers like Risacher et al~\cite{risacher1993impedance} where measurements were recorded using a multi-array electrode system. Some of the recommendations to the successful application of this method recommended by the author are taken special emphasis in the sensitivity to noise that this method may come across~\cite{risacher1992computation}, the use of high-precision and reproducible by the electrode array, accuracy in the measurement of the distance separating measuring sites, high sampling frequency to ensure higher accuracy in the calculation of time intervals. There are limits when recording these signals from a small body where location and geometry of the electrodes are prime for this application. It has been shown that is possible to record this signal from an area as small as \SI{1.5}{\cm} by \SI{7}{\cm} which also increases the possibility of portability~\cite{cho2009bio}. 
+
+As it can be noticed, there are multiple applications where impedance plethysmography can be applied, but so far this has been achieved by devices that can only provide only either basal impedance (DC), waveform (AC) and single channel application. The aim of this work is to design a device that can be used for any to study any of the previous applications using a single apparatus. This device should be able to provide the characteristics described in a multi-channel device.
+
+
+%********************************** %First Section  **************************************
+%\section{The principle of impedance plethysmography}                                                                                                                                                                                                 
+%\label{section impedance plethysmography principle}
+%\rvmynote{Check the book and convert everything into resistvity}
+%Referred as impedance plethysmography (iPG) involves the measurement of the change of impedance due to changes in blood flow. For instance, when heart’s systole increases blood flow, the volume of a limb rises due to the inflow of arterial blood (swelling) \cite{martinsen2011bioimpedance}. Consequently, there are changes of impedance correlated to the changes of volume and flow in a limb. Some medical application might require the use of occlusion cuffs to analyse venous filling. There are several medical applications for this kind of technique such as heart stroke volume (SV) measurement, cardiac output (CO), thoracic respiratory volume, oedema and detection of deep vein thrombosis (DVT)~\cite{holohan1996plethysmography}. 
+%
+%As previously described in section \ref{section literature BI}, iPG is the measurement of volume changes through the equivalent bioelectrical impedance of a part of the human body \cite{corciova2011peripheral}. In this document the measurements from an in-vivo study of the plethysmographic changes in a segment of the left forearm are presented. One could imagine this segment of the upper limb to be modelled as a cylinder within a cylinder. Where the inner cylinder represents a blood vessel and the outermost is the surrounding tissue. 
+%
+%For mathematical analysis, a single cylinder will be initially studied and then the double cylinder model. An ideal circular solid model can be applied where the cross-sectional area might have a circular or elliptical form. Hence, measurement of electrical impedance might depend on its geometry. The following equation illustrates the segment’s geometry effects for a solid cylinder resistance ($R$). 
+%
+%\begin{align}
+%	\label{eq:resistivity}
+%	R=\rho\frac{L}{A}
+%\end{align}
+%
+%Where $\rho$ is the material's conductivity, $A$ is the cross sectional area of the cylinder and $L$ its length. From the resistance equation, one can deduce that if the cylinder's length increases resistance will increase. In contrast, if the cross-section area of the cylinder increases then the resistivity will decrease. A representation of this cylinder can be seen in \ref{fig:cylinder model}. Hence, it is possible to find the volume as function of its resistance can be described with the following equation.
+%
+%\mynotenp{reword where the word function is}
+%
+%\begin{align}
+%	\label{eq:volume (R)}
+%	v=G \rho L^2 = R\sigma A^2 = \frac{1}{R} \frac{L^2}{\sigma}
+%\end{align}
+%
+%\begin{figure}[!htpb]
+%	\centering
+%	\includegraphics[width=5.5cm,keepaspectratio]{figure4}    
+%	\caption[Cylinder model for impedance calculation]{Cylinder model of length L and parallel volume increment}
+%	\label{fig:cylinder model}
+%\end{figure}
+%
+%The previous equation suggests that if $L$ is constant then volume $v$ is directly proportional to the conductance $G$. However, if the presumption is that the area $A$ is constant then volume $v$ is directly proportional to resistance $R$. In the case of human blood vessels, it is expected that swelling occurs transversely. In this case, a rise of volume $\Delta v$  is better represented as a conductance increase in a parallel model~\cite{martinsen2011bioimpedance}. Hence, when a variation of volume $\Delta v$ occurs a change of impedance $\Delta G$ might also be present. As a result, both entities can be expressed as a relation between two parameters as shown in the equation below.
+%
+%\mynote{Probably I should use the description I made from the Nyober equation}
+%
+%\begin{align}
+%	\label{eq:volume (deltav)}
+%	\frac{\Delta G}{G} = \frac{\Delta v}{v} \qquad\text{or}\qquad \frac{\Delta G}{G} = \frac{\sigma}{L^2} \qquad\text{or}\qquad \Delta v = \Delta G \rho L^2
+%\end{align}
+%
+%The same equation can be also represented as function of a change of resistivity $\Delta R$. In this case the equation changes to \mynotenp{???} \ref{eq:volume (deltaR)}. One must keep in mind that the minus sign represents that resistance increase corresponds a volume decrease \cite{martinsen2011bioimpedance}. 
+%
+%\begin{align}
+%	\label{eq:volume (deltaR)}
+%	\Delta v \cong \Delta R \rho \bigg( \frac{L}{R} \bigg)^2 \qquad (\Delta R \ll R)
+%\end{align}
+%
+%Nevertheless, a human body segment could be sculpted as two-compartment cylinder model where length $L$ is constant and the two cylinders are physically in parallel (see figure \ref{fig:two cylinder model}). Supposing that the volume of the inner cylinder is equivalent to $\Delta v + v_A$ and $v_t$ is the constant outer cylinder volume. \mynotenp{doesnt make sense} Then, the following equation represents the change in conductivity when both tubes swell $(\Delta v > 0)$. From this equation one can deduce that the problem of high sensitivity plethysmography depends on selectively measuring the immittance in a selected volume~\cite{martinsen2011bioimpedance}.
+%
+%\begin{figure}[!htpb]
+%	\centering
+%	\includegraphics[width=5.5cm,keepaspectratio]{figure5}    
+%	\caption[Two compartment cylinder model]{Two compartment cylinder model of length L and parallel volume increment}
+%	\label{fig:two cylinder model}
+%\end{figure}
+%
+%In this case, the conductivities and cross sectional areas from surrounding tissue ($\sigma_t$) with area $A_t$ and tissue ($\sigma_b$) with area $A_b$ will also contribute towards the total conductance $G$ of the segment. Consequently, considering constant geometry, the conductance of these two cylinders could be expressed as the following equation.
+%
+%\begin{align}
+%	G = (\sigma_b A_b + \sigma_t A_t) \frac{1}{L}
+%\end{align}
+%
+%However, the previous equation does not represent plethysmography because area change has not been assumed \mynotenp{correct word? assumed?} when swelling occurs. As Grimmes et al. \cite{martinsen2011bioimpedance} describes the previous equation 'relates to flow system with a varying conductivity of the passing liquid, and flow with time is volume'.
+%
+%A segment of the human limb is a dynamic system where the cross sectional area changes with the pulsatile movement of the arteries. For instance, during heart systole a blood bolus goes through an artery which temporarily increases the local volume (see figure \ref{fig:cylinder bolus}). A single vessel in the limb segment experiences two phases of flow throughout a heart cycle. First, during the inflow phase, the blood vessel is filled with blood, then during outflow phase, the diastole heart cycle transports blood further but at the same time is returning blood through the venous system.
+%
+%\begin{figure}[!htpb]
+%	\centering
+%	\includegraphics[width=7cm,keepaspectratio]{figure6}    
+%	\caption[Four electrodes placement for iPG]{Four electrodes system with the effect of a bolus of blood passing through a selected segment}
+%	\label{fig:cylinder bolus}
+%\end{figure}
+%
+%For this reason the tetrapolar method or four electrodes measurement is desirable as displayed in figure \ref{fig:cylinder bolus} \cite{young1967evaluation}. Some of these reasons include that it is easier to confine the measured tissue volume to the area of the volume increase. Additionally, the sensitivity will depend on the bolus length in relation to the measured distance between electrodes may also increase sensitivity~\cite{porter1985measurement}.
+%\mynote{This paragraph does not related the measurement of tetrapolar with the section of the chapter}
 
 %********************************** % Sixth Section  *************************************
 \section{Impedance plethysmography in the forearm}

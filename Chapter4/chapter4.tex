@@ -14,74 +14,74 @@
 
 
 %********************************** %First Section  **************************************
-It is well known that detecting changes in volume in the human body, provides valuable medical information. Ischemia is known as lack of blood supply towards an organ or tissue. Most common cases occur when there is a blockage in an artery. Thus, leading to tissue starvation because of lack of oxygen and nutrients. One of the most common diseases that involves extremities is the peripheral arterial disease. This disease is a progressive vascular illness caused by blockage, narrowing or spasms in blood vessels such as arteries, veins or lymphatic vessels. Referring to limbs, these represent a significant cause of disability and mortality~\cite{novo1995patients}. Knowing patient's haemodynamic conditions may help medical therapists to follow an appropriate plan of treatment according to the severity of the condition.
+%It is well known that detecting changes in volume in the human body, provides valuable medical information. Ischemia is known as lack of blood supply towards an organ or tissue. Most common cases occur when there is a blockage in an artery. Thus, leading to tissue starvation because of lack of oxygen and nutrients. One of the most common diseases that involves extremities is the peripheral arterial disease. This disease is a progressive vascular illness caused by blockage, narrowing or spasms in blood vessels such as arteries, veins or lymphatic vessels. Referring to limbs, these represent a significant cause of disability and mortality~\cite{novo1995patients}. Knowing patient's haemodynamic conditions may help medical therapists to follow an appropriate plan of treatment according to the severity of the condition.
+%
+%Electrical impedance plethysmography is a method non-invasive, portable, comfortable, safe, unperceivable, straightforward and easy to implement.  It can detect changes in blood volume not just in the periphery but also other parts of the body. In short, this method takes advantage of blood and tissue conductive properties. It has a resistive response when an alternating current is applied. Ionic conduction of a segment of the body reflects the same behaviour of electric conduction in metallic cylinders. Since 1950's, it has been extensively proved that changes in arteriovenous blood volume in an extremity segment is directly related to static and dynamic changes of impedance measurements in synchrony with the heart cycle.
+%
+%The genesis of impedance plethysmography can be traced back to the model proposed by Jan Nyober~\cite{nyober1950electrical}. The author describes extremities as cylinders. The whole electrical conductance path is resulting from the sum of the parallel conductance of blood and tissue within a segment. In fact, this theory called parallel conductor was later confirmed by the experiments performed by Shimazu et al~\cite{shimazu1982evaluation}. There have been some doubts about how much is blood's impedance contribution to the total impedance signal.  It has been demonstrated through in vitro experiments that blood (haematocrit = $ 26 \pm 4 \%$) contributed to \SI{10}{\percent} of the signal. In the test, a saline buffer solution was compared between extensible arteries and rigid tubes~\cite{peura1978influence}. 
+%
+%Nyober proposed that the practical parallel resistive value of the displaced blood can be originated from the parallel relation between the initial base resistance and the new resistance value, given by the following expression:
+%
+%\begin{align}
+%R_B=\frac{R_N R_0}{R_0-R_N} \approx \frac{R^2_0}{\Delta R}
+%\end{align}
+%
+%where $R_0$ is equivalent to the original resistance and $R_N$ represents the increase of new total resistance. The denominator $R_0 - R_N$ is equal to $R$, peers with the change of impedance caused by blood volume expansion during the heart cycle. From this, the author deducted the following governing equation. That shows that proportional increment of blood volume uniformly distributed within a cylindrical segment can be derived from the equation of the volume of a cylindrical conductor:
+%
+%\begin{align}
+% \label{eq:Nyober}
+% V_B = \rho \frac{l^2}{R_B}
+%\end{align}
+%
+%where $\rho$ is blood's resistivity, $l$ is the distance between measuring electrodes, and $R_B$ is the impedance value described previously as the parallel value of resistances.
+%
+%Different equations aroused complementing the Nyboer's work. One of this modifications is the Kubicek et al. method~\cite{karnegis1966development}. His equation is widely used especially when measurements from the measurement of impedance cardiography from the thoracic box and to deduct stroke volume of the heart. Other, popular work is the contribution done by Sramek~\cite{sramek1986bomed}. The author also modified Kubicek's equation eliminating the dependence $l$ and $\rho$,  and introduced a constant obtained from statistical methods named "volume of electrical participating tissue". 
+%
+%\mynote{This is not clear, needs to be refined}
+%
+%From the equations named previously, it is possible to obtain a different kind of haemodynamic information. The most common used as describe before is plethysmography information based on the principle described. However, various applications have been applied to the signals obtained from impedance plethysmography. 
+%
+%For instance, some measurements require changes in the basal impedance which is the base impedance for tissue, fat, skin, bone and blood when there is no expansion of volume. For better understanding this can be described as the DC content of a signal or in the case of Nyober's parallel conductor is equivalent to $R_B$. This impedance value is particularly attractive when estimating blood flow in extremities. The method that uses this kind of data is referred as venous occlusion plethysmography. In this approach, a cuff is inflated \SIrange{10}{20}{\mmHg} below systolic for a period and then released. Some of its applications can be seen being applied in the study performed by Mohapatra~\cite{mohapatra1979measurement} and Schraibman~\cite{schraibman1975comparison}, where a comparison of the change of volume using strain gauge and impedance in patients under anaesthesia showed a significant relationship between both techniques.{eq:nyober}
+%
+%Yamakoshi~\cite{shimazu1982evaluation,yamakoshi1980limb,yamakoshi1978admittance}  in his research and patent work also uses the same method to estimate blood flow but instead of using impedance uses its reciprocate admittance $(Y=Z^{-1})$ for natural computational results. In his work, the author states that the first gradient of the computation result to time is indicative of the blood rate in the limb being examined.
+% 
+%The plethysmography waveform is also utilised to quantify measurements of pulsatile volume, blood flow beat to beat, blood pressure and pulse wave velocity. In this case, the waveform is equivalent to the AC component of the impedance signal. The contribution of this signal to the total of the signal is between \SIrange{0.1}{1}{\percent} of the total of the signal. Sometimes, it is necessary to implement low noise techniques to picking up the signal hidden within the basal impedance. 
+%
+%The most typical application of the waveform is the quantification of blood flow beat to beat. Compared with the previous technique, this method does not require venous occlusion. By applying Nyboer's equation to the waveform signal is also possible to quantify peak-peak blood volume and peak net inflow. For instance, the patent presented by Marks~\cite{marks1985computer} shows the application of quantifying blood flow in upper extremities by computing the derivatives of the waveform signal producing the results claimed. Another example, taking measurements from lower limbs is the work performed by Porter~\cite{porter1985measurement} where impedance cardiography was used to obtain the waveform signals and computed using Kubicek's equation and concluding the potential use of the signal to evaluate limb oedema. 
+%{eq:dvdr}
+%Another application of the waveform is the evaluation of blood pressure continuously. Blinov~\cite{blinov1997plethysmographic} demonstrated that pressure could be deducted if blood flow is known. As explained before, blood flow can be estimated beat-beat by deriving the waveform after applying Nyober's equation. As a result, the equation transforms into:
+%
+%\begin{align}
+%\label{eq:dvdr}
+%dV = \rho \frac{l^2}{R^2_B} dR
+%\end{align}
+%
+%Volume rate is defined as the change of volume in time. Then blood flow rate $(\dot{Q})$ is defined by the following equation:
+%
+%\begin{align}
+%\label{eq:Q}
+%\dot{Q} = \frac{dV}{dt}=-\rho \frac{l^2}{R^{2}_{B}} \frac{dR}{dt}
+%\end{align}
+%
+%where $W$ is the hydraulic resistance and $P$ is pressure. The hydraulic resistance is a function of the geometry of the artery given by radius $r$ and the viscosity of the blood $\mu$.
+%
+%\begin{align}
+%W=\frac{8 l \mu}{\pi r^4}
+%\end{align}
+%
+%Replacing equation $W$ into equation $\dot{Q}$ the pressure for a defined segment can be expressed by the following equation:
+%
+%\begin{align}
+%P = -\frac{8 l \mu \pi}{\rho} \frac{dR}{dt} = k \frac{dR}{dt}
+%\end{align}
+%
+%where $k$ is a constant value function of the distance between the electrodes, physiological constants of the blood at a particular measurement frequency. The sign in the equation just denotes that the changes in the resistance and pressure are opposite. Thus the sign can be disregarded while performing calculations.
+%
+%Finally, the waveform obtained from impedance plethysmography can also be applied to evaluate pulse-wave velocity (PWV) in limbs. Measuring PWV can be accomplished by computing the time arrival difference between two reference measurement points and estimating the time difference between both waveforms. PWV is also an important indicator of deterioration in the cardiovascular system. This method requires two or more electrode arrays to measure the differential of electrical potential along a body segment. For its convince is easily applied to upper and lower limbs. This measurement technology has been successfully demonstrated by some researchers like Risacher et al~\cite{risacher1993impedance} where measurements were recorded using a multi-array electrode system. Some of the recommendations to the successful application of this method recommended by the author are taken special emphasis in the sensitivity to noise that this method may come across~\cite{risacher1992computation}, the use of high-precision and reproducible by the electrode array, accuracy in the measurement of the distance separating measuring sites, high sampling frequency to ensure higher accuracy in the calculation of time intervals. There are limits when recording these signals from a small body where location and geometry of the electrodes are prime for this application. It has been shown that is possible to record this signal from an area as small as \SI{1.5}{\cm} by \SI{7}{\cm} which also increases the possibility of portability~\cite{cho2009bio}. 
+%
+%As it can be noticed, there are multiple applications where impedance plethysmography can be applied, but so far this has been achieved by devices that can only provide only either basal impedance (DC), waveform (AC) and single channel application. The aim of this work is to design a device that can be used for any to study any of the previous applications using a single apparatus. This device should be able to provide the characteristics described in a multi-channel device.  
 
-Electrical impedance plethysmography is a method non-invasive, portable, comfortable, safe, unperceivable, straightforward and easy to implement.  It can detect changes in blood volume not just in the periphery but also other parts of the body. In short, this method takes advantage of blood and tissue conductive properties. It has a resistive response when an alternating current is applied. Ionic conduction of a segment of the body reflects the same behaviour of electric conduction in metallic cylinders. Since 1950's, it has been extensively proved that changes in arteriovenous blood volume in an extremity segment is directly related to static and dynamic changes of impedance measurements in synchrony with the heart cycle.
-
-The genesis of impedance plethysmography can be traced back to the model proposed by Jan Nyober~\cite{nyober1950electrical}. The author describes extremities as cylinders. The whole electrical conductance path is resulting from the sum of the parallel conductance of blood and tissue within a segment. In fact, this theory called parallel conductor was later confirmed by the experiments performed by Shimazu et al~\cite{shimazu1982evaluation}. There have been some doubts about how much is blood's impedance contribution to the total impedance signal.  It has been demonstrated through in vitro experiments that blood (haematocrit = $ 26 \pm 4 \%$) contributed to \SI{10}{\percent} of the signal. In the test, a saline buffer solution was compared between extensible arteries and rigid tubes~\cite{peura1978influence}. 
-
-Nyober proposed that the practical parallel resistive value of the displaced blood can be originated from the parallel relation between the initial base resistance and the new resistance value, given by the following expression:
-
-\begin{align}
-R_B=\frac{R_N R_0}{R_0-R_N} \approx \frac{R^2_0}{\Delta R}
-\end{align}
-
-where $R_0$ is equivalent to the original resistance and $R_N$ represents the increase of new total resistance. The denominator $R_0 - R_N$ is equal to $R$, peers with the change of impedance caused by blood volume expansion during the heart cycle. From this, the author deducted the following governing equation. That shows that proportional increment of blood volume uniformly distributed within a cylindrical segment can be derived from the equation of the volume of a cylindrical conductor:
-
-\begin{align}
- \label{eq:Nyober}
- V_B = \rho \frac{l^2}{R_B}
-\end{align}
-
-where $\rho$ is blood's resistivity, $l$ is the distance between measuring electrodes, and $R_B$ is the impedance value described previously as the parallel value of resistances.
-
-Different equations aroused complementing the Nyboer's work. One of this modifications is the Kubicek et al. method~\cite{karnegis1966development}. His equation is widely used especially when measurements from the measurement of impedance cardiography from the thoracic box and to deduct stroke volume of the heart. Other, popular work is the contribution done by Sramek~\cite{sramek1986bomed}. The author also modified Kubicek's equation eliminating the dependence $l$ and $\rho$,  and introduced a constant obtained from statistical methods named "volume of electrical participating tissue". 
-
-\mynote{This is not clear, needs to be refined}
-
-From the equations named previously, it is possible to obtain a different kind of haemodynamic information. The most common used as describe before is plethysmography information based on the principle described. However, various applications have been applied to the signals obtained from impedance plethysmography. 
-
-For instance, some measurements require changes in the basal impedance which is the base impedance for tissue, fat, skin, bone and blood when there is no expansion of volume. For better understanding this can be described as the DC content of a signal or in the case of Nyober's parallel conductor is equivalent to $R_B$. This impedance value is particularly attractive when estimating blood flow in extremities. The method that uses this kind of data is referred as venous occlusion plethysmography. In this approach, a cuff is inflated \SIrange{10}{20}{\mmHg} below systolic for a period and then released. Some of its applications can be seen being applied in the study performed by Mohapatra~\cite{mohapatra1979measurement} and Schraibman~\cite{schraibman1975comparison}, where a comparison of the change of volume using strain gauge and impedance in patients under anaesthesia showed a significant relationship between both techniques.{eq:nyober}
-
-Yamakoshi~\cite{shimazu1982evaluation,yamakoshi1980limb,yamakoshi1978admittance}  in his research and patent work also uses the same method to estimate blood flow but instead of using impedance uses its reciprocate admittance $(Y=Z^{-1})$ for natural computational results. In his work, the author states that the first gradient of the computation result to time is indicative of the blood rate in the limb being examined.
- 
-The plethysmography waveform is also utilised to quantify measurements of pulsatile volume, blood flow beat to beat, blood pressure and pulse wave velocity. In this case, the waveform is equivalent to the AC component of the impedance signal. The contribution of this signal to the total of the signal is between \SIrange{0.1}{1}{\percent} of the total of the signal. Sometimes, it is necessary to implement low noise techniques to picking up the signal hidden within the basal impedance. 
-
-The most typical application of the waveform is the quantification of blood flow beat to beat. Compared with the previous technique, this method does not require venous occlusion. By applying Nyboer's equation to the waveform signal is also possible to quantify peak-peak blood volume and peak net inflow. For instance, the patent presented by Marks~\cite{marks1985computer} shows the application of quantifying blood flow in upper extremities by computing the derivatives of the waveform signal producing the results claimed. Another example, taking measurements from lower limbs is the work performed by Porter~\cite{porter1985measurement} where impedance cardiography was used to obtain the waveform signals and computed using Kubicek's equation and concluding the potential use of the signal to evaluate limb oedema. 
-{eq:dvdr}
-Another application of the waveform is the evaluation of blood pressure continuously. Blinov~\cite{blinov1997plethysmographic} demonstrated that pressure could be deducted if blood flow is known. As explained before, blood flow can be estimated beat-beat by deriving the waveform after applying Nyober's equation. As a result, the equation transforms into:
-
-\begin{align}
-\label{eq:dvdr}
-dV = \rho \frac{l^2}{R^2_B} dR
-\end{align}
-
-Volume rate is defined as the change of volume in time. Then blood flow rate $(\dot{Q})$ is defined by the following equation:
-
-\begin{align}
-\label{eq:Q}
-\dot{Q} = \frac{dV}{dt}=-\rho \frac{l^2}{R^{2}_{B}} \frac{dR}{dt}
-\end{align}
-
-where $W$ is the hydraulic resistance and $P$ is pressure. The hydraulic resistance is a function of the geometry of the artery given by radius $r$ and the viscosity of the blood $\mu$.
-
-\begin{align}
-W=\frac{8 l \mu}{\pi r^4}
-\end{align}
-
-Replacing equation $W$ into equation $\dot{Q}$ the pressure for a defined segment can be expressed by the following equation:
-
-\begin{align}
-P = -\frac{8 l \mu \pi}{\rho} \frac{dR}{dt} = k \frac{dR}{dt}
-\end{align}
-
-where $k$ is a constant value function of the distance between the electrodes, physiological constants of the blood at a particular measurement frequency. The sign in the equation just denotes that the changes in the resistance and pressure are opposite. Thus the sign can be disregarded while performing calculations.
-
-Finally, the waveform obtained from impedance plethysmography can also be applied to evaluate pulse-wave velocity (PWV) in limbs. Measuring PWV can be accomplished by computing the time arrival difference between two reference measurement points and estimating the time difference between both waveforms. PWV is also an important indicator of deterioration in the cardiovascular system. This method requires two or more electrode arrays to measure the differential of electrical potential along a body segment. For its convince is easily applied to upper and lower limbs. This measurement technology has been successfully demonstrated by some researchers like Risacher et al~\cite{risacher1993impedance} where measurements were recorded using a multi-array electrode system. Some of the recommendations to the successful application of this method recommended by the author are taken special emphasis in the sensitivity to noise that this method may come across~\cite{risacher1992computation}, the use of high-precision and reproducible by the electrode array, accuracy in the measurement of the distance separating measuring sites, high sampling frequency to ensure higher accuracy in the calculation of time intervals. There are limits when recording these signals from a small body where location and geometry of the electrodes are prime for this application. It has been shown that is possible to record this signal from an area as small as \SI{1.5}{\cm} by \SI{7}{\cm} which also increases the possibility of portability~\cite{cho2009bio}. 
-
-As it can be noticed, there are multiple applications where impedance plethysmography can be applied, but so far this has been achieved by devices that can only provide only either basal impedance (DC), waveform (AC) and single channel application. The aim of this work is to design a device that can be used for any to study any of the previous applications using a single apparatus. This device should be able to provide the characteristics described in a multi-channel device.  
-
-\section{Material and methods}
+%\section{Material and methods}
 Designing an impedance device requires knowing the electrical characteristics of the load under test. Nonetheless, some of the recommendations should start with meeting patient's safety. Meaning, that the amount of current to be driven by the device should be imperceptible within the limits of the safety standards. For this, one of the first recommendation is to be able to operate by batteries as a class B device, ensuring that electrical currents are floating in the patient and also guarantying that current will be flowing through the segment to be studied. Levels of current sensation change from person–to–person, sex and also depends on the electrode's geometry. However, Brown et al.~\cite{brown1998medical} has established a threshold current which is frequency dependent where \SI{5}{\mA} represent the limit for sensory nerve stimulation and shock sensation. The device designed can deliver four levels of current using a dip-switch (\SIlist{1;2;3;4}{\mA}). For the experiment of this document, the current was fixed to \SI{4}{\mA} which provided and an excellent sensitivity for the system. 
 
 About the electrical current delivered by the device, a programmable wave generator with the potential of delivering up to 10 MHz sinusoidal waveforms was incorporated into the design. However, as per the literature measuring impedance plethysmography can be achieved with frequencies between \SIrange[scientific-notation = engineering]{20}{200000}{\hertz}. Therefore, a sinusoidal wave of \SI{50}{\kilo\hertz} was used during the experimental procedure.
