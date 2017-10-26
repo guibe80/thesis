@@ -86,7 +86,7 @@ Designing an impedance device requires knowing the electrical characteristics of
 
 About the electrical current delivered by the device, a programmable wave generator with the potential of delivering up to 10 MHz sinusoidal waveforms was incorporated into the design. However, as per the literature measuring impedance plethysmography can be achieved with frequencies between \SIrange[scientific-notation = engineering]{20}{200000}{\hertz}. Therefore, a sinusoidal wave of \SI{50}{\kilo\hertz} was used during the experimental procedure.
 
-\subsection{Electrodes topology and location}
+\section{Electrodes topology and location}
 There are two kinds of impedance plethysmography method according to the electrode topology, bipolar and tetrapolar. Bipolar lacks two electrodes points to measure impedance. When measuring with bipolar electrodes arises a problem where the impedance of the electrodes might be greater than the biological tissue itself which can affect the measurement significantly. In the majority of the cases, it is quite difficult to differentiate the electrode's impedance from the tissue one \cite{brown2000bipolar}. Tetrapolar configuration requires four contact points, a pair of electrodes injects current and another couple sense voltage. Using tetrapolar arrangement minimises the voltage drop during measurements because the potential sensing amplifier ideally has a bigger impedance compared to the interface electrode-skin. Therefore, electrical current would not flow between electrodes and the voltage amplifier. For this reason, four electrodes measurement was decided as the optimal method while designing the instrument. 
 
 Positioning the electrodes close to the main vessel improves the response of the system as the there is more conductive material where the electrical current can flow through. Figure~\ref{fig:electrode} shows in more detail the position of the electrodes to take measurements from the device. According to the arm anatomy, the radial artery is the proper site to use for one of the current electrodes. The other was placed close to the brachial artery around the cubital fossa region where this vessel is closer to the surface. The sensing electrodes were placed right on the elbow where is the nearest point to the brachial artery that is connected to the radial artery forming the ideal loop to detect changes in impedance $\Delta Z$.  
@@ -109,7 +109,7 @@ The proposed system can be subdivided into two different sections, front–end w
 
 \mynote{I need to add ports names of the device}
 
-\subsection{Power supply module}
+\section{Power supply module}
 Implementing a good design requires good power supplies that could provide steady voltage output and supply enough current as needed by the circuitry. Due to the need of applying floating currents, a power supply was designed to operate with batteries minimising ground loops and increasing patient's safety.  The selection of this method of supplying power lessens the likelihood of electric shocks as well as reaching dangerous voltage levels. For these reasons, a couple of batteries A512/2 S (Sonnenschein) were used to power all the circuits. These cells provide \SI{2}{\ampere\hour} of capacity per bank.
 
 Some of the unique features needed for the power supply includes the capability of providing a dual voltage (\SI{\pm 12}{\volt}) as some Op–Amps require this level of supply to achieve maximum gain and low energy supply (\SI{5}{\volt}) essential for some digital components. The positive and negative voltages can be obtained by using one cell bank with normal polarisation and the other inverted. 
@@ -143,7 +143,7 @@ In Altium Designer a PCB of \SI{50}{\milli\meter} x \SI{50}{\milli\meter} was pr
 The final result can be appreciated in \ref{fig:3D PS}, where the 3D model representation from Altium design and the final PCB manufactured using LPKF machine are displayed side by side. \mynote{Check if I want to add the real picture}
 
 
-\subsection{Direct digital synthesis (DDS) module}
+\section{Direct digital synthesis (DDS) module}
 \label{section DDS}
 Following the block diagram from left to right on figure \ref{fig:block}, the first part shows the wave generator. This section of the circuit produces the sinusoidal wave needed for the impedance measurements. This waveform should be low in distortion and noise. This signal was created using a programmable direct digital synthesis (DDS) integrated circuit (IC) which is capable of producing sine waves from \SI{10}{\hertz} to \SI{10}{\mega\hertz}. The IC used is the AD5930 (Analogue devices). In short, a DDS creates a wave according to a table of digital words in memory which are fed to a DAC that produces the analogue equivalent. This IC requires a set of instruction to operate. 
 
@@ -158,7 +158,7 @@ In the appendix \ref{Appendix: DDS PS}, the figure \ref{fig:DDS PS} shows the sc
 
 A microcontroller ATMEL (Arduino) controls the DDS sending commands via serial peripheral interface bus (SPI) transmission interface. Through an instruction set by the manufacturer, it is possible to set the oscillation frequency of the sine wave, as well as start/stop the signal generation. The waveform generated by the DDS is differential, meaning that there are two sine waves outputs in counter-phase (\SIlist{0;180}{\degree}). The DDS provides a current output of \SI{3}{\mA} which is transformed to an electrical voltage using a \SI{200}{\ohm} resistor at the output of the IC, setting the output at approximately \SI{600}{\mV}. A set of capacitors also filters high-frequency noises. The connection between the microcontroller and other boards is possible using ribbon cables. The figure \ref{fig:3D DDS} shows the 3D representation of PCB module manufactured.
 
-\subsection{Differential amplifier gain module}
+\section{Differential amplifier gain module}
 The following stage consists of a differential voltage amplifier which as its name suggests amplifies the sinusoidal waveform coming from the DDS. The gain of this amplifier can be modified by using a set of resistors at each side of the amplifier and can be adjusted to 16 different combinations of gain using resistors of \SIlist{1;2;3;4.99}{\kohm}. The gain can be adjusted from \si{0.49} to \si{4.99}. As a result, DDS’ output voltage changes according to gain set in the differential amplifier. 
 
 The main component of the DGA was the IC AD8137 \mynote{Add reference to the datasheet}. Low tolerance were resistors placed at each channel to achieve a steady gain at the output. The DGA needed a separate power supply to operate within the limits of the batteries. Hence, a dual power supply of \SI{6}{\volt} and -\SI{6}{\volt} was designed using the IC LF60CDT and LM337 respectively. Due to the latter is a variable voltage regulator, a set of resistor was used to adjust the level of regulation to the one wanted. The schematic circuits are available in the appendix \ref{Appendix: DGA}, figures \ref{fig:DGA PS 6} and \ref{fig:DGA PS -6}
@@ -172,7 +172,7 @@ The main component of the DGA was the IC AD8137 \mynote{Add reference to the dat
 
 Due to the DDS provides a DC coupled sine waveform and high-frequency noises, the input of the DGA incorporates a band-pass filter, formed by a DC blocking capacitor and a low pass filter set to \SI{1}{\mega\hertz}. The output of the differential amplifier also includes another set of passive band-pass filters to clean out any remaining noise. The figure \ref{fig:DGA} in the appendix \ref{Appendix: DGA} shows the schematic implemented. Figure \ref{fig:3D DGA} displays the 3D representation of the final PCB module manufactured.
 
-\subsection{Modified Howland Amplifier module}
+\section{Modified Howland Amplifier module}
 \label{section MHC}
 This is a very popular circuit method used in bioimpedance analysis (BIA) measurements~\cite{aroom2009bioimpedance}, tissue characterization~\cite{bertemes2002tissue,ross2003current}, electrical impedance tomography (EIT) and diagnosis of breast cancer~\cite{zou2003review,saulnier2007electrical}. It can be constructed using a single operational amplifier (Op–Amp) and a handful of resistors~\cite{sheingold1964impedance}, the Figure \ref{fig:mhc} shows the MHC configuration which offers wide bandwidth operation and low power consumption. 
 
@@ -227,7 +227,7 @@ The design also included a dual power supply of \SI{5}{\volt} and -\SI{5}{\volt}
 	\label{fig:3D MHC}
 \end{figure}
 
-\subsection{Current and voltage sensing module}
+\section{Current and voltage sensing module}
 \label{section V&I sense}
 As shown from figure \ref{fig:mhc}, at the output of the transconductance amplifier resistors $R_s$ of \SI{10}{\ohm} were placed at each side of the differential output. These small resistors sense the electrical current passing through the unknown load. Using Ohm's law $v=R \times i$ is possible to convert this current into a proportional voltage value. However, combining a small flowing current around $mA$ and a tiny resistor value, the voltage obtained is in the order of $mV$. Consequently, this resultant voltage is too close to the noise level, lying the real value and not being able to be detected by any analogue to digital converter. Therefore, using a high input impedance amplifier which also provides a significant gain is essential to avoid current leakage through the current sensing IC and improving the signal to noise ratio.  
 
@@ -272,7 +272,7 @@ A sensing module was manufactured combining the current sense and two channels o
 %    \dummyfig{Block diagram} 
 %\end{table} 
 
-\subsection{Envelope detection and AC extraction circuit module}
+\section{Envelope detection and AC extraction circuit module}
 \label{section material envelope}
 This module has two functions, one is to detect the peak value of the current and voltage sensing circuit, and the other is to extract the plethysmography waveform contained within the baseline impedance. Hence, three output signals are produced by this module. The first signal is a DC voltage equivalent to the amplitude of the voltage detected by the current sense path denominated $I_{DC}$. The second output channel is a DC signal equal to the potential detected on the limb segment represented by $Z_{DC}$. Finally, the third one is an AC signal which is the dynamic plethysmography signal or arterial pulse amplitude called $Z_{AC}$
 
