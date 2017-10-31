@@ -396,8 +396,8 @@ There are two methods to calculate blood flow as described in \ref{chapter imped
 
 \subsection{Volume calculation during venous occlusion}
 \mynote{This part has to be improved. Add the graph that shows the change of impedance during occlusion and how the deltas are calculated.}
-\label{section procedure 4.1}
-One of the methods to measure changes of volume involves occluding the venous return in one limb. This routine known as venous occlusion plethysmography is explained in detail in section \ref{section impedance 9.1}. This technique requires inflating a cuff below diastolic pressure to stop the blood's venous return in an extremity. Just like in the procedure described in section \ref{section procedure 1.3}. 
+\label{section procedure volume vop}
+One of the methods to measure changes of volume involves occluding the venous return in one limb. This routine known as venous occlusion plethysmography is explained in detail in section \ref{section literature VOP}. This technique requires inflating a cuff below diastolic pressure to stop the blood's venous return in an extremity. Just like in the procedure described in section \ref{section procedure 1.3}. 
 
 Due to the fact that with the occlusion venous blood is unable to return to the heart, blood starts to pool below cuff position in the limb. With regards to this experiment, a segment of the left arm was the subject of the study. The sensing electrodes are the boundary of the segment's geometry. The volume of this cylinder section is equivalent to the one calculated with equation \ref{eq:v_e}. 
 
@@ -425,7 +425,7 @@ Where $\dot{Q_L}$ is the blood flow per \SI{100}{\milli\litre} of tissue, $R_B$ 
 
 %********************************** % Section 4.3.2 ******************************************
 \subsection{Volume and flow calculation beat by beat}
-\label{section procedure 4.2}
+\label{section procedure flow beat}
 Impedance plethysmography also provides the opportunity to calculate the change in volume and the blood flow from every heart beat \cite{anderson1984impedance,costeloe1980continuous,mohapatra1981non,golden1986assessment}. Achieving this calculation is possible if there is a high-quality plethysmography waveform. For this reason, the impedance device includes an analogue port called $Z_{AC}$. As described previously in chapter \ref{chapter design}, this port extracts the plethysmography waveform from the basal impedance channel $Z_{DC}$. In fact, due to the filtering and amplification stages of the circuit, the signal has been amplified more than \num{2.500} times. Providing more details of the signal's features and increasing its resolution after digitalised.
 
 The APA waveform as shown in figure \ref{fig:markers APA} is a classic example of a plethysmography wave starting from point $L1$ and finishing in $L2$. It must be note that in impedance, this signal is inverted because an increase of blood represents a surge in conductivity. Hence, a reduction in impedance of the segment measured. 
@@ -466,8 +466,7 @@ Another important physiological measurement used to calculate blood flow is the 
 	HR = \frac{60}{(t_{L2}-t_{L1})}  \tagaddtext{[\si{bpm}]}
 \end{align}
 
-
-The segmental blood flow beat to beat can be calculated using the Nyober's equation \ref{eq:Nyober}. Equation \ref{eq:bf} shows the equivalent mathematical operation in function of the heart rate obtained from equation \ref{eq:hr} and the extrapolated APA pulse amplitude given by equation \ref{eq:exht}. Because the HR has been included in this equation, the units of this formula are \si{\milli\litre\per\min}. 
+The segmental blood flow beat to beat can be calculated using the Nyober's equation \ref{eq:nyober dV}. Equation \ref{eq:bf} shows the equivalent mathematical operation in function of the heart rate obtained from equation \ref{eq:hr} and the extrapolated APA pulse amplitude given by equation \ref{eq:exht}. Because the HR has been included in this equation, the units of this formula are \si{\milli\litre\per\min}. 
 
 \begin{align}
 	\label{eq:bf}
