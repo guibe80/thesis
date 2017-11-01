@@ -12,8 +12,7 @@
 \graphicspath{{Chapter7/Figs/Vector/}{Chapter7/Figs/}}
 \fi
 
-\mynote{I have to change the captions of the graphs. They must be reviewed}
-Venous occlusion plethysmography requires occluding the proximal section of the arm, obstructing the return of the venous blood.  This kind of examination is used to assess peripheral vascular diseases such as deep venous thrombosis.  In this study, the upper arm was occluded using a cuff at three different levels to recreate the effect of venous occlusion plethysmography.
+Venous occlusion plethysmography requires occluding the proximal section of the arm, obstructing the return of the venous blood. This kind of examination is used to assess peripheral vascular diseases such as deep venous thrombosis.  In this study, the upper arm was occluded using a cuff at three different levels to recreate the effect of venous occlusion plethysmography.
 
 As explained in chapter \ref{chapter procedure}, the experiment proceeds by recording five minutes of baseline signal followed by a level of occlusion. From there, regions 1, 3, 5 and 7 refer to the five minutes of baseline waveform. On the other hand, regions 2, 4 and 6 are equivalent to venous, partial arterial and total occlusions. In average the level of occlusion for each area were \SI{55}{\mmHg}, \SI{94.62}{\mmHg}, and  \SI{136.25}{\mmHg} respectively. Table  \ref{tbl: venous occlusions} describes the levels of occlusion for each participant. 
 
@@ -33,12 +32,12 @@ The data set for this study was subdivided as follows: two minutes of data befor
 
 \subsection{Changes of impedance during venous occlusion}
 \label{section occlusion 1.1}
-The basal impedance dropped while performing venous occlusion in each participant, as expected. As figure \ref{fig:venous statistics impedance} confirms, all the partakers experienced a decrease in their basal impedance during the region 2 of the experiment. The boxplot shows the three regions that took part of this part of the study. The data of the region 1 (\textit{R1}) were the last \SI{2}{\minute} of the initial baseline (\SIrange{180}{300}{\second}). Thereafter, it is the venous occlusion in region 2 (\textit{R2}) during \SI{3}{\minute} at the pressure levels describe by the column \textit{occlusion 1} in \ref{tbl: venous occlusions}, it is clear that the median resistance value decreased. Analysing this candle-stick can be described that the larger the distribution of the upper and lower quartile, the greater the resistance drop as registered by most of the participants, except participant 6 which impedance measurement settled quickly. After releasing the cuff's air, it was expected that the median impedance in region 3 would return to a value close to the initial baseline. However, partakers 3 and 4 did not recover completely. Indeed their resistance values improved for a few seconds but later on continue falling below the lower whisker of region 2. On the other hand, participants 1 rose over the initial baseline median. The only one showing a return to baseline was participant 3. 
+As expected, the basal impedance dropped while performing venous occlusion in each participant. As figure \ref{fig:venous statistics impedance} confirms, all the partakers experienced a decrease in their basal impedance during the region 2 of the experiment. The boxplot shows the three regions that took part of this part of the study. The data of the region 1 (\textit{R1}) were the last \SI{2}{\minute} of the initial baseline (\SIrange{180}{300}{\second}). Thereafter, it is the venous occlusion in region 2 (\textit{R2}) during \SI{3}{\minute} at the pressure levels describe by the column \textit{occlusion 1} in \ref{tbl: venous occlusions}, it is clear that the median resistance value decreased. Analysing this candle-stick can be described that the larger the distribution of the upper and lower quartile, the greater the resistance drop as registered by most of the participants, except participant 6 which impedance measurement settled quickly. After releasing the cuff's air, it was expected that the median impedance in region 3 would return to a value close to the initial baseline. However, partakers 3 and 4 did not recover completely. Indeed their resistance values improved for a few seconds but later on continue falling below the lower whisker of region 2. On the other hand, participants 1 rose over the initial baseline median. The only one showing a return to baseline was participant 3. 
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=15cm,keepaspectratio]{figure_vop_1}    
-	\caption[Change of impedance during venous occlusion plethysmography]{Statistical change of impedance in $\Omega$ during venous occlusion plethysmography. The cyan boxplot represents the baseline before (Region 1) and after (Region 3) the occlusion. The yellow boxplot is the impedance during venous occlusion (Region 2).}
+	\caption[Change of impedance during venous occlusion]{Box plot showing the statistical change of impedance in $\Omega$ during venous occlusion. The cyan boxplot represents the baseline before (Region 1) and after (Region 3) the occlusion. The yellow marker is the impedance during venous occlusion (Region 2).}
 	\label{fig:venous statistics impedance}
 \end{figure}  
  
@@ -47,15 +46,13 @@ Figure \ref{fig:venous occlusion impedance} shows the deviation of the impedance
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=15cm,keepaspectratio]{figure_vop_2}    
-	\caption[Percentile variation of impedance during venous occlusion plethysmography]{Percentile change of impedance, using as reference average baseline impedance during the last \SI{2}{\minute} before the venous occlusion.}
+	\caption[Percentile variation of impedance during venous occlusion]{Percentile change of impedance during venous occlusion. The reference baseline is the average baseline impedance during the last \SI{2}{\minute} before the venous occlusion.}
 	\label{fig:venous occlusion impedance}
 \end{figure} 
 
 The figure clearly reveals a linear trend during venous occlusion for most of the subjects. Nonetheless, participant's 1 resistance fell immediately as the occlusion occurred but a minute later, the participant moved his arm reversing the trend. Later on, the impedance continued decreasing again. Furthermore,  participant 6 also showed a similar response when the individual moved his arm, but in his case, the resistance settled instead of reversing the trend. Interestingly, participant 2 showed a saturation point after quite a few seconds, which it was particular of this subject. 
 
-\mynote{Consult if callinf this $\Delta Z \%$ is a good name. I'd called it $\%_Z$ or $\%_\Omega$}
-
-The table \ref{tbl:vop delta impedance} summarises the changes of impedance during the venous occlusion. The average median of the resistance drop from the baseline value was roughly \SI{-0.546(0076)}{\Delta \%}, where participants 4, 5 and 7 recorded the largest loss of impedance (>\SI{0.5}{\%}). The column \textit{Change} on the same table shows the impedance difference from the initial occlusion point to the minimum point of the smooth curve, calculated using equation \ref{eq:DeltaZ}. It revealed that during the venous occlusion the whole slope recorded a variation of \SI{0.658(0230)}{\percent}.
+The table \ref{tbl:vop delta impedance} summarises the changes of impedance during the venous occlusion. The average median of the resistance drop from the baseline value was roughly \SI{-0.546(0076)}{\%}, where participants 4, 5 and 7 recorded the largest loss of impedance (>\SI{0.5}{\%}). The column \textit{Change} on the same table shows the impedance difference from the initial occlusion point to the minimum point of the smooth curve, calculated using equation \ref{eq:DeltaZ}. It revealed that during the venous occlusion the whole slope recorded a variation of \SI{0.658(0230)}{\percent}.
 
 \begin{align}
 	\label{eq:DeltaZ}
@@ -64,7 +61,7 @@ The table \ref{tbl:vop delta impedance} summarises the changes of impedance duri
 
  
 \begin{table}[htbp]
-	\caption[Statistical analysis of the percentile change of impedance during venous occlusion]{Statistical analysis of the percentile change of impedance during total occlusion. The data represents the median percentile change of impedance per participant, the maximum and minimum value of the occlusion and the difference between these two peak values.}
+	\caption[Statistical analysis of the percentile change of impedance during venous occlusion]{Statistical analysis of the percentile change of impedance during venous occlusion. The data represents the median percentile change of impedance per participant, the maximum and minimum value of the occlusion and the difference between these two peak values.}
 	\label{tbl:vop delta impedance}
 	\centering
  	\begin{tabular}{l@{\hspace{1cm}}
@@ -101,7 +98,7 @@ This effect can be summarised in figure \ref{fig:venous occlusion change}. This 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=15cm,keepaspectratio]{figure_vop_3}    
-	\caption[Rate of change of impedance per 10 heartbeats during venous occlusion]{Speed of change of impedance in time per every 10 heartbeats. The colour lines represent the data per each participant. The dark bolded line is the mean of all the measurements.}
+	\caption[Rate of change of impedance per 10 heartbeats during venous occlusion]{Speed of change of impedance in time ($dZ/dt$) per every 10 heartbeats. The colour lines represent the data per each participant. The dark bold line is the mean of all the measurements.}
 	\label{fig:venous occlusion change}
 \end{figure}
 
@@ -122,7 +119,7 @@ Figure \ref{fig:partial arterial statistics impedance} confirms the reduction of
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=15cm,keepaspectratio]{figure_vop_4}    
-	\caption[Change of impedance during partial arterial occlusion]{Statistical change of impedance in $\Omega$ during partial arterial occlusion. The cyan boxplot represents the baseline before (Region 3) and after (Region 5) the occlusion. The magenta boxplot is the impedance during partial arterial occlusion (Region 4).}
+	\caption[Change of impedance during partial arterial occlusion]{Boxplot of the statistical change of impedance in $\Omega$ during partial arterial occlusion. The cyan marker represents the baseline before (Region 3) and after (Region 5) the occlusion. The magenta marker is the impedance during partial arterial occlusion (Region 4).}
 	\label{fig:partial arterial statistics impedance}
 \end{figure}  
 
@@ -133,7 +130,7 @@ After releasing the cuff's pressure, it is easy to see that most of the signals 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=15cm,keepaspectratio]{figure_vop_5}    
-	\caption[Percentile variation of impedance during partial arterial occlusion]{Percentile change of impedance, using as reference average baseline impedance during the last \SI{2}{\minute} before the partial arterial occlusion.}
+	\caption[Percentile variation of impedance during partial arterial occlusion]{Percentile change of impedance during partial arterial occlusion, using as reference average baseline impedance during the last \SI{2}{\minute} before the occlusion.}
 	\label{fig:arterial occlusion imepdance}
 \end{figure}  
 
@@ -170,17 +167,14 @@ Table \ref{tbl:AO delta impedance} reports the percentage variations from the ba
 	\end{tabu} 
 \end{table}	
 
-\begin{figure}[!b]
+\begin{figure}[!t]
 	\centering
 	\includegraphics[width=15cm,keepaspectratio]{figure_vop_6}    
-	\caption[Rate of change of impedance per 10 heartbeats during partial arterial occlusion]{Speed of change of impedance in time per every 10 heartbeats. The colour lines represent the data per each participant. The dark bolded line is the mean of all the measurements.}
+	\caption[Rate of change of impedance per 10 heartbeats during partial arterial occlusion]{Speed of change of impedance in time per every 10 heartbeats. The colour lines represent the data per each participant. The dark bold line is the mean of all the measurements.}
 	\label{fig:arterial occlusion change}
 \end{figure}  
 
-The calculation of the velocity of the change of impedance  ($dZ/dt$) displayed a similar exponential response as in VOP. Figure \ref{fig:arterial occlusion change} shows the calculation of these points for all the participants. The plot indicates that the first 10 beats of changed on a ratio average of \SI{-0.0074(00037)}{\Omega\per\second} which was the largest acceleration. Then between 20 and 110 beats the velocity stabilised to \SI{-0.0053(00007)}{\Omega\per\second}. After this apparent settling, there is a new increase in the differentiation. However, it seems to be aided by the motion artefact seen on participant 1 for a few beats. \mynote{Check if I can use time instead of beats}
-
-
-
+The calculation of the velocity of the change of impedance  ($dZ/dt$) displayed a similar exponential response as in VOP. Figure \ref{fig:arterial occlusion change} shows the calculation of these points for all the participants. The plot indicates that the first 10 beats of changed on a ratio average of \SI{-0.0074(00037)}{\Omega\per\second} which was the largest acceleration. Then between 20 and 110 beats the velocity stabilised to \SI{-0.0053(00007)}{\Omega\per\second}. After this apparent settling, there is a new increase in the differentiation. However, it seems to be aided by the motion artefact seen on participant 1 for a few beats.
 
 %%********************************** % Section 7.1.3 ******************************************
 \subsection{Impedance variation during total occlusion}
@@ -196,7 +190,7 @@ After releasing the cuff's pressure, again there is not a definite trend in the 
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=15cm,keepaspectratio]{figure_vop_7}    
-	\caption[Change of impedance during total occlusion]{Statistical change of impedance in $\Omega$ during total occlusion. The cyan boxplot represents the baseline before (Region 5) and after (Region 7) the occlusion. The red boxplot is the impedance during total occlusion (Region 6).}
+	\caption[Change of impedance during total occlusion]{Boxplot of statistical change of impedance in $\Omega$ during total occlusion. The cyan marker represents the baseline before (Region 5) and after (Region 7) the occlusion. The red marker is the impedance during total occlusion (Region 6).}
 	\label{fig:total arterial statistics impedance}
 \end{figure} 
 
@@ -247,7 +241,7 @@ Figure \ref{fig:total occlusion change} illustrates the analysis of the velocity
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=15cm,keepaspectratio]{figure_vop_9}    
-	\caption[Rate of change of impedance per 10 heartbeats during total occlusion]{Speed of change of impedance in time per every 10 heartbeats. The colour lines represent the data per each participant. The dark bolded line is the mean of all the measurements.}
+	\caption[Rate of change of impedance per 10 heartbeats during total occlusion]{Speed of change of impedance in time per every 10 heartbeats during total occlusion. The colour lines represent the data per each participant. The dark bold line is the mean of all the measurements.}
 	\label{fig:total occlusion change}
 \end{figure} 
 
@@ -260,7 +254,9 @@ Figure \ref{fig:total occlusion change} illustrates the analysis of the velocity
 \label{section occlusion flow basal}
 As the literature remarked in section \ref{section procedure data conversion}, it is possible to calculate the blood flow from the changes in the baseline impedance. When an arm is occluded at any point above venous pressure ($\approx$ \SI{25}{\mmHg}), an increase of volume in time occurs which is directly proportional to the blood flow coming into the distal section of the arm. Using the mathematical equations described in \ref{section procedure volume vop} is possible to convert the basal impedance into blood flow, if the distance between the sensing electrodes and the circumference of the forearm at these same points are known. Indeed, all this data is available from the experiment. Therefore, it is possible to quantify the blood flow during an occlusive event.  
 
-From the equation \ref{eq:QL} \mynote{Verify if this is the correct equation. I'm using 5.18 with the square of $(L/RB)^2$} can be seen that the difference in impedance $\Delta R = R_{B2} - R_{B1}$ produces the sign of the mathematical equation. As it has been described, the resistance of the forearm drops when a venous occlusion occurs within a period of time $\Delta t$. Hence, a negative slope is produced during the changing impedance when $R_{B1} > R_{B2}$ resulting in a negative sign for the equation. Figure \ref{fig:relation R vs t} describes the expected relation between $\Delta R$ and $\Delta t$ when impedance is decreasing. On the contrary, if the slope of the change of impedance were positive then the sign of the equation would be positive. The sign, in this case, is only an indication of the direction of the blood flow \mynote{Find the reference where describes that the sign only indicates the direction}. If there is an increment on the impedance, it might be mainly caused by motion or other external variable but is not related to blood flow. For this reason, only the negative slope measurements are significant for the calculation of blood flow.
+%I'm using 5.19 equation to calculate the BF but it's similar because the projection also uses the difference \Delta Z of the signal. \mynote{Verify if this is the correct equation. I'm using 5.19 with the square of $(L/RB)^2$}
+
+From the equation \ref{eq:QL} can be seen that the difference in impedance $\Delta R = R_{B2} - R_{B1}$ produces the sign of the mathematical equation. As it has been described, the resistance of the forearm drops when a venous occlusion occurs within a period of time $\Delta t$. Hence, a negative slope is produced during the changing impedance when $R_{B1} > R_{B2}$ resulting in a negative sign for the equation. Figure \ref{fig:relation R vs t} describes the expected relation between $\Delta R$ and $\Delta t$ when impedance is decreasing. On the contrary, if the slope of the change of impedance were positive then the sign of the equation would be positive. The sign, in this case, is only an indication of the direction of the blood flow \cite{nyober1950electrical}. If there is an increment on the impedance, it might be mainly caused by motion or other external variable but is not related to blood flow. For this reason, only the negative slope measurements are significant for the calculation of blood flow.
 
 \begin{figure}[!htpb]
 	\centering
@@ -389,7 +385,9 @@ The table \ref{tbl:blood_flow:region4} shows the statistics of the measurements.
 \label{section occlusion 2.3}
 Figure \ref{fig:iPG_flow_comparative} compares the change of blood flow between venous and partial arterial occlusion. As the chart indicates, all the participants experienced an increase in blood flow when the second occlusion took place. Indeed, the numeric value indicates how much the blood flow increased between both measurements. In the plot, the negative symbol of the data collected in sections \ref{section occlusion 2.1} and \ref{section occlusion 2.3} was suppressed since it expresses direction of the blood flow only. These changes of blood flow were expected as the rate of change of impedance during PAO was considerably larger, as displayed in figures \ref{fig:venous occlusion change} and \ref{fig:arterial occlusion change}. 
 
-In general, the blood flow in all the participants increased nearly two times (\num{2.05(064)}). In average the blood flow increased from \SI{0.174(0042)}{\bfv} during venous occlusion to a mean of \SI{0.356(0147)}{\bfv} in partial arterial occlusion. Partakers 1 and 4 experienced the greatest change of blood flow because of sharp changes in impedance during the measurement. In previous sections was discussed the effect of motion in the study that may cause some of these sudden changes of impedance. On the other hand, participant 2 described the least change of blood flow where only increased 1.2 times. \mynote{Find an explanation of why the blood flow increased and discuss it from the physiological point of view}
+In general, the blood flow calculated from the impedance readings in all the participants increased nearly two times (\num{2.05(064)}). In average the blood flow increased from \SI{0.174(0042)}{\bfv} during venous occlusion to a mean of \SI{0.356(0147)}{\bfv} in partial arterial occlusion. Partakers 1 and 4 experienced the greatest change of blood flow because of sharp changes in impedance during the measurement. In previous sections was discussed the effect of motion in the study that may cause some of these sudden changes of impedance. On the other hand, participant 2 described the least change of blood flow where only increased 1.2 times. 
+
+Although VOP and partial arterial occlusion blocks the return of venous blood, the increase in volume in the latter produced a higher calculated blood flow volume. However, it is of great interest to further investigate if this rise in volume/flow is caused by a physiological response or by the mechanics of the constriction or the arterial vessel. Joyner et al. \cite{joyner2001belfast} describes that syncopal response could be a cause of the increase of blood flow in the limb. It seems that by restricting the arterial blood a vasodilation occurred incrementing the total volume of the limb. 
 
 \begin{figure}[!htpb]
 	\includegraphics[width=\textwidth,clip]{figure_vop_12}    
@@ -404,7 +402,7 @@ The iPG device was able to detect changes as the volume of the forearm change by
 
 The analysis also showed that the acceleration during the first 10 heartbeats is greater than the rest. During these heartbeats, the change of impedance was around \SI{-0.0063(00037)}{\Omega \per \second} for venous occlusion, quite closely partial arterial occlusion was about \SI{-0.0074(00037)}{\Omega \per \second}, and total occlusion was \SI{-0.0027(00052)}{\Omega \per \second}. 
 
-Translating these impedance changes into blood flow resulted in two different values. During VOP the blood flow was about \SI{0.174(0042)}{\bfv}. Interestingly, all along PAO the estimated blood flow doubled, it went up to \SI{0.356(0147)}{\bfv}. In general, creating a partial arterial occlusion at mid-point between diastolic and systolic pressure, folded the blood flow calculated. \mynote{Verify if this is caused by a physiological change of just if there is an error in the calculation during partial arterial} 
+Translating these impedance changes into blood flow resulted in two different values. During VOP the blood flow was about \SI{0.174(0042)}{\bfv}. Interestingly, all along PAO the estimated blood flow doubled, it went up to \SI{0.356(0147)}{\bfv}. Some studies \cite{joyner2001belfast, hainsworth2003syncope} suggest that the increase of blood flow may be related to a syncopal response. Nonetheless, further research must be performed to corroborate these assumptions.  In general, from the data collected during the experiment creating a partial arterial occlusion at mid-point between diastolic and systolic pressure, folded the blood flow calculated. 
 
 %********************************** %Nomenclatures in chapter  **************************************
 \nomenclature[z-PAO]{PAO}{Partial arterial occlusion}
