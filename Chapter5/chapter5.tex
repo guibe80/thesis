@@ -126,7 +126,7 @@ Taking these dimensions with a measuring tape may induce some errors in the data
 
 %********************************** %Third subection *************************************
 \subsection{Experimental protocol}
-\label{section procedure 1.3}
+\label{section procedure protocol}
 
 One of the aims of this experiment is to look into iPG waveform's alterations when there is an obstruction in the blood flow in the forearm. It is possible to restrict the blood circulation to this area by applying a mechanical blockage in the upper arm using an standard inflatable blood pressure instrument. The device used necessitates being pumped manually using an inflation bulb. A gauge in the instrument indicating the cuff's pressure level. The cuff was secured to the left biceps of the participant. 
 
@@ -357,7 +357,7 @@ The signals obtained from the devices contained variable sources of noise. These
 	\caption{Filters available from the GUI}
 	\centering
 	\label{table:filters}
-	\begin{tabular}{p{3.5cm} c c c c}
+	\begin{tabular}{p{3cm} c c c c}
 		\toprule
 		\textbf{Filter}& \textbf{Order} & \textbf{Low cut frequency} & \textbf{High cut frequency} & \textbf{Other}\\
 		\midrule
@@ -395,17 +395,21 @@ As the equation \ref{eq:dvdr} shows, the volume is a relation between impedance 
 There are two methods to calculate blood flow as described in \ref{chapter impedance}, one using the venous occlusion plethysmography technique \cite{anderson1984impedance,costeloe1980continuous,mohapatra1981non,golden1986assessment} and another analysing the amplitude of the APA waveform \cite{nyboer1974blood,costeloe1980continuous}. Both methods require using the resistivity derivative over time $dR/dt$. However, back projection of the Nyober's equation was used to calculate the blood flow in the impedance APA signal. The following section explains in detail the computation of these values.  
 
 \subsection{Volume calculation during venous occlusion}
-\mynote{This part has to be improved. Add the graph that shows the change of impedance during occlusion and how the deltas are calculated.}
 \label{section procedure volume vop}
-One of the methods to measure changes of volume involves occluding the venous return in one limb. This routine known as venous occlusion plethysmography is explained in detail in section \ref{section literature VOP}. This technique requires inflating a cuff below diastolic pressure to stop the blood's venous return in an extremity. Just like in the procedure described in section \ref{section procedure 1.3}. 
+One of the methods to measure changes of volume involves occluding the venous return in one limb. This routine known as venous occlusion plethysmography is explained in detail in section \ref{section literature VOP}. This technique requires inflating a cuff below diastolic pressure to stop the blood's venous return in an extremity. Just like in the procedure described in section \ref{section procedure protocol}. 
 
-Due to the fact that with the occlusion venous blood is unable to return to the heart, blood starts to pool below cuff position in the limb. With regards to this experiment, a segment of the left arm was the subject of the study. The sensing electrodes are the boundary of the segment's geometry. The volume of this cylinder section is equivalent to the one calculated with equation \ref{eq:v_e}. 
+When an occlusion occurs above the venous pressure in the upper arm, blood pools below the cuff position in the forearm. The left arm was used in this experimental setting more precisely. The volume of tissue to be measured is confined by the location of the potential electrodes. Therefore, the sensing electrodes are the boundary of the segment's geometry. The volume of this cylinder section is equivalent to the one calculated using equation \ref{eq:v_e}. 
 
-Before occlusion, the basal impedance does not change extremely over time. However, after the cuff is inflated, blood pools and the conductivity of the limb segment increases causing a decrease in impedance. Therefore, the change of the basal impedance in time is equivalent to the change in volume over time. A good number of studies have been done in this field confirming the effectiveness of this method \cite{anderson1984impedance,costeloe1980continuous,mohapatra1981non,golden1986assessment}. 
+Before the venous occlusion, the basal impedance does not change extremely over time. However, after inflating the cuff, blood accumulates, and the conductivity of the limb segment increases causing a decrease in impedance. Hence, the change of the basal impedance in time is proportional to the difference in volume over time. A good number of studies have been done in this field confirming the effectiveness of this method \cite{golden1986assessment,anderson1984impedance, costeloe1980continuous,mohapatra1981non}. Figure \ref{fig:impedance decrease} displays how the impedance baseline changes during a venous occlusion. 
 
-\mynote{Create a graph explaining how the gradient of the signal changes during venous occlusion. Probably using the graph from golden1986assessment could be a good indicator of how calculate the flow rate. Probably \ref{fig:relation R vs t} could be a good guide}
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=0.85\textwidth,keepaspectratio]{figure_Z_change}
+	\caption[Change of baseline impedance during a venous occlusion]{When and occlusion is active in the venous circulation, there is a decrease in impedance as the volume of the limb increases. Adapted from \cite{golden1986assessment}}
+	\label{fig:impedance decrease}
+\end{figure}
 
-Once the volume is known and its equivalent in impedance the blood flow can be estimate. Flow of a fluid from the point of view of Newtonian point of view is equivalent to change of volume over time. Therefore, the blood flow can be derived from the forearm's impedance reading using the equation \ref{eq:DVDT}. From that equation $\rho$ equals the conductivity of the blood, which tends to change from individual to individual but a mean value can be assumed. The geometry limited by the distance of the sensing electrodes ($E_2$ and $E_3$) is the value of $l$. The denominator $R_B$ is equivalent to the basal impedance of the foot of the waveform, from the iPG device, it is foot value of the impedance from channel $Z_{DC}$. $\Delta R$ is equivalent to the change of basal impedance ($R_{B2} - R_{B1}$) in a period of time ($t_2 - t_1$). 
+Once the volume is known and its equivalent in impedance, the blood flow can be estimated. From the Newtonian point of view, the flow of a fluid is equal to the change in volume over time. Therefore, the blood flow can be derived from the forearm's impedance reading using the equation \ref{eq:DVDT}. From that equation, $\rho$ equals the conductivity of the blood, which tends to change from individual to individual but a mean value can be assumed. The cylinder's geometry is limited by the distance of the sensing electrodes ($E_2$ and $E_3$) which is the length of $l$. The denominator $R_B$ is equivalent to the basal impedance or the foot of the waveform. From the iPG device, this is the signal coming from the channel $Z_{DC}$. $\Delta R$ is equivalent to the change of basal impedance ($R_{B2} - R_{B1}$) in a period of time ($t_2 - t_1$).  
 
 \begin{align}
 	\label{eq:DVDT}
@@ -426,7 +430,7 @@ Where $\dot{Q_L}$ is the blood flow per \SI{100}{\milli\litre} of tissue, $R_B$ 
 %********************************** % Section 4.3.2 ******************************************
 \subsection{Volume and flow calculation beat by beat}
 \label{section procedure flow beat}
-Impedance plethysmography also provides the opportunity to calculate the change in volume and the blood flow from every heart beat \cite{anderson1984impedance,costeloe1980continuous,mohapatra1981non,golden1986assessment}. Achieving this calculation is possible if there is a high-quality plethysmography waveform. For this reason, the impedance device includes an analogue port called $Z_{AC}$. As described previously in chapter \ref{chapter design}, this port extracts the plethysmography waveform from the basal impedance channel $Z_{DC}$. In fact, due to the filtering and amplification stages of the circuit, the signal has been amplified more than \num{2.500} times. Providing more details of the signal's features and increasing its resolution after digitalised.
+Impedance plethysmography also provides the opportunity to calculate the change in volume and the blood flow from every heart beat \cite{costeloe1980continuous,anderson1984impedance,mohapatra1981non,golden1986assessment}. Achieving this calculation is possible if there is a high-quality plethysmography waveform. For this reason, the impedance device includes an analogue port called $Z_{AC}$. As described previously in chapter \ref{chapter design}, this port extracts the plethysmography waveform from the basal impedance channel $Z_{DC}$. In fact, due to the filtering and amplification stages of the circuit, the signal has been amplified more than \num{2.500} times. Providing more details of the signal's features and increasing its resolution after digitalised.
 
 The APA waveform as shown in figure \ref{fig:markers APA} is a classic example of a plethysmography wave starting from point $L1$ and finishing in $L2$. It must be note that in impedance, this signal is inverted because an increase of blood represents a surge in conductivity. Hence, a reduction in impedance of the segment measured. 
 

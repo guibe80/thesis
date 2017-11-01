@@ -87,7 +87,7 @@ Designing an impedance device requires knowing the electrical characteristics of
 About the electrical current delivered by the device, a programmable wave generator with the potential of delivering up to 10 MHz sinusoidal waveforms was incorporated into the design. However, as per the literature measuring impedance plethysmography can be achieved with frequencies between \SIrange[scientific-notation = engineering]{20}{200000}{\hertz}. Therefore, a sinusoidal wave of \SI{50}{\kilo\hertz} was used during the experimental procedure.
 
 \section{Electrodes topology and location}
-There are two kinds of impedance plethysmography method according to the electrode topology, bipolar and tetrapolar. Bipolar lacks two electrodes points to measure impedance. When measuring with bipolar electrodes arises a problem where the impedance of the electrodes might be greater than the biological tissue itself which can affect the measurement significantly. In the majority of the cases, it is quite difficult to differentiate the electrode's impedance from the tissue one \cite{brown2000bipolar}. Tetrapolar configuration requires four contact points, a pair of electrodes injects current and another couple sense voltage. Using tetrapolar arrangement minimises the voltage drop during measurements because the potential sensing amplifier ideally has a bigger impedance compared to the interface electrode-skin. Therefore, electrical current would not flow between electrodes and the voltage amplifier. For this reason, four electrodes measurement was decided as the optimal method while designing the instrument. 
+As described in the section \ref{section iPG electrodes}, bioelectrical impedance plethysmography measurements can be attained with two electrodes topologies bipolar and tetrapolar. Bipolar lacks two electrodes points to measure impedance. When measuring with bipolar electrodes arises a problem where the impedance of the electrodes might be greater than the biological tissue itself which can affect the measurement significantly. In the majority of the cases, it is quite difficult to differentiate the electrode's impedance from the tissue one \cite{brown2000bipolar}. Tetrapolar configuration requires four contact points, a pair of electrodes injects current and another couple sense voltage. Using tetrapolar arrangement minimises the voltage drop during measurements because the potential sensing amplifier ideally has a bigger impedance compared to the interface electrode-skin. Therefore, electrical current would not flow between electrodes and the voltage amplifier. For this reason, four electrodes measurement was decided as the optimal method while designing the instrument. 
 
 Positioning the electrodes close to the main vessel improves the response of the system as the there is more conductive material where the electrical current can flow through. Figure~\ref{fig:electrode} shows in more detail the position of the electrodes to take measurements from the device. According to the arm anatomy, the radial artery is the proper site to use for one of the current electrodes. The other was placed close to the brachial artery around the cubital fossa region where this vessel is closer to the surface. The sensing electrodes were placed right on the elbow where is the nearest point to the brachial artery that is connected to the radial artery forming the ideal loop to detect changes in impedance $\Delta Z$.  
 
@@ -106,8 +106,6 @@ The proposed system can be subdivided into two different sections, front–end w
     \caption{Block diagram of impedance plethysmography device}
     \label{fig:block}
 \end{figure}
-
-\mynote{I need to add ports names of the device}
 
 \section{Power supply module}
 Implementing a good design requires good power supplies that could provide steady voltage output and supply enough current as needed by the circuitry. Due to the need of applying floating currents, a power supply was designed to operate with batteries minimising ground loops and increasing patient's safety.  The selection of this method of supplying power lessens the likelihood of electric shocks as well as reaching dangerous voltage levels. For these reasons, a couple of batteries A512/2 S (Sonnenschein) were used to power all the circuits. These cells provide \SI{2}{\ampere\hour} of capacity per bank.
@@ -140,8 +138,7 @@ The schematic circuits for the power supply designed are shown in the appendix \
 
 In Altium Designer a PCB of \SI{50}{\milli\meter} x \SI{50}{\milli\meter} was produced considering input and ports as well as indicators and sensors. For instance, the ports included three input voltage pins VIN+, VIN– and ground (GND) coming from the batteries, an eight-pin male connector that provides regulated board to the next board. The indicators and sensors included a dip-switch working as power ON/OFF button, a set of three red-LED indicating the power of +\SI{12}{\volt}, -\SI{12}{\volt} and \SI{5}{\volt}, a three-pin port that connects to the ADC port of the microcontroller which monitors the batteries capacity. It also includes additional regulated voltage ports to feed other external modules.
 
-The final result can be appreciated in \ref{fig:3D PS}, where the 3D model representation from Altium design and the final PCB manufactured using LPKF machine are displayed side by side. \mynote{Check if I want to add the real picture}
-
+The final result can be appreciated in figure \ref{fig:3D PS}, where the 3D model representation from Altium design and the final PCB manufactured using LPKF machine are displayed side by side.
 
 \section{Direct digital synthesis (DDS) module}
 \label{section DDS}
@@ -161,7 +158,7 @@ A microcontroller ATMEL (Arduino) controls the DDS sending commands via serial p
 \section{Differential amplifier gain module}
 The following stage consists of a differential voltage amplifier which as its name suggests amplifies the sinusoidal waveform coming from the DDS. The gain of this amplifier can be modified by using a set of resistors at each side of the amplifier and can be adjusted to 16 different combinations of gain using resistors of \SIlist{1;2;3;4.99}{\kohm}. The gain can be adjusted from \si{0.49} to \si{4.99}. As a result, DDS’ output voltage changes according to gain set in the differential amplifier. 
 
-The main component of the DGA was the IC AD8137 \mynote{Add reference to the datasheet}. Low tolerance were resistors placed at each channel to achieve a steady gain at the output. The DGA needed a separate power supply to operate within the limits of the batteries. Hence, a dual power supply of \SI{6}{\volt} and -\SI{6}{\volt} was designed using the IC LF60CDT and LM337 respectively. Due to the latter is a variable voltage regulator, a set of resistor was used to adjust the level of regulation to the one wanted. The schematic circuits are available in the appendix \ref{Appendix: DGA}, figures \ref{fig:DGA PS 6} and \ref{fig:DGA PS -6}
+The main component of the DGA was the IC AD8137 \cite{ad:AD8137}. Low tolerance were resistors placed at each channel to achieve a steady gain at the output. The DGA needed a separate power supply to operate within the limits of the batteries. Hence, a dual power supply of \SI{6}{\volt} and -\SI{6}{\volt} was designed using the IC LF60CDT and LM337 respectively. Due to the latter is a variable voltage regulator, a set of resistor was used to adjust the level of regulation to the one wanted. The schematic circuits are available in the appendix \ref{Appendix: DGA}, figures \ref{fig:DGA PS 6} and \ref{fig:DGA PS -6}
 
 \begin{figure}[!htpb]
 	\centering
@@ -174,7 +171,7 @@ Due to the DDS provides a DC coupled sine waveform and high-frequency noises, th
 
 \section{Modified Howland Amplifier module}
 \label{section MHC}
-This is a very popular circuit method used in bioimpedance analysis (BIA) measurements~\cite{aroom2009bioimpedance}, tissue characterization~\cite{bertemes2002tissue,ross2003current}, electrical impedance tomography (EIT) and diagnosis of breast cancer~\cite{zou2003review,saulnier2007electrical}. It can be constructed using a single operational amplifier (Op–Amp) and a handful of resistors~\cite{sheingold1964impedance}, the Figure \ref{fig:mhc} shows the MHC configuration which offers wide bandwidth operation and low power consumption. 
+This is a very popular circuit method used in bioimpedance analysis (BIA) measurements \cite{aroom2009bioimpedance}, tissue characterization \cite{bertemes2002tissue,ross2003current}, electrical impedance tomography (EIT) and diagnosis of breast cancer \cite{zou2003review,saulnier2007electrical}. It can be constructed using a single operational amplifier (Op–Amp) and a handful of resistors \cite{sheingold1964impedance}, the Figure \ref{fig:mhc} shows the MHC configuration which offers wide bandwidth operation and low power consumption. 
 
 Then a transconductance amplifier is used to convert the voltage coming out from the differential amplifier into an electrical current. By driving current instead of voltage, a greater control is achieved because only the current selected will be passing through the patient. The configuration chosen is a modified Howland circuit set to \SI{1}{\milli\siemens} of gain.
 
@@ -276,7 +273,7 @@ A sensing module was manufactured combining the current sense and two channels o
 \label{section material envelope}
 This module has two functions, one is to detect the peak value of the current and voltage sensing circuit, and the other is to extract the plethysmography waveform contained within the baseline impedance. Hence, three output signals are produced by this module. The first signal is a DC voltage equivalent to the amplitude of the voltage detected by the current sense path denominated $I_{DC}$. The second output channel is a DC signal equal to the potential detected on the limb segment represented by $Z_{DC}$. Finally, the third one is an AC signal which is the dynamic plethysmography signal or arterial pulse amplitude called $Z_{AC}$
 
-The envelope or peak detection is achieved using an active diode configuration and a hold circuit. The first part of this circuit was created using an Op-Amp TL08XX\cite{ti:TL08xx} and a diode 1N4148. The combination of these two components creates a ''super diode'' or ''perfect diode'' circuit. Indeed, the Op-Amp complements the diode's voltage drop when the signal crosses zero. The negative feedback created from the output of the diode towards the negative pin of the Op-Amp compensates the diode's voltage drop. As a consequence, the output signal at the cathode's diode is a half-wave rectified waveform crossing by zero. The figure \ref{fig:envelope} shows a model of this circuit. 
+The envelope or peak detection is achieved using an active diode configuration and a hold circuit. The first part of this circuit was created using an Op-Amp TL08XX \cite{ti:TL08xx} and a diode 1N4148. The combination of these two components creates a ''super diode'' or ''perfect diode'' circuit. So, the Op-Amp complements the diode's voltage drop when the signal crosses zero. The negative feedback created from the output of the diode towards the negative pin of the Op-Amp compensates the diode's voltage drop. As a consequence, the output signal at the cathode's diode is a half-wave rectified waveform crossing by zero. The figure \ref{fig:envelope} shows a model of this circuit. 
 
 \begin{figure}[!htpb]
 	\centering
@@ -302,7 +299,7 @@ f_c = \frac{1}{2 \pi R C} = \frac{1}{2 \pi 330K\Omega 4.7\mu f}=10.26 mHz
 
 Then a second order active filter eliminates any high-frequency noise within the plethysmography signal. The cut off frequencies were calculated as in equations~\ref{eg:fc2} and~\ref{eg:fc3}. The first Op-Amp configuration is an inverting amplifier circuit with a frequency cut at \SI{10.61}{\hertz} and a gain in DC of \num{30.30}. The second Op-Amp configuration \SI{10.26}{\hertz} with an amplification factor in DC of \num{4.70}. 
 
-In general, the extraction of the APA signal is achieved with a band-pass filter with low-frequency cut at \SI{10.26}{\milli\hertz} with a roll-off of \num{20} dB/decade and a high-frequency cut at \SI{10.26}{\hertz} with a roll-off of \num{40} dB/decade. Then the final output was passed to a buffer configuring the channel $Z_{AC}$. The APA waveform is amplified by a fixed gain of \num{142.41}. \mynote{I have to add the 3D representation of this board}
+In general, the extraction of the APA signal is achieved with a band-pass filter with low-frequency cut at \SI{10.26}{\milli\hertz} with a roll-off of \num{20} dB/decade and a high-frequency cut at \SI{10.26}{\hertz} with a roll-off of \num{40} dB/decade. Then the final output was passed to a buffer configuring the channel $Z_{AC}$. The APA waveform is amplified by a fixed gain of \num{142.41}.
 
 \begin{align}
 \label{eg:fc2}
@@ -313,6 +310,28 @@ f_c = \frac{1}{2 \pi R C} = \frac{1}{2 \pi 10M\Omega 1.5 nf}=10.61Hz
 \label{eg:fc3}
 f_c = \frac{1}{2 \pi R C} = \frac{1}{2 \pi 47K\Omega 330nf}=10.26Hz
 \end{align}
+
+The envelope detection module was manufactured according to these design considerations. The final module representation can be seen on figure \ref{fig:voltage APA}. The output channels from this PCB are the ports known as $I_{DC}$ or peak current value; $Z_{DC}$ or peak impedance potential and $Z_{AC}$ or arterial pulses.   
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=7.5 cm,keepaspectratio]{figure_APA}
+	\caption{Representation in 3D of the envelope detector and AC extractor module}
+	\label{fig:voltage APA}
+\end{figure}
+
+
+\section{Final assembly circuit}
+The figure \ref{fig:assembly} shows the final circuit assembly. All the modules were fixed to a board, the different circuit stages were interconnected using jumper cables. In the same board a DAQ NI USB-6212 (National Instruments) was mounted connecting the output channels $I_{DC}$, $Z_{DC}$ and $Z_{AC}$. Additionally, to keep everything as a whole system, the Arduino MCU was also affixed and connected to the DDS module. 
+
+As inputs and outputs the instrument has data and power ports. The data ports are 2 USB cables connected to the DAQ box and the Arduino PCB. These work as a digital data bus and system command controller. The system is powered by the battery bank using the PSU module. For this, a 4-pins cable was designed as interface. The electrodes cables run from the MHC and sensing boards. The cables were designed using alligator clips that hook to the electrodes end. 
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=\textwidth,keepaspectratio]{figure_assembly}
+	\caption{Representation in 3D of the modified Voltage sensing circuit module}
+	\label{fig:assembly}
+\end{figure}
 
 \section{Conclusion}
 \label{conclusion impedance device}
