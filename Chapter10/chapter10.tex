@@ -13,9 +13,7 @@
 
 The previous Chapters showed the performance of the designed impedance plethysmography device and the data collected in resistivity value and its equivalent in blood flow. It was shown the capability of the instrument on detecting changes during three different kinds of occlusion. Furthermore, it was presented the data collected from the other devices such as Doppler ultrasound, LDF, PPG and ECG. 
 
-In this chapter, the correlation between the different measurements gathered will be analysed. The aim of this correlational investigation is understanding what the contributing factors towards the impedance plethysmography signal are. As it has been explained in previous chapters, the change of the volume in the forearm section let to estimate the blood flow from the segment. However, both arterial and venous blood contributes to the information of blood flow calculated by the iPG device. It is not clear, how much of the blood flow belongs to any of the types of blood. Besides, it was shown that main blood vessels contribute to the measurement of blood flow but microcirculation might also provide additional information under the iPG waveform. 
-
-\mynote{This paragraph is quite an statement. I have to verify if I can really calculate how much is the contribution of the micro circulation and the other types of blood flow}
+In this chapter, the correlation between the different measurements gathered will be analysed. The aim of this correlational investigation is understanding what the contributing factors towards the impedance plethysmography signal might be. As it has been explained in previous chapters, the change of the volume in the forearm section let to estimate the blood flow from the segment. However, both arterial and venous blood contributes to the information of blood flow calculated by the iPG device. It is not clear, how much of the blood flow belongs to any of the types of blood. Besides, it was shown that main blood vessels contribute to the measurement of blood flow, but microcirculation might also provide additional information under the iPG waveform. 
 
 %********************************** %First Section  **************************************
 \section{Analysis of the the heart beat detection in the frequency domain} %Section - 6.1
@@ -24,7 +22,7 @@ The signals obtained from each device all along the experiment are synchronous t
 
 Nonetheless, some noises impact negatively to the proper detection of the systolic peaks during the study. The algorithm designed can detect the shape of the waveform by finding the foot of the signal and its peaks. Nevertheless, some of the peaks might be missing because of the noise levels.
 
-A Fast Fourier Transform was used to detect the main harmonic of the waveforms in a random window data set. The data selected was between \SIrange{580}{780}{\second} for the AC components only. The algorithm was programmed to detect the frequency peak ($f_p$) from \SIrange{0.85}{1.75}{\hertz}. The FFT was limited to detected frequencies between \SIrange{0}{5}{\hertz} due to the filters applied to the waveforms as explained in section \ref{section material envelope}.
+A Fast Fourier Transform was used to detect the main harmonic of the waveforms in a random window data set. The data selected was between \SIrange{580}{780}{\second} for the AC components only, hence the data from $Z_{AC}$ channel. The algorithm was programmed to detect the frequency peak ($f_p$) from \SIrange{0.85}{1.75}{\hertz}. The FFT was limited to detected frequencies between \SIrange{0}{5}{\hertz} due to the filters applied to the waveforms as explained in section \ref{section material envelope}.
 
 From Figure \ref{fig:fft signals} can be seen the frequency components from all participants measurements. The ECG plots show the frequency response typical of this kind of signal. Some signals presented a high level of high-frequency components such as the ones seen in participants 1 and 8. The Participant 3 showed a high \SI{2}{\hertz} harmonic peak which power was greater than the first harmonic. This response seems odd but by examining the waveform in detail showed a lower Q wave which might influence the abnormal frequency component presented in the graph.
 
@@ -36,7 +34,7 @@ From Figure \ref{fig:fft signals} can be seen the frequency components from all 
 
 The iPG device had a mixed frequency response to detecting the cardiac heartbeat. As it can be seen from the shown plots, some signals show a low-frequency noise which in some cases it is larger than the expected first harmonic. For instance, participants 1, 3 4 and 6 was hard to detect the frequency peak related to the cardiac cycle for this particular data set. However, the rest of the partakers registered a frequency peak at similar heart beat as the ECG. 
 
-PPG frequency components were quite clear in all the participants. Some of them showed high-frequency noise as participant 8. However, in general, this signal shows low signal to noise ration compared to iPG which is understandable as the PPG-AC is significantly larger than the iPG-AC amplitude
+PPG frequency components were quite clear in all the participants. Some of them showed high-frequency noise as participant 8. However, in general, this signal shows low signal to noise ration compared to iPG which is understandable as the PPG-AC is significantly larger than the iPG-AC amplitude.
 
 Lastly, DU exhibited a clear FFT components in most of the participants. Only Participant 1 demonstrated a high noise component in his measurements but the rest showed a response similar to the ECG. 
 
@@ -114,7 +112,7 @@ The correlation between iPG and PPG was also investigated looking for amplitude 
 
 However, it must be noted that the PPG method used in this study was very simple compared to more sophisticated methods that might detect changes in venous and arterial flow using other wavelengths, sensor placement or data interpretations. The correlational study of this section looks for understand the changes in amplitude among AC components of both signals. As it was detailed in previous chapters, both signals showed changes in their DC components for the time being occluded. However, the AC part of both signals changed oppositely. While there was a magnitude increment in the iPG waveform all along the occlusions (see \ref{fig:blood_flow_plethysmography}), the PPG waveform showed a decrease in amplitude during these events \ref{fig:RED PPG}.
 
-As it was shown in figure \ref{fig:blood_flow_plethysmography}) the participant 2 displayed abnormal AC amplitudes in the time of the experiment. Also, as it was detailed in the previous section, participants 2, 5, 6 and 7 showed a better AC response. For this reason, participant's 2 data was not included in the correlation between these two waveforms. The data sets were smoothed by calculating the mean value of every 20 peaks in a non-moving average.
+As it was shown in figure \ref{fig:blood_flow_plethysmography} the participant 2 displayed abnormal AC amplitudes in the time of the experiment. Also, as it was detailed in the previous section, participants 2, 5, 6 and 7 showed a better AC response. For this reason, participant's 2 data was not included in the correlation between these two waveforms. The data sets were smoothed by calculating the mean value of every 20 peaks in a non-moving average.
 
 \begin{figure}[!htpb]
 	\includegraphics[width=1\textwidth,keepaspectratio]{figure3}    
@@ -150,14 +148,13 @@ From the BA chart on the right side of the figure, it can be noted that there is
 %********************************** % Fifth Section  *************************************
 \section{Conclusion}  %Section - 6.5
 \label{section correlation 5}
-The iPG device provides an AC signal that is synchronous with the heart cycle. The FFT analysis from all the participants showed similar harmonics as the ones noted by the ECG. Nonetheless, only 4 persons showed a clear signal; the other ones presented low-frequency noises whcich decreased the quality of their waveforms. 
+The iPG device provides an AC signal that is synchronous with the heart cycle. In general, the FFT analysis of all the participants showed similar harmonics as the ones noted by the ECG signal. This means that the effectively the iPG is changing accordingly to the heart cycles. Nonetheless, only 4 persons showed a clear signal-to-noise ratio waveform; the other ones presented low-frequency noises which decreased the quality of their data. It is still unknown the nature of these low frequency components as the signal was filtered.
 
 A statistical analysis comparing the amplitude of the iPG device with the other instruments was performed.  It was found that there is a good correlation between the iPG device and the Doppler ultrasound ($r^2 = 035$). The latter showed a better zero sensitivity than the iPG but in general when the blood flow changed the impedance plethysmography device was able to detect variations during the three kinds of occlusion performed.  However, the analysis showed a low precision during these occlusive events. 
 
 On the other hand, there was a low correlation with the other two devices PPG and LDF. With the PPG there was a poor correlation ($r^2 = 0.08$) because its amplitude waveform decreases while the iPG increased all along venous and arterial occlusions.  By removing this component, the correlation improves to ($r^2 = 0.40$), but both respond in a different way when an occlusion occurs.
 
-The worst correlation was between the iPG and the LDF ($r^2 = 0.07$). Including or not the data from the blockage events does not affect this relation. In fact, movement of RBC's detected by the LDF hardly can be related to the iPG waveforms. \mynote{I need to complement this conclusion}
-
+The worst correlation was between the iPG and the LDF ($r^2 = 0.07$). Including or not the data from the blockage events does not affect this relation. In fact, movement of RBC's detected by the LDF hardly can be related to the iPG waveforms. This lack of correlation could be related to the larger noise peaks detected on the LDF signal. This assumption can be confirmed when comparing both FFT signals. In most of the participants the amount of noise collected by this method clearly diminished the frequency of interest. 
 
 %********************************** %Nomenclature found  *************************************
 \nomenclature[z-ecg]{FFT}{Fast Fourier Transform}

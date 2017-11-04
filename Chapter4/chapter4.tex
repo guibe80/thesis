@@ -91,23 +91,32 @@ As described in the section \ref{section iPG electrodes}, bioelectrical impedanc
 
 Positioning the electrodes close to the main vessel improves the response of the system as the there is more conductive material where the electrical current can flow through. Figure~\ref{fig:electrode} shows in more detail the position of the electrodes to take measurements from the device. According to the arm anatomy, the radial artery is the proper site to use for one of the current electrodes. The other was placed close to the brachial artery around the cubital fossa region where this vessel is closer to the surface. The sensing electrodes were placed right on the elbow where is the nearest point to the brachial artery that is connected to the radial artery forming the ideal loop to detect changes in impedance $\Delta Z$.  
 
+\section{Bioelectrical impedance device modules}
+A modular approach was used when designing the bioelectrical impedance device. Using this technique helps to isolate errors without manufacturing a new whole system. It also allows to experiment different circuits to get the most suitable solution to get the most acceptable waveforms. During the development of the system, different methods to drive current, generate waveform or measure impedance were tested. At the end, this solution presented the best results. The optional modules will not be include in this thesis as they were not used for the studies presented here.
+
+Figure \ref{fig:electrode} shows the block diagram of the instrument. Operating the device requires four ECG electrodes, a battery bank, a DAQ card and a PC with LabView \cite{LabView:2016} installed. In general, some of the characteristics of the instrument are: differential sine wave generation by a DDS controlled by an Arduino MCU which operation range varies from \SI{10}{\Hz} to \SI{25}{\MHz}. Nonetheless, the frequency of operation of the device has been locked to \SI{50}{\kHz} \rvmynote{Check a paper for the frequency of operation}. Four different levels of differential current can be supplied \SIlist{1.33;2.16;3.60;4.36}{\mA}. The system senses the current being delivered by electrode $E_4$ and the potential forearm between electrodes $E_2$ and $E_3$, the gain can be modified using dip-switches. The value peak of the measured current and potential is extracted using an envelope detector using \textit{"super diodes"}. A selection of filters clean-up the signal and extracts the arterial pulses.
+
 \begin{figure}[!htpb]
 	\centering
-	\includegraphics[width=7.75cm,keepaspectratio]{figure1}	
-    \caption{Electrode placement in forearm}
+	\includegraphics[width=12cm,keepaspectratio]{figure1}	
+    \caption[General concept of the designed bioelectrical impedance device]{General concept of the designed bioelectrical impedance device. It also includes the position of the electrodes in the forearm.}
     \label{fig:electrode}
 \end{figure}
 
-The proposed system can be subdivided into two different sections, front–end which is the part of the device that interacts directly with the limb under test and the back–end that performs the wave generation, signal conditioning, computational calculation, and data representation. The following image shows the block diagram of the proposed device.
+The proposed system can be subdivided into two different sections, front–end which is the part of the device that interacts directly with the limb under test and the back–end that performs the wave generation, signal conditioning, computational calculation, and data representation. The figure \ref{fig:block} shows the general schematic of the proposed device. The features and characteristics of each module will be described as follows. The full schematics and part of the code use to control the DDS can be found in the Appendix section.
 
-\begin{figure}[!htpb]
-	\centering
-	\includegraphics[width=\textwidth,keepaspectratio]{figure2}
-    \caption{Block diagram of impedance plethysmography device}
-    \label{fig:block}
-\end{figure}
 
-\section{Power supply module}
+\begin{landscape}\centering
+	\vspace*{\fill}
+	\begin{figure}[!htp]
+		\includegraphics[height=0.59\textheight,keepaspectratio]{figure2}
+	    \caption{Block diagram of impedance plethysmography device}
+	    \label{fig:block}
+	\end{figure}
+    \vspace*{\fill}
+\end{landscape}
+
+\subsection{Power supply module}
 Implementing a good design requires good power supplies that could provide steady voltage output and supply enough current as needed by the circuitry. Due to the need of applying floating currents, a power supply was designed to operate with batteries minimising ground loops and increasing patient's safety.  The selection of this method of supplying power lessens the likelihood of electric shocks as well as reaching dangerous voltage levels. For these reasons, a couple of batteries A512/2 S (Sonnenschein) were used to power all the circuits. These cells provide \SI{2}{\ampere\hour} of capacity per bank.
 
 Some of the unique features needed for the power supply includes the capability of providing a dual voltage (\SI{\pm 12}{\volt}) as some Op–Amps require this level of supply to achieve maximum gain and low energy supply (\SI{5}{\volt}) essential for some digital components. The positive and negative voltages can be obtained by using one cell bank with normal polarisation and the other inverted. 
@@ -129,47 +138,52 @@ In summary, the following table describes the characteristics and IC's used in t
 
 The schematic circuits for the power supply designed are shown in the appendix \ref{Appendix: Power Supply}, figure \ref{Appendix: Power Supply}. To operate the iPG device requires positive (VIN+) and negative (VIN–) supplies that can be provided by any external power, for safety batteries was the source of choice. The table \ref{table:power supply details} shows the components employed in the implementation, which operates within the desired appropriate range required by the device. The regulators LM3XX are voltage variable regulators. However, their output was set to \SI{\pm 12}{\volt} for each source, using the appropriate selection of resistors. The capacitors added to each of the regulators were selected according to the manufacturer’s recommendation to avoid any ripple at the output voltage.
 
-\begin{figure}[!htpb]
-	\centering
-	\includegraphics[width=7.5 cm,keepaspectratio]{figure_PS}
-	\caption{3D View of the Power Supply designed}
-	\label{fig:3D PS}
-\end{figure}
+%Iasonas recommended to remove the graphics
+%\begin{figure}[!htpb]
+%	\centering
+%	\includegraphics[width=7.5 cm,keepaspectratio]{figure_PS}
+%	\caption{3D View of the Power Supply designed}
+%	\label{fig:3D PS}
+%\end{figure}
 
 In Altium Designer a PCB of \SI{50}{\milli\meter} x \SI{50}{\milli\meter} was produced considering input and ports as well as indicators and sensors. For instance, the ports included three input voltage pins VIN+, VIN– and ground (GND) coming from the batteries, an eight-pin male connector that provides regulated board to the next board. The indicators and sensors included a dip-switch working as power ON/OFF button, a set of three red-LED indicating the power of +\SI{12}{\volt}, -\SI{12}{\volt} and \SI{5}{\volt}, a three-pin port that connects to the ADC port of the microcontroller which monitors the batteries capacity. It also includes additional regulated voltage ports to feed other external modules.
 
-The final result can be appreciated in figure \ref{fig:3D PS}, where the 3D model representation from Altium design and the final PCB manufactured using LPKF machine are displayed side by side.
+%The final result can be appreciated in figure \ref{fig:3D PS}, where the 3D model representation from Altium design and the final PCB manufactured using LPKF machine are displayed side by side.
 
-\section{Direct digital synthesis (DDS) module}
+\subsection{Direct digital synthesis (DDS) module}
 \label{section DDS}
-Following the block diagram from left to right on figure \ref{fig:block}, the first part shows the wave generator. This section of the circuit produces the sinusoidal wave needed for the impedance measurements. This waveform should be low in distortion and noise. This signal was created using a programmable direct digital synthesis (DDS) integrated circuit (IC) which is capable of producing sine waves from \SI{10}{\hertz} to \SI{10}{\mega\hertz}. The IC used is the AD5930 (Analogue devices). In short, a DDS creates a wave according to a table of digital words in memory which are fed to a DAC that produces the analogue equivalent. This IC requires a set of instruction to operate. 
+Following the block diagram from left to right on figure \ref{fig:block}, the first part shows the wave generator. This section of the circuit produces the sinusoidal wave needed for the impedance measurements. This waveform should be low in distortion and noise. This signal was created using a programmable direct digital synthesis (DDS) integrated circuit (IC) which is capable of producing sine waves from \SI{10}{\hertz} to \SI{25}{\mega\hertz}. The IC used is the AD5930 (Analogue devices). In short, a DDS creates a wave according to a table of digital words in memory which are fed to a DAC that produces the analogue equivalent. This IC requires a set of instruction to operate. 
 
 In the appendix \ref{Appendix: DDS PS}, the figure \ref{fig:DDS PS} shows the schematic used in the design of the wave generator. Due to the noise that a digital circuit would feed into an analogue system, a separate power supply powers up this module. For this two voltage regulators (AP117E50G) provide \SI{5}{\volt} sources of energy for digital and analogue components, using two separated ground paths (GND - AGND). Also, a \SI{3}{\volt} reference is needed for the oscillator to operate which is supplied by the IC REF196. The DDS requires an external clock to work. Therefore a \SI{50}{\mega\hertz} oscillator provides the clock signal needed.
 
-\begin{figure}[!htpb]
-	\centering
-	\includegraphics[width=7.5 cm,keepaspectratio]{figure_DDS}
-	\caption{3D representation of the DDS PCB module}
-	\label{fig:3D DDS}
-\end{figure}
+%\begin{figure}[!htpb]
+%	\centering
+%	\includegraphics[width=7.5 cm,keepaspectratio]{figure_DDS}
+%	\caption{3D representation of the DDS PCB module}
+%	\label{fig:3D DDS}
+%\end{figure}
 
-A microcontroller ATMEL (Arduino) controls the DDS sending commands via serial peripheral interface bus (SPI) transmission interface. Through an instruction set by the manufacturer, it is possible to set the oscillation frequency of the sine wave, as well as start/stop the signal generation. The waveform generated by the DDS is differential, meaning that there are two sine waves outputs in counter-phase (\SIlist{0;180}{\degree}). The DDS provides a current output of \SI{3}{\mA} which is transformed to an electrical voltage using a \SI{200}{\ohm} resistor at the output of the IC, setting the output at approximately \SI{600}{\mV}. A set of capacitors also filters high-frequency noises. The connection between the microcontroller and other boards is possible using ribbon cables. The figure \ref{fig:3D DDS} shows the 3D representation of PCB module manufactured.
+A microcontroller ATMEL (Arduino) controls the DDS sending commands via serial peripheral interface bus (SPI) transmission interface. Through an instruction set by the manufacturer, it is possible to set the oscillation frequency of the sine wave, as well as start/stop the signal generation. The appendix \ref{Appendix: Arduino} shows the code use to communicate with the PC and send commands to the DDS. The waveform generated by the DDS is differential, meaning that there are two sine waves outputs in counter-phase (\SIlist{0;180}{\degree}). The DDS provides a current output of \SI{3}{\mA} which is transformed to an electrical voltage using a \SI{200}{\ohm} resistor at the output of the IC, setting the output at approximately \SI{600}{\mV}. A set of capacitors also filters high-frequency noises. The connection between the microcontroller and other boards is possible using ribbon cables. 
 
-\section{Differential amplifier gain module}
+%The figure \ref{fig:3D DDS} shows the 3D representation of PCB module manufactured.
+
+\subsection{Differential amplifier gain module}
 The following stage consists of a differential voltage amplifier which as its name suggests amplifies the sinusoidal waveform coming from the DDS. The gain of this amplifier can be modified by using a set of resistors at each side of the amplifier and can be adjusted to 16 different combinations of gain using resistors of \SIlist{1;2;3;4.99}{\kohm}. The gain can be adjusted from \si{0.49} to \si{4.99}. As a result, DDS’ output voltage changes according to gain set in the differential amplifier. 
 
 The main component of the DGA was the IC AD8137 \cite{ad:AD8137}. Low tolerance were resistors placed at each channel to achieve a steady gain at the output. The DGA needed a separate power supply to operate within the limits of the batteries. Hence, a dual power supply of \SI{6}{\volt} and -\SI{6}{\volt} was designed using the IC LF60CDT and LM337 respectively. Due to the latter is a variable voltage regulator, a set of resistor was used to adjust the level of regulation to the one wanted. The schematic circuits are available in the appendix \ref{Appendix: DGA}, figures \ref{fig:DGA PS 6} and \ref{fig:DGA PS -6}
 
-\begin{figure}[!htpb]
-	\centering
-	\includegraphics[width=7.5 cm,keepaspectratio]{figure_DGA}
-	\caption{3D representation of the differential gain amplifier PCB module}
-	\label{fig:3D DGA}
-\end{figure}
+%\begin{figure}[!htpb]
+%	\centering
+%	\includegraphics[width=7.5 cm,keepaspectratio]{figure_DGA}
+%	\caption{3D representation of the differential gain amplifier PCB module}
+%	\label{fig:3D DGA}
+%\end{figure}
 
-Due to the DDS provides a DC coupled sine waveform and high-frequency noises, the input of the DGA incorporates a band-pass filter, formed by a DC blocking capacitor and a low pass filter set to \SI{1}{\mega\hertz}. The output of the differential amplifier also includes another set of passive band-pass filters to clean out any remaining noise. The figure \ref{fig:DGA} in the appendix \ref{Appendix: DGA} shows the schematic implemented. Figure \ref{fig:3D DGA} displays the 3D representation of the final PCB module manufactured.
+Due to the DDS provides a DC coupled sine waveform and high-frequency noises, the input of the DGA incorporates a band-pass filter, formed by a DC blocking capacitor and a low pass filter set to \SI{1}{\mega\hertz}. The output of the differential amplifier also includes another set of passive band-pass filters to clean out any remaining noise. The figure \ref{fig:DGA} in the appendix \ref{Appendix: DGA} shows the schematic implemented. 
 
-\section{Modified Howland Amplifier module}
+%Figure \ref{fig:3D DGA} displays the 3D representation of the final PCB module manufactured.
+
+\subsection{Modified Howland Amplifier module}
 \label{section MHC}
 This is a very popular circuit method used in bioimpedance analysis (BIA) measurements \cite{aroom2009bioimpedance}, tissue characterization \cite{bertemes2002tissue,ross2003current}, electrical impedance tomography (EIT) and diagnosis of breast cancer \cite{zou2003review,saulnier2007electrical}. It can be constructed using a single operational amplifier (Op–Amp) and a handful of resistors \cite{sheingold1964impedance}, the Figure \ref{fig:mhc} shows the MHC configuration which offers wide bandwidth operation and low power consumption. 
 
@@ -206,7 +220,7 @@ G^+_m=\frac{i_{out}}{v_{in+}}=\frac{100K\Omega + 1K\Omega}{101K\Omega \times 1K\
 G^-_m=-\frac{i_{out}}{v_{in-}}=\frac{100K\Omega + 1K\Omega}{101K\Omega \times 1K\Omega}=\frac{101K\Omega}{101M\Omega}=-1\times10^{-3}S 
 \end{align}
 
-As it can be seen from \ref{eq:G+} and \ref{eq:G-}, the transconductance in both feedbacks is equivalent to \SI{1}{\milli\siemens}. The negative sign in $G^{-}_m$ is caused by a phase shift of \SI{180}{\degree}. Due to both top and bottom Op–Amps showed in figure \ref{fig:mhc} has the same design, the total transconductance of the circuit in differential mode is equal to \SI{1}{\milli\siemens}. In other words, per every volt generated at the input (pins input– and input+) the output produces \SI{1}{\mA} of electric current. By interfacing the previous DGA module with this one, it is possible to deliver sixteen different levels of current \SIlist{1.33;2.16;3.60;4.36}{\mA}.
+As it can be seen from \ref{eq:G+} and \ref{eq:G-}, the transconductance in both feedbacks is equivalent to \SI{1}{\milli\siemens}. The negative sign in $G^{-}_m$ is caused by a phase shift of \SI{180}{\degree}. Due to both top and bottom Op–Amps showed in figure \ref{fig:mhc} has the same design, the total transconductance of the circuit in differential mode is equal to \SI{1}{\milli\siemens}. In other words, per every volt generated at the input (pins input– and input+) the output produces \SI{1}{\mA} of electric current. By interfacing the previous DGA module with this one, therefore it is possible to deliver sixteen different levels of current. Nonetheless, for the setting of the instrument, only one switch at the time should be activated delivering fixed currents of \SIlist{1.33;2.16;3.60;4.36}{\mA}.
 
 The design also includes a high-pass filter at the output of the circuit. These RC networks are acting as DC decoupling and ground clamping because floating loads can have DC offset coming from the signal, which also might cause an error in the current injected. However, these capacitors also have an effect on the bandwidth of the circuit. The resistor which might become the output impedance of the MHC was selected to be as high as possible (\SI{1}{\mega\ohm}).
 
@@ -215,20 +229,22 @@ The design also includes a high-pass filter at the output of the circuit. These 
 	f_c = \frac{1}{2 \pi R C} = \frac{1}{2 \pi \SI{1}{\mega\ohm} \SI{1}{\micro\farad}} = \SI{0.159}{\hertz}
 \end{align}
 
-The design also included a dual power supply of \SI{5}{\volt} and -\SI{5}{\volt} provided by the IC's AP117E50G and L79L05 respectively. The final circuit schematics including the MHC and power supplies are shown in figures \ref{fig:MHC}, \ref{fig:MHC PS 5} and \ref{fig:MHC PS -5}. From that design a PCB was produced, the figure \ref{fig:3D MHC} displays the 3D representation of the MHC module board. 
+The design also included a dual power supply of \SI{5}{\volt} and -\SI{5}{\volt} provided by the IC's AP117E50G and L79L05 respectively. The final circuit schematics including the MHC and power supplies are shown in figures \ref{fig:MHC}, \ref{fig:MHC PS 5} and \ref{fig:MHC PS -5}. From that design the PCB was produced using the same manufacturing method of the previous ones/
 
-\begin{figure}[!htpb]
-	\centering
-	\includegraphics[width=7.5 cm,keepaspectratio]{figure_MHC}
-	\caption{3D representation of the modified Howland circuit module}
-	\label{fig:3D MHC}
-\end{figure}
+%, the figure \ref{fig:3D MHC} displays the 3D representation of the MHC module board. 
 
-\section{Current and voltage sensing module}
+%\begin{figure}[!htpb]
+%	\centering
+%	\includegraphics[width=7.5 cm,keepaspectratio]{figure_MHC}
+%	\caption{3D representation of the modified Howland circuit module}
+%	\label{fig:3D MHC}
+%\end{figure}
+
+\subsection{Current and voltage sensing module}
 \label{section V&I sense}
 As shown from figure \ref{fig:mhc}, at the output of the transconductance amplifier resistors $R_s$ of \SI{10}{\ohm} were placed at each side of the differential output. These small resistors sense the electrical current passing through the unknown load. Using Ohm's law $v=R \times i$ is possible to convert this current into a proportional voltage value. However, combining a small flowing current around $mA$ and a tiny resistor value, the voltage obtained is in the order of $mV$. Consequently, this resultant voltage is too close to the noise level, lying the real value and not being able to be detected by any analogue to digital converter. Therefore, using a high input impedance amplifier which also provides a significant gain is essential to avoid current leakage through the current sensing IC and improving the signal to noise ratio.  
 
-The most suitable device for this design was the In–Amp AD8421~\cite{ad:AD8421}. Some of this device's features are the low noise of \SI{3.2}{\nano\volt\per\sqrt{Hz}} at \SI{1}{\kHz}, high bandwidth \SI{10}{\mega\hertz} at a unitary gain, high CMRR of \SI{80}{\decibel} at \SI{20}{\kHz} and dual supply operation within the range of the power supply designed. This component also includes adjustable gain using external resistors between pin 2 and 3. In fact, a four dip-switch with four different resistor values was included in the design allowing to increase the gain of the voltage detected as shown \ref{fig:peak}. Hence, if the device uses a small value of current (\SI{1.3}{\mA}), it is possible to adjust the gain of this stage to obtain a more accurate reading.
+The most suitable device for this design was the In–Amp AD8421~\cite{ad:AD8421}. Some of this device's features are the low noise of \SI{3.2}{\nano\volt\per\sqrt{Hz}} at \SI{1}{\kHz}, high bandwidth \SI{10}{\MHz} at a unitary gain, high CMRR of \SI{80}{\decibel} at \SI{20}{\kHz} and dual supply operation within the range of the power supply designed. This component also includes adjustable gain using external resistors between pin 2 and 3. In fact, a four dip-switch with four different resistor values was included in the design allowing to increase the gain of the voltage detected as shown \ref{fig:peak}. Hence, if the device uses a small value of current (\SI{1.3}{\mA}), it is possible to adjust the gain of this stage to obtain a more accurate reading.
 
 \begin{figure}[!htpb]
 	\centering
@@ -239,20 +255,13 @@ The most suitable device for this design was the In–Amp AD8421~\cite{ad:AD8421
 
 Likewise, this same circuit was used to detect the voltage produced by the limb segment. When the biological sample is excited with an electrical current, a potential develops as described in section \ref{section impedance principle}. For this, the electrodes $E_2$ and $E_3$ (see figure \ref{fig:electrode}) provided the connection towards the input pins of the In-Amp AD8421 \cite{ad:AD8421}. The robust input impedance of this IC and typical input bias current of \SI{1}{\nA} guarantees that the voltage drop from the interface electrode-skin is minimum. Therefore, the maximum error introduced by this voltage drop is close to \SI{0.0001}{\percent} per mA flowing through the body segment. The gain of the IC can be modified using its gain pins increasing the dynamic range of the sensing circuit. Consequently, a dip-switch 4 SPST was used to provide 16 different combinations of amplification which can be adapted according to the nature of the signal. The final schematic can be appreciated in the appendix \ref{Appendix: VSense} figure \ref{fig:Voltage sense}.
 
-A sensing module was manufactured combining the current sense and two channels of potential detection as shown by figure \ref{fig:voltage sense}. The channel one was used to detect the voltage produced by the limb segment, and the second channel will be used for future studies on differential impedance measurements. The only difference between the current and potential circuits is the selection of the gain resistors which were allocated according to the range of the signals to be detected. The output signal produced by this module is later passed through a peak and envelope detection circuit described in the next section. 
-
-\begin{figure}[!htpb]
-	\centering
-	\includegraphics[width=7.5 cm,keepaspectratio]{figure_Vsense}
-	\caption{Representation in 3D of the modified Voltage sensing circuit module}
-	\label{fig:voltage sense}
-\end{figure}
+A sensing module was manufactured combining the current sense and two channels of potential. The channel one was used to detect the voltage produced by the limb segment, and the second channel will be used for future studies on differential impedance measurements. The only difference between the current and potential circuits is the selection of the gain resistors which were allocated according to the range of the signals to be detected. The output signal produced by this module is later passed through a peak and envelope detection circuit described in the next section. 
 
 %\begin{figure}[!htpb]
 %	\centering
-%	\dummyfig{Peak detection circuit} 
-%    \caption{Voltage sensing circuit schematic}
-%    \label{fig:sensing}
+%	\includegraphics[width=7.5 cm,keepaspectratio]{figure_Vsense}
+%	\caption{Representation in 3D of the modified Voltage sensing circuit module}
+%	\label{fig:voltage sense}
 %\end{figure}
 
 
@@ -269,7 +278,7 @@ A sensing module was manufactured combining the current sense and two channels o
 %    \dummyfig{Block diagram} 
 %\end{table} 
 
-\section{Envelope detection and AC extraction circuit module}
+\subsection{Envelope detection and AC extraction circuit module}
 \label{section material envelope}
 This module has two functions, one is to detect the peak value of the current and voltage sensing circuit, and the other is to extract the plethysmography waveform contained within the baseline impedance. Hence, three output signals are produced by this module. The first signal is a DC voltage equivalent to the amplitude of the voltage detected by the current sense path denominated $I_{DC}$. The second output channel is a DC signal equal to the potential detected on the limb segment represented by $Z_{DC}$. Finally, the third one is an AC signal which is the dynamic plethysmography signal or arterial pulse amplitude called $Z_{AC}$
 
@@ -288,7 +297,7 @@ The signal obtained by the super diode circuit is passed to a hold circuit repre
 \tau = RC = 1 \mu F \times 120K\Omega = 0.12 Sec
 \end{align}
 
-As it can be noticed the holding time of the RC network at $5\times\tau$ is \SI{0.6}{\sec}, meaning that this RC combination can detect the peak of a signal with a frequency as low as \SI{1.66}{\hertz}. Consequently, this circuit produces a DC signal equivalent to the peak value of the input signal. This way is possible to generate the signals of channels $I_{DC}$ and $Z_{DC}$ which are voltage representations of the current driven by the device and the voltage provided by the unknown load. Therefore, with this two signals is possible to quantify the basal impedance by dividing the potential over the current values. The impedance calculation is performed during the post-processing stage in Matlab. Consequently, these signals have to be digitalized using DAC cards. Hence, the output channels should provide a low impedance interface which is achieved by passing these waveforms through buffers. The schematic implemented in the final circuit can be seen in the appendix \ref{Appendix: Envelope}, figures \ref{fig:envelope detector current} and \ref{fig:envelope detector voltage}.
+As it can be noticed the holding time of the RC network at $5\times\tau$ is \SI{0.6}{\sec}, meaning that this RC combination can detect the peak of a signal with a frequency as low as \SI{1.66}{\Hz}. Consequently, this circuit produces a DC signal equivalent to the peak value of the input signal. This way is possible to generate the signals of channels $I_{DC}$ and $Z_{DC}$ which are voltage representations of the current driven by the device and the voltage provided by the unknown load. Therefore, with this two signals is possible to quantify the basal impedance by dividing the potential over the current values. The impedance calculation is performed during the post-processing stage in Matlab. Consequently, these signals have to be digitalized using DAC cards. Hence, the output channels should provide a low impedance interface which is achieved by passing these waveforms through buffers. The schematic implemented in the final circuit can be seen in the appendix \ref{Appendix: Envelope}, figures \ref{fig:envelope detector current} and \ref{fig:envelope detector voltage}.
 
 By isolating and amplifying the dynamic component within the basal impedance is possible to extract the APA waveform. Hence, the unbuffered signal from channel $Z_{DC}$ channel is passed through a series of filters as shown in figure \ref{fig:envelope detector voltage}. First, following that schematic, a high pass filter (HPF) is used to remove the DC components of the signal which is possible by implementing a passive filter composed by capacitor and resistor  $C_4$ and $R_5$ respectively. It must be noted that $R_5$ is virtually connected to ground (GND) through the negative pin of the Op-Amp. The cutting frequency of the HPF was calculated with the equation \ref{eg:fc1} which demonstrates that this circuit section blocks practically any DC component of the impedance signal. 
 
@@ -297,9 +306,9 @@ By isolating and amplifying the dynamic component within the basal impedance is 
 f_c = \frac{1}{2 \pi R C} = \frac{1}{2 \pi 330K\Omega 4.7\mu f}=10.26 mHz
 \end{align}
 
-Then a second order active filter eliminates any high-frequency noise within the plethysmography signal. The cut off frequencies were calculated as in equations~\ref{eg:fc2} and~\ref{eg:fc3}. The first Op-Amp configuration is an inverting amplifier circuit with a frequency cut at \SI{10.61}{\hertz} and a gain in DC of \num{30.30}. The second Op-Amp configuration \SI{10.26}{\hertz} with an amplification factor in DC of \num{4.70}. 
+Then a second order active filter eliminates any high-frequency noise within the plethysmography signal. The cut off frequencies were calculated as in equations~\ref{eg:fc2} and~\ref{eg:fc3}. The first Op-Amp configuration is an inverting amplifier circuit with a frequency cut at \SI{10.61}{\Hz} and a gain in DC of \num{30.30}. The second Op-Amp configuration \SI{10.26}{\Hz} with an amplification factor in DC of \num{4.70}. 
 
-In general, the extraction of the APA signal is achieved with a band-pass filter with low-frequency cut at \SI{10.26}{\milli\hertz} with a roll-off of \num{20} dB/decade and a high-frequency cut at \SI{10.26}{\hertz} with a roll-off of \num{40} dB/decade. Then the final output was passed to a buffer configuring the channel $Z_{AC}$. The APA waveform is amplified by a fixed gain of \num{142.41}.
+In general, the extraction of the APA signal is achieved with a band-pass filter with low-frequency cut at \SI{10.26}{\milli\hertz} with a roll-off of \num{20} dB/decade and a high-frequency cut at \SI{10.26}{\Hz} with a roll-off of \num{40} dB/decade. Then the final output was passed to a buffer configuring the channel $Z_{AC}$. The APA waveform is amplified by a fixed gain of \num{142.41}.
 
 \begin{align}
 \label{eg:fc2}
@@ -311,14 +320,14 @@ f_c = \frac{1}{2 \pi R C} = \frac{1}{2 \pi 10M\Omega 1.5 nf}=10.61Hz
 f_c = \frac{1}{2 \pi R C} = \frac{1}{2 \pi 47K\Omega 330nf}=10.26Hz
 \end{align}
 
-The envelope detection module was manufactured according to these design considerations. The final module representation can be seen on figure \ref{fig:voltage APA}. The output channels from this PCB are the ports known as $I_{DC}$ or peak current value; $Z_{DC}$ or peak impedance potential and $Z_{AC}$ or arterial pulses.   
+The envelope detection module was manufactured according to these design considerations. The output channels from this PCB are the ports known as $I_{DC}$ or peak current value; $Z_{DC}$ or peak impedance potential and $Z_{AC}$ or arterial pulses.   
 
-\begin{figure}[!htpb]
-	\centering
-	\includegraphics[width=7.5 cm,keepaspectratio]{figure_APA}
-	\caption{Representation in 3D of the envelope detector and AC extractor module}
-	\label{fig:voltage APA}
-\end{figure}
+%\begin{figure}[!htpb]
+%	\centering
+%	\includegraphics[width=7.5 cm,keepaspectratio]{figure_APA}
+%	\caption{Representation in 3D of the envelope detector and AC extractor module}
+%	\label{fig:voltage APA}
+%\end{figure}
 
 
 \section{Final assembly circuit}

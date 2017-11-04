@@ -29,6 +29,141 @@ The ECG signals collected provide details of the electrical activity of the hear
 
 All the waveforms detected were typical and provided enough information about the characteristic peaks in an ECG waveform. The points P, Q, R, S and T were visible in all the signals. Nonetheless, Participant 1 showed an elevated T-wave which is presumably due to his athletic vocation. According to him, he had a ventricular hypertrophy meaning that one of his ventricles was enlarged.  
 
+%%********************************** % Section 8.3 ******************************************
+\rvmynote{This part was added from chapter 8. I need to check the flow form the introduction an the conclusion of this chapter}
+\section{Blood flow calculation from arterial pulses signal}
+\label{section apa flow arterial pulses}
+So far the blood flow has been analysed from occlusive methods using the techniques described in section \ref{section literature VOP}. However, these procedures require mechanical occlusion to produce an increase in volume within the forearm being measured. Nevertheless, sometimes this can be uncomfortable, especially when the applied pressure is above the systolic value or when the person just can not tolerate restriction of blood flow.
+
+For these cases, analysing the waveform also provides information about the blood flow. The rush of blood into the vessel creates a small increase in volume within the limit of the potential electrodes which can be translated into a quantifiable blood flow. Having a device sensitive enough to detect these changes is crucial to provide an accurate estimation of the blood speed. As described in section \ref{section iPG waveforms}, the waveform contained within the basal impedance was amplified by the device, achieving great detail.
+
+In fact, different studies have demonstrated that it is possible to calculate blood flow from the analysis of the APA waveform \cite{corciova2011peripheral, costeloe1980continuous, brown1975impedance}. In this case, the change of impedance used to perform this calculation occurs between the foot of the wave and the systolic peak. This $\Delta Z$ is used to calculate blood flow by also applying Nyober's equation \ref{eq:nyober dV}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\textwidth,trim={1.5cm 0.5cm 1.5cm 1.5cm},clip]{figure_apa_8}
+	\caption[Blood flow calculated from impedance plethysmography waveform at the time of the whole expetiment]{Blood flow calculated for all the participants during the experiment. Each dot represents the peak value of the waveform that has been converted into flow (\si{\bfv}). The green dotted area represent the baselines measurements (regions 1,3,5 and 7). The region 2 (venous occlusion) is represented by the blue dots, arterial occlusions (region 4) are in red and total occlusions (region 6) are in grey.}
+	\label{fig:blood_flow_plethysmography}
+\end{figure}
+
+Figure \ref{fig:blood_flow_plethysmography} shows the blood flow derived from the amplitude of the systolic peak throughout the whole experimental session. Green dots show blood flow measurements during baseline readings (regions 1, 3, 5 and 6). The other colours indicate the venous occlusion in blue, partial arterial occlusion in red and total obstruction in grey. The dark line drawn above the signals corresponds to the smoothing of each measurement event using \textit{robust loess} method of the \textit{smooth} command in Matlab. Overseeing the amplitude transition in each region will help explain how the flow changes with each occlusive event. The value of the calculated blood flow shown in the same figure does not include the negative sign which represents the direction of flow relative to the potential electrodes.
+
+As portrayed in the same figure, between each transition, in the middle of baseline and occlusion, some participants described clearly marked shifts in the calculated flow. In most participants, when venous occlusion occurred, the change between baseline and venous occlusion created a blood surge followed by a tendency for the flow to stabilise. It is worth noting that the increment of blood flow in participant 2 occurred before the venous occlusion. The reason for this is that the obstruction probably started before \SI{300}{\second} and the pressure applied to the arm was rather slow. There are other cases where the flow change occurred so fast that an entirely blank space can be seen connecting both events, as in participants 5 and 7. This situation, as opposed to participant 2, was more likely due to the cuff being inflated faster which did not allow a gradual but instead sudden change in flow. However, also, it could be related to a physiological response of the body like vasodilation response, where one reacts faster than others. Finally, participant 8 is an exception to this rule. This participant experienced a decrease in the calculated flow, followed by a stabilisation. A flow surge is not identifiable in this partaker.
+
+Between venous occlusion and return to baseline in region 3, the cuff was rapidly deflated to restore blood flow to a normal condition. However, from the calculated data it can be seen that there are no extreme changes in blood flow between these two sections as soon as the blockage was released. As noted, in most participants except partakers 5 and 7, there are little changes between these two sections indicating that there is a slight change in blood flow. This action can be linked to a hyperaemic effect where as soon as the pressure of the cuff is released, the blood contained within the vessels of the forearm runs out to the upper part of the arm. After that, the blood flow tended to stabilise towards an average value.
+
+Similarly, as between regions 1 and 2, the change between baseline (region 3) and partial arterial occlusion (region 4 - red colour) generated alterations in the calculated blood flow. Some participants, like partakers 6 and 7 showed a rapid increase in blood flow after the occlusion followed by settling in the blood velocity, where the latter is more notorious. Others like participants 1, 2, 3 and 5 showed a Gaussian bell-shaped flow during the occlusion. It is evident that their flow did not set in a mean value. The only ones that enacted different behaviour were participants 4 and 8, where not much change of blood is evident. However, it is notorious the continuous change of amplitude in participant 8 at this point which is contrary to the rest of participants.
+
+The change between partial arterial occlusion (red section) and baseline had a similar effect as the one described for the release of pressure of venous blockage. Most of the participants showed a decrease in their blood flow, right after the cuff's pressure was released, possibly caused by a hyperaemic effect. At this point, one can note that participant 4 started to show random blood flow readings.
+
+Total occlusion (grey dots) had an expected response in almost all the study members. When the blood flow was completely stopped, it was anticipated that its calculated value could tend to zero. In this case, the device was able to detect these changes. The only exception was participant 4 who again showed random results. At this point, it was to be expected that something wrong was happening with his measurements. Then, when the tourniquet was released, the blood flow returned in an exponential form and then set to an average value. In this case, the hyperaemic effect is more visible. It is worth noting that participant 8 showed a decline in blood flow measurements towards the midpoint of the test. This event agrees, with the partaker expressing not feeling very well at the end of the test. One can speculate it is a coincidence, or maybe the device was able to detect these physiological changes in him.
+
+It seems evident that there is a blood surge when an occlusion in the blood circulation occurs from the impedance computation. Subsequently, the blood flow tends to stabilise at an average value. When the blockage is released, it seems that in some cases the flow tends to decrease and in others, there is no apparent change. The following sections will discuss the results of the change in median blood flow during each occlusive event.
+
+
+%%********************************** % Section 8.3.1 ******************************************
+\subsection{Blood flow change during venous occlusion}
+\label{sectio results 3.1}
+The following are the results of calculating the median blood flow between baseline in region 1, venous occlusion in region 2 and the return baseline after releasing the cuff's pressure in region 3. Once again, the result of the calculation is the absolute value, dropping the negative sign as this indicates the direction of the flow relative to the electrodes. Table \ref{tbl:blood_flow_iPG_venous} sums up the results obtained by flow measurement in the scale \si{\bfv}. The mean blood flow in region 1 was about \SI{2.283(0437)}{\bfv}. When the venous occlusion took place by inflating the cuff below diastolic value, the average blood flow calculated in region 2 was \SI{3.034(0938)}{\bfv}. It is easy to see that there was in increase of blood flow in approximately \SI{33}{\percent} during this part of the experiment. It seems that this increment in the blood flow could be due to a physiological response. It seems that there is a vasodilation process allowing extra blood to be retained in the venous circulation. However, study members 3 and 8 showed a decrease in their blood flow during this transition of about \SI{0.386(0011)}{\bfv}. The latter is not a surprise, as it was noted before, all his recordings started to go downwards from the beginning of the test. In the case of the participant 3, the obtained data seems not well distributed towards the mean. Therefore, there must be a significant number of outliers within its measurement making difficult extracting the real median blood flow. 
+
+Clearly, there is a blood flow fall when the cuff's tension was released to return to the baseline signal. Indeed, six out of eight of the participants experienced a drop in their flow rate during this part of the experiment. The average blood flow for region 3 was approximately \SI{2.409(0885)}{\bfv}, which is equivalent to a \SI{5.5}{\percent} difference with the initial baseline at region 1. On the contrary, participants 1 and 5 did not experience this reduction of flow rate but a slight increase of less than \SI{0.09}{\bfv} or \SI{3.9}{\percent} increment when compared to the original reference signal.
+
+\begin{table}[h]
+	\caption{Mean blood flow calculated form the plethysmography wave for baseline, venous occlusion and return to baseline}
+	\label{tbl:blood_flow_iPG_venous}
+	\centering
+	\begin{tabular}{l
+			*{3}{S[table-format=1.3]@{\,\( \pm \)\,}S[table-format=1.3]} %Format for Z+-std
+		}
+		\toprule
+		& \multicolumn{2}{c}{\textbf{Region 1}}
+		& \multicolumn{2}{c}{\textbf{Region 2}}
+		& \multicolumn{2}{c}{\textbf{Region 3}}  \\
+		& \multicolumn{2}{c}{\small{\si{[\bfv]}}}
+		& \multicolumn{2}{c}{\small{\si{[\bfv]}}}
+		& \multicolumn{2}{c}{\small{\si{[\bfv]}}} \\\midrule
+		Participant 1 & 2.046  & 1.772 & 2.688  & 1.638 & 2.710  & 1.481 \\
+		Participant 2 & 2.516  & 1.185 & 3.766  & 1.161 & 3.119  & 1.252 \\
+		Participant 3 & 1.794  & 1.282 & 1.416  & 0.796 & 1.325  & 1.260 \\
+		Participant 4 & 1.811  & 2.032 & 3.296  & 2.010 & 1.748  & 1.959 \\
+		Participant 5 & 2.033  & 1.082 & 3.024  & 0.947 & 3.110  & 1.277 \\
+		Participant 6 & 3.054  & 1.289 & 4.019  & 1.146 & 3.566  & 1.330 \\
+		Participant 7 & 2.555  & 0.930 & 3.993  & 0.924 & 2.483  & 0.827 \\
+		Participant 8 & 2.461  & 0.874 & 2.068  & 0.901 & 1.207  & 0.729 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+%********************************** % Section 8.3.2 ******************************************
+\subsection{Blood flow change during partial arterial occlusion}
+\label{section apa 3.2}
+The change of blood flow between the baseline (region 3) and partial arterial occlusion (region 4)  was not as evident as the response seen in the previous section, where most of the participants showed an increase in their calculated flow rate. Certainly, three out of eight participants reported an increase in their blood flow, whereas in the rest decreased.  In general, the average flow rate during baseline was \SI{2.408(0885)}{\bfv}. Later, during the partial arterial occlusion, the mean blood flow increased in just \SI{8.4}{\percent} to approximately \SI{2.612(1266)}{\bfv}. 
+
+It is clear that the increase was not as notorious as the one seen all along venous occlusion. Indeed, participants 2, 5 and 7 showed an increment in their blood flow with a centre of \SI{0.889(0925)}{\bfv}, especially the latter had the greatest change of blood flow. Conversely, the rest of the participants exhibited a small decrease in their blood flow with an average of \SI{-0.208(0180)}{\bfv}.
+
+When the upper arm pressure was released in the region 5, it was expected that most of the participants would show a slump in their flow rate. However, this was not the case. The average blood flow at this stage was \SI{2.973(1293)}{\bfv}, which is equivalent to an increment of \SI{23}{\percent} from the baseline region 3. More in detail, three study members depicted a drop in their rate (5, 7 and 8) with an average of \SI{-0.618(0431)}{\bfv}. The rest of the study members showed an increase in their data of about \SI{0.948(1263)}{\bfv}. Notwithstanding, as previously described in this region, participant 4 showed random values entirely outlying the median obtained. At this stage, it is not possible to draw a clear conclusion whether an arterial occlusion would produce an increase or decrease of blood flow from the impedance measurement.
+
+\begin{table}[!htpb]
+	\caption{Mean blood flow calculated form the plethysmography wave for baseline, partial arterial occlusion and return to baseline}
+	\label{tbl:blood_flow_iPG_arterial}
+	\centering
+	\begin{tabular}{l
+			*{3}{S[table-format=1.3]@{\,\( \pm \)\,}S[table-format=1.3]} %Format for Z+-std
+		}
+		\toprule
+		& \multicolumn{2}{c}{\textbf{Region 3}}
+		& \multicolumn{2}{c}{\textbf{Region 4}}
+		& \multicolumn{2}{c}{\textbf{Region 5}}  \\
+		& \multicolumn{2}{c}{\small{\si{[\bfv]}}}
+		& \multicolumn{2}{c}{\small{\si{[\bfv]}}}
+		& \multicolumn{2}{c}{\small{\si{[\bfv]}}} \\\midrule
+		Participant 1 & 2.710  & 1.481 & 2.251  & 1.689 & 2.977  & 1.791 \\
+		Participant 2 & 3.119  & 1.252 & 3.486  & 1.399 & 3.537  & 1.492 \\
+		Participant 3 & 1.325  & 1.260 & 1.299  & 1.025 & 1.647  & 1.132 \\
+		Participant 4 & 1.748  & 1.959 & 1.665  & 1.895 & 4.832  & 7.032 \\
+		Participant 5 & 3.110  & 1.277 & 3.454  & 0.994 & 2.841  & 1.225 \\
+		Participant 6 & 3.566  & 1.330 & 3.417  & 1.197 & 3.866  & 1.558 \\
+		Participant 7 & 2.483  & 0.827 & 4.441  & 1.001 & 3.389  & 1.050 \\
+		Participant 8 & 1.207  & 0.729 & 0.882  & 0.864 & 0.693  & 0.537 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+%********************************** % Section 8.3.3 ******************************************
+\subsection{Blood flow change during total occlusion}
+\label{section apa 3.3}
+As previously explained in section \ref{section apa 2.3}, during total occlusion the APA amplitude was just a fraction of the baseline waveform.  Therefore, the $\Delta Z$ obtained to calculate the blood flow is a small number resulting in a low or null calculation. In this part of the analysis, the majority of the study members showed a decrease in blood circulation rate close to zero.  As is evident from table \ref{tbl:blood flow iPG total}, almost all participants registered a significant drop in their blood flow calculation when the blockage was applied in region 6. Once more, Participant 4 displayed a unique response during the occlusion which median blood flow did not go close to zero. Above all, the median calculated blood flow during the baseline region 5 was aproximately \SI{2.972(1210)}{\bfv}. On the other hand, at the time of the brachial arterial constriction the flow reate redued to about \SI{0.3953(1412)}{\bfv}. One would expect a completely zero at this point as clearly there is not blood flow passing through the forearm. However, this measurement could be considered the error of equipment measurement caused by noise picked up by the device. 
+
+After the tourniquet had been withdrawn, the blood flow recovered exponentially, portraying a fast return to baseline accompanied by an overshot peak and followed by settling towards a midpoint, as shown in figure \ref{fig:blood_flow_plethysmography}. This kind of shape is typical of a hyperaemia where the return of blood flow produces this overshot response, because of the fast filling of the vessels. The mean blood flow in the region 7 was about \SI{2.892(1332)}{\bfv}, which is very close to the original baseline region 5. In fact, the calculated flow reduction was about \SI{2.6}{\percent}. Though, it can be seen that participant 8 had an expected drop in the flow rate before the blockage and then an increase in the rate. This event is fascinating as these changes occurred in a blood flow bellow \SI{1}{\bfv}, but the device was able to notice the swing of blood flow rate. At this stage, the sensitivity for calculation of small changes in blood flow needs improvement because it detected flow values in other participants when there was no plethysmography signal. However, it is quite remarkable to see that the instrument is capable of detecting changes in the trend.
+
+\begin{table}[!htbp]
+	\caption{Mean blood flow calculated form the plethysmography wave for baseline, total occlusion and return to normality}
+	\label{tbl:blood flow iPG total}
+	\centering
+	\begin{tabular}{l
+			*{3}{S[table-format=1.3]@{\,\( \pm \)\,}S[table-format=1.3]} %Format for Z+-std
+		}
+		\toprule
+		& \multicolumn{2}{c}{\textbf{Region 5}}
+		& \multicolumn{2}{c}{\textbf{Region 6}}
+		& \multicolumn{2}{c}{\textbf{Region 7}}  \\
+		& \multicolumn{2}{c}{\small{\si{[\bfv]}}}
+		& \multicolumn{2}{c}{\small{\si{[\bfv]}}}
+		& \multicolumn{2}{c}{\small{\si{[\bfv]}}} \\\midrule
+		Participant 1 & 2.977  & 1.791 & 0.564  & 1.283 & 3.466  & 2.553 \\
+		Participant 2 & 3.537  & 1.492 & 0.284  & 0.698 & 2.922  & 1.179 \\
+		Participant 3 & 1.647  & 1.132 & 0.567  & 0.751 & 1.277  & 1.210 \\
+		Participant 4 & 4.832  & 7.032 & 4.350  & 2.868 & 3.786  & 4.128 \\
+		Participant 5 & 2.841  & 1.225 & 0.342  & 0.687 & 3.500  & 1.645 \\
+		Participant 6 & 3.866  & 1.558 & 0.448  & 1.190 & 4.103  & 1.489 \\
+		Participant 7 & 3.389  & 1.050 & 0.343  & 1.121 & 3.689  & 0.958 \\
+		Participant 8 & 0.693  & 0.537 & 0.098  & 0.449 & 0.399  & 0.567 \\
+		
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+
 %%********************************** % Section 9.2 ******************************************
 \section{Blood flow estimation from Doppler ultrasound instrument}
 \label{section comparison 2}
@@ -55,7 +190,7 @@ During partial arterial occlusion, unmistakable, the arterial blood flow changed
 	\caption{Mean blood flow calculated form the plethysmography wave for baseline, total occlusion and return to normality}
 	\label{tbl:DU flow}
 	\centering \small
-	\begin{tabular}{lcccccccc}
+	\begin{tabular}{p{1.9cm}cccccccc}
 		\toprule
 		& \textbf{Region 1}
 		& \textbf{Region 2}
@@ -106,7 +241,7 @@ Lastly, during total occlusion, all the mean BPUs of the participants reduced co
 	\caption{Media perfusion index (flux) calculated form the LDF data for all the regions during the experiment.}
 	\label{tbl:LDF flow}
 	\centering \small
-	\begin{tabular}{lcccccccc}
+	\begin{tabular}{p{1.9cm}cccccccc}
 		\toprule
 		& \textbf{Region 1}
 		& \textbf{Region 2}
@@ -169,7 +304,7 @@ The visible change of the DC value is confirmed when analysing the mean values o
 	\caption[Mean peak value of the PPG DC signal for all participants in all regions]{Mean peak value of the PPG DC signal for all the participants in all the regions.}
 	\label{tbl:PPG RED-DC}
 	\centering \small
-	\begin{tabular}{lcccccccc}
+	\begin{tabular}{p{1.9cm}cccccccc}
 		\toprule
 		& \textbf{Region 1}
 		& \textbf{Region 2}
@@ -205,7 +340,7 @@ The AC component also produced a notable swing of magnitude during each blockage
 	\caption[Mean peak value of the PPG AC signal for all participants in all regions]{Mean peak value of the PPG AC signal for all the participants in all the regions.}
 	\label{tbl:PPG RED-AC}
 	\centering \small
-	\begin{tabular}{lcccccccc}
+	\begin{tabular}{p{1.9cm}cccccccc}
 		\toprule
 		& \textbf{Region 1}
 		& \textbf{Region 2}

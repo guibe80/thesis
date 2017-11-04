@@ -1,13 +1,244 @@
 %!TEX root = ../thesis.tex
 % ******************************* Thesis Appendix B ********************************
 
-\chapter{Installing the CUED class file}
+\chapter{Arduino program to control DDS AD5930}
+\label{Appendix: Arduino}
 
-\LaTeX.cls files can be accessed system-wide when they are placed in the
-<texmf>/tex/latex directory, where <texmf> is the root directory of the user’s \TeX installation. On systems that have a local texmf tree (<texmflocal>), which
-may be named ``texmf-local'' or ``localtexmf'', it may be advisable to install packages in <texmflocal>, rather than <texmf> as the contents of the former, unlike that of the latter, are preserved after the \LaTeX system is reinstalled and/or upgraded.
+\lstset{language=Arduino} 
+\begin{lstlisting}
+/*
+AD5930 Controller program
 
-It is recommended that the user create a subdirectory <texmf>/tex/latex/CUED for all CUED related \LaTeX class and package files. On some \LaTeX systems, the directory look-up tables will need to be refreshed after making additions or deletions to the system files. For \TeX Live systems this is accomplished via executing ``texhash'' as root. MIK\TeX users can run ``initexmf -u'' to accomplish the same thing.
+This program receives instructions via serial USB connection from LabView or Matlab.
+It communicates vias SPI portocol to the AD5930.
 
-Users not willing or able to install the files system-wide can install them in their personal directories, but will then have to provide the path (full or relative) in addition to the filename when referring to them in \LaTeX.
+The Host PC send commands such as frequency Lock, start/stop waveform.
+
+modified 19 October 2015
+by Mario Bejarano
+City University London
+*/
+
+#include "SPI.h"
+int ss=10;
+int del=200;
+int incomingByte = 0;
+int CTRL_pin=8;
+int IPin=4;
+int VPin=3;
+int PhasePin=2;
+int Bank1 = 0;
+int Bank2 = 1;
+int val1=0;
+int val2=0;
+int val3=0;
+int Battery1 = 0;
+int Battery2 = 0;
+int LED = 7;
+String Z;
+String frequ;
+
+#define AD5930_F_MCLK 50000000          // 25MHz clock
+#define AD5930_2POW28 16777216         // 2 to the power of 24
+
+void setup()
+{
+	Serial.begin(115200);
+	pinMode(VPin, INPUT);
+	pinMode(IPin, INPUT);
+	pinMode(PhasePin, INPUT);
+	pinMode(Bank1, INPUT);
+	pinMode(Bank2, INPUT);
+	pinMode(ss, OUTPUT);
+	pinMode(CTRL_pin, OUTPUT);
+	pinMode(LED, OUTPUT);
+	SPI.begin();
+	SPI.setBitOrder(MSBFIRST); 
+	SPI.setDataMode(SPI_MODE2);
+	digitalWrite(ss, HIGH);
+	digitalWrite(CTRL_pin, LOW);
+}
+
+void setValue(int value)
+{
+	digitalWrite(ss, LOW);
+	SPI.transfer(0);
+	SPI.transfer(value);
+	digitalWrite(ss, HIGH);
+}
+
+void loop()
+{
+	delay(100);
+	// send data only when you receive data:
+	if (Serial.available() > 0) {
+	// read the incoming byte:
+	char command = Serial.read();           //Read command byte
+	long incommingData = Serial.parseInt(); //Read data attached to it
+	
+	
+	if (Serial.read() == '\n')			//Wait for newline (ENTER)
+	{              
+		//Serial.print(command);
+		//Serial.print(incommingData);
+		if (command == 'A')
+		{
+			//Serial.print("Data received:");
+			//Serial.println(incommingData);
+			calc_freq_reg(incommingData);
+		}
+		else if (command == 'B')
+		{
+			CTRL_signal();
+		}
+		else if (command == 'C')
+		{
+			val1 = analogRead(VPin);          
+			Serial.println(val1);
+		}
+		else if (command == 'D') //Low BATTERY Control
+		{
+			val1 = analogRead(VPin);
+			val2 = analogRead(PhasePin);
+			String stringOne = "M";
+			String stringTwo = stringOne + val1;
+			//              Serial.println(stringTwo);
+			String stringThree = "P";
+			String stringFour = stringThree + val2;
+			//              Serial.println(stringFour);
+			String stringFive = stringTwo + stringFour;
+			Serial.println(stringFive);
+			if (val2 < 307) 
+			{
+				digitalWrite(LED,HIGH);
+				Serial.println("Low Bat");
+			}
+			else
+			{
+				digitalWrite(LED,LOW);
+				Serial.println("Good Bat");
+			}
+		}
+		else if (command == 'E')
+		{
+			val1 = analogRead(VPin);
+			val2 = analogRead(IPin);
+			val3 = analogRead(PhasePin);
+			String stringOne = "V";
+			String stringTwo = stringOne + val1;
+			//              Serial.println(stringTwo);
+			String stringThree = "I";
+			String stringFour = stringThree + val2;
+			//              Serial.println(stringFour);
+			String stringFive = "P";
+			String stringSix = stringFive + val3;	
+			String stringSeven = stringTwo + stringFour;
+			String stringEight = stringSeven + stringSix;
+			Serial.println(stringEight);
+		}
+		else if (command == 'F')
+		{
+			Battery1 = analogRead(Bank1);
+			Battery2 = analogRead(Bank2);
+			
+			String stringOne = "B1:";
+			float eq1 = (Battery1*5.0)/1024.0;
+			Serial.println(eq1);
+			float val1 = 3*eq1;
+			String stringTwo = stringOne + val1;
+			//              Serial.println(stringTwo);
+			String stringThree = "B2:";
+			float eq2 = (Battery2*5.0)/1024.0;
+			Serial.println(eq2);
+			
+			float val2 = (eq2 - 3.70535)/0.18445;
+			String stringFour = stringThree + val2;
+			//              Serial.println(stringFour);
+			String stringFive = stringTwo + stringFour;
+			Serial.println(stringFive);
+			if (abs(val1) < 12) 
+			{
+				digitalWrite(LED,HIGH);
+				Serial.println("Low Bat Bank1");
+			}
+			else if (abs(val2) < 12) 
+			{
+				digitalWrite(LED,HIGH);
+				Serial.println("Low Bat Bank2");
+			}
+			else
+			{
+				digitalWrite(LED,LOW);
+				Serial.println("Good Bat");
+			}
+		}
+		else if (command == 'X')
+		{
+			Serial.println("Ok");
+		}
+		else
+		{
+			Serial.println(" is an incorrect command ");
+		}
+		}
+	}
+}
+
+void AD5930_Control(uint16_t control)
+{
+	control = control & 0x3FFF;         // Mask off upper 2 bits so we are writing to control register
+	control = control | 0x2000;         // Ensure the B28 control register bit is set
+	Serial.print("Control command :");
+	Serial.println(control);
+	digitalWrite(ss, LOW);              // Set FSYNC low
+	delayMicroseconds(5);
+	AD5930_Write(control);
+	digitalWrite(ss, HIGH);             // Set FSYNC high
+}
+
+void AD5930_Write(uint16_t value)
+{
+	SPI.transfer(highByte(value));
+	SPI.transfer(lowByte(value));
+}
+
+void AD5930_Phase(uint32_t phase)
+{
+	digitalWrite(ss, LOW);             // Set FSYNC low
+	delayMicroseconds(5);
+	AD5930_Write(0xC000 | (0x1FFF & (uint16_t)(phase)));
+	AD5930_Write(0xE000 | (0x1FFF & (uint16_t)(phase>>12)));
+	digitalWrite(ss, HIGH);            // Set FSYNC high
+}
+
+void AD5930_Raw(uint16_t value)
+{
+	digitalWrite(ss, LOW);             // Set FSYNC low
+	delayMicroseconds(5);
+	SPI.transfer(highByte(value));
+	SPI.transfer(lowByte(value));
+	digitalWrite(ss, HIGH);            // Set FSYNC high
+}
+
+void calc_freq_reg(long freq)
+{
+	int MSB;
+	int LSB;
+	
+	AD5930_Raw(0x0FFF);                // Reset
+	uint32_t AD5930Val = (uint32_t)(((freq/(double)AD5930_F_MCLK))*(double)AD5930_2POW28);
+	MSB = (0xD000 | ((AD5930Val & 0xFFFF000)>>12));
+	LSB = (0xC000 | (AD5930Val & 0x0FFF));
+	AD5930_Raw(LSB);
+	AD5930_Raw(MSB);	
+	CTRL_signal();
+}
+
+void CTRL_signal()
+{
+	digitalWrite(CTRL_pin, HIGH);
+	digitalWrite(CTRL_pin, LOW);
+}
+
+\end{lstlisting}
 
