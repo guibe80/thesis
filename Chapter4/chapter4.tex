@@ -87,6 +87,7 @@ Designing an impedance device requires knowing the electrical characteristics of
 About the electrical current delivered by the device, a programmable wave generator with the potential of delivering up to 10 MHz sinusoidal waveforms was incorporated into the design. However, as per the literature measuring impedance plethysmography can be achieved with frequencies between \SIrange[scientific-notation = engineering]{20}{200000}{\hertz}. Therefore, a sinusoidal wave of \SI{50}{\kilo\hertz} was used during the experimental procedure.
 
 \section{Electrodes topology and location}
+\label{section design electrodes}
 As described in the section \ref{section iPG electrodes}, bioelectrical impedance plethysmography measurements can be attained with two electrodes topologies bipolar and tetrapolar. Bipolar lacks two electrodes points to measure impedance. When measuring with bipolar electrodes arises a problem where the impedance of the electrodes might be greater than the biological tissue itself which can affect the measurement significantly. In the majority of the cases, it is quite difficult to differentiate the electrode's impedance from the tissue one \cite{brown2000bipolar}. Tetrapolar configuration requires four contact points, a pair of electrodes injects current and another couple sense voltage. Using tetrapolar arrangement minimises the voltage drop during measurements because the potential sensing amplifier ideally has a bigger impedance compared to the interface electrode-skin. Therefore, electrical current would not flow between electrodes and the voltage amplifier. For this reason, four electrodes measurement was decided as the optimal method while designing the instrument. 
 
 Positioning the electrodes close to the main vessel improves the response of the system as the there is more conductive material where the electrical current can flow through. Figure~\ref{fig:electrode} shows in more detail the position of the electrodes to take measurements from the device. According to the arm anatomy, the radial artery is the proper site to use for one of the current electrodes. The other was placed close to the brachial artery around the cubital fossa region where this vessel is closer to the surface. The sensing electrodes were placed right on the elbow where is the nearest point to the brachial artery that is connected to the radial artery forming the ideal loop to detect changes in impedance $\Delta Z$.  
@@ -117,6 +118,7 @@ The proposed system can be subdivided into two different sections, front–end w
 \end{landscape}
 
 \subsection{Power supply module}
+\label{section design battery}
 Implementing a good design requires good power supplies that could provide steady voltage output and supply enough current as needed by the circuitry. Due to the need of applying floating currents, a power supply was designed to operate with batteries minimising ground loops and increasing patient's safety.  The selection of this method of supplying power lessens the likelihood of electric shocks as well as reaching dangerous voltage levels. For these reasons, a couple of batteries A512/2 S (Sonnenschein) were used to power all the circuits. These cells provide \SI{2}{\ampere\hour} of capacity per bank.
 
 Some of the unique features needed for the power supply includes the capability of providing a dual voltage (\SI{\pm 12}{\volt}) as some Op–Amps require this level of supply to achieve maximum gain and low energy supply (\SI{5}{\volt}) essential for some digital components. The positive and negative voltages can be obtained by using one cell bank with normal polarisation and the other inverted. 
@@ -331,6 +333,7 @@ The envelope detection module was manufactured according to these design conside
 
 
 \section{Final assembly circuit}
+\label{section design final}
 The figure \ref{fig:assembly} shows the final circuit assembly. All the modules were fixed to a board, the different circuit stages were interconnected using jumper cables. In the same board a DAQ NI USB-6212 (National Instruments) was mounted connecting the output channels $I_{DC}$, $Z_{DC}$ and $Z_{AC}$. Additionally, to keep everything as a whole system, the Arduino MCU was also affixed and connected to the DDS module. 
 
 As inputs and outputs the instrument has data and power ports. The data ports are 2 USB cables connected to the DAQ box and the Arduino PCB. These work as a digital data bus and system command controller. The system is powered by the battery bank using the PSU module. For this, a 4-pins cable was designed as interface. The electrodes cables run from the MHC and sensing boards. The cables were designed using alligator clips that hook to the electrodes end. 
