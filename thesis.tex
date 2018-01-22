@@ -2,7 +2,7 @@
 % This is the PhD thesis of Mario G. Bejarano M.
 % Note reference page layout \textwidth = 15.74 \textheight = 22.27
 %\documentclass[a4paper,12pt,times,oneside,draft]{Classes/PhDThesisPSnPDF}
-\documentclass[a4paper,12pt,times,numbered,draft,index,]{Classes/PhDThesisPSnPDF}
+\documentclass[a4paper,12pt,times,numbered, draft,index]{Classes/PhDThesisPSnPDF}
 
 % ******************************************************************************
 % ******************************* Class Options ********************************
@@ -102,7 +102,7 @@
 % To use choose `chapter' option in the document class
 
 \ifdefineChapter
- \includeonly{Chapter3/chapter3}
+ \includeonly{Chapter11/chapter11}
  % \includeonly{Chapter6.master/chapter6}
 \fi
 
@@ -113,24 +113,24 @@
 
 \frontmatter
 
-\maketitle
+%\maketitle
 
-\include{Dedication/dedication}
-\include{Declaration/declaration}
-\include{Acknowledgement/acknowledgement}
-\include{Abstract/abstract}
+%\include{Dedication/dedication}
+%\include{Declaration/declaration}
+%\include{Acknowledgement/acknowledgement}
+%\include{Abstract/abstract}
 
 % *********************** Adding TOC and List of Figures ***********************
 
-\tableofcontents
+%\tableofcontents
 
-\listoffigures
+%\listoffigures
 
-\listoftables
+%\listoftables
 
 %\printnomenclature[space] %space can be set as 2em between symbol and description
 %\printnomenclature[3em]
-\printnomenclature[2.5cm]
+%\printnomenclature[2.5cm]
 
 % ******************************** Main Matter *********************************
 \mainmatter
@@ -148,7 +148,7 @@
 \include{Chapter9/chapter9}
 \include{Chapter10/chapter10}
 \include{Chapter11/chapter11}
-\listoftodos
+%\listoftodos
 
 
 % ********************************** Back Matter *******************************
@@ -162,12 +162,14 @@
 % Bibliography style previews: http://nodonn.tipido.net/bibstyle.php
 % Reference styles: http://sites.stat.psu.edu/~surajit/present/bib.htm
 
-\bibliographystyle{IEEEtran}
+%\bibliographystyle{IEEEtran}
+
 %\bibliographystyle{plainnat}
 %\bibliographystyle{unsrt} % Use for unsorted references
 %\bibliographystyle{plainnat} % use this to have URLs listed in References
-\cleardoublepage
-\bibliography{IEEEabrv,References/references} % Path to your References.bib file
+
+%\cleardoublepage
+%\bibliography{IEEEabrv,References/references} % Path to your References.bib file
 
 
 % If you would like to use BibLaTeX for your references, pass `custombib' as
@@ -184,8 +186,8 @@
 
 \begin{appendices} % Using appendices environment for more functunality
 
-\include{Appendix1/appendix1}
-\include{Appendix2/appendix2}
+%\include{Appendix1/appendix1}
+%\include{Appendix2/appendix2}
 
 \end{appendices}
 
