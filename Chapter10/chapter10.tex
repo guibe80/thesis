@@ -1,178 +1,58 @@
 %!TEX root = ../thesis.tex
 %*******************************************************************************
-%*********************************** Seventh Chapter *****************************
+%*********************************** Conclusions Chapter *****************************
 %*******************************************************************************
 
-\chapter{Correlations of the impedance plethysmography device}  %Title of the First Chapter
-\label{chapter correlations}
+\chapter{General conclusion and future work}  %Title of the First Chapter
+
 \ifpdf
     \graphicspath{{Chapter10/Figs/Raster/}{Chapter10/Figs/PDF/}{Chapter10/Figs/}}
 \else
     \graphicspath{{Chapter10/Figs/Vector/}{Chapter10/Figs/}}
 \fi
 
-The previous Chapters showed the performance of the designed impedance plethysmography device and the data collected in resistivity value and its equivalent in blood flow. It was shown the capability of the instrument on detecting changes during three different kinds of occlusion. Furthermore, it was presented the data collected from the other devices such as Doppler ultrasound, LDF, PPG and ECG. 
+%The motivation of this thesis of designing of a Bioelectrical impedance plethysmography capable of measuring changes in blood volume or flow has been accomplished. Furthermore, as the objectives implied, the designed device has the potential to be used in a home setting. First, evidentially the device operates with batteries, which it could be classified as a Class II device \cite{IEC60601}, because it is isolated from the and operated far from the mains. Thus, the instrument has the capability of being portable. Moreover, the design can be further miniaturised to improve its transportability. The experimental procedure demonstrated that the device detects both of the signals being acquired, the basal impedance and the dynamic signal of the arterial pulses. The quantification of the signals provided information of the changes of blood volume in percent units and estimation of blood flow in terms of litres per minute per volume of tissue. 
 
-In this chapter, the correlation between the different measurements gathered will be analysed. The aim of this correlational investigation is understanding what the contributing factors towards the impedance plethysmography signal might be. As it has been explained in previous chapters, the change of the volume in the forearm section let to estimate the blood flow from the segment. However, both arterial and venous blood contributes to the information of blood flow calculated by the iPG device. It is not clear, how much of the blood flow belongs to any of the types of blood. Besides, it was shown that main blood vessels contribute to the measurement of blood flow, but microcirculation might also provide additional information under the iPG waveform. 
-
-%********************************** %First Section  **************************************
-\section{Analysis of the the heartbeat detection in the frequency domain} %Section - 6.1
-\label{section correlation 1} 
-The signals obtained from each device all along the experiment are synchronous to the heartbeat. This synchronisation reflects that in their dynamic component the systolic peak is also present in the waveform of these instruments.
-
-Nonetheless, some noises impact negatively to the proper detection of the systolic peaks during the study. The algorithm designed can detect the shape of the waveform by finding the foot of the signal and its peaks. Nevertheless, some of the peaks might be missing because of the noise levels.
-
-A Fast Fourier Transform was used to detect the main harmonic of the waveforms in a random window data set. The data selected was between \SIrange{580}{780}{\second} for the AC components only, hence the data from $Z_{AC}$ channel. The algorithm was programmed to detect the frequency peak ($f_p$) from \SIrange{0.85}{1.75}{\hertz}. The FFT was limited to detected frequencies between \SIrange{0}{5}{\hertz} due to the filters applied to the waveforms as explained in section \ref{section material envelope}.
-
-From Figure \ref{fig:fft signals} can be seen the frequency components from all participants measurements. The ECG plots show the frequency response typical of this kind of signal. Some signals presented a high level of high-frequency components such as the ones seen in participants 1 and 8. The Participant 3 showed a high \SI{2}{\hertz} harmonic peak which power was greater than the first harmonic. This response seems odd but by examining the waveform in detail showed a lower Q wave which might influence the abnormal frequency component presented in the graph.
-
-\begin{figure}[!htpb]
-	\includegraphics[width=1\textwidth,keepaspectratio,trim={0.75cm 0cm 2cm 2cm},clip]{figure1}    
-	\caption[Fequency components of the signals acquired]{Fast Fourier transform for all the measurements in the study. Any DC level was removed previous the FFT. The main harmonic represents the heart frequency. The data range corresponds to the time between \SIrange{580}{780}{\second} for the AC components af the measurements.}
-	\label{fig:fft signals}
-\end{figure}
-
-The iPG device had a mixed frequency response to detecting the cardiac heartbeat. As it can be seen from the shown plots, some signals show a low-frequency noise which in some cases it is larger than the expected first harmonic. For instance, participants 1, 3 4 and 6 was hard to detect the frequency peak related to the cardiac cycle for this particular data set. However, the rest of the partakers registered a frequency peak at similar heartbeat as the ECG. 
-
-PPG frequency components were quite clear in all the participants. Some of them showed high-frequency noise as participant 8. However, in general, this signal shows low signal to noise ratio compared to iPG which is understandable as the PPG-AC is significantly larger than the iPG-AC amplitude.
-
-Lastly, DU exhibited a clear FFT components in most of the participants. Only Participant 1 demonstrated a high noise component in his measurements but the rest showed a response similar to the ECG. 
-
-Table \ref{tbl:fft} demonstrates how close the cardiac frequency is to each instrument. However, the iPG mean harmonic and frequency distribution from participant 8 illustrates that his data was not clean.
+%The design of the instrument also included software that filtered unwanted noised in the signal and quantified the data in a swift manner. At present, it is only conceivable only off-line measurements. But it is possible that in the future work, with the algorithms implemented here it would be likely to measure beat by beat, changes of volume or quantifying blood flow instantaneously.
 
 
-\begin{table}[!htbp]
-	\caption[Peak frequency calculated obtained form Fast Fourier Transform]{Cardiac frequency obtained from the Fast Fourier Transform for each of the instruments used during the experiment. This peak corresponds to the one with in the hearth cycle in the study (\SI{0.5}{\hertz} < $f_p$ > \SI{1.5}{\hertz})}
-	\label{tbl:fft}
-	\centering 
-	\begin{tabular}{lccccc}
-		\toprule
-		& \textbf{ECG}
-		& \textbf{iPG}
-		& \textbf{PPG}
-		& \textbf{LDF}
-		& \textbf{DU} \\
-		& \textbf{$f_p$ [\si{\hertz}]}		
-		& \textbf{$f_p$ [\si{\hertz}]}		
-		& \textbf{$f_p$ [\si{\hertz}]}
-		& \textbf{$f_p$ [\si{\hertz}]}
-		& \textbf{$f_p$ [\si{\hertz}]}\\\midrule
-	    Participant 1    &     0.967    &     0.952    &     0.949    &     0.897    &     0.949    \\  
-		Participant 2    &     0.964    &     0.964    &     0.989    &     0.964    &     0.964    \\  
-		Participant 3    &     1.041    &     0.916    &     1.041    &     1.038    &     1.019    \\  
-		Participant 4    &     1.425    &     1.437    &     1.422    &     1.321    &     1.425    \\  
-		Participant 5    &     0.940    &     0.940    &     0.937    &     0.940    &     0.940    \\  
-		Participant 6    &     1.239    &     1.242    &     1.242    &     1.233    &     1.239    \\  
-		Participant 7    &     1.163    &     1.163    &     1.163    &     1.163    &     1.163    \\  
-		Participant 8    &     1.346    &     1.401    &     1.337    &     1.367    &     N/A    \\  
- 
-	\bottomrule
-	\end{tabular}
-\end{table}
+%****
+%The secondary objectives of the thesis were focused on the analysis of the waveforms and its correlation to other instruments. As it was shown, all the devices used in the experiment provided data synchronised to the systolic peak. The following sections will give a further analysis of the findings from the report of these signals.
+%*****
 
 
-%********************************** %Second Section  *************************************
-\section{Correlation between iPG, AC waveform and Ultrasound Doppler} %Section - 6.2
-\label{section correlation 2} 
-The Chapter \ref{chapter apa} showed how the waveforms obtained during the experiment changed in amplitude at each occlusive event. By observing the equation \ref{eq:doppler}  from the Doppler ultrasound section can be derived that the velocity ($v$) is directly proportional to the Doppler frequency ($f_D$). The rest of the terms can be assumed as constant. After that, the same rule obeys when the velocity is converted to blood flow. Equally, the blood flow calculated from the iPG device with equation \ref{eq:bf} is a function of $R_B$ which is a directly proportional to the amplitude of the impedance waveform at the point $R_{M5}$ as shown by equation \ref{eq:RB}. In other words, the magnitude of both measurements changes according to the blood flow.
+The main objective of this thesis was to present a home diagnostic system capable of measuring changes in blood volume - and by extension flow - using bioelectrical impedance. Such a system was realised in \ref{chapter design} in the form of a modular device that carried out the necessary measurements and exhibited the capability of being used in a home setting safely. The device worked as expected within the operational characteristics. Some key technological achievements and innovative features can be highlighted as follows: 
 
-However, the Doppler ultrasound is only focused on arterial flow over the blood vessel under observation. Instead, iPG sees flow changes of both arterial and venous circulation in the volume segment under test. Both devices measure blood flow but in a different way. The Doppler ultrasound requires precision when placing the head of the instrument on the patient's skin. The best signal is obtained when the device is exactly over the blood vessel. Hence, the clarity of the signal depends on the operator skills to maintain a constant angle and always over the artery. During the experiment, this procedure was replicated using laboratory instruments keeping both angle and skin contact constant. Although, using this set-up does not counter rest the participant's arm movement which causes a misaligning of the sensor. As a result, the amplitude of the ultrasound signal is not as steady as one might expect. 
+\begin{itemize}
+	\item Some of the studies described in the literature were presented using impedance devices not explicitly designed for the measurement of changes of blood in limbs. For instance, some investigations used impedance cardiographers \cite{porter1985measurement, distefano1973bioelectrical, yamamoto1992impedance, couch1971noninvasive}, and other their circuits aimed just to measure either basal impedance \cite{mohapatra1979measurement, yamakoshi1980limb, nyober1950electrical, yamakoshi1978admittance, yamamoto1992impedance} or arterial pulses \cite{mohapatra1979measurement, costeloe1980continuous, corciova2011peripheral, brown1975impedance, wang2011development,yamamoto1992impedance}. The instrument presented in this thesis is focused solemnly on measuring impedance within the range of the tissue of the limbs \cite{gabriel1996dielectric}, measuring changes in the basal impedance and arterial pulses simultaneously. 
+	\item Although some studies used their circuits or IC designs for measurement of bioelectrical impedance, most of their techniques were focused on quadrature demodulation and average DC value of the signal \cite{yufera2002integrated, pallas1993bioelectric, min2000lock}. The method used in this thesis uses the envelope demodulation with a super diode circuit which returns the peak value of the signals detected.
+	\item Using envelope technique for measuring the current amplitude and voltage from the limbs reduces the need for calibration. The instrument measures continuously the amplitude of the current injected and the voltage sensed from the segment of the limb. Thus, the impedance was calculated directly from these two waveforms. 
+	\item The iPG data presented in the literature are either basal impedance or arterial pulses. Some instruments extract the arterial pulses from the basal impedance which leads to low-quality waveforms \cite{mohapatra1979measurement, yamamoto1992impedance}. The instrument presented in this thesis separates the arterial pulses from the forearm impedance via hardware. Then, both signals are displayed separately offering the opportunity to analyse changes in both signals simultaneously.
+\end{itemize} 
 
-As it was observed in section \ref{section correlation 1} the AC components of the iPG device is not clean of noise in all the partakers. In fact, participant 2, 5, 6 and 7 showed the best signals to work with. For this reason, the waveforms from these partakers were used when performing the correlation between both instruments. 
+The innovation of the instrument presented in this thesis not only lies in the hardware design but also in the analysis of the impedance plethysmography waveform. The protocol of the experimental procedure described in section \ref{chapter procedure} affected the blood flow towards the limb. The instrument effectively detected changes in the basal impedance and the arterial pulses as shown in chapters \ref{chapter basal} and \ref{chapter apa} respectively. More important, clear changes were detected in most of the participants when performing venous and partial arterial occlusions. The author considers that according to the changes observed during the experimental procedure, the following innovations can be derived:
 
-Figure \ref{fig:corr FWUS} shows the correlation between both iPG and DU. The data range corresponds to the whole duration of the experiment as includes the changes of blood flow caused by the occlusions. In the plot, the data was discriminated with a different marker point and colour according to every event during the test. As a reminder, odd regions are baselines, and even regions are blockages.  
+\begin{itemize}
+	\item Although studies performing occlusive techniques have been carried out, these studies were focused mostly on the quantification of flow rate or the increase of volume during VOP \cite{mohapatra1979measurement, costeloe1980continuous, yamakoshi1980limb}. However, none of these studies has pointed out the rate of change during venous or partial arterial occlusion. The analysis presented in \ref{chapter basal} showed that the rate of change during partial arterial occurred swiftly than venous occlusion. This slope change may be one first indicator when an arterial blockage may be occurring when continuously monitored. 
+	\item A study reported changes in the arterial pulses wave morphology during issues in the lymphatic system \cite{montgomery2011segmental}, but from the author's understanding, there was no evidence of analysis during a mechanical occlusion. As shown in this thesis, It is clear that the morphology of the waveform varies according to the type of occlusion applied to the upper arm. The data demonstrated that during both kinds of occlusions the systolic peak increased considerably. Thus, this might be an indicator or irregular blood flow towards the limb. Moreover, the data showed that there is a difference in amplitude at the dicrotic notch and the after pulse. During partial arterial occlusion, the amplitude of these points was considerably lower than venous occlusion. In fact, the information obtained demonstrated that during partial arterial occlusion the post dicrotic amplitude tended to be lower in magnitude than the dicrotic notch one. Therefore, this is a clear differentiator between both kinds of occlusion.
+	\item To the author's knowledge, no other study had previously focused on methods for early detection of venous and arterial circulatory problems using iPG. After the quantitative and qualitative analysis of the basal impedance and the arterial pulses, it was put into consideration a ratio between both signals to identify faster alterations in the circulation. It was demonstrated that either basal impedance or APA morphology shifted during each blockage. By combining these two sets of information is possible to detect early changes in the blood circulation.
+\end{itemize} 
 
-\begin{figure}[!htpb]
-	\includegraphics[width=1\textwidth,keepaspectratio]{figure2}    
-	\caption[Bland and Altman plot of the relation between Doppler ultrasound and iPG]{Bland and Altman~\cite{bland1986statistical} plot of the relation between Doppler ultrasound and iPG. Data set corresponds to participants 2, 5, 6 and 7.  The data has been normalised comparing the amplitude of both measurements. The different regions has been plotted with various colours and symbols to differentiate every event. The dotted line represents the perfect agreement, the dark line is the linear regression.}
-	\label{fig:corr FWUS}
-\end{figure}
+\section{Future work}
+The present work showed an initial prototype to measure iPG in an upper limb and the potential to detect circulatory problems in the limb. Nonetheless, some improvements in hardware and software would refine the full prototype. Furthermore, some experiments can be suggested to confirm if the body response causes changes in the iPG waveform which allows differentiating between arterial and venous components of the impedance signal. 
 
-The data was normalised referenced to the highest peak of the total data set.  Each systolic peak detected from the iPG waveform was used to the find the corresponding Doppler ultrasound systolic peak around the same segment of time. Then the iPG and DU data sets were smoothed by calculating the mean value of every 20 peaks detected in a non-cumulative average.  
+\subsection{Improvements of the iPG device}
+The device had a good performance during all the tests performed. However, there are items of interest that could be implemented in future generations. From the design point of view, there is room to miniaturise the instrument. For this initial prototype, a modular approach was used. Nonetheless, designing an integrated PCB which could include the MCU on board as well as DAQ system will simplify the design considerably. Some challenges may arise for the design of the board. During the manufacturing of the PCB, it was found that combining digital with analogue channels increased the crosstalk between signals. Therefore, special care must be taken when designing a board of these characteristics. 
 
-The method used to analyse the correlation of both measurements is the method proposed by Bland et al.~\cite{bland1986statistical}. This method allows comparing a traditional technique with a new method. So, it is ideal to compare the measurements between DU and the designed device. This technique is mostly used to compare similar units measurements, for this reason, the data were normalised. Therefore, the comparison will be on the change of magnitude between both modalities.
+Complementary to this improvement, the device could accommodate a small set of batteries. This instrument included battery packs of \SI{12}{\volt} but if lower power banks were installed a better portability could be achieved. Furthermore, using a small current could be an option to use a smaller battery bank. However, additional challenges may arise. For instance, the impedance magnitude will get closer to the floor noise when using a  lower electrical current. Therefore, the noise will cover the signal of interest. 
 
-On the left of the plot can be seen the result of the linear regression between both waveforms. At certain degree the data trend is off the line of equity (dotted line), meaning that there is not a perfect agreement between both methods concerning their amplitudes. In fact, this graph portrays that the linear correlation between both signals with a coefficient correlation  $r^2 = 0.35$ confirming that both signals are related. However, there is not a perfect agreement because of the variability of the reference signal (DU) alongside the y-axes. 
+Another improvement to the design will be the analysis of the phase of the signal. As most of the bioelectrical impedance devices, the instrument only measured the magnitude of the impedance. However, additional information about either volume or flow haemodynamics may lay under the phase shift data. Therefore, a channel dedicated to the phase could be an interesting add-on for future research. Nonetheless, there are quite a few challenges to achieve this. First, the phase shift at the frequency which the instrument was implemented is only \SI{12}{\degree} \cite{jaffrin1979quantitative}. Therefore, the level of noise at that level can be quite challenging. Possibly, using a high frequency could be an option, but then the real part of the signal will be affected.
 
-Analysing region by region can be seen how the data points were distributed along the correlation graph. For instance, there seems to be a good distribution of data in both axes in regions 1 and 2. Clearly, both waveforms amplitudes spread quite uniformly. The region 1 appears to be closer to the line of equity than the region 2 when venous occlusion happened. It seems that the magnitude of the DU signal did not change as much as the iPG's ones. Undeniably, the impedance plethysmography device detected changes that the DU could not notice. Which, it is in agreement as the venous occlusion does not alter the arterial flow. 
+\subsection{Waveform analysis under different conditions}
+The use of additional instruments provided information on changes in blood volume, arterial flow and microcirculation. However, it could be of high interest to compare the iPG waveforms and NIRS method. The latter can provide data about tissue oxygenation, and within the basal impedance, reading yields information about the amount of blood in the tissue. Therefore, it can be established how effective is the iPG to measure perfusion changes compared to an optic method.
 
-However, region 3 shows a larger distribution of data points adjacent to y-axes than iPG. Participants movement would have caused this significant variation of the DU amplitude. By reviewing the envelope of the signal on figure \ref{fig:DU flow} is noticeable that Participant 7 showed the largest waveform amplitudes, this can also be seen in the mean blood flow computed on that same region. In fact, running the data without this participant, the linear regression improves to $r^2 = 0.45$. 
+The analysis of the waveforms shown differences when calculating the blood flow during venous and partial arterial occlusion. The results presented all along the experiment suggested an increase of the blood flow which can only be explained by a vasodilation caused by a syncopal response. However, it could be recommended to perform cold tests to investigate if the narrowing of the vessels also displays changes in the dicrotic notch point.
 
-The region 4 displays a similar behaviour as the region 2; there is a good data distribution, but the iPG amplitude changed more than the DU. Nonetheless, there is a greater concentration of data points in the lower region of both axes. This performance would be expected as there is a reduction of arterial blood during this event. The higher data points towards the iPG axes are related to the blood flow rush at the beginning of the occlusion on participant 7, as shown in \ref{fig:blood_flow_plethysmography}.
-
-The region 5 shows a greater distribution of the data adjacent to the iPG axes. On the other hand, there are some data points on the lower part of the DU axes that affect the linear regression in this region. During total occlusion in region 6, there is a better response of the DU device. Here, a significant number of the Doppler's ultrasound data points are set to zero, whereas the data from iPG is mostly distributing among 0 and 0.2. Finally, the Region 7 shows a good distribution adjacent to the line of equity which agrees with some of the other baseline behaviour.
-
-The plot on the right of figure \ref{fig:corr FWUS} shows the precision between the estimated limits of agreement of the whole experiment.  On the y-axes is plotted the mean difference between both measurements and the points of its standard deviation. The differences have normally been distributed in a Gaussian space. Hence \SI{95}{\percent} confidence interval of the difference should lie between  $\pm$1.96SD. This graph shows that there is a high number of points out of $+$1.96SD. However, it can be noticed that values from regions 2 and 4 are outside the agreement region. Confirming, that when an occlusion occurs there is a different response between iPG and DU.
-
-
-%********************************** % Third Section  *************************************
-\section{Correlation between iPG and PPG}  %Section - 6.3 
-\label{section correlation 3}
-The correlation between iPG and PPG was also investigated looking for amplitude similarities between both signals during the occlusive events. Similarly, the method used in the previous chapter was used to analyse the change of magnitude between both AC waveforms. The two signals represent changes of volume within a part of the body, PPG in the finger and iPG in the forearm. While the PPG reflects blood movement in the blood vessels beneath the skin in a not well-defined volume~\cite{elgendi2012analysis}, iPG provides information about the change of volume by the blood vessels filling up with blood but limited by the sensing electrodes.
-
-However, it must be noted that the PPG method used in this study was very simple compared to more sophisticated methods that might detect changes in venous and arterial flow using other wavelengths, sensor placement or data interpretations. The correlational study of this section looks for understand the changes in amplitude among AC components of both signals. As it was detailed in previous chapters, both signals showed changes in their DC components for the time being occluded. However, the AC part of both signals changed oppositely. While there was a magnitude increment in the iPG waveform all along the occlusions (see \ref{fig:blood_flow_plethysmography}), the PPG waveform showed a decrease in amplitude during these events \ref{fig:RED PPG}.
-
-As it was shown in figure \ref{fig:blood_flow_plethysmography} the participant 2 displayed abnormal AC amplitudes in the time of the experiment. Also, as it was detailed in the previous section, participants 2, 5, 6 and 7 showed a better AC response. For this reason, participant's 2 data was not included in the correlation between these two waveforms. The data sets were smoothed by calculating the mean value of every 20 peaks in a non-moving average.
-
-\begin{figure}[!htpb]
-	\includegraphics[width=1\textwidth,keepaspectratio]{figure3}    
-	\caption[Bland and Altman plot of the relation between PPG and iPG]{Bland and Altman~\cite{bland1986statistical} plot of the relation between PPG and iPG. Data set corresponds to participants 5, 6 and 7. The data has been normalised comparing the amplitude of both measurements. The different regions has been plotted with various colours and symbols to differentiate every event. The dotted line represents the perfect agreement, the dark line is the linear regression.}
-	\label{fig:corr RED}
-\end{figure}
-
-The Bland et al.~\cite{bland1986statistical} statistical analysis was also implemented in this study. Figure \ref{fig:corr RED} shows the correlation between iPG and PPG magnitudes. From the chart on the left might be seen that there is not a perfect correlation during the whole study, which was expected because the signal's amplitude goes opposite ways all along venous and arterial occlusions. The graph shows a poor linear correlation between both signals with an $r^2 = 0.07$.
-
-Absolutely, most of the baseline data points (regions 1,3,5 and 7) lie closer to the line of equity. In fact, if the venous and arterial occlusive events were removed the correlation between both measurements would improve considerably ($r^2 = 0.40$) . Once more, by analysing the results of this graph is confirmed that the iPG magnitude changed significantly while PPG's amplitude reduced in the course of venous and arterial occlusions. Indeed, it is also verified that the PPG amplitude all along arterial blockage is lower than venous occlusion as portrayed by the data points in the figure. On the other hand, at the time of total occlusion, there was a similar response to both signals, the absence of blood flow translated into small amplitude values. The PPG data points were closer to zero than the iPG magnitudes which were nearer to \num{0.1}.
-
-The BA (Bland and Altman) plot on the left side of figure \ref{fig:corr RED} also illustrates that there was more precision at the time of the baseline readings. Most of the data points are within the \SI{95}{\percent} confidence interval ($\pm $1.96SD), while the measurements during occlusion were mostly outliers.
-
-%********************************** % Fourth Section  *************************************
-\section{Correlation between iPG and LDF}  %Section - 6.4 
-\label{section correlation 4}
-The signal from the LDF device supplies information about the flow movement of red blood cells in the microvascular network under the skin. However, it is expected a weak correlation between measurements because errors in the data from this instrument have been widely documented especially at low blood flow~\cite{perkash1988difficulties}. Another problem with this technique is that it is not clear if the measurements belong to a venous or arterial flow. 
-
-The position of the LDF sensor head helps to understand the blood flow under microvascular bed under the forearm. As described in section\ref{section procedure 1.1}, the sensor was placed on the forearm midpoint between the iPG's sensing electrodes. 
-
-The signal from the LDF device is similar to a plethysmography wave which is formed by an AC component on a DC signal. For the correlation analysis of this study, the DC component of the signal had to be removed, leaving only the comparison between of normalised AC magnitudes of the LDF and iPG signals. Likewise, as in the previous analysis, the data was smoothed by taking the average value of 20 data points. In the end, the data depicted belongs to participants 2,5,6 and 7.
-
-Figure \ref{fig:corr LDF} shows the linear regression and  BA analysis between both signals. As it might be appreciated, the data points show a poor correlation among both signals ($r^2 = 0.08$). Most of the data points are far from the line of equity and mostly spread across the plot x-axis. The data points from the LDF signal are not well scattered around the figure. This imbalance can be noticed mostly in the region 7.  An explanation of this effect is that the LDF peak extension is affected by the hyperaemic effect after the total occlusion has been released, as shown in figure \ref{fig:LDF flow}. Nonetheless, if this data were removed from the plot still would be a weak agreement between both signals ($r^2 = 0.08$).
-
-From the BA chart on the right side of the figure, it can be noted that there is poor accuracy when comparing the amplitude of both measurements. Therefore, it can be concluded that it is not possible to establish any relation within the magnitude waveform of these two instruments.
-
-\begin{figure}[!htpb]
-	\includegraphics[width=1\textwidth,keepaspectratio]{figure4}    
-	\caption[Bland and Altman plot of the relation between LDF and iPG]{Bland and Altman~\cite{bland1986statistical} plot of the relation between LDF and iPG. Data set corresponds to participants 2, 5, 6 and 7. The data has been normalised comparing the amplitude of both measurements. The different regions has been plotted with various colours and symbols to differentiate every event. The dotted line represents the perfect agreement, the dark line is the linear regression.}
-	\label{fig:corr LDF}
-\end{figure}
-
-%********************************** % Fifth Section  *************************************
-\section{Conclusion}  %Section - 6.5
-\label{section correlation 5}
-The iPG device provides an AC signal that is synchronous with the heart cycle. In general, the FFT analysis of all the participants showed similar harmonics as the ones noted by the ECG signal. This means that the effectively the iPG is changing accordingly to the heart cycles. Nonetheless, only 4 people showed a clear signal-to-noise ratio waveform; the other ones presented low-frequency noises which decreased the quality of their data. It is still unknown the nature of these low frequency components as the signal was filtered.
-
-A statistical analysis comparing the amplitude of the iPG device with the other instruments was performed.  It was found that there is a good correlation between the iPG device and the Doppler ultrasound ($r^2 = 035$). The latter showed a better zero sensitivity than the iPG but in general when the blood flow changed the impedance plethysmography device was able to detect variations during the three kinds of occlusion performed. However, the analysis showed a low precision during these occlusive events. 
-
-On the other hand, there was a low correlation with the other two devices PPG and LDF. With the PPG there was a poor correlation ($r^2 = 0.08$) because its amplitude waveform decreases while the iPG increased all along venous and arterial occlusions.  By removing this component, the correlation improves to ($r^2 = 0.40$), but both respond in a different way when an occlusion occurs.
-
-The worst correlation was between the iPG and the LDF ($r^2 = 0.07$). Including or not the data from the blockage events does not affect this relation. In fact, movement of RBC's detected by the LDF hardly can be related to the iPG waveforms. This lack of correlation could be related to the larger noise peaks detected on the LDF signal. This assumption can be confirmed when comparing both FFT signals. In most of the participants the amount of noise collected by this method clearly diminished the frequency of interest. 
-
-The data correlation between the iPG arterial pulses and the other instruments helps to understand which are kind of blood contributes significantly to the iPG signal. The data from the blood flow per volume of tissue quantified from the iPG data presented in chapter \ref{section apa flow arterial pulses} showed increments in their systolic peaks all along venous or partial arterial occurred. Indeed, the systolic pulses during partial arterial occlusion were slightly bigger than the ones during venous occlusion. This information contrasted with the data observed from the Doppler Ultrasound measurements. As described in chapter \ref{section comparison 2} the arterial flow was mostly affected when the blockage occurred above diastolic pressure. One could expect that the amplitude of the iPG's systolic pulses would also decrease during disturbances of the arterial flow as less blood enters into the limb, but it increased instead. One explanation for this could be that the body triggered a vasodilatory response when an occlusion occurred, where the cross-section area of the veins increments to accept more blood into the tissue. 
-
-The response seen from the iPG signal is unique as the other instruments exhibited a decrease in their systolic peaks in similar proportion. For instance, as shown in \ref{section comparison LDF} and \ref{section comparison PPG} both signals displayed a reduction in their amplitudes during venous and partial arterial occlusion. This same response can be a result of the measurement of changes in the venous blood but not in the arterial. In fact, the decrease in the LDF amplitude suggests a reduction in the velocity of the RBC coming into the microcirculation. Additionally, the decline of the PPG amplitude indicates a shift in blood volume activated by the venous occlusion. In fact, during the experiment, the magnitude of PPG reduce significantly during partial arterial occlusion.
-
-In general, it seems that the arterial blood is a significant contributor of the iPG's APA signal by not only detecting the arterial blood coming into the limb but is also giving an insight of how the tissue responded to a blood occlusion. The good correlation with the Ultrasound Doppler ($r^2 = 0.35$) showed in chapter \ref{section correlation 2}, illustrated that the iPG waveform amplitude changed with the arterial blood. Nevertheless, while reducing the arterial blood, the forearm's iPG waveform reacted differently causing an increment in the systolic magnitude which can be due to a venous response. On the other hand, when correlating the iPG data with PPG (see chapter \ref{section correlation 4}) and LDF (see chapter \ref{section correlation 3}) methods a low correlation was found ($r^2 < 0.08$) which apparently was caused by the different direction that the amplitudes took. While the iPG increased, the optical methods decreased. This reaction seems to indicate that the changes in venous blood presented as in increase in the iPG amplitude pulses, probably caused by an increase in diameter of the vessels during an occlusion. 
+It could be of high interest to analyse the waveform in the legs. Some illnesses like diabetic food require monitoring blood delivery towards the feet continuously. The instrument could be adjusted to take measurements within the impedance level needed to obtain a clear waveform signal. The changes in basal impedance and amplitude waveform may lead to an indication of poor perfusion in compromised limbs.
 
 
-%**** \mynote{Conclusion from the general conclusion. To be adapted for this section.}
-
-%The dynamic signal of the iPG waveform provided further beat by beat plethysmographic information. Correlating, the data from iPG with other instruments gave more details about contributors of the impedance signal. The two signals produced by bioelectrical impedance are related to a different physiological response like general tissue health and blood circulation given by the waveform of the arterial pulses. 
-
-%The instruments used in the experimental protocol looked into different physiological events occurring in the forearm. By locating the sensor head of the Ultrasound Doppler close to the radial artery provided information about the arterial circulation of the limb. The PPG sensor gave data of the changes in blood volume at the end of the extremity. Finally, the Laser Doppler flowmeter detected variations of blood flow at the micro-circulation level. 
-
-%This document presented the calculated blood flow from the iPG's arterial pulses using the method found in the literature \cite{corciova2011peripheral, porter1985measurement, brown1975impedance, marks1985computer}. According to Nyboer's equation \ref{eq:nyober dV} the small change of impedance showed by the iPG's waveform can be converted into the blood flow per volume of tissue. The chapter \ref{section apa flow arterial pulses} described the results of turning the impedimetric systolic peak $\Delta R$ into the blood flow. This method quantifies the total blood including arterial and venous which feeds an specific volume of tissue in the body. Thus, the data showed by the instrument presented the contribution of both types of blood to the signal. 
-
-
-
-%********************************** %Nomenclature found  *************************************
-\nomenclature[z-ecg]{FFT}{Fast Fourier Transform}
-\nomenclature[z-baa]{BA}{Bland and Altman}
