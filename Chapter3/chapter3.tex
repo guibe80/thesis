@@ -32,7 +32,7 @@ Injecting electric current into biological tissue requires some safety measureme
 The table \ref{table:current in body} illustrates the different levels of electric current tolerance of the human body. These effects are mostly predicated on current rather than frequency. When frequencies scale beyond \SI{100}{\kilo\hertz} especially on the radio-frequency (RF) range (\SIrange[scientific-notation = engineering]{400000}{3000000}{\hertz}) the heating effect of the tissue tends to be more common. As seen below, in order to avoid discomfort among patients, currents below \SI{5}{\milli\ampere} must be used in BIA device.
 
 \begin{table}[!htpb]
-	\caption{Effect of electric current in the human body}
+	\caption[Effect of electric current in the human body]{Effect of electric current in the human body at different levels}
 	\centering
 	\label{table:current in body}
 	\begin{tabular}{lp{0.525\textwidth}}
@@ -94,11 +94,11 @@ The table \ref{table:current in body} illustrates the different levels of electr
 	\end{tabular} 
 \end{table}
 
-Recommendations, guidelines and norms for patient safety are contained in international standards compiled by the International Electrotechnical Commission (IEC). The standard applicable to medical equipments or equipments to be used for humans is referenced as IEC 60601, or IEC 601. Some of these recommendations regarding safety are expressed as follows: first, the commission considers any frequency below \SI{0.1}{\hertz} as direct current in order to avoid ulcers created by electrode-skin interface; this type of current should be limited to \SI{10}{\uArms}. Moreover, for frequencies up to \SI{1}{\kilo\hertz}, it is recommended to limit the frequency of current at \SI{100}{\uArms}. Secondly, avoiding nerve stimulation is paramount for patient safety; at frequencies above \SI{1}{\kilo\hertz}, muscular stimulation becomes very difficult. Therefore, it is recommended to use frequencies higher than this value. Thirdly, one important recommendation of the standard is that the maximum amount of current flowing through skin contact must be limited to \SI{0.5}{\milli\ampere} with a single fault equipment \rvmynote{I have to check this, becuase it rises questions}. Lastly, as explained before, in the RF range tissue that could be heated, tissue burns can be avoided by limiting the density and duration of current; for instance, it is recommended to use densities of less than \SI{1}{\milli\ampere\per\milli\meter\squared}. In terms of practical applications of current vs. frequency, for frequencies above \SI{1}{\kilo\hertz}, the Commission has established the equation \ref{eq:current body} to calculate the maximum root-mean-square current when this is less than \SI{10}{\mArms}.
+Recommendations, guidelines and norms for patient safety are contained in international standards compiled by the International Electrotechnical Commission (IEC). The standard applicable to medical equipments or equipments to be used for humans is referenced as IEC 60601, or IEC 601. Some of these recommendations regarding safety are expressed as follows: first, the commission considers any frequency below \SI{0.1}{\hertz} as direct current in order to avoid ulcers created by electrode-skin interface; this type of current should be limited to \SI{10}{\uArms}. Moreover, for frequencies up to \SI{1}{\kilo\hertz}, it is recommended to limit the frequency of current at \SI{100}{\uArms}. Secondly, avoiding nerve stimulation is paramount for patient safety; at frequencies above \SI{1}{\kilo\hertz}, muscular stimulation becomes very difficult. Therefore, it is recommended to use frequencies higher than this value. Thirdly, one important recommendation of the standard is that the maximum amount of current flowing through skin contact must be limited to \SI{0.5}{\milli\ampere} with a single fault equipment. Lastly, as explained before, in the RF range tissue that could be heated, tissue burns can be avoided by limiting the density and duration of current; for instance, it is recommended to use densities of less than \SI{1}{\milli\ampere\per\milli\meter\squared}. In terms of practical applications of current vs. frequency, for frequencies above \SI{1}{\kilo\hertz}, the Commission has established the equation \ref{eq:current body} to calculate the maximum root-mean-square current when this is less than \SI{10}{\mArms}.
 
 \begin{align}
 	\label{eq:current body}
-	I_{MAX(RMS)} = 10^{-7}.f
+	I_{MAX(RMS)} = 10^{-7} \times f
 \end{align}
 
 where $f$ is the frequency of the measurement.
@@ -300,7 +300,7 @@ The value of $Z_{ZPA}$ can be calculated from the following empirical equation: 
 	Z_{CPA} = K(j\omega)^{-\beta}
 \end{align}
 
-where $K$ denots a measure of the magnitude of $Z_{CPA}$, $\beta$ represents a constant ($0 \leq \beta \leq 1$) signifying inhomogeneities in the surface (typically \num{0.8} for a number of biomedical electrode systems) and $\omega = 2\pi f$. When $\beta = 1$, $Z_{CPE}$ is equivalent to a purely capacitive impedance element \cite{franks2005impedance,mcadams2006characterization,mcadams1995linear}.
+where $K$ denotes a measure of the magnitude of $Z_{CPA}$, $\beta$ represents a constant ($0 \leq \beta \leq 1$) signifying inhomogeneities in the surface (typically \num{0.8} for a number of biomedical electrode systems) and $\omega = 2\pi f$. When $\beta = 1$, $Z_{CPE}$ is equivalent to a purely capacitive impedance element \cite{franks2005impedance,mcadams2006characterization,mcadams1995linear}.
 
 Electrodes are also a source of error when taking measurements. Some blunders can even distort the original signal; for instance, thermal noise is also known as Johnson-Nyquist noise. This type of noise is entirely inherent to the electrode and is predicated on external variables.  The equation \ref{eq:nyquist noise} represents the level of noise attributed to the electrode~\cite{mcadams1995linear}.
 
@@ -326,16 +326,16 @@ Before describing the manner in which impedance plethysmography operates, it wou
 
 The human body comprises of four basic tissues known as epithelium, muscle, connective tissue and nervous tissue. Epithelium covers the whole surface of the body. On the other hand, muscles are in charge of the movement, whereas connective tissues impart protection to organs. Nervous tissue provides the internal transmission line for the electrical impulses coming from the brain. Cells that create these tissues play a fundamental role with regard to current conduction when an analogue current (AC) is applied to the body~\cite{lvovich2012impedance}. Hence, impedance readings vary based on the parameters of these cells and their protein content. It is especially important to understand the geometry and characteristics of the blood cells, which transport $0_2$ around the body. The functionality of these cells and amount per \si{\micro\litre} of human blood have been described by Table \ref{table:cell} in section \ref{section literature circulatory system}.
 
-As shown in the table, there are RBCs than any other cells, and they entail particular resistive properties. Its disk shape can be ideally represented as a spherical particle with membranes around the surface, as represented by Figure \ref{fig:cell}. Live cells can be represented as multilayer cells where its internal cytoplasm has a specific permittivity ($\epsilon_{cp}$) and conductivity ($\rho_{cp}$). Likewise, these characteristics are similar to the one surrounding the cell known as extracellular fluid ($\epsilon_m$ and $\rho_m$). However, the membrane suffers from a very low permittivity ($\epsilon_{MBR}$) and conductivity ($\rho_{MBR}$) behaving as a dielectric. In contrast, the membrane becomes loose in the case of dead cells and does not provide resistance to electric current~\cite{lvovich2012impedance}.
+As shown in the table, there are RBCs than any other cells, and they entail particular resistive properties. Its disk shape can be ideally represented as a spherical particle with membranes around the surface, as represented by Figure \ref{fig:cell}. Live cells can be represented as multilayer cells where its internal cytoplasm has a specific permittivity ($\epsilon_{cp}$) and conductivity ($\sigma_{cp}$). Likewise, these characteristics are similar to the one surrounding the cell known as extracellular fluid ($\epsilon_m$ and $\sigma_m$). However, the membrane suffers from a very low permittivity ($\epsilon_{MBR}$) and conductivity ($\sigma_{MBR}$) behaving as a dielectric. In contrast, the membrane becomes loose in the case of dead cells and does not provide resistance to electric current~\cite{lvovich2012impedance}.
 
 \begin{figure}[!htpb]
 	\centering
 	\includegraphics[width=0.8\textwidth,keepaspectratio, trim={0cm 0cm 0cm 0cm},clip]{figure1}    
-	\caption[Cell permeability and conductivity distribution]{Representation of a cell with its electric characteristics. Internal cytoplasm characteristic permittivity $\epsilon_{cp}$ and conductivity $\rho_{cp}$. Extracellular fluid permittivity $\epsilon_m$ and conductivity $\rho_m$). Membrane permittivity described as ($\epsilon_{MBR}$) and conductivity ($\rho_{MBR}$).}
+	\caption[Cell permeability and conductivity distribution]{Representation of a cell with its electric characteristics. Internal cytoplasm characteristic permittivity $\epsilon_{cp}$ and conductivity $\sigma_{cp}$. Extracellular fluid permittivity $\epsilon_m$ and conductivity $\sigma_m$). Membrane permittivity described as ($\epsilon_{MBR}$) and conductivity ($\sigma_{MBR}$).}
 	\label{fig:cell}
 \end{figure}
 
-A cell can change its internal cytoplasm using two different means, either changing the permeability of their bilayer lipid membrane (BLM) or through the use of ionic channels or pumps. The BLM is about \SI{7}{\nano\meter} thick. Altering its permeability allows lipids and water molecules to pass through~\cite{ivorra2003bioimpedance}. The interface between the extracellular space, the cell membrane and intracellular space ($\rho_m \rightarrow \rho_{MBR} \leftarrow \rho_{cp}$) behave as a capacitor since membrane is a dielectric between two conductors, denoted as $C_m$ in figure \ref{fig:cell model}.
+A cell can change its internal cytoplasm using two different means, either changing the permeability of their bilayer lipid membrane (BLM) or through the use of ionic channels or pumps. The BLM is about \SI{7}{\nano\meter} thick. Altering its permeability allows lipids and water molecules to pass through~\cite{ivorra2003bioimpedance}. The interface between the extracellular space, the cell membrane and intracellular space ($\sigma_m \rightarrow \sigma_{MBR} \leftarrow \sigma_{cp}$) behave as a capacitor since membrane is a dielectric between two conductors, denoted as $C_m$ in figure \ref{fig:cell model}.
 
 In contrast, parallel to BLM, the ionic channels and pumps enhance the functionality of membranes. Ionic channels or "channel proteins" allow for the transport and exchange of certain types of ions such as $Na^{+}$, $K^{+}$, Chloride ($Cl^{-}$) and Calcium ($Ca^{2+}$) between the inside and outside part of the cell~\cite{lvovich2012impedance}. Ion pumps are caused by sensitivity of the membrane to a voltage and are responsible for the membrane's non-linear properties as a response to low voltage. This pump causes cell polarisation, enabling the flow of ion charges in the body. Electrically, these channels act as a resistor ($R_m$).
 
@@ -367,7 +367,7 @@ When an EM field is applied on the tissue, cells respond based on the frequency 
 \begin{figure}[!htpb]
 	\centering
 	\includegraphics[width=0.8\textwidth,keepaspectratio, trim={0cm 1cm 0cm 0cm},clip]{figure3}    
-	\caption[Alpha, Bet y Gama dispersion]{Representation of a cell with its electric characteristics. Internal cytoplasm characteristic permittivity $\epsilon_{cp}$ and conductivity $\rho_{cp}$. Extracellular fluid permittivity $\epsilon_m$ and conductivity $\rho_m$). Membrane permittivity described as ($\epsilon_{MBR}$) and conductivity ($\rho_{MBR}$).}
+	\caption[Alpha, Bet y Gama dispersion]{Representation of a cell with its electric characteristics. Internal cytoplasm characteristic permittivity $\epsilon_{cp}$ and conductivity $\sigma_{cp}$. Extracellular fluid permittivity $\epsilon_m$ and conductivity $\sigma_m$). Membrane permittivity described as ($\epsilon_{MBR}$) and conductivity ($\sigma_{MBR}$).}
 	\label{fig:ABG dispersion}
 \end{figure}
 
@@ -375,7 +375,7 @@ In addition, the $\beta$ dispersion region provides supplementary information ab
 
 This research document is centred on the $\beta$ dispersion region between \SIrange[scientific-notation = engineering]{100}{1000000}{\hertz}. The impedance plethysmography device designed described in chapter \ref{chapter design} can operate in a diverse range of programmable frequencies up to \SI{100}{\kHz}. 
 
-The ideal electrical model of the cell is shown in figure \ref{fig:cell models} is a very close approximation that facilitates the prediction of bioelectrical impedance behaviour for dilute cell suspension. However, the tissue is more complex than this particular simplified model because it is comprised of additional elements that must be added to the analysis. For instance, tissues like muscle exhibits extreme anisotropy (conductivity is not the same when measured in different directions) \cite{lvovich2012impedance,dean2008electrical,foster1995dielectric}. In addition, different resistivity values have been obtained when measuring bioelectrical impedance during the cardiac cycle longitudinally and transversely \cite{steendijk1993four}. Another instance of how impedance changes in the context of tissues properties can be seen in the performed by Casas et al. \cite{casas1999vivo}. This study showed the differences between normal and ischemic tissue of a pig's myocardium muscle. Impedance clearly presented a different impedimetric response when a frequency sweep was done between \SIrange[scientific-notation = engineering]{10}{1000000}{\hertz}. 
+The ideal electrical model of the cell is shown in figure \ref{fig:cell models} is a very close approximation that facilitates the prediction of bioelectrical impedance behaviour for dilute cell suspension. However, the tissue is more complex than this particular simplified model because it is comprised of additional elements that must be added to the analysis. For instance, tissues like muscle exhibits extreme anisotropy (conductivity is not the same when measured in different directions) \cite{lvovich2012impedance,dean2008electrical,foster1995dielectric}. In addition, different resistivity values have been obtained when measuring bioelectrical impedance during the cardiac cycle longitudinally and transversely \cite{steendijk1993four}. Another instance of how impedance changes in the context of tissues properties can be seen in the performed by Casas et al. \cite{casas1999vivo}. This study showed the differences between normal and ischaemic tissue of a pig's myocardium muscle. Impedance clearly presented a different impedimetric response when a frequency sweep was done between \SIrange[scientific-notation = engineering]{10}{1000000}{\hertz}. 
 
 \subsection{Mathematical representation of electrical impedance}
 Electrical impedance can yield a different response based on the frequency. In a bioelectrical impedance analysis (BIA), the impedimetric response needs to be represented as a function of the frequencies used along with the magnitude and phase obtained. Different mathematical models have been studied based on the basic and ideal framework, as shown in figure \ref{fig:cell simp model}. However, this model does not entirely encapsulate the effect of the membrane at high frequencies. Debye came up with the following equation that took the suspension of free poles into consideration \cite{bertemes2002tissue}.
@@ -409,7 +409,7 @@ Currently, no efforts are being made to implement impedance into wearable techno
 	\label{fig:simsense}
 \end{figure}
 
-However, a significant number of devices use bioimpedance for different medical applications, such as impedance cardiography (ICG) devices. They have been developed to measure different properties of the heart such as stroke volume (SV), cardiac output (CO) and systemic vascular resistance (SVR)~\cite{neath2005utility}.  Nevertheless, apart from its main application, this instrument has also been used to measure other medical parameters such as proximal vein thrombosis (PVT)~\cite{hull1978impedance} or the levels of ischemia during orthopaedic surgery~\cite{distefano1973bioelectrical}.
+However, a significant number of devices use bioimpedance for different medical applications, such as impedance cardiography (ICG) devices. They have been developed to measure different properties of the heart such as stroke volume (SV), cardiac output (CO) and systemic vascular resistance (SVR)~\cite{neath2005utility}.  Nevertheless, apart from its main application, this instrument has also been used to measure other medical parameters such as proximal vein thrombosis (PVT)~\cite{hull1978impedance} or the levels of ischaemia during orthopaedic surgery~\cite{distefano1973bioelectrical}.
 
 Some companies are also working towards creating alternative medical applications for bioelectrical impedance technology. One example of this is the Australian company ImpediMed~\cite{impedimed} which owns the patents for this technology and has manufactured FDA-approved commercial devices focused on detecting body fluid contents in three areas: Lymphedema product line designed to detect lymphatic obstruction conducting in the context of inflammation and liquid retention.  Fluid Status/Body Composition product line is intended to measure water and fat content in the human body. BMI research product is another of its product designed to calculate body mass index (BMI) using bioelectrical impedance analysis.
 
@@ -421,12 +421,12 @@ Finally, German company medis (Medizinische Messtechnik GmbH) \cite{medis} is a 
 
 \section{Basic components of a bioelectrical impedance device}
 \label{section impedance basic}
-Evidently, there are several medical that incorporate either biomedical or bioelectrical impedance technology. Nonetheless, regardless of the application, most of the instruments include in their design, the block diagram illustrated in figure \ref{fig:block diagram bioimpedance} within their designs. 
+Evidently, there are several medical instruments that incorporate either bioimpedance or bioelectrical impedance technology. Nonetheless, regardless of the application, most of the instruments include in their design, the block diagram illustrated in figure \ref{fig:block diagram bioimpedance} within their designs. 
 
 \begin{figure}[!htpb]
 	\centering
 	\includegraphics[width=9cm,keepaspectratio]{figure11}    
-	\caption[Block diagram of a common bioimpedance device]{An bioimpedance device requires front-end and back-end components in order to detect changes of impedance efficiently.}
+	\caption[Block diagram of a common bioimpedance device]{A bioelectrical impedance device requires front-end and back-end components in order to detect changes of impedance efficiently.}
 	\label{fig:block diagram bioimpedance}
 \end{figure}
 
@@ -472,7 +472,7 @@ However, this method has not been recommended in healthy young adults due to the
 \subsubsection{Localised bioelectrical impedance analysis}
 All the previous methods have focused on whole body measurements. On the other hand, localised BIA aims to avoid the incidence of the effects of different variables, such as hydration, fat fraction, geometry boundary conditions, etc. Focusing on well-defined segments of the body enables the minimisation of the effect of these variables. Moreover, when the segment is confined to a small volume, it becomes possible to calculate plethysmography or blood flow. The use of four electrodes assumes great significance for such applications because it creates the boundaries of such a system. 
 
-The calculation of BIA also simplifies because it facilities the application of empirical regression models as per their populaiton\cite{kyle2004bioelectrical}. Some cases involve the dimensions of the limb being studied in order to obtain its geometric volume for a more detailed calculation.  Some cases where this technique has been successfully applied include the analysis of limb ischemia \cite{songer2001tissue, kun1994tissue} breast cancer \cite{zou2003review}, detection and monitoring of Lymphedema \cite{vicini2012bioelectrical} and local abdominal fat mass \cite{scharfetter2001assessing}. 
+The calculation of BIA also simplifies because it facilities the application of empirical regression models as per their population \cite{kyle2004bioelectrical}. Some cases involve the dimensions of the limb being studied in order to obtain its geometric volume for a more detailed calculation.  Some cases where this technique has been successfully applied include the analysis of limb ischaemia \cite{songer2001tissue, kun1994tissue} breast cancer \cite{zou2003review}, detection and monitoring of Lymphedema \cite{vicini2012bioelectrical} and local abdominal fat mass \cite{scharfetter2001assessing}. 
 
 \subsubsection{Bioelectrical impedance vector analysis}
 This method was developed by Piccoli et al. \cite{piccoli2000relationship, piccoli2002impedance} at the beginning of 2000 to asses fluid body volume through uncovering patterns of vector distribution based on resistance ($R$) and admittance ($X_{c}$) values \cite{thomas2003comparison}. On top of those values, BIVA requires height and genre from the patient so as to establish a statistical ranking as compared to similar population (reference population). 
@@ -506,7 +506,7 @@ In principle, recurring to the anatomy that was described in the section \ref{se
 	Z_b = \rho_b \frac{L}{\Delta A}
 \end{align}
 
-where $\rho_b$ denotes the blood's conductivity and $\Delta A$ refers to the increase of in the cross-sectional area of the limb. However, for this formula to work, some assumptions need to be taken into consideration: the arterial expansion is uniform along the tissue, the blood resistivity ($\rho$) remains constant, and the flow of current is parallel to the artery \cite{bera2014bioelectrical}. Therefore, the artery volume change can be obtained by using the following formula \cite{swanson1976origin, webster2009medical}.
+where $\rho_b$ denotes the blood's resistivity and $\Delta A$ refers to the increase of in the cross-sectional area of the limb. However, for this formula to work, some assumptions need to be taken into consideration: the arterial expansion is uniform along the tissue, the blood resistivity ($\rho$) remains constant, and the flow of current is parallel to the artery \cite{bera2014bioelectrical}. Therefore, the artery volume change can be obtained by using the following formula \cite{swanson1976origin, webster2009medical}.
 
 \begin{align}
 	\label{eq:delta volume}
@@ -610,7 +610,7 @@ The bipolar electrodes method uses the same pair of electrodes for current injec
 		\caption[Simplified model of bipolar electrodes position]{Simplified circuit model of the bipolar electrodes position.}
 		\label{fig:bipolar circuit}
 	\end{subfigure}
-	\caption[Bipolar electrodes position and equivalent circuit]{Bipolar electrodes position in a measurement over the skin with the equivalent circuit. The current driving is not different from potential sensing. $Z_{c}$ denotes the impedance of electrodes and $Z_t$ is equivalent to the body impedance.}
+	\caption[Bipolar electrodes position and equivalent circuit]{Bipolar electrodes position in a measurement over the skin with its equivalent circuit. The current driving is not different from potential sensing. $Z_{c}$ denotes the impedance of electrodes and $Z_t$ is equivalent to the body impedance.}
 	\label{fig:bipolar}
 \end{figure}
 
@@ -792,7 +792,7 @@ The data presented by an impedance device can be exhibited as a real or imaginar
 \begin{figure}[!htpb]
 	\centering
 	\includegraphics[width=\textwidth,keepaspectratio]{figure15}    
-	\caption[How to get an impedance plethysmography waveform]{An impedance plethysmography waveform ban be obtained by applying a constant current and sensing the resultant voltage. The division between the potential and the current provides the impedance module - which is the basal impedance. The arterial pulse amplitude can be seen within the basal impedance.}
+	\caption[How to get an impedance plethysmography waveform]{An impedance plethysmography waveform can be obtained by applying a constant current and sensing the resultant voltage. The division between the potential and the current provides the impedance module - which is the basal impedance. The arterial pulse amplitude can be seen within the basal impedance.}
 	\label{fig:envelope iPG}
 \end{figure}
 
@@ -826,7 +826,7 @@ Figure \ref{fig:iPG signals} shows the three different components of an impedanc
 \subsubsection{Basal impedance}
 Also known as the resistive baseline impedance, this is the most significant data obtained from an impedance plethysmography device (see figure \ref{fig:iPG signals}). The main contributors to this impedance include muscles, blood and bones. The resistivity of muscles is about \SIrange{200}{300}{\ohm\cm}, whereas the resistivity of bone and fat is greater than \SI{2000}{\ohm\cm} and the blood resistivity is about \SI{150}{\ohm\cm} \cite{gabriel1996dielectric}. Therefore, this combination of impedances can be expressed as a parallel model of resistances wherein muscle and blood are the main contributors of the RBI. The range of this impedance value is from \SIrange{10}{100}{\ohm}. 
 
-It has been demonstrated that it is possible to gather information about the development of ischemic tissue by studying the changes of baseline during a time. Some studies have shown that the impedance value increases during ischemic events in the bandwidth of \SIrange{1}{100}{\kilo\hertz} within different kinds of tissue \cite{songer2001tissue,casas1999vivo,kun1994tissue,ristic1997muscle} which is within the frequency measurement of iPG. 
+It has been demonstrated that it is possible to gather information about the development of ischaemic tissue by studying the changes of baseline during a time. Some studies have shown that the impedance value increases during ischaemic events in the bandwidth of \SIrange{1}{100}{\kilo\hertz} within different kinds of tissue \cite{songer2001tissue,casas1999vivo,kun1994tissue,ristic1997muscle} which is within the frequency measurement of iPG. 
 
 \subsubsection{Venous occlusion plethysmography}
 The second signal obtained from the baseline signal provides information about the venous volume changes. Variations in venous volume tone occur naturally during respiration, which causes a modulation of the signal during the respiratory cycle between \SIrange{0.2}{0.3}{\hertz}. However, by occluding the venous return, it is possible to produce larger volume variations represented as a greater displacement of the basal impedance of nearly\SI{1}{\Omega} or \SI{5}{\percent} from the mean value. 
@@ -873,3 +873,12 @@ Bioelectrical impedance plethysmography measures blood-related changes in the hu
 \nomenclature[z-CVP]{CVP}{Central venous pressure}
 \nomenclature[z-GSR]{GSR}{Galvanic impedance response}
 \nomenclature[z-BIA]{BIA}{Bioelectrical impedance analysis}
+
+\nomenclature[g-w]{$\omega$}{Angular frequency in radians, equivalent to $2 \pi$} 
+\nomenclature[g-e]{$\epsilon$}{Permittivity of a material}
+\nomenclature[g-r]{$\rho$}{Resistivity of a material / Blood resistivity $\simeq$ \SI{150}{\ohm\per\centi\meter}}
+\nomenclature[g-s]{$\sigma$}{Conductivity of a material} 
+\nomenclature[g-f]{$\phi$}{Angular phase shift / Potential field} 
+\nomenclature[g-m]{$\mu$}{Viscosity of a medium} 
+\nomenclature[g-p]{$\pi$}{ $\simeq 3.14\ldots$}  
+\nomenclature[g-t]{$\theta$}{Angle of incidence}
